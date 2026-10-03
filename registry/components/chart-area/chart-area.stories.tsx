@@ -51,7 +51,7 @@ export const WithLegend = meta.story({
       <Chart.Tooltip format={USD} />
       <Chart.Legend />
       <Area dataKey="revenue" name="Revenue" />
-      <Area dataKey="refunds" name="Refunds" color={seriesColors[1]} />
+      <Area dataKey="refunds" name="Refunds" color={seriesColors[1]} pattern="dots" />
     </AreaChart>
   ),
   play: async ({ canvas, canvasElement }) => {
@@ -76,7 +76,7 @@ export const Stacked = meta.story({
       <Chart.YAxis format={{ notation: "compact" }} />
       <Chart.Tooltip format={USD} />
       <Area dataKey="revenue" name="Revenue" stacked />
-      <Area dataKey="refunds" name="Refunds" color={seriesColors[1]} stacked />
+      <Area dataKey="refunds" name="Refunds" color={seriesColors[1]} pattern="dots" stacked />
     </AreaChart>
   ),
 });

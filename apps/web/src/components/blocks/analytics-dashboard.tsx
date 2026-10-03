@@ -87,7 +87,7 @@ export function AnalyticsDashboard() {
               <Chart.Tooltip format={USD} />
               <Chart.Legend />
               <Area dataKey="revenue" name="Revenue" />
-              <Area dataKey="refunds" name="Refunds" color={seriesColors[1]} />
+              <Area dataKey="refunds" name="Refunds" color={seriesColors[1]} pattern="dots" />
             </AreaChart>
           </Card.Content>
         </Card.Root>

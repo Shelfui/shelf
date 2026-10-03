@@ -69,14 +69,14 @@
       },
       "files": {
         "src/components/blocks/analytics-dashboard.tsx": {
-          "baseHash": "100c7317ded4672225b57626b1ccc0acb7e56ad4a0bc472bbe18f28b9877fae8",
+          "baseHash": "b91deae794f28897ace490200e21e8f838989aed28d4dfdcbdf99fd0c0ff0c38",
           "source": "analytics-dashboard.tsx"
         }
       },
-      "installedAt": "2026-10-03T10:27:52.292Z",
+      "installedAt": "2026-10-03T11:02:41.399Z",
       "path": "blocks/analytics-dashboard",
       "registry": "../../registry",
-      "revision": "2bf59ecf1f86ffe36e3a3bcf34140e4786a4cc3eaefb44b97211c813cbabb083",
+      "revision": "ede869b2cd851b678c7b855aaad7e60b56050c059301a6487855b7d29f12b2c0",
       "shelfDependencies": [
         "badge",
         "card",
@@ -310,14 +310,14 @@
           "source": "chart-format.ts"
         },
         "src/components/ui/chart.tsx": {
-          "baseHash": "0af228c57902b5497d235e56200299f0b1be726aaaf1636ad5ec3dc239de9933",
+          "baseHash": "3d187340bba1c73f4bef138134d06304fea84a9d58939d18c3716e554ee8dad6",
           "source": "chart.tsx"
         }
       },
-      "installedAt": "2026-10-03T10:46:15.262Z",
+      "installedAt": "2026-10-03T11:02:41.107Z",
       "path": "components/chart",
       "registry": "../../registry",
-      "revision": "ecb9f7b0fdbefcc9247ccd6caca8523ab5ed332d7d6e6cb4fb4c4f6f26d8fe2f",
+      "revision": "ca24fdb4458d8b583251326951d27fe36d8960cdabd9d0d86bc75c06fa413b57",
       "shelfDependencies": [
         "foundations",
         "utils"
@@ -465,14 +465,14 @@
       },
       "files": {
         "src/components/ui/chart-pie.tsx": {
-          "baseHash": "7ad45efa1bfc4e6509cfa059e6498d834554f97cde1a8a43ce1744554b23efda",
+          "baseHash": "6604d33b3da5eba445604df17b22bd992684a81d7257724140d504aed2ee6829",
           "source": "chart-pie.tsx"
         }
       },
-      "installedAt": "2026-10-03T10:27:52.292Z",
+      "installedAt": "2026-10-03T11:02:41.107Z",
       "path": "components/chart-pie",
       "registry": "../../registry",
-      "revision": "902827c610811e4b2eb0802ff381c23bc56199e6e1e00eb78fcf9b0fb0ccad1e",
+      "revision": "4e139fd46173bc19223f97a90db88c61b9f51ccb155f3b15404f058c1da54d1d",
       "shelfDependencies": [
         "chart",
         "foundations"
@@ -507,14 +507,14 @@
       },
       "files": {
         "src/components/ui/chart-radial.tsx": {
-          "baseHash": "c196cb8301749c511528373c01d1caba4ccf13ede386b83e38ca6f79a00b4657",
+          "baseHash": "280e7d46a54d27416a865ef1fe4589d7a18c4afe16bad4beec9c1d8716da645c",
           "source": "chart-radial.tsx"
         }
       },
-      "installedAt": "2026-10-03T10:27:52.292Z",
+      "installedAt": "2026-10-03T11:02:41.107Z",
       "path": "components/chart-radial",
       "registry": "../../registry",
-      "revision": "642155436d3592478d94ac7b420149c3e18d7ae963f3544e100b47d9397593d3",
+      "revision": "5f8947b235731cd100a0b032db7ba07648b3480f2a516ef2569bfd8b167371ac",
       "shelfDependencies": [
         "chart",
         "foundations"

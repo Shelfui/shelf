@@ -284,6 +284,61 @@ function tooltipColor(item: { color?: string; payload?: { fill?: string } }): st
   return item.color ?? item.payload?.fill ?? colors.foreground;
 }
 
+/** The dash pattern of a dashed or dotted line series, so its swatch can match. */
+function dashOf(item: { strokeDasharray?: unknown; payload?: unknown }): string | undefined {
+  const own: unknown = item.strokeDasharray;
+  const inherited: unknown =
+    typeof item.payload === "object" && item.payload !== null && "strokeDasharray" in item.payload
+      ? item.payload.strokeDasharray
+      : undefined;
+  const dash = own ?? inherited;
+  return typeof dash === "string" ? dash : undefined;
+}
+
+/** The key beside a legend entry or tooltip value: a dot, a pattern tile, or a dashed stroke, matching the series. */
+function Swatch({ color, dash }: { color: string; dash?: string | undefined }) {
+  if (dash) {
+    return (
+      <svg aria-hidden width={16} height={8} {...stylex.props(styles.swatchSvg)}>
+        <line
+          x1={2}
+          y1={4}
+          x2={14}
+          y2={4}
+          stroke={color}
+          strokeWidth={2}
+          strokeDasharray={dash}
+          strokeLinecap="round"
+        />
+      </svg>
+    );
+  }
+  if (color.startsWith("url(")) {
+    return (
+      <svg aria-hidden width={12} height={12} {...stylex.props(styles.swatchSvg)}>
+        <rect
+          x={0.5}
+          y={0.5}
+          width={11}
+          height={11}
+          rx={2}
+          fill={color}
+          stroke={colors.mutedForeground}
+          strokeOpacity={0.7}
+        />
+      </svg>
+    );
+  }
+  return <span aria-hidden {...stylex.props(styles.swatch, swatchStyles.color(color))} />;
+}
+
+/** Patterns for categorical charts (pie, radial), so neighbouring slices differ by more than shade. */
+const slicePatterns: readonly ChartPattern[] = ["solid", "solid", "hatch", "dots", "hatch", "dots"];
+
+export function slicePattern(index: number): ChartPattern {
+  return slicePatterns[index % slicePatterns.length] ?? "solid";
+}
+
 function TooltipContent({
   active,
   payload,
@@ -302,10 +357,7 @@ function TooltipContent({
       <ul {...stylex.props(styles.tooltipList)}>
         {payload.map((item) => (
           <li key={String(item.dataKey ?? item.name)} {...stylex.props(styles.tooltipRow)}>
-            <span
-              aria-hidden
-              {...stylex.props(styles.swatch, swatchStyles.color(tooltipColor(item)))}
-            />
+            <Swatch color={tooltipColor(item)} dash={dashOf(item)} />
             <span {...stylex.props(styles.tooltipName)}>{item.name}</span>
             <span {...stylex.props(styles.tooltipValue)}>
               {formatValue(item.value, format, locale)}
@@ -355,10 +407,7 @@ function LegendContent({ payload = [] }: { payload?: readonly LegendPayload[] })
               onClick={() => toggleSeries(key)}
               {...stylex.props(styles.legendItem, hidden && styles.legendItemHidden)}
             >
-              <span
-                aria-hidden
-                {...stylex.props(styles.swatch, swatchStyles.color(String(item.color)))}
-              />
+              <Swatch color={String(item.color)} dash={dashOf(item)} />
               {item.value}
             </button>
           </li>
@@ -454,6 +503,11 @@ const styles = stylex.create({
     fontFamily: typography.fontFamilyMono,
     fontVariantNumeric: "tabular-nums",
     fontWeight: typography.fontWeightMedium,
+  },
+  swatchSvg: {
+    overflow: "visible",
+    display: "block",
+    flexShrink: 0,
   },
   swatch: {
     borderRadius: radius.full,

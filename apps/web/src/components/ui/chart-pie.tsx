@@ -1,12 +1,15 @@
 "use client";
 
 import * as stylex from "@stylexjs/stylex";
-import { type ComponentProps } from "react";
+import { type ComponentProps, useId } from "react";
 import { Cell, Pie as RechartsPie, PieChart as RechartsPieChart, usePlotArea } from "recharts";
 import { colors, typography } from "@/styles/shelf/tokens.stylex";
 import {
   type ChartProps,
   Root,
+  SeriesPattern,
+  patternFill,
+  slicePattern,
   frameProps,
   seriesColors,
   splitFrameProps,
@@ -72,8 +75,19 @@ export function Pie({
     hiddenSeries.includes(String(item[nameKey])) ? { ...item, [dataKey]: 0 } : item,
   );
 
+  const id = useId();
+  const sliceColor = (index: number) => sliceColors[index % sliceColors.length] ?? seriesColors[0];
+
   return (
     <>
+      {data.map((item, index) => (
+        <SeriesPattern
+          key={String(item[nameKey])}
+          id={`${id}-${index}`}
+          color={sliceColor(index)}
+          pattern={slicePattern(index)}
+        />
+      ))}
       <RechartsPie
         data={visible}
         dataKey={dataKey}
@@ -89,7 +103,7 @@ export function Pie({
         {data.map((item, index) => (
           <Cell
             key={String(item[nameKey])}
-            fill={sliceColors[index % sliceColors.length] ?? seriesColors[0]}
+            fill={patternFill(slicePattern(index), `${id}-${index}`, sliceColor(index))}
           />
         ))}
       </RechartsPie>

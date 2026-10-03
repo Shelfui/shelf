@@ -1,13 +1,22 @@
 "use client";
 
-import { type ComponentProps } from "react";
+import { type ComponentProps, useId } from "react";
 import {
   Cell,
   RadialBar as RechartsRadialBar,
   RadialBarChart as RechartsRadialBarChart,
 } from "recharts";
 import { colors } from "@/styles/shelf/tokens.stylex";
-import { type ChartProps, Root, frameProps, seriesColors, splitFrameProps } from "./chart";
+import {
+  type ChartProps,
+  Root,
+  SeriesPattern,
+  frameProps,
+  patternFill,
+  seriesColors,
+  slicePattern,
+  splitFrameProps,
+} from "./chart";
 
 export type RadialChartProps = ChartProps<ComponentProps<typeof RechartsRadialBarChart>>;
 
@@ -59,17 +68,33 @@ export function RadialBar({
   data = [],
   ...props
 }: RadialBarProps) {
+  const id = useId();
+  const ringColor = (index: number) => ringColors[index % ringColors.length] ?? seriesColors[0];
+
   return (
-    <RechartsRadialBar
-      dataKey={dataKey}
-      cornerRadius={8}
-      background={{ fill: colors.muted }}
-      {...(max === undefined ? {} : { max })}
-      {...props}
-    >
+    <>
       {data.map((_, index) => (
-        <Cell key={index} fill={ringColors[index % ringColors.length] ?? seriesColors[0]} />
+        <SeriesPattern
+          key={index}
+          id={`${id}-${index}`}
+          color={ringColor(index)}
+          pattern={slicePattern(index)}
+        />
       ))}
-    </RechartsRadialBar>
+      <RechartsRadialBar
+        dataKey={dataKey}
+        cornerRadius={8}
+        background={{ fill: colors.muted }}
+        {...(max === undefined ? {} : { max })}
+        {...props}
+      >
+        {data.map((_, index) => (
+          <Cell
+            key={index}
+            fill={patternFill(slicePattern(index), `${id}-${index}`, ringColor(index))}
+          />
+        ))}
+      </RechartsRadialBar>
+    </>
   );
 }

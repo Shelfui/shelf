@@ -22,7 +22,7 @@ export default function ChartDemo() {
         <Chart.Tooltip />
         <Chart.Legend />
         <Area dataKey="visitors" name="Visitors" />
-        <Area dataKey="signups" name="Signups" color={seriesColors[1]} />
+        <Area dataKey="signups" name="Signups" color={seriesColors[1]} pattern="dots" />
       </AreaChart>
     </div>
   );

@@ -25,7 +25,7 @@ import { Area, AreaChart } from "@/components/ui/chart-area";
   <Chart.Tooltip />
   <Chart.Legend />
   <Area dataKey="revenue" name="Revenue" />
-  <Area dataKey="refunds" name="Refunds" color={seriesColors[1]} />
+  <Area dataKey="refunds" name="Refunds" color={seriesColors[1]} pattern="dots" />
 </AreaChart>`;
 
 const THEMING = `import * as stylex from "@stylexjs/stylex";
@@ -158,8 +158,9 @@ export default function Charts() {
       <Section title="Accessibility">
         <Prose>
           Every chart is a named group, and its plot responds to the arrow keys. The legend is a row
-          of toggle buttons. Color is never the only signal: values are in the tooltip and legend.
-          For people who prefer numbers, offer a table beside the chart.
+          of toggle buttons. Color is never the only signal: series differ by pattern (solid, hatch,
+          dots, dashes) as well as shade, the legend and tooltip show the same pattern, and values
+          are in the tooltip. For people who prefer numbers, offer a table beside the chart.
         </Prose>
         <CodeBlock code={TABLE} />
       </Section>
