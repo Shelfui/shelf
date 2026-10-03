@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import { Command } from "@/components/site/command";
 import { Diagram } from "@/components/site/diagram";
-import { Code, PageHeader, Prose, Section, TextLink } from "@/components/site/docs-page";
+import {
+  Code,
+  Definitions,
+  PageHeader,
+  Prose,
+  Section,
+  TextLink,
+} from "@/components/site/docs-page";
 import { fileTree } from "@/docs/diagrams";
 
 export const metadata: Metadata = {
@@ -25,11 +32,33 @@ export default function Installation() {
         description="Install the CLI, point it at a registry, add what you need, and check it."
       />
       <Prose>
-        Shelf needs Node 20.12 or newer, React, and a Vite app compiled with{" "}
-        <Code>@stylexjs/unplugin</Code>. It works with npm, pnpm, yarn, and Bun, and uses the one
-        your project&apos;s lockfile names. Components depend on Base UI and StyleX, which{" "}
-        <Code>shelf add</Code> installs for you.
+        Shelf needs Node 20.12 or newer, React, and a build that compiles StyleX. It works with npm,
+        pnpm, yarn, and Bun, and uses the one your project&apos;s lockfile names. Components depend
+        on Base UI and StyleX, which <Code>shelf add</Code> installs for you.
       </Prose>
+
+      <Section title="Pick your framework">
+        <Definitions
+          items={[
+            {
+              term: <TextLink href="/docs/installation/vite">Vite</TextLink>,
+              text: "StyleX through @stylexjs/unplugin. The reference setup.",
+            },
+            {
+              term: <TextLink href="/docs/installation/nextjs">Next.js</TextLink>,
+              text: "StyleX through Babel and PostCSS. This site runs on it.",
+            },
+            {
+              term: <TextLink href="/docs/installation/tanstack-start">TanStack Start</TextLink>,
+              text: "StyleX through the same Vite plugin. Not yet tested end to end.",
+            },
+          ]}
+        />
+        <Prose>
+          The steps below are the same in every framework once StyleX compiles. Each guide covers
+          the StyleX setup for its framework.
+        </Prose>
+      </Section>
 
       <Section title="Install the CLI">
         <Command packages={["@shelfui/cli"]} dev />

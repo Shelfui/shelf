@@ -25,6 +25,7 @@ const storage = [
 const meta = preview.meta({
   title: "Charts/Treemap",
   component: Treemap,
+  parameters: { figma: {} },
   decorators: [(Story) => <div style={{ width: 560 }}>{Story()}</div>],
 });
 

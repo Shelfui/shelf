@@ -17,6 +17,7 @@ const traffic = [
 const meta = preview.meta({
   title: "Charts/Line Chart",
   component: LineChart,
+  parameters: { figma: {} },
   decorators: [(Story) => <div style={{ width: 560 }}>{Story()}</div>],
 });
 

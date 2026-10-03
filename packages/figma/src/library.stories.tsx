@@ -140,8 +140,25 @@ export const Library = meta.story({
       await expect(nested("Settings Section")).toContain("Switch");
       await expect(nested("Toolbar")).toEqual(new Set(["Toggle", "Button"]));
     });
+
+    await step("charts come through as vectors Figma can import: sRGB, no patterns", async () => {
+      const charts = library.components.filter((set) => set.name.endsWith("Chart"));
+      await expect(charts.length).toBeGreaterThanOrEqual(9);
+      const empty = charts.filter((chart) => vectors(chart.variants[0]!.node).length === 0);
+      await expect(empty.map((chart) => chart.name)).toEqual([]);
+      for (const chart of charts) {
+        for (const svg of vectors(chart.variants[0]!.node)) {
+          await expect(svg).not.toMatch(/oklch|<pattern|url\(#[^)]*\)"/);
+        }
+      }
+    });
   },
 });
+
+function vectors(node: Node): string[] {
+  if (node.type === "vector") return [node.svg];
+  return node.type === "frame" ? node.children.flatMap(vectors) : [];
+}
 
 function instances(node: Node): Array<Extract<Node, { type: "instance" }>> {
   if (node.type === "instance") return [node];

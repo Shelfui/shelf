@@ -22,6 +22,7 @@ const flow = {
 const meta = preview.meta({
   title: "Charts/Sankey Chart",
   component: SankeyChart,
+  parameters: { figma: {} },
   decorators: [(Story) => <div style={{ width: 600 }}>{Story()}</div>],
 });
 

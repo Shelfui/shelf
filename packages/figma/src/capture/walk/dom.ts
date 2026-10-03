@@ -93,7 +93,10 @@ export function hidden(element: Element): boolean {
   if (parseFloat(style.opacity) === 0) return true;
   if (style.clip === "rect(0px, 0px, 0px, 0px)" || style.clipPath === "inset(50%)") return true;
   const rect = element.getBoundingClientRect();
-  return rect.width <= 1 && rect.height <= 1;
+  if (rect.width > 1 || rect.height > 1) return false;
+  // A zero-size box can still be the parent of what is drawn, like Recharts' wrapper around a Sankey.
+  const overflows = style.overflowX === "visible" && style.overflowY === "visible";
+  return !(overflows && [...element.children].some((child) => !hidden(child)));
 }
 
 /** The text an input, textarea or select shows: its value, else its placeholder. */

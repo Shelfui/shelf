@@ -4,6 +4,9 @@ export const docGroups = [
     links: [
       { href: "/docs", title: "Introduction" },
       { href: "/docs/installation", title: "Installation" },
+      { href: "/docs/installation/vite", title: "Vite" },
+      { href: "/docs/installation/nextjs", title: "Next.js" },
+      { href: "/docs/installation/tanstack-start", title: "TanStack Start" },
       { href: "/docs/cli", title: "CLI" },
     ],
   },

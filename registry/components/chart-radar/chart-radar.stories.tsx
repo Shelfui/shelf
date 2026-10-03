@@ -16,6 +16,7 @@ const skills = [
 const meta = preview.meta({
   title: "Charts/Radar Chart",
   component: RadarChart,
+  parameters: { figma: {} },
   decorators: [(Story) => <div style={{ width: 460 }}>{Story()}</div>],
 });
 

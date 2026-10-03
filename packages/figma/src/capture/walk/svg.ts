@@ -1,5 +1,6 @@
 import type { FrameNode, InstanceNode, VectorNode } from "../../ir";
 import { CaptureError, type Walk } from "./context";
+import { toRgba } from "../color";
 import { rotation } from "./dom";
 import { color, track } from "./paint";
 import { round } from "./units";
@@ -66,12 +67,34 @@ export function vector(svg: SVGElement, rect: DOMRect): VectorNode {
   sources.forEach((source, i) => {
     const target = targets[i]!;
     const style = getComputedStyle(source);
-    for (const property of ["fill", "stroke", "stroke-width", "opacity", "fill-opacity"]) {
+    for (const property of [
+      "fill",
+      "stroke",
+      "stroke-width",
+      "opacity",
+      "fill-opacity",
+      "stroke-opacity",
+    ]) {
       target.setAttribute(property, style.getPropertyValue(property));
     }
-    target.removeAttribute("class");
-    target.removeAttribute("style");
+    if (source instanceof SVGTextContentElement) {
+      for (const property of ["font-family", "font-size", "font-weight", "text-anchor"]) {
+        target.setAttribute(property, style.getPropertyValue(property));
+      }
+    }
+    flattenPattern(svg, target, "fill");
+    flattenPattern(svg, target, "stroke");
+    srgb(target, "fill");
+    srgb(target, "stroke");
+    for (const name of target.getAttributeNames()) {
+      if (name === "class" || name === "style" || name === "role" || name === "tabindex") {
+        target.removeAttribute(name);
+      } else if (name.startsWith("data-") || name.startsWith("aria-")) {
+        target.removeAttribute(name);
+      }
+    }
   });
+  for (const pattern of clone.querySelectorAll("pattern")) pattern.remove();
   clone.setAttribute("xmlns", "http://www.w3.org/2000/svg");
   clone.setAttribute("width", String(round(rect.width)));
   clone.setAttribute("height", String(round(rect.height)));
@@ -82,4 +105,34 @@ export function vector(svg: SVGElement, rect: DOMRect): VectorNode {
     width: round(rect.width),
     height: round(rect.height),
   };
+}
+
+/** How opaque a pattern's color is once its hatch or dots are averaged into a flat fill. */
+const PATTERN_ALPHA = 0.3;
+
+/**
+ * Figma's SVG import drops `<pattern>` paints. A paint that references one becomes the pattern's
+ * own color at a flat, lighter opacity, so a patterned series still reads as its series.
+ */
+function flattenPattern(svg: SVGElement, target: Element, attribute: "fill" | "stroke"): void {
+  const match = /^url\(["']?#([^"')]+)["']?\)/.exec(target.getAttribute(attribute) ?? "");
+  const pattern = match && svg.querySelector(`[id="${CSS.escape(match[1]!)}"]`);
+  if (!pattern || pattern.tagName !== "pattern") return;
+  const shape = pattern.firstElementChild;
+  const flat = shape ? getComputedStyle(shape).fill : "none";
+  target.setAttribute(attribute, flat);
+  target.setAttribute(`${attribute}-opacity`, String(PATTERN_ALPHA));
+}
+
+/** Figma's SVG import reads sRGB only, so oklch and the like become rgb, with alpha in the paint's opacity. */
+function srgb(target: Element, attribute: "fill" | "stroke"): void {
+  const value = target.getAttribute(attribute) ?? "";
+  if (value === "none" || value.startsWith("url(")) return;
+  const rgba = toRgba(value);
+  if (!rgba) return;
+  const [r, g, b] = [rgba.r, rgba.g, rgba.b].map((channel) => Math.round(channel * 255));
+  target.setAttribute(attribute, `rgb(${r}, ${g}, ${b})`);
+  const opacity = `${attribute}-opacity`;
+  const current = Number(target.getAttribute(opacity) ?? 1);
+  target.setAttribute(opacity, String(Math.round(current * rgba.a * 1000) / 1000));
 }

@@ -14,6 +14,7 @@ const orders = [
 const meta = preview.meta({
   title: "Charts/Bar Chart",
   component: BarChart,
+  parameters: { figma: {} },
   decorators: [(Story) => <div style={{ width: 560 }}>{Story()}</div>],
 });
 

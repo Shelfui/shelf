@@ -16,6 +16,7 @@ const orders = [
 const meta = preview.meta({
   title: "Charts/Heatmap",
   component: Heatmap,
+  parameters: { figma: {} },
   decorators: [(Story) => <div style={{ width: 460 }}>{Story()}</div>],
 });
 

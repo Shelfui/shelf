@@ -26,7 +26,7 @@ const QUESTIONS = [
     id: "stack",
     question: "What does a project need to use it?",
     answer:
-      "React, with StyleX compiling in the build. The installation guide covers Vite, and this site runs on Next. Shelf works with npm, pnpm, yarn, and Bun, and uses whichever your lockfile names.",
+      "React, with StyleX compiling in the build. The installation guides cover Vite, Next.js, and TanStack Start. Shelf works with npm, pnpm, yarn, and Bun, and uses whichever your lockfile names.",
   },
   {
     id: "hosting",

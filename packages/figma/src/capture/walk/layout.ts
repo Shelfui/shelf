@@ -83,7 +83,8 @@ export function kindOf(
   const plain = inline.every((item) => item instanceof Text || plainInline(item));
   if (inline.length === 0) return "column";
   if (inline.length === items.length) return plain ? "text" : "row";
-  if (!plain) {
+  // An SVG with no text beside it is alone on its line, so it stacks like a block (a chart above its legend).
+  if (!plain && !inline.every((item) => item instanceof SVGElement)) {
     throw new CaptureError(
       `${path}: display: ${display} mixing block children with inline boxes isn't supported in Figma. Wrap the inline content.`,
     );

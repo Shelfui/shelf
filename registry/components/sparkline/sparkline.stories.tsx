@@ -11,6 +11,7 @@ const weeks = [12, 14, 13, 18, 17, 22, 21, 26, 24, 31, 29, 35].map((revenue, wee
 const meta = preview.meta({
   title: "Charts/Sparkline",
   component: Sparkline,
+  parameters: { figma: {} },
 });
 
 /** A shape with no axes. The number goes next to it. */

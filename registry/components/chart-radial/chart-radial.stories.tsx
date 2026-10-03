@@ -13,6 +13,7 @@ const goals = [
 const meta = preview.meta({
   title: "Charts/Radial Chart",
   component: RadialChart,
+  parameters: { figma: {} },
   decorators: [(Story) => <div style={{ width: 320 }}>{Story()}</div>],
 });
 

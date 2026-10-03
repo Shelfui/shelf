@@ -13,6 +13,7 @@ const steps = [
 const meta = preview.meta({
   title: "Charts/Funnel Chart",
   component: FunnelChart,
+  parameters: { figma: {} },
   decorators: [(Story) => <div style={{ width: 460 }}>{Story()}</div>],
 });
 

@@ -13,6 +13,7 @@ const channels = [
 const meta = preview.meta({
   title: "Charts/Pie Chart",
   component: PieChart,
+  parameters: { figma: {} },
   decorators: [(Story) => <div style={{ width: 420 }}>{Story()}</div>],
 });
 

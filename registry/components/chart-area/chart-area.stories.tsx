@@ -18,6 +18,7 @@ const USD = { style: "currency", currency: "USD", maximumFractionDigits: 0 } as 
 const meta = preview.meta({
   title: "Charts/Area Chart",
   component: AreaChart,
+  parameters: { figma: {} },
   decorators: [(Story) => <div style={{ width: 560 }}>{Story()}</div>],
 });
 
