@@ -14,10 +14,10 @@ import {
 
 /**
  * The stored selection includes resolved CSS variable values (font stacks, StyleX variable names),
- * and the script below applies them before hydration. Bump the suffix whenever those change, or
+ * and the script below applies them before hydration. Change this key (for example `shelf-theme-2`) whenever those change, or
  * returning visitors paint with stale values until the first hydration fixes them (a visible flash).
  */
-export const THEME_STORAGE_KEY = "shelf-theme-2";
+export const THEME_STORAGE_KEY = "shelf-theme";
 /** next-themes' key for "light", "dark", or "system". */
 export const MODE_STORAGE_KEY = "theme";
 
