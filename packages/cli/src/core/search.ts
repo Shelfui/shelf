@@ -7,10 +7,11 @@ export interface SearchOptions {
   cwd: string;
   query: string;
   registry: string | undefined;
+  json?: boolean;
   out: Output;
 }
 
-export async function search({ cwd, query, registry, out }: SearchOptions): Promise<void> {
+export async function search({ cwd, query, registry, json, out }: SearchOptions): Promise<void> {
   const source = registry
     ? openRegistry(resolveRegistryLocation(registry, cwd))
     : await projectRegistry(await readConfig(cwd), cwd);
@@ -23,6 +24,11 @@ export async function search({ cwd, query, registry, out }: SearchOptions): Prom
     })
     .toSorted((a, b) => compareText(a.name, b.name));
 
+  if (json) {
+    const items = matches.map(({ name, type, description }) => ({ name, type, description }));
+    out.log(JSON.stringify({ query, items }, null, 2));
+    return;
+  }
   if (matches.length === 0) {
     out.log(`No Shelf items match "${query}".`);
     return;

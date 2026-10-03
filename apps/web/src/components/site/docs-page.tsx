@@ -1,13 +1,26 @@
 import * as stylex from "@stylexjs/stylex";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { PageActions } from "./page-actions";
 import { colors, spacing, typography } from "@/styles/shelf/tokens.stylex";
 import { screens, site } from "@/styles/site.stylex";
 
-export function PageHeader({ title, description }: { title: string; description: string }) {
+export function PageHeader({
+  title,
+  description,
+  path,
+}: {
+  title: string;
+  description: string;
+  /** The page's route. Pages with a generated Markdown version pass it, to show the copy actions. */
+  path?: string;
+}) {
   return (
     <header {...stylex.props(styles.header)}>
-      <h1 {...stylex.props(styles.title)}>{title}</h1>
+      <div {...stylex.props(styles.titleRow)}>
+        <h1 {...stylex.props(styles.title)}>{title}</h1>
+        {path && <PageActions path={path} />}
+      </div>
       <p {...stylex.props(styles.lead)}>{description}</p>
     </header>
   );
@@ -79,6 +92,12 @@ const styles = stylex.create({
     gap: spacing["4"],
     display: "grid",
     marginBottom: { default: site.space10, [screens.md]: site.space16 },
+  },
+  titleRow: {
+    gap: spacing["4"],
+    alignItems: "center",
+    display: "flex",
+    justifyContent: "space-between",
   },
   title: {
     fontSize: { default: site.fontSize3xl, [screens.md]: site.fontSize5xl },

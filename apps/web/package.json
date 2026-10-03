@@ -2,10 +2,13 @@
   "name": "shelf-web",
   "private": true,
   "scripts": {
+    "agent-docs": "NODE_ENV=production bun scripts/agent-docs.ts",
+    "predev": "bun scripts/agent-docs.ts",
     "dev": "next dev",
+    "prebuild": "bun run agent-docs",
     "build": "next build",
     "start": "next start",
-    "check": "shelf check && tsc --noEmit && oxlint --type-aware --deny-warnings --disable-nested-config && oxfmt --check && next build"
+    "check": "shelf check && tsc --noEmit && oxlint --type-aware --deny-warnings --disable-nested-config && oxfmt --check && bun run agent-docs && next build"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

@@ -7,8 +7,15 @@ export function registerDiff(program: ShelfProgram, context: Context): void {
     .description("Show Shelf's changes to an item since you installed it")
     .argument("<item>", "an installed item name")
     .option("--local", "show your changes instead")
+    .option("--json", "print the diff as JSON")
     .action(async (name, _options, command) => {
-      const { cwd, local } = command.optsWithGlobals();
-      await diff({ cwd: resolveCwd(cwd), name, local: local === true, out: context.out });
+      const { cwd, local, json } = command.optsWithGlobals();
+      await diff({
+        cwd: resolveCwd(cwd),
+        name,
+        local: local === true,
+        json: json === true,
+        out: context.out,
+      });
     });
 }

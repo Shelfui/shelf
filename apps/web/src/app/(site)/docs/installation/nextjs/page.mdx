@@ -1,11 +1,16 @@
----
-title: Next.js
-description: Set up Shelf in a Next.js project.
----
+import ShelfSteps from "@/docs/partials/shelf-steps.mdx";
 
-# Next.js
+export const metadata = {
+  title: "Next.js",
+  description: "Set up Shelf in a Next.js project.",
+  alternates: { canonical: "/docs/installation/nextjs" },
+};
 
-Set up Shelf in a Next.js project.
+<PageHeader
+  title={metadata.title}
+  description={metadata.description}
+  path={metadata.alternates.canonical}
+/>
 
 ## Create a project
 
@@ -17,12 +22,13 @@ Skip this if you already have a Next.js project. This site runs on Next with She
 
 ## Set up StyleX
 
-```bash
-npm install @stylexjs/stylex
-npm install -D @stylexjs/babel-plugin @stylexjs/postcss-plugin
-```
+<Command packages={["@stylexjs/stylex"]} />
+
+<Command packages={["@stylexjs/babel-plugin", "@stylexjs/postcss-plugin"]} dev />
 
 Next compiles StyleX with Babel and writes the CSS with PostCSS. Add `babel.config.js`:
+
+<File name="babel.config.js">
 
 ```js
 const path = require("node:path");
@@ -45,7 +51,11 @@ module.exports = {
 };
 ```
 
+</File>
+
 Add `postcss.config.js`, reusing the same Babel plugins:
+
+<File name="postcss.config.js">
 
 ```js
 const babelConfig = require("./babel.config");
@@ -65,45 +75,25 @@ module.exports = {
 };
 ```
 
-Add the `@stylex` directive where the generated CSS should go, once, in the stylesheet your root layout imports (`src/app/globals.css`).
+</File>
+
+Add the `@stylex` directive where the generated CSS should go, once, in the stylesheet your root layout imports.
+
+<File name="src/app/globals.css">
 
 ```css
 @stylex;
 ```
 
+</File>
+
 A `babel.config.js` makes Next use Babel instead of SWC for your source, so builds are somewhat slower.
 
-## Install the CLI
-
-```bash
-npm install -D @shelfui/cli
-```
-
-## Initialize Shelf
-
-```bash
-npx shelf init --registry {{registry}}
-```
-
-Writes `shelf.config.json` and `.shelf/lock.json`, and copies the path aliases from your `tsconfig.json`. It warns about anything missing from the StyleX setup above.
-
-## Add components
-
-```bash
-npx shelf add button
-```
-
-Copies Button, the foundations it uses, and the packages it needs into your project, then records what it installed. The files are yours to edit.
-
-## Check the result
-
-```bash
-npx shelf check
-```
-
-Verifies config, provenance, and imports. Your own build still covers the rest.
+<ShelfSteps />
 
 ## Use a component
+
+<File name="src/app/page.tsx">
 
 ```tsx
 import { Button } from "@/components/ui/button";
@@ -113,4 +103,6 @@ export default function Page() {
 }
 ```
 
-Interactive components ship with `"use client"` where they need it, so you can import them from server components. For fonts, Shelf reads `--font-sans` and `--font-mono`, which works with `next/font`.
+</File>
+
+Interactive components ship with `"use client"` where they need it, so you can import them from server components. For fonts, Shelf reads `--font-sans` and `--font-mono`, which works with `next/font`. See [installation](/docs/installation).

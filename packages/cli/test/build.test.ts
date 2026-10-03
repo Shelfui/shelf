@@ -79,9 +79,10 @@ describe("shelf build", () => {
         shelfDependencies: byName.get(entry.name)!.shelfDependencies,
       })),
     });
-    // index.json, llms.txt, and history.json, then each item's registry.json and files.
+    // index.json, llms.txt, and history.json, the docs topics, then each item's registry.json and files.
+    const docsFiles = built.filter((file) => file.startsWith("docs/")).length;
     expect(built.filter((file) => !file.startsWith("revisions/"))).toHaveLength(
-      3 + source.reduce((count, item) => count + 1 + item.files.length, 0),
+      3 + docsFiles + source.reduce((count, item) => count + 1 + item.files.length, 0),
     );
     const llms = await readFile(path.join(outDir, "llms.txt"), "utf8");
     expect(llms).toStartWith("# Shelf Registry\n");

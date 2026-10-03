@@ -6,7 +6,11 @@ export const metadata = {
   alternates: { canonical: "/docs/installation/vite" },
 };
 
-<PageHeader title={metadata.title} description={metadata.description} />
+<PageHeader
+  title={metadata.title}
+  description={metadata.description}
+  path={metadata.alternates.canonical}
+/>
 
 ## Create a project
 

@@ -254,6 +254,7 @@ shelf status
 shelf diff
 shelf update
 shelf check
+shelf docs
 ```
 
 Do not implement roadmap commands unless explicitly requested.

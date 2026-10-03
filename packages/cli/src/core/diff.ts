@@ -18,10 +18,11 @@ export interface DiffOptions {
   name: string;
   /** Your changes (BASE to your files) instead of Shelf's (BASE to Shelf's version). */
   local: boolean;
+  json?: boolean;
   out: Output;
 }
 
-export async function diff({ cwd, name, local, out }: DiffOptions): Promise<void> {
+export async function diff({ cwd, name, local, json, out }: DiffOptions): Promise<void> {
   const project = await openProject(cwd);
   const locked = project.lock.items[name];
   if (!locked) {
@@ -49,6 +50,11 @@ export async function diff({ cwd, name, local, out }: DiffOptions): Promise<void
 
   const label = local ? "yours" : "shelf";
   const text = await diffTrees(base, other, label);
+  if (json) {
+    const mode = local ? "local" : "upstream";
+    out.log(JSON.stringify({ item: name, mode, changed: text !== "", diff: text }, null, 2));
+    return;
+  }
   if (text === "") {
     out.log(
       local

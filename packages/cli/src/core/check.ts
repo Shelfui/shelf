@@ -19,17 +19,28 @@ import { resolveInside } from "./paths";
 export const STEPS = ["config", "provenance", "dependencies", "imports"] as const;
 export type StepName = (typeof STEPS)[number];
 
+/** A problem a step found, in a form a script or an agent can act on. */
+export interface Issue {
+  file?: string;
+  line?: number;
+  problem: string;
+  /** What to run or do about it, when Shelf knows. */
+  fix?: string;
+}
+
 export interface StepResult {
   name: StepName;
   status: "pass" | "fail" | "skip";
   summary: string;
   details: string[];
+  issues?: Issue[];
 }
 
 export interface CheckOptions {
   cwd: string;
   only: StepName[] | undefined;
   verbose: boolean;
+  json?: boolean;
   out: Output;
 }
 
@@ -42,7 +53,7 @@ interface Project {
 
 const MAX_DETAILS = 30;
 
-export async function check({ cwd, only, verbose, out }: CheckOptions): Promise<boolean> {
+export async function check({ cwd, only, verbose, json, out }: CheckOptions): Promise<boolean> {
   const steps: Record<StepName, (project: Project) => Promise<StepResult>> = {
     config: checkConfig,
     provenance: checkProvenance,
@@ -56,32 +67,44 @@ export async function check({ cwd, only, verbose, out }: CheckOptions): Promise<
     config: await readConfig(cwd).catch(asError),
     lock: existsSync(path.join(cwd, LOCK_FILE)) ? await readLock(cwd).catch(asError) : undefined,
   };
-  out.log("Shelf check");
-  out.log();
+  const human: Output = json ? { log: () => {} } : out;
+  human.log("Shelf check");
+  human.log();
   const results: StepResult[] = [];
   for (const name of STEPS) {
     if (only && !only.includes(name)) continue;
     const result = await steps[name](project);
     results.push(result);
     const icon = { pass: "✓", fail: "✗", skip: "-" }[result.status];
-    out.log(`${icon} ${name.padEnd(12)} ${result.summary}`.trimEnd());
+    human.log(`${icon} ${name.padEnd(12)} ${result.summary}`.trimEnd());
     const details = verbose ? result.details : result.details.slice(0, MAX_DETAILS);
-    for (const line of details) out.log(`    ${line}`);
+    for (const line of details) human.log(`    ${line}`);
     if (details.length < result.details.length) {
-      out.log(`    … ${result.details.length - MAX_DETAILS} more (run with --verbose)`);
+      human.log(`    … ${result.details.length - MAX_DETAILS} more (run with --verbose)`);
     }
   }
 
   const failed = results.filter((result) => result.status === "fail");
-  out.log();
+  if (json) {
+    const report = results.map(({ name, status, summary, details, issues }) => ({
+      name,
+      status,
+      summary,
+      issues: issues ?? [],
+      details,
+    }));
+    out.log(JSON.stringify({ ok: failed.length === 0, steps: report }, null, 2));
+    return failed.length === 0;
+  }
+  human.log();
   if (failed.length > 0) {
-    out.log(
+    human.log(
       `✗ ${failed.length} of ${plural(results.length, "step")} failed: ${failed.map((r) => r.name).join(", ")}`,
     );
     return false;
   }
   const skipped = results.filter((result) => result.status === "skip").length;
-  out.log(`✓ All checks passed (${results.length - skipped} passed, ${skipped} skipped)`);
+  human.log(`✓ All checks passed (${results.length - skipped} passed, ${skipped} skipped)`);
   return true;
 }
 
@@ -94,6 +117,13 @@ async function checkConfig({ cwd, config }: Project): Promise<StepResult> {
       status: "fail",
       summary: `${CONFIG_FILE} ${problem}`,
       details: [config.message],
+      issues: [
+        {
+          file: CONFIG_FILE,
+          problem: config.message,
+          ...(problem === "missing" && { fix: "shelf init --registry <path-or-url>" }),
+        },
+      ],
     };
   }
   return { name, status: "pass", summary: `registry ${config.registry}`, details: [] };
@@ -103,10 +133,17 @@ async function checkProvenance({ cwd, lock }: Project): Promise<StepResult> {
   const name = "provenance";
   if (!lock) return skip(name, lock);
   if (lock instanceof Error) {
-    return { name, status: "fail", summary: "lock unreadable", details: [lock.message] };
+    return {
+      name,
+      status: "fail",
+      summary: "lock unreadable",
+      details: [lock.message],
+      issues: [{ file: LOCK_FILE, problem: lock.message }],
+    };
   }
 
   const problems: string[] = [];
+  const issues: Issue[] = [];
   const modified: string[] = [];
   let fileCount = 0;
   for (const [itemName, item] of sorted(lock.items)) {
@@ -118,6 +155,11 @@ async function checkProvenance({ cwd, lock }: Project): Promise<StepResult> {
           problems.push(
             `${target} is recorded in ${LOCK_FILE} (${itemName}) but missing. Restore it, or run: shelf add ${itemName} --overwrite`,
           );
+          issues.push({
+            file: target,
+            problem: `recorded in ${LOCK_FILE} (${itemName}) but missing`,
+            fix: `shelf add ${itemName} --overwrite`,
+          });
         } else {
           const content = await readFile(targetPath);
           if (hashContent(content) === file.baseHash) continue;
@@ -130,10 +172,17 @@ async function checkProvenance({ cwd, lock }: Project): Promise<StepResult> {
             problems.push(
               `${target}:${line + 1} has an unresolved conflict from shelf update. Resolve it, then run: shelf check`,
             );
+            issues.push({
+              file: target,
+              line: line + 1,
+              problem: "unresolved conflict from shelf update",
+              fix: "Resolve the conflict markers, then run: shelf check",
+            });
           }
         }
       } catch (error) {
         problems.push(errorMessage(error));
+        issues.push({ file: target, problem: errorMessage(error) });
       }
     }
   }
@@ -144,7 +193,13 @@ async function checkProvenance({ cwd, lock }: Project): Promise<StepResult> {
     ...(modified.length > 0 ? [`${modified.length} modified locally`] : []),
   ].join(", ");
   if (problems.length > 0) {
-    return { name, status: "fail", summary: plural(problems.length, "problem"), details: problems };
+    return {
+      name,
+      status: "fail",
+      summary: plural(problems.length, "problem"),
+      details: problems,
+      issues,
+    };
   }
   return { name, status: "pass", summary, details: modified };
 }
@@ -162,10 +217,12 @@ async function checkDependencies({ cwd, pm, lock }: Project): Promise<StepResult
       status: "fail",
       summary: "package.json unreadable",
       details: [errorMessage(error)],
+      issues: [{ file: "package.json", problem: errorMessage(error) }],
     };
   }
 
   const problems: string[] = [];
+  const issues: Issue[] = [];
   const missingItems = new Set<string>();
   const missingPackages = new Map<string, string>();
   const packages = new Set<string>();
@@ -174,12 +231,21 @@ async function checkDependencies({ cwd, pm, lock }: Project): Promise<StepResult
       if (lock.items[dependency]) continue;
       missingItems.add(dependency);
       problems.push(`${itemName} needs ${dependency}, which is not installed.`);
+      issues.push({
+        problem: `${itemName} needs ${dependency}, which is not installed`,
+        fix: `shelf add ${dependency}`,
+      });
     }
     for (const [pkg, range] of sorted(item.dependencies)) {
       packages.add(pkg);
       if (declared.has(pkg)) continue;
       missingPackages.set(pkg, range);
       problems.push(`${itemName} needs ${pkg}@${range}, which is not in package.json.`);
+      issues.push({
+        file: "package.json",
+        problem: `${itemName} needs ${pkg}@${range}, which is not declared`,
+        fix: addHint(pm, [`${pkg}@${range}`]),
+      });
     }
   }
 
@@ -202,6 +268,7 @@ async function checkDependencies({ cwd, pm, lock }: Project): Promise<StepResult
       status: "fail",
       summary: plural(problems.length, "problem"),
       details: [...problems, ...fixes],
+      issues,
     };
   }
   return {
@@ -218,6 +285,7 @@ async function checkImports({ cwd, config, lock }: Project): Promise<StepResult>
   const aliases = config instanceof Error ? {} : config.aliases;
 
   const problems: string[] = [];
+  const issues: Issue[] = [];
   let importCount = 0;
   for (const [, item] of sorted(lock.items)) {
     for (const target of Object.keys(item.files).toSorted()) {
@@ -229,6 +297,7 @@ async function checkImports({ cwd, config, lock }: Project): Promise<StepResult>
         content = await readFile(file, "utf8");
       } catch (error) {
         problems.push(`${target} could not be read: ${errorMessage(error)}`);
+        issues.push({ file: target, problem: `could not be read: ${errorMessage(error)}` });
         continue;
       }
       for (const spec of specifiers(content)) {
@@ -237,6 +306,10 @@ async function checkImports({ cwd, config, lock }: Project): Promise<StepResult>
         importCount++;
         if (!resolvesToFile(cwd, resolved)) {
           problems.push(`${target} imports "${spec}", which does not resolve to a file.`);
+          issues.push({
+            file: target,
+            problem: `imports "${spec}", which does not resolve to a file`,
+          });
         }
       }
     }
@@ -248,6 +321,7 @@ async function checkImports({ cwd, config, lock }: Project): Promise<StepResult>
       status: "fail",
       summary: plural(problems.length, "broken import"),
       details: problems,
+      issues,
     };
   }
   return {

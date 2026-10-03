@@ -171,6 +171,7 @@ describe("private registries", () => {
       cwd,
       registry: `${origin}/registry/`,
       header: [`X-API-Key: \${${VARIABLE}}`],
+      agents: false,
       out,
     });
     expect(out.text()).toContain("3 items");

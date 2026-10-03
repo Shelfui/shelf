@@ -6,6 +6,7 @@ import { registerAdd } from "./commands/add";
 import { registerBuild } from "./commands/build";
 import { registerCheck } from "./commands/check";
 import { registerDiff } from "./commands/diff";
+import { registerDocs } from "./commands/docs";
 import { registerInit } from "./commands/init";
 import { registerSearch } from "./commands/search";
 import { registerServe } from "./commands/serve";
@@ -65,6 +66,7 @@ function createProgram(io: Io, context: Context): ShelfProgram {
   registerDiff(program, context);
   registerUpdate(program, context);
   registerCheck(program, context);
+  registerDocs(program, context);
   registerUsage(program, context, io);
   registerBuild(program, context);
   registerServe(program, context);
@@ -75,6 +77,7 @@ Examples:
   shelf init --registry ./registry
   shelf add button
   shelf status
+  shelf docs button
   shelf update
   shelf check --only provenance,imports
   shelf usage apps --registry ./registry

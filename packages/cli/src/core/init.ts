@@ -1,6 +1,7 @@
 import { existsSync } from "node:fs";
 import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { writeAgentFiles } from "./agents";
 import { CONFIG_FILE, CONFIG_SCHEMA, DEFAULT_PATHS, isHttpRegistry, readConfig } from "./config";
 import { ShelfError } from "./errors";
 import { isObject, parseJson } from "./json";
@@ -15,6 +16,8 @@ export interface InitOptions {
   registry: string | undefined;
   /** `Name: value` request headers for an http(s) registry. */
   header: string[];
+  /** Write the AGENTS.md block and the Shelf skill. */
+  agents: boolean;
   out: Output;
 }
 
@@ -34,7 +37,7 @@ function parseHeaders(values: string[]): Record<string, string> {
   return headers;
 }
 
-export async function init({ cwd, registry, header, out }: InitOptions): Promise<void> {
+export async function init({ cwd, registry, header, agents, out }: InitOptions): Promise<void> {
   if (!existsSync(path.join(cwd, "package.json"))) {
     throw new ShelfError(`No package.json in ${cwd}. Run shelf init from your project root.`);
   }
@@ -42,16 +45,19 @@ export async function init({ cwd, registry, header, out }: InitOptions): Promise
   out.log();
 
   const configPath = path.join(cwd, CONFIG_FILE);
+  let location: string;
   if (existsSync(configPath)) {
     const config = await readConfig(cwd);
+    location = config.registry;
     out.log(`✓ ${CONFIG_FILE} already exists (registry: ${config.registry})`);
   } else {
-    const location = registry ?? process.env["SHELF_REGISTRY"];
-    if (!location) {
+    const given = registry ?? process.env["SHELF_REGISTRY"];
+    if (!given) {
       throw new ShelfError(
         "No registry given. Run: shelf init --registry <path-or-url> (or set SHELF_REGISTRY).",
       );
     }
+    location = given;
     const headers = parseHeaders(header);
     if (Object.keys(headers).length > 0 && !isHttpRegistry(location)) {
       throw new ShelfError(
@@ -84,6 +90,10 @@ export async function init({ cwd, registry, header, out }: InitOptions): Promise
   } else {
     await writeLock(cwd, emptyLock());
     out.log(`✓ created ${LOCK_FILE}`);
+  }
+
+  if (agents) {
+    await writeAgentFiles({ cwd, pm: await detectPackageManager(cwd), registry: location, out });
   }
 
   for (const warning of await styleXWarnings(cwd)) out.log(`! ${warning}`);

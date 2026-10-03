@@ -29,10 +29,11 @@ Commands:
   init [options]               Create shelf.config.json and .shelf/
   search [options] [query...]  List registry items matching every term
   add [options] <items...>     Copy items into your project and record provenance
-  status [items...]            Show which installed items you changed and which Shelf has updated
+  status [options] [items...]  Show which installed items you changed and which Shelf has updated
   diff [options] <item>        Show Shelf's changes to an item since you installed it
   update [options] [items...]  Update installed items, merging Shelf's changes into yours
   check [options]              Validate installed Shelf items (exit 1 on failure)
+  docs [options] [topic]       Print documentation for a topic or an item, as Markdown
   usage [options] [dirs...]    Show where installed Shelf items are used, across projects and repos
   build [options] [dir]        Validate a registry and write the files that install, for static
                                hosting
@@ -42,6 +43,7 @@ Examples:
   shelf init --registry ./registry
   shelf add button
   shelf status
+  shelf docs button
   shelf update
   shelf check --only provenance,imports
   shelf usage apps --registry ./registry

@@ -27,6 +27,11 @@ jobs:
       - run: bun install --frozen-lockfile --cwd apps/registry
       - run: bun run storybook:build
       - run: bun run site:build
+      - name: Docs topics for `shelf docs`
+        run: bun scripts/agent-docs.ts
+        working-directory: apps/web
+        env:
+          NODE_ENV: production
       - name: Usage
         run: bun packages/cli/src/index.ts usage apps examples/acme --registry registry --json > usage.json
       - name: Build the registry

@@ -3,6 +3,7 @@ import { cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { DEFAULT_PATHS } from "./config";
+import { docsFiles, readTopics, type DocsTopic } from "./docs";
 import { ShelfError } from "./errors";
 import { findFiles } from "./files";
 import { plural } from "./format";
@@ -121,11 +122,13 @@ export async function build({
       return { ...entry, revision, dependencies, shelfDependencies, ...(figma && { figma }) };
     }),
   };
+  const topics = await readTopics(registry);
   const files: Array<[string, string]> = [
     ["index.json", `${JSON.stringify(publishedIndex, null, 2)}\n`],
-    ["llms.txt", llmsTxt(index)],
+    ["llms.txt", llmsTxt(index, topics)],
   ];
   if (usageJson !== undefined) files.push(["usage.json", usageJson]);
+  files.push(...(await docsFiles(registry)));
   for (const item of items) {
     files.push([`${item.path}/registry.json`, await registry.read(`${item.path}/registry.json`)]);
     for (const file of item.files) files.push([`${item.path}/${file.path}`, file.content]);
@@ -205,7 +208,7 @@ function historyJson(history: HistoryItem[]): string {
 }
 
 /** An index for agents: https://llmstxt.org */
-function llmsTxt(index: IndexEntry[]): string {
+function llmsTxt(index: IndexEntry[], topics: DocsTopic[]): string {
   const types = [...new Set(index.map((entry) => entry.type))].toSorted();
   const lines = [
     "# Shelf Registry",
@@ -217,9 +220,14 @@ function llmsTxt(index: IndexEntry[]): string {
     "- `bunx @shelfui/cli init --registry <url>` once per project",
     "- `bunx @shelfui/cli add <name>` for each item; Shelf dependencies and packages come along",
     "- `bunx @shelfui/cli check` to validate installed items",
+    "- `bunx @shelfui/cli docs <topic or item>` prints documentation as Markdown",
     "",
     "Links are relative to this file. Each item's `registry.json` lists its files, packages, and Shelf dependencies. `index.json` lists every item.",
   ];
+  if (topics.length > 0) {
+    lines.push("", "## docs", "");
+    for (const t of topics) lines.push(`- [${t.title}](docs/${t.path}): ${t.description}`);
+  }
   for (const type of types) {
     lines.push("", `## ${type}`, "");
     for (const entry of index.filter((item) => item.type === type)) {

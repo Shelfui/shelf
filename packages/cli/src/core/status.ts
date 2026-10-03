@@ -76,11 +76,16 @@ export async function modifiedFiles(cwd: string, item: LockedItem): Promise<stri
 export interface StatusOptions {
   cwd: string;
   names: string[];
+  json?: boolean;
   out: Output;
 }
 
-export async function status({ cwd, names, out }: StatusOptions): Promise<void> {
+export async function status({ cwd, names, json, out }: StatusOptions): Promise<void> {
   const project = await openProject(cwd);
+  if (json) {
+    await statusJson(cwd, project, names, out);
+    return;
+  }
   out.log("Shelf status");
   out.log();
   const all = await itemStatuses(cwd, project);
@@ -164,4 +169,49 @@ export function rangeChanges(
     }
   }
   return lines;
+}
+
+/**
+ * Status as one JSON object, with the project context an agent needs before it adds anything.
+ * Request headers are left out: they can hold a token.
+ */
+async function statusJson(
+  cwd: string,
+  project: Project,
+  names: string[],
+  out: Output,
+): Promise<void> {
+  const all = await itemStatuses(cwd, project);
+  const statuses = names.length > 0 ? all.filter((s) => names.includes(s.name)) : all;
+  const items = statuses.map((s) => ({
+    name: s.name,
+    revision: project.lock.items[s.name]?.revision ?? null,
+    upstream: s.upstream ?? null,
+    modified: s.modified,
+    modifiedFiles: s.modifiedFiles,
+    updateAvailable: s.updateAvailable,
+    removedFromRegistry: s.upstream === undefined,
+  }));
+  const { config } = project;
+  out.log(
+    JSON.stringify(
+      {
+        project: {
+          packageManager: await detectPackageManager(cwd),
+          registry: config.registry,
+          paths: config.paths,
+          aliases: config.aliases,
+        },
+        items,
+        notInstalled: names.filter((name) => !project.lock.items[name]),
+        summary: {
+          installed: items.length,
+          modified: items.filter((s) => s.modified).length,
+          updates: items.filter((s) => s.updateAvailable).length,
+        },
+      },
+      null,
+      2,
+    ),
+  );
 }

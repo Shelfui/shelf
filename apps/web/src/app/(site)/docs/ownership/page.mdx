@@ -1,9 +1,17 @@
----
-title: Ownership and provenance
-description: What Shelf records when it installs a component, and how that lets you change anything without losing track.
----
+import { recovery, threeWay } from "@/docs/diagrams";
 
-# Ownership and provenance
+export const metadata = {
+  title: "Ownership and provenance",
+  description:
+    "What Shelf records when it installs a component, and how that lets you change anything without losing track.",
+  alternates: { canonical: "/docs/ownership" },
+};
+
+<PageHeader
+  title={metadata.title}
+  description={metadata.description}
+  path={metadata.alternates.canonical}
+/>
 
 The source is yours. Shelf keeps a record of what it gave you, so you can change anything and lose nothing.
 
@@ -12,6 +20,8 @@ Copy and paste loses the thread: after a few edits, nobody knows what the origin
 ## What Shelf records
 
 `.shelf/lock.json` has an entry for every installed item: the registry revision, when it was installed, its dependencies, and a hash of each file exactly as installed. Commit it. Nothing else is copied: the hashes identify what you installed, and Shelf can always get the files back.
+
+<File name=".shelf/lock.json">
 
 ```json
 {
@@ -33,13 +43,23 @@ Copy and paste loses the thread: after a few edits, nobody knows what the origin
 }
 ```
 
+</File>
+
 ## Three versions of every file
+
+<Diagram title={threeWay.title} label={threeWay.label}>
+  {threeWay.art}
+</Diagram>
 
 BASE is what you installed. LOCAL is the file in your app today. UPSTREAM is what the registry has now. Comparing all three is how a change of yours and a change of Shelf's can be told apart, instead of looking like one big difference.
 
 ## Where BASE comes from
 
 The lock names BASE by its hash, so Shelf doesn't keep a copy. When it needs the bytes, it tries three places in order and only accepts bytes that match the hash.
+
+<Diagram title={recovery.title} label={recovery.label}>
+  {recovery.art}
+</Diagram>
 
 - The file itself: if you haven't changed it, it is BASE.
 - Your git history: commit after `shelf add` and that commit holds BASE exactly. No network, any git host.
@@ -69,6 +89,8 @@ Shelf items that a component builds on, such as foundations, stay as you have th
 
 `shelf status` lists every installed item and whether you changed it, Shelf changed it, or both. It reads only the registry index, so it is quick enough to run often.
 
+<File name="terminal">
+
 ```text
 $ shelf status
 Shelf status
@@ -80,11 +102,26 @@ Shelf status
 2 updates available, 1 with local changes to merge. See: shelf diff <item>. Run: shelf update
 ```
 
+</File>
+
 `shelf diff button` shows what an update would bring: BASE against Shelf's current version. `shelf diff button --local` shows your changes: BASE against your file.
 
 `shelf update` updates every item with a newer version, or only the items you name. Files you haven't changed are replaced. Files you changed are merged with `git merge-file`, using BASE as the common ancestor, so your edits and Shelf's both survive when they touch different lines.
 
+<File name="terminal">
+
+```text
+$ shelf update
+✓ updated 1 file
+✓ merged Shelf's changes into your modified src/components/ui/button.tsx
+✓ recorded provenance in .shelf/lock.json
+```
+
+</File>
+
 When both sides changed the same lines, the file gets standard conflict markers and `shelf update` says how many. Resolve them in your editor, or ask an agent to; `shelf check` fails, with the file and line, until no marker is left.
+
+<File name="src/components/ui/button.tsx">
 
 ```text
 <<<<<<< yours
@@ -93,6 +130,8 @@ When both sides changed the same lines, the file gets standard conflict markers 
     borderRadius: radius.lg,
 >>>>>>> shelf
 ```
+
+</File>
 
 - Nothing is half done: every merge is computed before any file is written. If one file can't be merged, nothing changes.
 - No BASE, no merge: if BASE can't be recovered, Shelf refuses and says why. `--overwrite` replaces your file with Shelf's instead.

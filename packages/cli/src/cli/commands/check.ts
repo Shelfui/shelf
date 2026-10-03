@@ -17,13 +17,15 @@ export function registerCheck(program: ShelfProgram, context: Context): void {
     .description("Validate installed Shelf items (exit 1 on failure)")
     .option("--only <steps>", "run only these comma-separated steps", stepsArgument)
     .option("--verbose", "list every detail instead of the first 30")
+    .option("--json", "print the result as JSON")
     .addHelpText("after", `\nSteps: ${STEPS.join(", ")}`)
     .action(async (_options, command) => {
-      const { cwd, only, verbose } = command.optsWithGlobals();
+      const { cwd, only, verbose, json } = command.optsWithGlobals();
       const ok = await check({
         cwd: resolveCwd(cwd),
         only,
         verbose: verbose === true,
+        json: json === true,
         out: context.out,
       });
       if (!ok) context.exitCode = 1;

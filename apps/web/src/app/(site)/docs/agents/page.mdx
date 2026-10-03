@@ -1,0 +1,73 @@
+import { agentLoop, agentSession } from "@/docs/diagrams";
+
+export const metadata = {
+  title: "Agents",
+  description:
+    "Set up Shelf for a coding agent, and the loop it follows: search, add, read the source, change it, check.",
+  alternates: { canonical: "/docs/agents" },
+};
+
+<PageHeader
+  title={metadata.title}
+  description={metadata.description}
+  path={metadata.alternates.canonical}
+/>
+
+Against a package, an agent sees types and docs. When the API doesn't fit, it adds a wrapper or an override. With Shelf, it reads the file that renders and changes that.
+
+## Set up a project
+
+Paste this into your agent. It works in any React project.
+
+```text
+Set up Shelf in this project. Read https://shelfui.dev/llms.txt, then follow the installation guide for this project's framework. Run `shelf check` when done and fix anything it reports.
+```
+
+`shelf init` also prepares the project for every later session. It adds a short Shelf block to `AGENTS.md` (between `<!-- shelf:start -->` and `<!-- shelf:end -->`, so it can be refreshed without touching your own text) and a skill at `.agents/skills/shelf/SKILL.md`. Pass `--no-agents` to skip both.
+
+## The loop
+
+<Diagram title={agentLoop.title} label={agentLoop.label}>
+  {agentLoop.art}
+</Diagram>
+
+Every step is a command with short, stable output and no prompts. A failing check names the file and what to run, so the agent can fix it and check again.
+
+## Commands an agent can parse
+
+Add `--json` to read output without scraping text.
+
+<Command args="search card --json" />
+
+- `search`: `{ query, items: [{ name, type, description }] }`.
+- `status`: `{ project, items: [{ name, revision, modified, modifiedFiles, updateAvailable }], notInstalled, summary }`.
+- `check`: `{ ok, steps: [{ name, status, summary, issues }] }`. Each issue has `file`, `line`, `problem`, and `fix` when there is one.
+- `diff`: `{ item, mode, changed, diff }`.
+
+To read how a component works, run `shelf docs button`. It prints the description, dependencies, and source. `shelf docs` lists the topics, which are these pages as Markdown.
+
+## An example
+
+<Diagram title={agentSession.title} label={agentSession.label}>
+  {agentSession.art}
+</Diagram>
+
+The output above is real. The agent found Alert Dialog instead of building a modal, added it, changed it, and got a passing check that lists the change.
+
+## Read these docs as Markdown
+
+- `/llms.txt` is the index, and `/llms-full.txt` is everything in one file.
+- Append `.md` to any docs URL, for example `/docs/installation.md`.
+- The copy icon beside each page title copies the page for an agent.
+
+## Install the skill on its own
+
+To share the skill across repositories, or add it to a project that ran `shelf init` before the skill existed:
+
+```bash
+npx skills add Shelfui/shelf --skill shelf
+```
+
+## What comes next
+
+Today, when `shelf update` leaves conflict markers, an agent resolves them with `shelf diff --local` for context, and `shelf check` fails until none are left. Planned, not available yet: stories and tests alongside each version, and visual feedback that says what changed.
