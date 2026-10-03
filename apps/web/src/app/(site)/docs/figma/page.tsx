@@ -18,6 +18,11 @@ export default function Figma() {
         description="Design with what actually ships. This is in progress: nothing on this page is available yet."
       />
       <Prose>
+        Designers don&apos;t need Figma to work with Shelf. The components are real and live, so a
+        designer can change them in the browser, in Storybook, or in code with an agent. Figma is
+        for the designers and the exploration that want it.
+      </Prose>
+      <Prose>
         Code-first shouldn&apos;t make designers second-class. The goal is a Figma library that
         matches production because it is compiled from production, not redrawn by hand next to it.
       </Prose>

@@ -100,9 +100,9 @@ const AUDIENCES: { title: string; headline: string; text: string; href: string; 
     {
       title: "Designers",
       headline: "Design with what ships.",
-      text: "Native Figma components compiled from the same React source.",
+      text: "Work in the real components, in the browser or in code. Figma is optional, and native Figma components compiled from the same source are in progress.",
       href: "/docs/figma",
-      note: "In progress",
+      note: "Figma in progress",
     },
   ];
 

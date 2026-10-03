@@ -73,6 +73,10 @@ export default function Future() {
           <Code>shelf update</Code> still merges upstream fixes into it. Delete Shelf and your code
           stays.
         </Prose>
+        <Prose>
+          Designers work from the same source: in the browser, in code with an agent, or in Figma if
+          they prefer. Nobody redraws the system.
+        </Prose>
       </Section>
 
       <Section title="Open by design">

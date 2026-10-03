@@ -54,7 +54,8 @@ export default function DocsIntroduction() {
           and styles compile with StyleX. What you own is the product-facing layer on top.
         </Prose>
         <Prose>
-          Designers are meant to work from the same components in Figma. That is{" "}
+          Designers work from the same components too: in the browser, in Storybook, or in code with
+          an agent. Figma is optional, and native Figma components are{" "}
           <TextLink href="/docs/figma">in progress</TextLink>.
         </Prose>
       </Section>
