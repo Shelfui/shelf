@@ -116,14 +116,6 @@ export default function Designers() {
           source, a new interaction doesn&apos;t have to wait for the shared system.
         </Prose>
       </Section>
-
-      <Section title="Status">
-        <Prose>
-          Early. The plugin, the capture, and the sync run today and are tested, and most components
-          opt in to the library. It has not been through a long run of real design work yet, and the
-          plugin is installed privately rather than from the Figma Community.
-        </Prose>
-      </Section>
     </>
   );
 }

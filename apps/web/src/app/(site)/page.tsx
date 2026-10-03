@@ -87,7 +87,7 @@ const AUDIENCES: { title: string; headline: string; text: string; href: string; 
       headline: "Design with what ships.",
       text: "Work in the real components, in the browser or in code. Want Figma? A plugin builds a native library from the same source.",
       href: "/docs/figma",
-      note: "Figma: early",
+      note: "Figma plugin",
     },
   ];
 

@@ -70,7 +70,7 @@ export default function Roadmap() {
               text: "The built registry is also a site: every item with its source, revisions, Storybook previews, and usage.",
             },
             {
-              term: "Figma library (early)",
+              term: "Figma library",
               text: "A plugin that builds native Figma variables, styles, and components from your registry and syncs changes. Optional, and installed privately for now.",
             },
             {
