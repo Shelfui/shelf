@@ -18,6 +18,13 @@ import AlertDialogDemo from "./alert-dialog";
 import AspectRatioDemo from "./aspect-ratio";
 import AutocompleteDemo from "./autocomplete";
 import AvatarDemo from "./avatar";
+import CodeBlockDemo from "./code-block";
+import ComposerDemo from "./composer";
+import DropzoneDemo from "./dropzone";
+import MarkdownDemo from "./markdown";
+import MessageDemo from "./message";
+import ShimmerDemo from "./shimmer";
+import ThreadDemo from "./thread";
 import BadgeDemo from "./badge";
 import BreadcrumbDemo from "./breadcrumb";
 import ButtonDemo from "./button";
@@ -97,6 +104,13 @@ export const demos: Record<string, ComponentType> = {
   "aspect-ratio": AspectRatioDemo,
   autocomplete: AutocompleteDemo,
   avatar: AvatarDemo,
+  "code-block": CodeBlockDemo,
+  composer: ComposerDemo,
+  dropzone: DropzoneDemo,
+  markdown: MarkdownDemo,
+  message: MessageDemo,
+  shimmer: ShimmerDemo,
+  thread: ThreadDemo,
   badge: BadgeDemo,
   breadcrumb: BreadcrumbDemo,
   button: ButtonDemo,
