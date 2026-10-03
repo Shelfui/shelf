@@ -52,6 +52,30 @@ const QUESTIONS = [
     answer:
       "Delete shelf.config.json, the .shelf folder, and the @shelfui/cli package. The components keep working, because they are your code.",
   },
+  {
+    id: "cost",
+    question: "What does it cost?",
+    answer:
+      "Nothing. Shelf is open source under the MIT license. Read every line you install and every line of the tooling, and host your own registry.",
+  },
+  {
+    id: "adopt",
+    question: "Do we have to rewrite our existing UI?",
+    answer:
+      "No. shelf add copies one item into your project at a time, so you can add it next to the package you use today and move over item by item.",
+  },
+  {
+    id: "governance",
+    question: "Who controls what?",
+    answer:
+      "The system team publishes foundations, accessibility, and defaults to the registry. Each product owns what it ships. shelf status shows what a product changed and what it has not updated, and shelf usage shows it across products.",
+  },
+  {
+    id: "data",
+    question: "Does Shelf collect data?",
+    answer:
+      "The CLI has no telemetry. It only contacts the registries and GitHub sources you configure.",
+  },
 ];
 
 export function Faq() {

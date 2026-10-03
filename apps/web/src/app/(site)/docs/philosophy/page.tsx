@@ -92,7 +92,8 @@ export default function Philosophy() {
         <Prose>
           The system team stops owning every product&apos;s implementation and owns what should be
           shared: foundations, accessibility, defaults, and guidance for agents. In return it gets a
-          record it doesn&apos;t have today.
+          record it doesn&apos;t have today. See where this is going in{" "}
+          <TextLink href="/docs/future">the future</TextLink>.
         </Prose>
         <Definitions
           items={[
@@ -107,6 +108,14 @@ export default function Philosophy() {
             {
               term: "How far behind it is",
               text: "shelf status in a product lists every item with a newer revision. shelf update merges it in.",
+            },
+            {
+              term: "How to adopt it",
+              text: "One item at a time. shelf add copies a single item into a product, next to the package it uses today, so nothing needs a rewrite.",
+            },
+            {
+              term: "Who governs it",
+              text: "The system team publishes the registry. Products own their copies. Every difference is recorded, so a change is a decision you can see.",
             },
           ]}
         />

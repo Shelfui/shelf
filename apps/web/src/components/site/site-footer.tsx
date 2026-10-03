@@ -1,6 +1,7 @@
 import * as stylex from "@stylexjs/stylex";
 import { ArrowUpRightIcon } from "lucide-react";
 import Link from "next/link";
+import { siteConfig } from "@/site";
 import { media } from "@/styles/shelf/conditions.stylex";
 import { colors, spacing, typography } from "@/styles/shelf/tokens.stylex";
 import { screens, site } from "@/styles/site.stylex";
@@ -64,7 +65,12 @@ export function SiteFooter() {
               Get started
               <ArrowUpRightIcon />
             </Link>
-            <p {...stylex.props(styles.legal)}>© {new Date().getFullYear()} Shelf</p>
+            <p {...stylex.props(styles.legal)}>
+              © {new Date().getFullYear()} Shelf. Open source, MIT licensed.{" "}
+              <a href={siteConfig.repoUrl} {...stylex.props(styles.legalLink)}>
+                GitHub
+              </a>
+            </p>
           </div>
         </div>
         <div {...stylex.props(styles.columns)}>
@@ -141,6 +147,9 @@ const styles = stylex.create({
     margin: 0,
     color: colors.mutedForeground,
     fontSize: typography.fontSizeSm,
+  },
+  legalLink: {
+    color: colors.foreground,
   },
   columns: {
     columnGap: site.space10,

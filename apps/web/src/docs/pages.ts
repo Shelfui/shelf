@@ -17,6 +17,7 @@ export const docGroups = [
       { href: "/docs/ownership", title: "Ownership and provenance" },
       { href: "/docs/validation", title: "Validation" },
       { href: "/docs/philosophy", title: "Philosophy" },
+      { href: "/docs/future", title: "The future" },
     ],
   },
   {

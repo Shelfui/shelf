@@ -16,6 +16,21 @@ import { media } from "@/styles/shelf/conditions.stylex";
 import { colors, spacing, typography } from "@/styles/shelf/tokens.stylex";
 import { screens, site } from "@/styles/site.stylex";
 
+const STRIP = [
+  {
+    label: "The problem",
+    text: "Every product ends up on its own version of your system.",
+  },
+  {
+    label: "Shelf",
+    text: "One registry. Many owned copies. Every change tracked.",
+  },
+  {
+    label: "You get",
+    text: "Speed without drift. Edit a file and still take updates.",
+  },
+];
+
 const PILLARS = [
   {
     title: "Consistent by default",
@@ -109,38 +124,23 @@ export default function Home() {
         <Stack />
       </section>
 
+      <section aria-labelledby="why" {...stylex.props(styles.split, styles.strip)}>
+        <h2 id="why" {...stylex.props(styles.srOnly)}>
+          Why Shelf
+        </h2>
+        <ul {...stylex.props(styles.grid, styles.stripGrid)}>
+          {STRIP.map((item) => (
+            <li key={item.label} {...stylex.props(styles.item)}>
+              <div {...stylex.props(styles.tile)}>
+                <span {...stylex.props(styles.eyebrow)}>{item.label}</span>
+                <p {...stylex.props(styles.stripText)}>{item.text}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       <FeatureTiles items={PILLARS} />
-
-      <Split
-        id="why"
-        label="Why Shelf"
-        strong="Consistent products"
-        muted="without a bottleneck"
-        lead="A shared package keeps products consistent, but even a spacing or color change becomes an override that breaks on upgrade, or a request that waits on the system team. Copied files make changes easy, but nobody knows what changed, and fixes stop reaching anyone. Shelf keeps every product on one registry and makes each difference deliberate, visible, and still updatable."
-      />
-
-      <Split
-        id="registry"
-        label="Registry"
-        strong="One registry"
-        muted="for every product"
-        lead="The system team publishes components, blocks, and foundations as plain files on any static host, public or behind sign-in. Products add from it."
-        action={
-          <div {...stylex.props(styles.moreRow)}>
-            <More href="/registry">See the registry</More>
-            <More href="/docs/registry">How registries work</More>
-          </div>
-        }
-      >
-        <div {...stylex.props(styles.pair)}>
-          <Diagram title={registry.title} label={registry.label}>
-            {registry.art}
-          </Diagram>
-          <Statement>
-            Browse every item with its source, revisions, previews, and the products that use it.
-          </Statement>
-        </div>
-      </Split>
 
       <Split
         id="workflow"
@@ -163,12 +163,36 @@ export default function Home() {
       </Split>
 
       <Split
+        id="provenance"
+        label="Provenance"
+        strong="Diverge"
+        muted="without drifting"
+        lead="A package can't be edited. A copy can't be updated. Shelf does both. It knows the version every copy started from, so an update is a three-way merge, not a rewrite."
+        action={<More href="/docs/ownership">Ownership and provenance</More>}
+      >
+        <div {...stylex.props(styles.pair)}>
+          <Diagram title={threeWay.title} label={threeWay.label}>
+            {threeWay.art}
+          </Diagram>
+          <Statement>
+            Untouched files update. Edited files merge. Overlapping edits get standard conflict
+            markers.
+          </Statement>
+        </div>
+      </Split>
+
+      <Split
         id="agents"
         label="Agents"
-        strong="Give agents the source"
-        muted="the file that actually renders"
-        lead="An agent edits the file that renders instead of wrapping a package it can't change. shelf search finds what exists, and shelf check says what to fix."
-        action={<More href="/docs/agents">Shelf for agents</More>}
+        strong="Agents guess."
+        muted="Give them the source."
+        lead="They read the file that renders, the revision, and the check. Not a PDF. shelf search finds what exists, and shelf check says what to fix."
+        action={
+          <div {...stylex.props(styles.moreRow)}>
+            <More href="/docs/agents">Shelf for agents</More>
+            <More href="/docs/future">Where this goes</More>
+          </div>
+        }
       >
         <div {...stylex.props(styles.pair)}>
           <Diagram title={agentSession.title} label={agentSession.label}>
@@ -179,20 +203,24 @@ export default function Home() {
       </Split>
 
       <Split
-        id="provenance"
-        label="Provenance"
-        strong="Diverge"
-        muted="without drifting"
-        lead="Products change their copy and the registry keeps moving. Shelf knows the version both started from, so an update is a three-way merge, not a rewrite."
-        action={<More href="/docs/ownership">Ownership and provenance</More>}
+        id="registry"
+        label="Registry"
+        strong="One registry"
+        muted="for every product"
+        lead="The system team publishes components, blocks, and foundations as plain files on any static host, public or behind sign-in. No Shelf cloud, no accounts. Delete Shelf and your code stays."
+        action={
+          <div {...stylex.props(styles.moreRow)}>
+            <More href="/registry">See the registry</More>
+            <More href="/docs/registry">How registries work</More>
+          </div>
+        }
       >
         <div {...stylex.props(styles.pair)}>
-          <Diagram title={threeWay.title} label={threeWay.label}>
-            {threeWay.art}
+          <Diagram title={registry.title} label={registry.label}>
+            {registry.art}
           </Diagram>
           <Statement>
-            Untouched files update. Edited files merge. Overlapping edits get standard conflict
-            markers.
+            Browse every item with its source, revisions, previews, and the products that use it.
           </Statement>
         </div>
       </Split>
@@ -242,6 +270,7 @@ export default function Home() {
       <section aria-labelledby="start" {...stylex.props(styles.closing)}>
         <Headline id="start" strong="Consistent by default. Yours when needed." align="center" />
         <GetStarted size="lg" />
+        <More href="/docs/future">Agentic systems are the future of interfaces</More>
       </section>
     </main>
   );
@@ -324,6 +353,28 @@ const styles = stylex.create({
     gap: spacing["3"],
     display: "flex",
     flexWrap: "wrap",
+  },
+  strip: {
+    paddingTop: { default: site.space12, [screens.md]: site.space16 },
+  },
+  stripGrid: {
+    gridTemplateColumns: { default: "1fr", [screens.md]: "repeat(3, minmax(0, 1fr))" },
+  },
+  stripText: {
+    margin: 0,
+    color: colors.foreground,
+    fontSize: { default: site.fontSizeXl, [screens.md]: site.fontSize2xl },
+    letterSpacing: "-0.01em",
+    lineHeight: 1.375,
+    textWrap: "pretty",
+  },
+  srOnly: {
+    clip: "rect(0 0 0 0)",
+    height: "1px",
+    overflow: "hidden",
+    position: "absolute",
+    whiteSpace: "nowrap",
+    width: "1px",
   },
   grid: {
     gap: spacing["4"],

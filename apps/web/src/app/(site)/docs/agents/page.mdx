@@ -68,6 +68,10 @@ To share the skill across repositories, or add it to a project that ran `shelf i
 npx skills add Shelfui/shelf --skill shelf
 ```
 
+## Why guessing is the default
+
+An agent doesn't know which file is current, so it picks one that looks right. The fix is a system it can read: the source, the revision each product installed, and a check that names what is wrong. Read [why agentic systems are the future of interfaces](/docs/future).
+
 ## What comes next
 
 Today, when `shelf update` leaves conflict markers, an agent resolves them with `shelf diff --local` for context, and `shelf check` fails until none are left. Planned, not available yet: stories and tests alongside each version, and visual feedback that says what changed.

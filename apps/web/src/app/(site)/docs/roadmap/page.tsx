@@ -90,6 +90,14 @@ export default function Roadmap() {
               text: "Native Figma components compiled from React, starting with Button.",
             },
             {
+              term: "Decisions that propagate",
+              text: "Change one approved decision and have the products that use it follow, with a person reviewing how it lands.",
+            },
+            {
+              term: "Recorded rationale",
+              text: "The reason behind a change stored next to the revision, not only the diff.",
+            },
+            {
               term: "Visual validation",
               text: "Deterministic captures and structured differences in shelf check.",
             },

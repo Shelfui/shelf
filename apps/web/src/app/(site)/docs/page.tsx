@@ -25,6 +25,11 @@ export default function DocsIntroduction() {
 
       <Section title="Why">
         <Prose>
+          Every team ships UI faster than a design system can follow, and now agents do too. Each
+          product drifts onto its own version of the system. Shelf is one registry, many owned
+          copies, and a record of every change. It is open source under the MIT license.
+        </Prose>
+        <Prose>
           Companies with more than one product usually end up with one of two setups. A shared
           component package keeps products consistent, but its API decides what a product can do:
           even a spacing or color change becomes an override that breaks on upgrade, or a request
