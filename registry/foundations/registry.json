@@ -1,0 +1,25 @@
+{
+  "name": "foundations",
+  "type": "foundation",
+  "description": "Semantic StyleX variables for color, typography, spacing, radius, elevation, and motion, named media queries and layers, plus a dark theme and the typefaces.",
+  "files": [
+    {
+      "path": "tokens.stylex.ts"
+    },
+    {
+      "path": "conditions.stylex.ts"
+    },
+    {
+      "path": "themes.ts"
+    },
+    {
+      "path": "fonts.css"
+    }
+  ],
+  "dependencies": {
+    "@fontsource-variable/geist": "^5.3.0",
+    "@fontsource-variable/geist-mono": "^5.3.0",
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": []
+}

@@ -1,0 +1,454 @@
+{
+  "items": [
+    {
+      "name": "accordion",
+      "type": "component",
+      "description": "Stacked sections that expand one at a time, or several at once.",
+      "path": "components/accordion"
+    },
+    {
+      "name": "alert",
+      "type": "component",
+      "description": "A message that stays on the page, with an optional icon.",
+      "path": "components/alert"
+    },
+    {
+      "name": "alert-dialog",
+      "type": "component",
+      "description": "A modal that asks the user to confirm or cancel; clicking outside does not dismiss it.",
+      "path": "components/alert-dialog"
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "component",
+      "description": "A box that keeps a width-to-height ratio, filled by its content.",
+      "path": "components/aspect-ratio"
+    },
+    {
+      "name": "autocomplete",
+      "type": "component",
+      "description": "A text input with suggestions; the value is whatever the user types.",
+      "path": "components/autocomplete"
+    },
+    {
+      "name": "avatar",
+      "type": "component",
+      "description": "A person's picture, with initials while it loads or if it fails. Includes a status badge and overlapping groups.",
+      "path": "components/avatar"
+    },
+    {
+      "name": "badge",
+      "type": "component",
+      "description": "A short status or count label.",
+      "path": "components/badge"
+    },
+    {
+      "name": "breadcrumb",
+      "type": "component",
+      "description": "Where the current page sits in the site's hierarchy.",
+      "path": "components/breadcrumb"
+    },
+    {
+      "name": "button",
+      "type": "component",
+      "description": "An action trigger with default, outline, secondary, ghost, destructive, and link variants.",
+      "path": "components/button"
+    },
+    {
+      "name": "button-group",
+      "type": "component",
+      "description": "Joins related Buttons into one row that shares borders.",
+      "path": "components/button-group"
+    },
+    {
+      "name": "calendar",
+      "type": "component",
+      "description": "A month grid for picking a single date, a range, or several dates, built on react-day-picker.",
+      "path": "components/calendar"
+    },
+    {
+      "name": "card",
+      "type": "component",
+      "description": "A surface that groups related content.",
+      "path": "components/card"
+    },
+    {
+      "name": "carousel",
+      "type": "component",
+      "description": "A slideshow built on Embla, composed from Root, Content, Item, Previous, and Next.",
+      "path": "components/carousel"
+    },
+    {
+      "name": "checkbox",
+      "type": "component",
+      "description": "A checkbox with checked, unchecked, and indeterminate states.",
+      "path": "components/checkbox"
+    },
+    {
+      "name": "checkbox-group",
+      "type": "component",
+      "description": "Shares one array value between a set of Checkboxes, with optional select-all.",
+      "path": "components/checkbox-group"
+    },
+    {
+      "name": "collapsible",
+      "type": "component",
+      "description": "A section that shows and hides its panel.",
+      "path": "components/collapsible"
+    },
+    {
+      "name": "combobox",
+      "type": "component",
+      "description": "Picks a value from a list you can filter by typing.",
+      "path": "components/combobox"
+    },
+    {
+      "name": "command",
+      "type": "component",
+      "description": "A searchable command list with groups, shortcuts, and an empty state, inline or in a dialog.",
+      "path": "components/command"
+    },
+    {
+      "name": "context-menu",
+      "type": "component",
+      "description": "A menu opened by right-clicking or long-pressing an area.",
+      "path": "components/context-menu"
+    },
+    {
+      "name": "dashboard-overview",
+      "type": "block",
+      "description": "A dashboard home with headline stats, progress toward goals, and recent invoices.",
+      "path": "blocks/dashboard-overview"
+    },
+    {
+      "name": "dashboard-shell",
+      "type": "block",
+      "description": "An app shell with pinned and recent items in the sidebar, a ⌘K command palette, and an account menu.",
+      "path": "blocks/dashboard-shell"
+    },
+    {
+      "name": "data-table",
+      "type": "component",
+      "description": "A table with sortable columns, row selection, and pagination, built on Table in plain React state.",
+      "path": "components/data-table"
+    },
+    {
+      "name": "date-picker",
+      "type": "component",
+      "description": "A button that opens a Calendar in a Popover to pick a date or a date range.",
+      "path": "components/date-picker"
+    },
+    {
+      "name": "dialog",
+      "type": "component",
+      "description": "A modal window composed from Root, Trigger, Content, Header, Footer, Title, Description, and Close.",
+      "path": "components/dialog"
+    },
+    {
+      "name": "drawer",
+      "type": "component",
+      "description": "A modal panel that slides in from any edge of the screen and can be swiped away.",
+      "path": "components/drawer"
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "component",
+      "description": "A menu of actions opened from a button, with checkbox, radio, and submenu items.",
+      "path": "components/dropdown-menu"
+    },
+    {
+      "name": "empty",
+      "type": "component",
+      "description": "An empty state with media, a title, a description, and actions.",
+      "path": "components/empty"
+    },
+    {
+      "name": "field",
+      "type": "component",
+      "description": "Groups a control with its label, description, and error, and wires up accessibility and validation.",
+      "path": "components/field"
+    },
+    {
+      "name": "fieldset",
+      "type": "component",
+      "description": "Groups related fields under a legend; disabling it disables every field inside.",
+      "path": "components/fieldset"
+    },
+    {
+      "name": "form",
+      "type": "component",
+      "description": "A form that validates its Fields together and focuses the first invalid one on submit.",
+      "path": "components/form"
+    },
+    {
+      "name": "foundations",
+      "type": "foundation",
+      "description": "Semantic StyleX variables for color, typography, spacing, radius, elevation, and motion, named media queries and layers, plus a dark theme and the typefaces.",
+      "path": "foundations"
+    },
+    {
+      "name": "hover-card",
+      "type": "component",
+      "description": "A preview of a link's destination, shown while a pointer rests on the link.",
+      "path": "components/hover-card"
+    },
+    {
+      "name": "icons",
+      "type": "component",
+      "description": "The icons Shelf components use, in one file you own. lucide-react by default; swap the imports to change libraries.",
+      "path": "components/icons"
+    },
+    {
+      "name": "input",
+      "type": "component",
+      "description": "A text input that takes part in a Field's label, description, and validation.",
+      "path": "components/input"
+    },
+    {
+      "name": "input-group",
+      "type": "component",
+      "description": "An input with text, icons, or buttons attached inside its border.",
+      "path": "components/input-group"
+    },
+    {
+      "name": "input-otp",
+      "type": "component",
+      "description": "A one-time code input with one slot per character and paste support.",
+      "path": "components/input-otp"
+    },
+    {
+      "name": "invoices-table",
+      "type": "block",
+      "description": "An invoices list with status tabs and counts, search, bulk actions on selected rows, and a running total.",
+      "path": "blocks/invoices-table"
+    },
+    {
+      "name": "item",
+      "type": "component",
+      "description": "A list row of media, a title, a description, and actions, that can render as a link.",
+      "path": "components/item"
+    },
+    {
+      "name": "kbd",
+      "type": "component",
+      "description": "A keyboard key.",
+      "path": "components/kbd"
+    },
+    {
+      "name": "label",
+      "type": "component",
+      "description": "A text label for a form control.",
+      "path": "components/label"
+    },
+    {
+      "name": "login-form",
+      "type": "block",
+      "description": "A sign-in card with email and password fields, validation, a pending state, and SSO.",
+      "path": "blocks/login-form"
+    },
+    {
+      "name": "login-split",
+      "type": "block",
+      "description": "A full-page sign-in with a brand panel and quote beside the login form.",
+      "path": "blocks/login-split"
+    },
+    {
+      "name": "menubar",
+      "type": "component",
+      "description": "A row of menus, as in a desktop app, with arrow-key movement between them.",
+      "path": "components/menubar"
+    },
+    {
+      "name": "meter",
+      "type": "component",
+      "description": "A measurement within a known range, such as storage used.",
+      "path": "components/meter"
+    },
+    {
+      "name": "native-select",
+      "type": "component",
+      "description": "The browser's own select, styled to match Input and Select, with option groups.",
+      "path": "components/native-select"
+    },
+    {
+      "name": "navigation-menu",
+      "type": "component",
+      "description": "Site navigation where items open panels of links in one shared surface.",
+      "path": "components/navigation-menu"
+    },
+    {
+      "name": "number-field",
+      "type": "component",
+      "description": "A number input with step buttons, keyboard stepping, and locale-aware formatting.",
+      "path": "components/number-field"
+    },
+    {
+      "name": "otp-verification",
+      "type": "block",
+      "description": "A card that asks for a six-digit code, with verify and resend actions.",
+      "path": "blocks/otp-verification"
+    },
+    {
+      "name": "pagination",
+      "type": "component",
+      "description": "Links between the pages of a long list.",
+      "path": "components/pagination"
+    },
+    {
+      "name": "popover",
+      "type": "component",
+      "description": "Rich, interactive content in a floating panel opened from a button.",
+      "path": "components/popover"
+    },
+    {
+      "name": "progress",
+      "type": "component",
+      "description": "How far along a task is, or that it is in progress.",
+      "path": "components/progress"
+    },
+    {
+      "name": "radio-group",
+      "type": "component",
+      "description": "A set of options where exactly one can be chosen, with arrow-key navigation.",
+      "path": "components/radio-group"
+    },
+    {
+      "name": "resizable",
+      "type": "component",
+      "description": "Panels resized by dragging or the keyboard, composed from Group, Panel, and Handle.",
+      "path": "components/resizable"
+    },
+    {
+      "name": "scroll-area",
+      "type": "component",
+      "description": "A native scrolling region with thin, themed scrollbars.",
+      "path": "components/scroll-area"
+    },
+    {
+      "name": "select",
+      "type": "component",
+      "description": "Picks one value from a list of options.",
+      "path": "components/select"
+    },
+    {
+      "name": "separator",
+      "type": "component",
+      "description": "A horizontal or vertical dividing line.",
+      "path": "components/separator"
+    },
+    {
+      "name": "settings-section",
+      "type": "block",
+      "description": "A profile settings section with text fields, a notification switch, and Save and Cancel.",
+      "path": "blocks/settings-section"
+    },
+    {
+      "name": "sidebar",
+      "type": "component",
+      "description": "An app-shell sidebar that collapses offcanvas or to icons and becomes a sheet on small screens.",
+      "path": "components/sidebar"
+    },
+    {
+      "name": "sidebar-nested",
+      "type": "block",
+      "description": "An app shell whose sidebar sections expand into sub-pages, and open as menus when collapsed to icons.",
+      "path": "blocks/sidebar-nested"
+    },
+    {
+      "name": "signup-form",
+      "type": "block",
+      "description": "A sign-up card with name, email, and password fields, a terms checkbox, and a pending state.",
+      "path": "blocks/signup-form"
+    },
+    {
+      "name": "skeleton",
+      "type": "component",
+      "description": "A placeholder shape while content loads.",
+      "path": "components/skeleton"
+    },
+    {
+      "name": "slider",
+      "type": "component",
+      "description": "A draggable input for a single value or a range.",
+      "path": "components/slider"
+    },
+    {
+      "name": "spinner",
+      "type": "component",
+      "description": "A spinning loading indicator.",
+      "path": "components/spinner"
+    },
+    {
+      "name": "switch",
+      "type": "component",
+      "description": "An on/off control that takes effect immediately.",
+      "path": "components/switch"
+    },
+    {
+      "name": "table",
+      "type": "component",
+      "description": "A semantic HTML table with Shelf styles.",
+      "path": "components/table"
+    },
+    {
+      "name": "tabs",
+      "type": "component",
+      "description": "Switches between panels of related content.",
+      "path": "components/tabs"
+    },
+    {
+      "name": "textarea",
+      "type": "component",
+      "description": "A multi-line text input that grows with its content and takes part in a Field.",
+      "path": "components/textarea"
+    },
+    {
+      "name": "toast",
+      "type": "component",
+      "description": "Brief notifications queued from anywhere in the app: stacked, swipeable, with success, error, and loading states.",
+      "path": "components/toast"
+    },
+    {
+      "name": "toggle",
+      "type": "component",
+      "description": "A two-state button with default and outline variants.",
+      "path": "components/toggle"
+    },
+    {
+      "name": "toggle-group",
+      "type": "component",
+      "description": "A set of Toggles sharing one value, with arrow-key navigation.",
+      "path": "components/toggle-group"
+    },
+    {
+      "name": "toolbar",
+      "type": "component",
+      "description": "A row of controls that is one Tab stop, with arrow-key movement.",
+      "path": "components/toolbar"
+    },
+    {
+      "name": "tooltip",
+      "type": "component",
+      "description": "A short label shown on hover and keyboard focus.",
+      "path": "components/tooltip"
+    },
+    {
+      "name": "typography",
+      "type": "component",
+      "description": "Prose styles for headings, paragraphs, lead text, quotes, lists, and inline code.",
+      "path": "components/typography"
+    },
+    {
+      "name": "usage-explorer",
+      "type": "block",
+      "description": "Charts of where registry items are installed, what state each copy is in, and how far behind it has drifted, from shelf usage output.",
+      "path": "blocks/usage-explorer"
+    },
+    {
+      "name": "utils",
+      "type": "lib",
+      "description": "Shared types and helpers used by Shelf components.",
+      "path": "lib"
+    }
+  ]
+}

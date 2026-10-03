@@ -1,0 +1,14 @@
+{
+  "name": "button-group",
+  "type": "component",
+  "description": "Joins related Buttons into one row that shares borders.",
+  "files": [
+    {
+      "path": "button-group.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["utils"]
+}

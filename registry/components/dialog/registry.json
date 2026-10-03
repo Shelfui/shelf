@@ -1,0 +1,15 @@
+{
+  "name": "dialog",
+  "type": "component",
+  "description": "A modal window composed from Root, Trigger, Content, Header, Footer, Title, Description, and Close.",
+  "files": [
+    {
+      "path": "dialog.tsx"
+    }
+  ],
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["button", "foundations", "icons", "utils"]
+}

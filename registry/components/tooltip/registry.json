@@ -1,0 +1,15 @@
+{
+  "name": "tooltip",
+  "type": "component",
+  "description": "A short label shown on hover and keyboard focus.",
+  "files": [
+    {
+      "path": "tooltip.tsx"
+    }
+  ],
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "utils"]
+}

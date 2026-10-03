@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Assets and registry data load relative to the directory, so /catalog must read as /catalog/. -->
+    <script>
+      if (!location.pathname.endsWith("/")) {
+        history.replaceState(null, "", location.pathname + "/" + location.search + location.hash);
+      }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shelf Registry</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

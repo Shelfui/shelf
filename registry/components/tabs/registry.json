@@ -1,0 +1,15 @@
+{
+  "name": "tabs",
+  "type": "component",
+  "description": "Switches between panels of related content.",
+  "files": [
+    {
+      "path": "tabs.tsx"
+    }
+  ],
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "utils"]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "icons",
+  "type": "component",
+  "description": "The icons Shelf components use, in one file you own. lucide-react by default; swap the imports to change libraries.",
+  "files": [{ "path": "icons.tsx" }],
+  "dependencies": {
+    "lucide-react": "^1.47.0"
+  },
+  "shelfDependencies": []
+}

@@ -1,0 +1,15 @@
+{
+  "name": "input-group",
+  "type": "component",
+  "description": "An input with text, icons, or buttons attached inside its border.",
+  "files": [
+    {
+      "path": "input-group.tsx"
+    }
+  ],
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "utils"]
+}

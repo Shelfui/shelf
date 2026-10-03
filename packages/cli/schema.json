@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "shelf.config.json",
+  "type": "object",
+  "required": ["registry"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "registry": {
+      "description": "A registry directory, relative to this file, or an http(s) URL. Use the object form to send request headers.",
+      "oneOf": [
+        { "type": "string", "minLength": 1 },
+        {
+          "type": "object",
+          "required": ["url"],
+          "additionalProperties": false,
+          "properties": {
+            "url": { "type": "string", "minLength": 1 },
+            "headers": {
+              "description": "Request headers. ${VAR} is expanded from the environment, .env.local, or .env, so tokens stay out of this file.",
+              "type": "object",
+              "additionalProperties": { "type": "string" }
+            }
+          }
+        }
+      ]
+    },
+    "project": {
+      "description": "This project's id in `shelf usage`, e.g. \"payments/bill-pay\". Leading segments are its namespace. Defaults to the package.json name.",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$"
+    },
+    "paths": {
+      "description": "Where each kind of item is copied, relative to the project.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "components": {
+          "type": "string",
+          "default": "src/components/ui"
+        },
+        "blocks": {
+          "type": "string",
+          "default": "src/components/blocks"
+        },
+        "foundations": {
+          "type": "string",
+          "default": "src/styles/shelf"
+        },
+        "lib": {
+          "type": "string",
+          "default": "src/lib/shelf"
+        }
+      }
+    },
+    "aliases": {
+      "description": "Import aliases in tsconfig `paths` form, e.g. { \"@/*\": \"src/*\" }. Without them, imports between installed files are relative.",
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[^.\\s*][^\\s*]*\\*$"
+      },
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^(?:[^*]+/)?\\*$"
+      }
+    }
+  }
+}

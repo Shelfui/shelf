@@ -1,0 +1,14 @@
+{
+  "name": "spinner",
+  "type": "component",
+  "description": "A spinning loading indicator.",
+  "files": [
+    {
+      "path": "spinner.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "icons", "utils"]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "dashboard-shell",
+  "type": "block",
+  "description": "An app shell with pinned and recent items in the sidebar, a ⌘K command palette, and an account menu.",
+  "files": [
+    {
+      "path": "dashboard-shell.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": [
+    "avatar",
+    "breadcrumb",
+    "button",
+    "command",
+    "dropdown-menu",
+    "foundations",
+    "icons",
+    "kbd",
+    "separator",
+    "sidebar"
+  ]
+}

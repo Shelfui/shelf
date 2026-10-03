@@ -1,0 +1,15 @@
+{
+  "name": "field",
+  "type": "component",
+  "description": "Groups a control with its label, description, and error, and wires up accessibility and validation.",
+  "files": [
+    {
+      "path": "field.tsx"
+    }
+  ],
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "utils"]
+}

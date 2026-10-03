@@ -1,0 +1,14 @@
+{
+  "name": "aspect-ratio",
+  "type": "component",
+  "description": "A box that keeps a width-to-height ratio, filled by its content.",
+  "files": [
+    {
+      "path": "aspect-ratio.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["utils"]
+}

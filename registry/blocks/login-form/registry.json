@@ -1,0 +1,23 @@
+{
+  "name": "login-form",
+  "type": "block",
+  "description": "A sign-in card with email and password fields, validation, a pending state, and SSO.",
+  "files": [
+    {
+      "path": "login-form.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": [
+    "button",
+    "card",
+    "field",
+    "form",
+    "foundations",
+    "input",
+    "separator",
+    "spinner"
+  ]
+}

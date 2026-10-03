@@ -1,0 +1,15 @@
+{
+  "name": "resizable",
+  "type": "component",
+  "description": "Panels resized by dragging or the keyboard, composed from Group, Panel, and Handle.",
+  "files": [
+    {
+      "path": "resizable.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1",
+    "react-resizable-panels": "^4.14.1"
+  },
+  "shelfDependencies": ["foundations", "icons", "utils"]
+}

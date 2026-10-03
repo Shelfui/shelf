@@ -1,0 +1,48 @@
+name: Shelf Registry
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Full history, so every revision a project installed can be rebuilt.
+          fetch-depth: 0
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - run: bun install --frozen-lockfile --cwd apps/registry
+      - run: bun run storybook:build
+      - run: bun run site:build
+      - name: Usage
+        run: bun packages/cli/src/index.ts usage apps examples/acme --registry registry --json > usage.json
+      - name: Build the registry
+        run: >
+          bun packages/cli/src/index.ts build registry --out dist/registry
+          --storybook storybook-static --usage usage.json
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/registry
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,15 @@
+{
+  "name": "slider",
+  "type": "component",
+  "description": "A draggable input for a single value or a range.",
+  "files": [
+    {
+      "path": "slider.tsx"
+    }
+  ],
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "utils"]
+}

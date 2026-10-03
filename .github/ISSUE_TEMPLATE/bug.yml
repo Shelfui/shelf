@@ -1,0 +1,35 @@
+name: Bug report
+description: Something in Shelf behaves incorrectly.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction
+      description: Commands, a story name, or a minimal consumer project.
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: item
+    attributes:
+      label: Shelf item or command
+      placeholder: button, shelf add, shelf check
+  - type: textarea
+    id: output
+    attributes:
+      label: Output
+      description: Paste relevant CLI or `shelf check` output.
+      render: text
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: "bun --version, OS, browser"

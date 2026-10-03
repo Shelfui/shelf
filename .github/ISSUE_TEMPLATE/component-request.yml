@@ -1,0 +1,43 @@
+name: Component request
+description: Propose a new Shelf component, pattern, or block.
+labels: [component-request]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      placeholder: Dialog
+    validations:
+      required: true
+  - type: textarea
+    id: need
+    attributes:
+      label: Why is it required?
+      description: The real product use case. Shelf does not add items to make the catalog look complete.
+    validations:
+      required: true
+  - type: textarea
+    id: existing
+    attributes:
+      label: Does Shelf already provide the concept?
+      description: Result of `shelf search`, and why existing items do not fit.
+    validations:
+      required: true
+  - type: textarea
+    id: base-ui
+    attributes:
+      label: Does Base UI provide the behavior?
+      description: Link the relevant Base UI primitive, or explain why none fits.
+    validations:
+      required: true
+  - type: textarea
+    id: api
+    attributes:
+      label: Proposed API
+      description: Keep it small. Prefer composition over large prop APIs.
+      render: tsx
+  - type: textarea
+    id: stories
+    attributes:
+      label: Canonical stories and behavior to test
+      description: The meaningful states and interactions.

@@ -1,0 +1,15 @@
+{
+  "name": "carousel",
+  "type": "component",
+  "description": "A slideshow built on Embla, composed from Root, Content, Item, Previous, and Next.",
+  "files": [
+    {
+      "path": "carousel.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1",
+    "embla-carousel-react": "^8.6.0"
+  },
+  "shelfDependencies": ["button", "foundations", "icons", "utils"]
+}

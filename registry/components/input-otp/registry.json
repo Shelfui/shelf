@@ -1,0 +1,15 @@
+{
+  "name": "input-otp",
+  "type": "component",
+  "description": "A one-time code input with one slot per character and paste support.",
+  "files": [
+    {
+      "path": "input-otp.tsx"
+    }
+  ],
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "utils"]
+}

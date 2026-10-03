@@ -1,0 +1,23 @@
+{
+  "name": "settings-section",
+  "type": "block",
+  "description": "A profile settings section with text fields, a notification switch, and Save and Cancel.",
+  "files": [
+    {
+      "path": "settings-section.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": [
+    "button",
+    "card",
+    "field",
+    "form",
+    "foundations",
+    "input",
+    "switch",
+    "textarea"
+  ]
+}

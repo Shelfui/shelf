@@ -1,0 +1,15 @@
+{
+  "name": "context-menu",
+  "type": "component",
+  "description": "A menu opened by right-clicking or long-pressing an area.",
+  "files": [
+    {
+      "path": "context-menu.tsx"
+    }
+  ],
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["dropdown-menu", "utils"]
+}

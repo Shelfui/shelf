@@ -1,0 +1,15 @@
+{
+  "name": "accordion",
+  "type": "component",
+  "description": "Stacked sections that expand one at a time, or several at once.",
+  "files": [
+    {
+      "path": "accordion.tsx"
+    }
+  ],
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "icons", "utils"]
+}

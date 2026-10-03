@@ -1,0 +1,15 @@
+{
+  "name": "scroll-area",
+  "type": "component",
+  "description": "A native scrolling region with thin, themed scrollbars.",
+  "files": [
+    {
+      "path": "scroll-area.tsx"
+    }
+  ],
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "utils"]
+}

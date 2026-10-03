@@ -1,0 +1,15 @@
+{
+  "name": "dropdown-menu",
+  "type": "component",
+  "description": "A menu of actions opened from a button, with checkbox, radio, and submenu items.",
+  "files": [
+    {
+      "path": "dropdown-menu.tsx"
+    }
+  ],
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "icons", "utils"]
+}

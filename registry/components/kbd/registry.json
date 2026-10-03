@@ -1,0 +1,14 @@
+{
+  "name": "kbd",
+  "type": "component",
+  "description": "A keyboard key.",
+  "files": [
+    {
+      "path": "kbd.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "utils"]
+}

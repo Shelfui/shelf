@@ -1,0 +1,15 @@
+{
+  "name": "toast",
+  "type": "component",
+  "description": "Brief notifications queued from anywhere in the app: stacked, swipeable, with success, error, and loading states.",
+  "files": [
+    {
+      "path": "toast.tsx"
+    }
+  ],
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["button", "foundations", "icons", "spinner"]
+}

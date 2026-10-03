@@ -1,0 +1,15 @@
+{
+  "name": "calendar",
+  "type": "component",
+  "description": "A month grid for picking a single date, a range, or several dates, built on react-day-picker.",
+  "files": [
+    {
+      "path": "calendar.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1",
+    "react-day-picker": "^10.0.1"
+  },
+  "shelfDependencies": ["button", "foundations", "icons", "utils"]
+}

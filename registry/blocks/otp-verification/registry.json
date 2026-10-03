@@ -1,0 +1,14 @@
+{
+  "name": "otp-verification",
+  "type": "block",
+  "description": "A card that asks for a six-digit code, with verify and resend actions.",
+  "files": [
+    {
+      "path": "otp-verification.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["button", "card", "foundations", "input-otp", "label"]
+}

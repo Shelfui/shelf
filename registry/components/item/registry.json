@@ -1,0 +1,15 @@
+{
+  "name": "item",
+  "type": "component",
+  "description": "A list row of media, a title, a description, and actions, that can render as a link.",
+  "files": [
+    {
+      "path": "item.tsx"
+    }
+  ],
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "separator", "utils"]
+}

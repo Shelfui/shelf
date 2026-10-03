@@ -1,0 +1,23 @@
+{
+  "name": "sidebar-nested",
+  "type": "block",
+  "description": "An app shell whose sidebar sections expand into sub-pages, and open as menus when collapsed to icons.",
+  "files": [
+    {
+      "path": "sidebar-nested.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": [
+    "breadcrumb",
+    "collapsible",
+    "dropdown-menu",
+    "foundations",
+    "icons",
+    "input-group",
+    "separator",
+    "sidebar"
+  ]
+}

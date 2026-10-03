@@ -1,0 +1,15 @@
+{
+  "name": "navigation-menu",
+  "type": "component",
+  "description": "Site navigation where items open panels of links in one shared surface.",
+  "files": [
+    {
+      "path": "navigation-menu.tsx"
+    }
+  ],
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "icons", "utils"]
+}

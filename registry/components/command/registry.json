@@ -1,0 +1,15 @@
+{
+  "name": "command",
+  "type": "component",
+  "description": "A searchable command list with groups, shortcuts, and an empty state, inline or in a dialog.",
+  "files": [
+    {
+      "path": "command.tsx"
+    }
+  ],
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["dialog", "foundations", "icons", "kbd", "utils"]
+}

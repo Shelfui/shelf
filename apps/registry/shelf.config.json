@@ -1,0 +1,13 @@
+{
+  "$schema": "./node_modules/@shelfui/cli/schema.json",
+  "registry": "../../registry",
+  "project": "shelf/registry-site",
+  "paths": {
+    "components": "src/components/ui",
+    "foundations": "src/styles/shelf",
+    "lib": "src/lib/shelf"
+  },
+  "aliases": {
+    "@/*": "src/*"
+  }
+}

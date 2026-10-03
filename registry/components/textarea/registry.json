@@ -1,0 +1,15 @@
+{
+  "name": "textarea",
+  "type": "component",
+  "description": "A multi-line text input that grows with its content and takes part in a Field.",
+  "files": [
+    {
+      "path": "textarea.tsx"
+    }
+  ],
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "utils"]
+}

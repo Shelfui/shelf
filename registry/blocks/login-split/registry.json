@@ -1,0 +1,14 @@
+{
+  "name": "login-split",
+  "type": "block",
+  "description": "A full-page sign-in with a brand panel and quote beside the login form.",
+  "files": [
+    {
+      "path": "login-split.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "login-form"]
+}

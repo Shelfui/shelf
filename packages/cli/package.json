@@ -1,0 +1,43 @@
+{
+  "name": "@shelfui/cli",
+  "version": "0.0.0",
+  "description": "Shelf CLI: add source-owned React components to your app.",
+  "keywords": [
+    "base-ui",
+    "cli",
+    "components",
+    "design-system",
+    "react",
+    "registry",
+    "stylex"
+  ],
+  "homepage": "https://shelfui.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shelfui/shelf.git",
+    "directory": "packages/cli"
+  },
+  "bin": {
+    "shelf": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "schema.json",
+    "README.md"
+  ],
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "bun build src/index.ts --target node --outfile dist/index.js",
+    "prepack": "bun run build && bun run --cwd ../.. site:build"
+  },
+  "devDependencies": {
+    "@commander-js/extra-typings": "15.0.0",
+    "commander": "15.0.0"
+  },
+  "engines": {
+    "node": ">=20.12"
+  }
+}

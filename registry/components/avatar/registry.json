@@ -1,0 +1,15 @@
+{
+  "name": "avatar",
+  "type": "component",
+  "description": "A person's picture, with initials while it loads or if it fails. Includes a status badge and overlapping groups.",
+  "files": [
+    {
+      "path": "avatar.tsx"
+    }
+  ],
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "utils"]
+}

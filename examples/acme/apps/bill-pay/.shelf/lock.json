@@ -1,0 +1,132 @@
+{
+  "items": {
+    "badge": {
+      "dependencies": {
+        "@stylexjs/stylex": "^0.19.1"
+      },
+      "files": {
+        "src/components/ui/badge.tsx": {
+          "baseHash": "7b617b84f878ed42db1c492b504623a7bf6aa19dab3d1ad205ea386dae6935d7",
+          "source": "badge.tsx"
+        }
+      },
+      "installedAt": "2026-09-28T12:57:52.943Z",
+      "path": "components/badge",
+      "registry": "../../../../registry",
+      "revision": "c0fb971595022574d32a859d4793c970004609da9deb6e6c9a4e24f5fc469c2c",
+      "shelfDependencies": [
+        "foundations",
+        "utils"
+      ],
+      "type": "component"
+    },
+    "foundations": {
+      "dependencies": {
+        "@fontsource-variable/geist": "^5.3.0",
+        "@fontsource-variable/geist-mono": "^5.3.0",
+        "@stylexjs/stylex": "^0.19.1"
+      },
+      "files": {
+        "src/styles/shelf/conditions.stylex.ts": {
+          "baseHash": "9652f85bc72e72565a38883f67155e88fd141600edf4b984572018b0bd7bb03b",
+          "source": "conditions.stylex.ts"
+        },
+        "src/styles/shelf/fonts.css": {
+          "baseHash": "8cf7c3eb4e5ea937bb6e8ad8f67f988214698af24626ebb52c78caee6f1f3bcc",
+          "source": "fonts.css"
+        },
+        "src/styles/shelf/themes.ts": {
+          "baseHash": "0875f501f3fd375f3253326bcc23939bfed4093f32071b158a1fc94ce1a73041",
+          "source": "themes.ts"
+        },
+        "src/styles/shelf/tokens.stylex.ts": {
+          "baseHash": "6251074b08c0898ebf8cacd3dd8f87b6db119d51529c7fdf0452655d92d50450",
+          "source": "tokens.stylex.ts"
+        }
+      },
+      "installedAt": "2026-09-28T13:26:10.621Z",
+      "path": "foundations",
+      "registry": "../../../../registry",
+      "revision": "96c2fe0f63e5ccbb35136597c585934b78428dcd4eb60895cb3ba0c1bcf6147c",
+      "shelfDependencies": [],
+      "type": "foundation"
+    },
+    "icons": {
+      "dependencies": {
+        "lucide-react": "^1.47.0"
+      },
+      "files": {
+        "src/components/ui/icons.tsx": {
+          "baseHash": "59e366db5ead92ca3eb1bf6b713315e1d4f9f98b2b4db031fa91d39d91c320b4",
+          "source": "icons.tsx"
+        }
+      },
+      "installedAt": "2026-09-28T13:01:02.740Z",
+      "path": "components/icons",
+      "registry": "../../../../registry",
+      "revision": "9275ac93c799a64fd7e229987beb906515f140c3b6e817d9f4928e9b3f21d0fc",
+      "shelfDependencies": [],
+      "type": "component"
+    },
+    "select": {
+      "dependencies": {
+        "@base-ui/react": "^1.8.0",
+        "@stylexjs/stylex": "^0.19.1"
+      },
+      "files": {
+        "src/components/ui/select.tsx": {
+          "baseHash": "fa00a57e545dbdcab279c0f4291efdf82884693aa9300c56c5e3d07e3452d0ff",
+          "source": "select.tsx"
+        }
+      },
+      "installedAt": "2026-09-28T12:57:52.943Z",
+      "path": "components/select",
+      "registry": "../../../../registry",
+      "revision": "50a80cde9ce3a8bb8384c0142f683789a4a16c20c4f94dde5939ef29a6f103e1",
+      "shelfDependencies": [
+        "foundations",
+        "icons",
+        "utils"
+      ],
+      "type": "component"
+    },
+    "table": {
+      "dependencies": {
+        "@stylexjs/stylex": "^0.19.1"
+      },
+      "files": {
+        "src/components/ui/table.tsx": {
+          "baseHash": "8295d41b002b254de59471f920914c3915b23f2a3468c9ef6cb0edefebaf3582",
+          "source": "table.tsx"
+        }
+      },
+      "installedAt": "2026-09-28T12:57:52.943Z",
+      "path": "components/table",
+      "registry": "../../../../registry",
+      "revision": "e75bd7500cb6876acb1ce65ae610c0a2e2ff5434cd924c4cad04d489dbd536f3",
+      "shelfDependencies": [
+        "foundations",
+        "utils"
+      ],
+      "type": "component"
+    },
+    "utils": {
+      "dependencies": {
+        "@stylexjs/stylex": "^0.19.1"
+      },
+      "files": {
+        "src/lib/shelf/utils.ts": {
+          "baseHash": "4bb9c0753c54c9bab04d418ee02365a3f2441afe2e3cdcf82432aacf3fe1be36",
+          "source": "utils.ts"
+        }
+      },
+      "installedAt": "2026-09-28T12:57:52.943Z",
+      "path": "lib",
+      "registry": "../../../../registry",
+      "revision": "94fd4082ca5a351bdb14336497347dcc0a227c48331cf9f69911ef20705ae625",
+      "shelfDependencies": [],
+      "type": "lib"
+    }
+  },
+  "version": 1
+}

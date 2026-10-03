@@ -1,0 +1,15 @@
+{
+  "name": "sidebar",
+  "type": "component",
+  "description": "An app-shell sidebar that collapses offcanvas or to icons and becomes a sheet on small screens.",
+  "files": [
+    {
+      "path": "sidebar.tsx"
+    }
+  ],
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["button", "drawer", "foundations", "icons", "separator", "tooltip", "utils"]
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "react", "import", "unicorn", "oxc"],
+  "jsPlugins": [{ "name": "stylex", "specifier": "@stylexjs/eslint-plugin" }],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error"
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/rules-of-hooks": "error",
+    "react/exhaustive-deps": "error",
+    "typescript/no-floating-promises": "error",
+    "import/no-unassigned-import": ["error", { "allow": ["**/*.css"] }],
+    "stylex/valid-styles": "error",
+    "stylex/valid-shorthands": "error",
+    "stylex/no-unused": "error",
+    "stylex/enforce-extension": "error"
+  },
+  "ignorePatterns": ["dist/**", ".tmp/**", ".shelf/**"],
+  "overrides": [
+    {
+      "files": ["src/components/ui/**", "src/components/blocks/**"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "paths": [
+              {
+                "name": "lucide-react",
+                "message": "Import icons from the Shelf icons item (components/icons/icons.tsx) so users can swap the icon library in one file."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["src/components/ui/icons.tsx"],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ]
+}

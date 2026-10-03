@@ -1,0 +1,17 @@
+{
+  "name": "@acme/ui",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": "./src/components/ui/*.tsx"
+  },
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "@fontsource-variable/geist": "^5.3.0",
+    "@fontsource-variable/geist-mono": "^5.3.0",
+    "@stylexjs/stylex": "^0.19.1",
+    "lucide-react": "^1.47.0",
+    "react": "19.3.0"
+  }
+}

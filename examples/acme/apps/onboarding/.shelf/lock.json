@@ -1,0 +1,157 @@
+{
+  "items": {
+    "button": {
+      "dependencies": {
+        "@base-ui/react": "^1.8.0",
+        "@stylexjs/stylex": "^0.19.1"
+      },
+      "files": {
+        "src/components/ui/button.tsx": {
+          "baseHash": "a8357131844fd3883576d59bfeabfaec38b42662708b41d125a3a83c2a79a05c",
+          "source": "button.tsx"
+        }
+      },
+      "installedAt": "2026-09-28T12:57:53.084Z",
+      "path": "components/button",
+      "registry": "../../../../registry",
+      "revision": "f79cc395084a45604746a2fc095e982e8784c67b67f20ba2cf98039de1cc3232",
+      "shelfDependencies": [
+        "foundations",
+        "utils"
+      ],
+      "type": "component"
+    },
+    "field": {
+      "dependencies": {
+        "@base-ui/react": "^1.8.0",
+        "@stylexjs/stylex": "^0.19.1"
+      },
+      "files": {
+        "src/components/ui/field.tsx": {
+          "baseHash": "4f6d65aecf6d2b258d2fb0456b4fd70f5ba2e2b727106674ff59f23b7835c394",
+          "source": "field.tsx"
+        }
+      },
+      "installedAt": "2026-09-28T12:57:53.084Z",
+      "path": "components/field",
+      "registry": "../../../../registry",
+      "revision": "399b030dd1c576c2f90716a56d05559fdfba230488e43bed64917ca9173cb430",
+      "shelfDependencies": [
+        "foundations",
+        "utils"
+      ],
+      "type": "component"
+    },
+    "foundations": {
+      "dependencies": {
+        "@fontsource-variable/geist": "^5.3.0",
+        "@fontsource-variable/geist-mono": "^5.3.0",
+        "@stylexjs/stylex": "^0.19.1"
+      },
+      "files": {
+        "src/styles/shelf/conditions.stylex.ts": {
+          "baseHash": "9652f85bc72e72565a38883f67155e88fd141600edf4b984572018b0bd7bb03b",
+          "source": "conditions.stylex.ts"
+        },
+        "src/styles/shelf/fonts.css": {
+          "baseHash": "8cf7c3eb4e5ea937bb6e8ad8f67f988214698af24626ebb52c78caee6f1f3bcc",
+          "source": "fonts.css"
+        },
+        "src/styles/shelf/themes.ts": {
+          "baseHash": "d62ac44f796cb6d88e99ebfc45b41f09461a56bc299c9eff6a5aae5ff19249f4",
+          "source": "themes.ts"
+        },
+        "src/styles/shelf/tokens.stylex.ts": {
+          "baseHash": "dd61c651a51b8c1f5673f1a909da4a8581b2eb6c6ebce1cf67b059c679b6bd48",
+          "source": "tokens.stylex.ts"
+        }
+      },
+      "installedAt": "2026-09-28T12:57:53.084Z",
+      "path": "foundations",
+      "registry": "../../../../registry",
+      "revision": "c8d698bed007e30d980136b2fcd56ffd10122414079de4d4de234a96fb0e6ac2",
+      "shelfDependencies": [],
+      "type": "foundation"
+    },
+    "input": {
+      "dependencies": {
+        "@base-ui/react": "^1.8.0",
+        "@stylexjs/stylex": "^0.19.1"
+      },
+      "files": {
+        "src/components/ui/input.tsx": {
+          "baseHash": "688376a811cc4dc0dd24939162783f011de065b03057f686926eaafa472ee3fd",
+          "source": "input.tsx"
+        }
+      },
+      "installedAt": "2026-09-28T12:57:53.084Z",
+      "path": "components/input",
+      "registry": "../../../../registry",
+      "revision": "1b95edd2aae7ce5ab2f917a8b80e77d02cd7a442e0f0532f3c8c37759692201e",
+      "shelfDependencies": [
+        "foundations",
+        "utils"
+      ],
+      "type": "component"
+    },
+    "progress": {
+      "dependencies": {
+        "@base-ui/react": "^1.8.0",
+        "@stylexjs/stylex": "^0.19.1"
+      },
+      "files": {
+        "src/components/ui/progress.tsx": {
+          "baseHash": "bb964f991d957b849beaae484af8c3b1a65763312d734087e463643983a5afb0",
+          "source": "progress.tsx"
+        }
+      },
+      "installedAt": "2026-09-28T12:57:53.084Z",
+      "path": "components/progress",
+      "registry": "../../../../registry",
+      "revision": "76628059748aebeddf61f0d275a286edaa00067f04291da18d018254ba5c4f82",
+      "shelfDependencies": [
+        "foundations",
+        "utils"
+      ],
+      "type": "component"
+    },
+    "skeleton": {
+      "dependencies": {
+        "@stylexjs/stylex": "^0.19.1"
+      },
+      "files": {
+        "src/components/ui/skeleton.tsx": {
+          "baseHash": "5ce42c1d29c12dfbe6cc9ad9fbca1b30398d5a084517ae3b2bdd9822db928089",
+          "source": "skeleton.tsx"
+        }
+      },
+      "installedAt": "2026-09-28T12:57:53.084Z",
+      "path": "components/skeleton",
+      "registry": "../../../../registry",
+      "revision": "7afdac9fd155d48a69d7d335e8462d2d52e5b98e7690bfec004ac46ccf19febc",
+      "shelfDependencies": [
+        "foundations",
+        "utils"
+      ],
+      "type": "component"
+    },
+    "utils": {
+      "dependencies": {
+        "@stylexjs/stylex": "^0.19.1"
+      },
+      "files": {
+        "src/lib/shelf/utils.ts": {
+          "baseHash": "4bb9c0753c54c9bab04d418ee02365a3f2441afe2e3cdcf82432aacf3fe1be36",
+          "source": "utils.ts"
+        }
+      },
+      "installedAt": "2026-09-28T12:57:53.084Z",
+      "path": "lib",
+      "registry": "../../../../registry",
+      "revision": "94fd4082ca5a351bdb14336497347dcc0a227c48331cf9f69911ef20705ae625",
+      "shelfDependencies": [],
+      "type": "lib"
+    }
+  },
+  "version": 1
+}

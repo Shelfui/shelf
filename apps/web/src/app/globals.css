@@ -1,0 +1,27 @@
+@import "../styles/shelf/fonts.css";
+
+@stylex;
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  isolation: isolate;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Shiki output: each token carries both themes' colors; `data-mode` picks one. */
+.shiki {
+  margin: 0;
+  font: inherit;
+}
+
+.shiki span {
+  color: var(--shiki-light);
+}
+
+body[data-mode="dark"] .shiki span {
+  color: var(--shiki-dark);
+}

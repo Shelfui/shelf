@@ -1,0 +1,14 @@
+{
+  "name": "native-select",
+  "type": "component",
+  "description": "The browser's own select, styled to match Input and Select, with option groups.",
+  "files": [
+    {
+      "path": "native-select.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "icons", "utils"]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "table",
+  "type": "component",
+  "description": "A semantic HTML table with Shelf styles.",
+  "files": [
+    {
+      "path": "table.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "utils"]
+}

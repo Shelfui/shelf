@@ -1,0 +1,3 @@
+/* Loads the typefaces named in `typography`. Import this file once, from the app entry. */
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";

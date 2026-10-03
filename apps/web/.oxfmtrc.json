@@ -1,0 +1,13 @@
+{
+  "printWidth": 100,
+  "ignorePatterns": [
+    ".next/**",
+    ".shelf/**",
+    "next-env.d.ts",
+    "bun.lock",
+    "**/*.md",
+    "src/components/ui/**",
+    "src/components/blocks/**",
+    "src/demos/**/*.json"
+  ]
+}

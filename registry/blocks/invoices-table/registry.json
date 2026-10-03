@@ -1,0 +1,24 @@
+{
+  "name": "invoices-table",
+  "type": "block",
+  "description": "An invoices list with status tabs and counts, search, bulk actions on selected rows, and a running total.",
+  "files": [
+    {
+      "path": "invoices-table.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": [
+    "badge",
+    "button",
+    "data-table",
+    "dropdown-menu",
+    "empty",
+    "foundations",
+    "icons",
+    "input",
+    "tabs"
+  ]
+}

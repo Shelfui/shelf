@@ -1,0 +1,9 @@
+{
+  "name": "@internal/admin",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@acme/ui": "workspace:*",
+    "react": "19.3.0"
+  }
+}

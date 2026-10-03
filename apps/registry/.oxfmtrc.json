@@ -1,0 +1,12 @@
+{
+  "printWidth": 100,
+  "ignorePatterns": [
+    "dist/**",
+    ".tmp/**",
+    ".shelf/**",
+    "src/components/ui/**",
+    "src/components/blocks/**",
+    "bun.lock",
+    "**/*.md"
+  ]
+}

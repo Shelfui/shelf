@@ -1,0 +1,14 @@
+{
+  "name": "label",
+  "type": "component",
+  "description": "A text label for a form control.",
+  "files": [
+    {
+      "path": "label.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "utils"]
+}

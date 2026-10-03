@@ -1,0 +1,15 @@
+{
+  "name": "date-picker",
+  "type": "component",
+  "description": "A button that opens a Calendar in a Popover to pick a date or a date range.",
+  "files": [
+    {
+      "path": "date-picker.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1",
+    "react-day-picker": "^10.0.1"
+  },
+  "shelfDependencies": ["button", "calendar", "foundations", "icons", "popover"]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "badge",
+  "type": "component",
+  "description": "A short status or count label.",
+  "files": [
+    {
+      "path": "badge.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "utils"]
+}

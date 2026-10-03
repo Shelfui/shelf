@@ -1,0 +1,14 @@
+{
+  "name": "skeleton",
+  "type": "component",
+  "description": "A placeholder shape while content loads.",
+  "files": [
+    {
+      "path": "skeleton.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "utils"]
+}

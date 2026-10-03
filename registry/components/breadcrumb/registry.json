@@ -1,0 +1,14 @@
+{
+  "name": "breadcrumb",
+  "type": "component",
+  "description": "Where the current page sits in the site's hierarchy.",
+  "files": [
+    {
+      "path": "breadcrumb.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "icons", "utils"]
+}

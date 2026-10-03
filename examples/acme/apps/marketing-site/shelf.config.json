@@ -1,0 +1,9 @@
+{
+  "registry": "../../../../registry",
+  "project": "growth/marketing-site",
+  "paths": {
+    "components": "src/components/ui",
+    "foundations": "src/styles/shelf",
+    "lib": "src/lib/shelf"
+  }
+}

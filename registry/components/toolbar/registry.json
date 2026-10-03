@@ -1,0 +1,15 @@
+{
+  "name": "toolbar",
+  "type": "component",
+  "description": "A row of controls that is one Tab stop, with arrow-key movement.",
+  "files": [
+    {
+      "path": "toolbar.tsx"
+    }
+  ],
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "utils"]
+}

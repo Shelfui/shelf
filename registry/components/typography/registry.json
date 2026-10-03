@@ -1,0 +1,14 @@
+{
+  "name": "typography",
+  "type": "component",
+  "description": "Prose styles for headings, paragraphs, lead text, quotes, lists, and inline code.",
+  "files": [
+    {
+      "path": "typography.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "utils"]
+}

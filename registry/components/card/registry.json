@@ -1,0 +1,14 @@
+{
+  "name": "card",
+  "type": "component",
+  "description": "A surface that groups related content.",
+  "files": [
+    {
+      "path": "card.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "utils"]
+}

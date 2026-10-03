@@ -1,0 +1,3028 @@
+{
+  "generatedAt": "2026-09-28T13:47:00.751Z",
+  "usage": {
+    "projects": [
+      {
+        "consumes": [],
+        "id": "growth/marketing-site",
+        "items": {
+          "button": {
+            "direct": true,
+            "files": [
+              "src/components/ui/button.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "d71e652bd163a39ce2ebce57bd0c1d5ccb49f9532e82f5ba05cfeab4dd681caf",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "d71e652bd163a39ce2ebce57bd0c1d5ccb49f9532e82f5ba05cfeab4dd681caf",
+            "usedBy": [
+              {
+                "file": "src/pricing.tsx",
+                "imports": [
+                  "Button"
+                ]
+              }
+            ],
+            "via": [
+              "login-form"
+            ]
+          },
+          "card": {
+            "direct": true,
+            "files": [
+              "src/components/ui/card.tsx"
+            ],
+            "modified": true,
+            "modifiedFiles": [
+              "src/components/ui/card.tsx"
+            ],
+            "registry": "this",
+            "removed": false,
+            "revision": "bfdc94b4981b1cc3ec3f7bdd4c226cfa1260377ac3c7fe104240ab4ae2cdec22",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "bfdc94b4981b1cc3ec3f7bdd4c226cfa1260377ac3c7fe104240ab4ae2cdec22",
+            "usedBy": [
+              {
+                "file": "src/pricing.tsx",
+                "imports": [
+                  "Card"
+                ]
+              }
+            ],
+            "via": [
+              "login-form"
+            ]
+          },
+          "field": {
+            "direct": false,
+            "files": [
+              "src/components/ui/field.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "399b030dd1c576c2f90716a56d05559fdfba230488e43bed64917ca9173cb430",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "399b030dd1c576c2f90716a56d05559fdfba230488e43bed64917ca9173cb430",
+            "usedBy": [],
+            "via": [
+              "login-form"
+            ]
+          },
+          "form": {
+            "direct": false,
+            "files": [
+              "src/components/ui/form.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "26f53f35405a85daf9f5ac9cd398c6a52887e17400c1913b8651ff9dd688a3bf",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "26f53f35405a85daf9f5ac9cd398c6a52887e17400c1913b8651ff9dd688a3bf",
+            "usedBy": [],
+            "via": [
+              "login-form"
+            ]
+          },
+          "foundations": {
+            "direct": false,
+            "files": [
+              "src/styles/shelf/conditions.stylex.ts",
+              "src/styles/shelf/fonts.css",
+              "src/styles/shelf/themes.ts",
+              "src/styles/shelf/tokens.stylex.ts"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "c37e2a1ea76b36545a5731602d40af5922592c607fdbe119e8671d1630a70052",
+            "shelfDependencies": [],
+            "type": "foundation",
+            "updateAvailable": true,
+            "upstream": "96c2fe0f63e5ccbb35136597c585934b78428dcd4eb60895cb3ba0c1bcf6147c",
+            "usedBy": [],
+            "via": [
+              "button",
+              "card",
+              "field",
+              "form",
+              "input",
+              "login-form",
+              "separator",
+              "spinner",
+              "tabs"
+            ]
+          },
+          "icons": {
+            "direct": false,
+            "files": [
+              "src/components/ui/icons.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "d4ef528eef15be1fa7a3217410cd8bd42c908ede1652336b9df98dcc23f97ce3",
+            "shelfDependencies": [],
+            "type": "component",
+            "updateAvailable": true,
+            "upstream": "9275ac93c799a64fd7e229987beb906515f140c3b6e817d9f4928e9b3f21d0fc",
+            "usedBy": [],
+            "via": [
+              "spinner"
+            ]
+          },
+          "input": {
+            "direct": false,
+            "files": [
+              "src/components/ui/input.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "1b95edd2aae7ce5ab2f917a8b80e77d02cd7a442e0f0532f3c8c37759692201e",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "1b95edd2aae7ce5ab2f917a8b80e77d02cd7a442e0f0532f3c8c37759692201e",
+            "usedBy": [],
+            "via": [
+              "login-form"
+            ]
+          },
+          "login-form": {
+            "direct": true,
+            "files": [
+              "src/components/blocks/login-form.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "de9404473229484b72d1a6f6df55ea2e1fd35d49891c7d563331b7466d14c1c8",
+            "shelfDependencies": [
+              "button",
+              "card",
+              "field",
+              "form",
+              "foundations",
+              "input",
+              "separator",
+              "spinner"
+            ],
+            "type": "block",
+            "updateAvailable": false,
+            "upstream": "de9404473229484b72d1a6f6df55ea2e1fd35d49891c7d563331b7466d14c1c8",
+            "usedBy": [
+              {
+                "file": "src/pricing.tsx",
+                "imports": [
+                  "LoginForm"
+                ]
+              }
+            ],
+            "via": []
+          },
+          "separator": {
+            "direct": false,
+            "files": [
+              "src/components/ui/separator.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "4a95e94f1faa3c4291dcb459a56bb121c27e85a8e127e8f1749e5c0894bf8bb5",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "4a95e94f1faa3c4291dcb459a56bb121c27e85a8e127e8f1749e5c0894bf8bb5",
+            "usedBy": [],
+            "via": [
+              "login-form"
+            ]
+          },
+          "spinner": {
+            "direct": false,
+            "files": [
+              "src/components/ui/spinner.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "0c715bcd6a75ed3f352adae0dca121826f88bff160cb543963b234fcd787b915",
+            "shelfDependencies": [
+              "foundations",
+              "icons",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "0c715bcd6a75ed3f352adae0dca121826f88bff160cb543963b234fcd787b915",
+            "usedBy": [],
+            "via": [
+              "login-form"
+            ]
+          },
+          "tabs": {
+            "direct": true,
+            "files": [
+              "src/components/ui/tabs.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "7ae6042f2af869d76614c27a15e567fa4ed58757fd3307cb73b526e67397de45",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "7ae6042f2af869d76614c27a15e567fa4ed58757fd3307cb73b526e67397de45",
+            "usedBy": [
+              {
+                "file": "src/pricing.tsx",
+                "imports": [
+                  "Tabs"
+                ]
+              }
+            ],
+            "via": []
+          },
+          "utils": {
+            "direct": false,
+            "files": [
+              "src/lib/shelf/utils.ts"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "94fd4082ca5a351bdb14336497347dcc0a227c48331cf9f69911ef20705ae625",
+            "shelfDependencies": [],
+            "type": "lib",
+            "updateAvailable": false,
+            "upstream": "94fd4082ca5a351bdb14336497347dcc0a227c48331cf9f69911ef20705ae625",
+            "usedBy": [],
+            "via": [
+              "button",
+              "card",
+              "field",
+              "form",
+              "input",
+              "separator",
+              "spinner",
+              "tabs"
+            ]
+          }
+        },
+        "missing": [],
+        "name": "marketing-site",
+        "namespace": "growth",
+        "source": {
+          "commit": "612592c607bc23d2f14ec4a8526630d1393d5538",
+          "path": "examples/acme/apps/marketing-site",
+          "repo": "https://github.com/pontusab/shelf.git"
+        }
+      },
+      {
+        "consumes": [],
+        "id": "growth/onboarding",
+        "items": {
+          "button": {
+            "direct": true,
+            "files": [
+              "src/components/ui/button.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "f79cc395084a45604746a2fc095e982e8784c67b67f20ba2cf98039de1cc3232",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": true,
+            "upstream": "d71e652bd163a39ce2ebce57bd0c1d5ccb49f9532e82f5ba05cfeab4dd681caf",
+            "usedBy": [
+              {
+                "file": "src/signup.tsx",
+                "imports": [
+                  "Button"
+                ]
+              }
+            ],
+            "via": []
+          },
+          "field": {
+            "direct": true,
+            "files": [
+              "src/components/ui/field.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "399b030dd1c576c2f90716a56d05559fdfba230488e43bed64917ca9173cb430",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "399b030dd1c576c2f90716a56d05559fdfba230488e43bed64917ca9173cb430",
+            "usedBy": [
+              {
+                "file": "src/signup.tsx",
+                "imports": [
+                  "Field"
+                ]
+              }
+            ],
+            "via": []
+          },
+          "foundations": {
+            "direct": false,
+            "files": [
+              "src/styles/shelf/conditions.stylex.ts",
+              "src/styles/shelf/fonts.css",
+              "src/styles/shelf/themes.ts",
+              "src/styles/shelf/tokens.stylex.ts"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "c8d698bed007e30d980136b2fcd56ffd10122414079de4d4de234a96fb0e6ac2",
+            "shelfDependencies": [],
+            "type": "foundation",
+            "updateAvailable": true,
+            "upstream": "96c2fe0f63e5ccbb35136597c585934b78428dcd4eb60895cb3ba0c1bcf6147c",
+            "usedBy": [],
+            "via": [
+              "button",
+              "field",
+              "input",
+              "progress"
+            ]
+          },
+          "input": {
+            "direct": true,
+            "files": [
+              "src/components/ui/input.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "1b95edd2aae7ce5ab2f917a8b80e77d02cd7a442e0f0532f3c8c37759692201e",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "1b95edd2aae7ce5ab2f917a8b80e77d02cd7a442e0f0532f3c8c37759692201e",
+            "usedBy": [
+              {
+                "file": "src/signup.tsx",
+                "imports": [
+                  "Input"
+                ]
+              }
+            ],
+            "via": []
+          },
+          "progress": {
+            "direct": true,
+            "files": [
+              "src/components/ui/progress.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "76628059748aebeddf61f0d275a286edaa00067f04291da18d018254ba5c4f82",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "76628059748aebeddf61f0d275a286edaa00067f04291da18d018254ba5c4f82",
+            "usedBy": [
+              {
+                "file": "src/signup.tsx",
+                "imports": [
+                  "Progress"
+                ]
+              }
+            ],
+            "via": []
+          },
+          "skeleton": {
+            "direct": false,
+            "files": [
+              "src/components/ui/skeleton.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "7afdac9fd155d48a69d7d335e8462d2d52e5b98e7690bfec004ac46ccf19febc",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "7afdac9fd155d48a69d7d335e8462d2d52e5b98e7690bfec004ac46ccf19febc",
+            "usedBy": [],
+            "via": []
+          },
+          "utils": {
+            "direct": false,
+            "files": [
+              "src/lib/shelf/utils.ts"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "94fd4082ca5a351bdb14336497347dcc0a227c48331cf9f69911ef20705ae625",
+            "shelfDependencies": [],
+            "type": "lib",
+            "updateAvailable": false,
+            "upstream": "94fd4082ca5a351bdb14336497347dcc0a227c48331cf9f69911ef20705ae625",
+            "usedBy": [],
+            "via": [
+              "button",
+              "field",
+              "input",
+              "progress"
+            ]
+          }
+        },
+        "missing": [],
+        "name": "onboarding",
+        "namespace": "growth",
+        "source": {
+          "commit": "612592c607bc23d2f14ec4a8526630d1393d5538",
+          "path": "examples/acme/apps/onboarding",
+          "repo": "https://github.com/pontusab/shelf.git"
+        }
+      },
+      {
+        "consumes": [
+          {
+            "item": "button",
+            "package": "@acme/ui",
+            "provider": "platform/ui"
+          },
+          {
+            "item": "tabs",
+            "package": "@acme/ui",
+            "provider": "platform/ui"
+          }
+        ],
+        "id": "internal/admin",
+        "items": {},
+        "missing": [],
+        "name": "admin",
+        "namespace": "internal",
+        "source": {
+          "commit": "612592c607bc23d2f14ec4a8526630d1393d5538",
+          "path": "examples/acme/apps/admin",
+          "repo": "https://github.com/pontusab/shelf.git"
+        }
+      },
+      {
+        "consumes": [
+          {
+            "item": "button",
+            "package": "@acme/ui",
+            "provider": "platform/ui"
+          },
+          {
+            "item": "card",
+            "package": "@acme/ui",
+            "provider": "platform/ui"
+          },
+          {
+            "item": "dialog",
+            "package": "@acme/ui",
+            "provider": "platform/ui"
+          },
+          {
+            "item": "input",
+            "package": "@acme/ui",
+            "provider": "platform/ui"
+          }
+        ],
+        "id": "payments/bill-pay",
+        "items": {
+          "badge": {
+            "direct": true,
+            "files": [
+              "src/components/ui/badge.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "c0fb971595022574d32a859d4793c970004609da9deb6e6c9a4e24f5fc469c2c",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "c0fb971595022574d32a859d4793c970004609da9deb6e6c9a4e24f5fc469c2c",
+            "usedBy": [
+              {
+                "file": "src/bills.tsx",
+                "imports": [
+                  "Badge"
+                ]
+              }
+            ],
+            "via": []
+          },
+          "foundations": {
+            "direct": false,
+            "files": [
+              "src/styles/shelf/conditions.stylex.ts",
+              "src/styles/shelf/fonts.css",
+              "src/styles/shelf/themes.ts",
+              "src/styles/shelf/tokens.stylex.ts"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "96c2fe0f63e5ccbb35136597c585934b78428dcd4eb60895cb3ba0c1bcf6147c",
+            "shelfDependencies": [],
+            "type": "foundation",
+            "updateAvailable": false,
+            "upstream": "96c2fe0f63e5ccbb35136597c585934b78428dcd4eb60895cb3ba0c1bcf6147c",
+            "usedBy": [],
+            "via": [
+              "badge",
+              "select",
+              "table"
+            ]
+          },
+          "icons": {
+            "direct": false,
+            "files": [
+              "src/components/ui/icons.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "9275ac93c799a64fd7e229987beb906515f140c3b6e817d9f4928e9b3f21d0fc",
+            "shelfDependencies": [],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "9275ac93c799a64fd7e229987beb906515f140c3b6e817d9f4928e9b3f21d0fc",
+            "usedBy": [],
+            "via": [
+              "select"
+            ]
+          },
+          "select": {
+            "direct": true,
+            "files": [
+              "src/components/ui/select.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "50a80cde9ce3a8bb8384c0142f683789a4a16c20c4f94dde5939ef29a6f103e1",
+            "shelfDependencies": [
+              "foundations",
+              "icons",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "50a80cde9ce3a8bb8384c0142f683789a4a16c20c4f94dde5939ef29a6f103e1",
+            "usedBy": [
+              {
+                "file": "src/vendor-form.tsx",
+                "imports": [
+                  "Select"
+                ]
+              }
+            ],
+            "via": []
+          },
+          "table": {
+            "direct": true,
+            "files": [
+              "src/components/ui/table.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "e75bd7500cb6876acb1ce65ae610c0a2e2ff5434cd924c4cad04d489dbd536f3",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "e75bd7500cb6876acb1ce65ae610c0a2e2ff5434cd924c4cad04d489dbd536f3",
+            "usedBy": [
+              {
+                "file": "src/bills.tsx",
+                "imports": [
+                  "Table"
+                ]
+              }
+            ],
+            "via": []
+          },
+          "utils": {
+            "direct": false,
+            "files": [
+              "src/lib/shelf/utils.ts"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "94fd4082ca5a351bdb14336497347dcc0a227c48331cf9f69911ef20705ae625",
+            "shelfDependencies": [],
+            "type": "lib",
+            "updateAvailable": false,
+            "upstream": "94fd4082ca5a351bdb14336497347dcc0a227c48331cf9f69911ef20705ae625",
+            "usedBy": [],
+            "via": [
+              "badge",
+              "select",
+              "table"
+            ]
+          }
+        },
+        "missing": [],
+        "name": "bill-pay",
+        "namespace": "payments",
+        "source": {
+          "commit": "612592c607bc23d2f14ec4a8526630d1393d5538",
+          "path": "examples/acme/apps/bill-pay",
+          "repo": "https://github.com/pontusab/shelf.git"
+        }
+      },
+      {
+        "consumes": [],
+        "id": "payments/cards",
+        "items": {
+          "avatar": {
+            "direct": false,
+            "files": [
+              "src/components/ui/avatar.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "4a21959ab547f131f5f55adeb0f5b16ac14d0a66b23caa0d7f89c53e20476868",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "4a21959ab547f131f5f55adeb0f5b16ac14d0a66b23caa0d7f89c53e20476868",
+            "usedBy": [],
+            "via": []
+          },
+          "badge": {
+            "direct": true,
+            "files": [
+              "src/components/ui/badge.tsx"
+            ],
+            "modified": true,
+            "modifiedFiles": [
+              "src/components/ui/badge.tsx"
+            ],
+            "registry": "this",
+            "removed": false,
+            "revision": "c0fb971595022574d32a859d4793c970004609da9deb6e6c9a4e24f5fc469c2c",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "c0fb971595022574d32a859d4793c970004609da9deb6e6c9a4e24f5fc469c2c",
+            "usedBy": [
+              {
+                "file": "src/card-settings.tsx",
+                "imports": [
+                  "Badge"
+                ]
+              }
+            ],
+            "via": []
+          },
+          "button": {
+            "direct": true,
+            "files": [
+              "src/components/ui/button.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "d71e652bd163a39ce2ebce57bd0c1d5ccb49f9532e82f5ba05cfeab4dd681caf",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "d71e652bd163a39ce2ebce57bd0c1d5ccb49f9532e82f5ba05cfeab4dd681caf",
+            "usedBy": [
+              {
+                "file": "src/card-settings.tsx",
+                "imports": [
+                  "Button"
+                ]
+              }
+            ],
+            "via": []
+          },
+          "foundations": {
+            "direct": false,
+            "files": [
+              "src/styles/shelf/conditions.stylex.ts",
+              "src/styles/shelf/fonts.css",
+              "src/styles/shelf/themes.ts",
+              "src/styles/shelf/tokens.stylex.ts"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "96c2fe0f63e5ccbb35136597c585934b78428dcd4eb60895cb3ba0c1bcf6147c",
+            "shelfDependencies": [],
+            "type": "foundation",
+            "updateAvailable": false,
+            "upstream": "96c2fe0f63e5ccbb35136597c585934b78428dcd4eb60895cb3ba0c1bcf6147c",
+            "usedBy": [],
+            "via": [
+              "badge",
+              "button",
+              "switch",
+              "tooltip"
+            ]
+          },
+          "switch": {
+            "direct": true,
+            "files": [
+              "src/components/ui/switch.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "d7ace0e52c92382ba218bb562842616e0adf583ed1a572048b7c3a25f0287a9d",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "d7ace0e52c92382ba218bb562842616e0adf583ed1a572048b7c3a25f0287a9d",
+            "usedBy": [
+              {
+                "file": "src/card-settings.tsx",
+                "imports": [
+                  "Switch"
+                ]
+              }
+            ],
+            "via": []
+          },
+          "tooltip": {
+            "direct": true,
+            "files": [
+              "src/components/ui/tooltip.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "196b55341ca9ba159be8f32b888c5b0806e800dde13ff5cf0653e1de26b2f4c9",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "196b55341ca9ba159be8f32b888c5b0806e800dde13ff5cf0653e1de26b2f4c9",
+            "usedBy": [
+              {
+                "file": "src/card-settings.tsx",
+                "imports": [
+                  "Tooltip"
+                ]
+              }
+            ],
+            "via": []
+          },
+          "utils": {
+            "direct": false,
+            "files": [
+              "src/lib/shelf/utils.ts"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "94fd4082ca5a351bdb14336497347dcc0a227c48331cf9f69911ef20705ae625",
+            "shelfDependencies": [],
+            "type": "lib",
+            "updateAvailable": false,
+            "upstream": "94fd4082ca5a351bdb14336497347dcc0a227c48331cf9f69911ef20705ae625",
+            "usedBy": [],
+            "via": [
+              "badge",
+              "button",
+              "switch",
+              "tooltip"
+            ]
+          }
+        },
+        "missing": [],
+        "name": "cards",
+        "namespace": "payments",
+        "source": {
+          "commit": "612592c607bc23d2f14ec4a8526630d1393d5538",
+          "path": "examples/acme/apps/cards",
+          "repo": "https://github.com/pontusab/shelf.git"
+        }
+      },
+      {
+        "consumes": [
+          {
+            "item": "card",
+            "package": "@acme/ui",
+            "provider": "platform/ui"
+          },
+          {
+            "item": "tabs",
+            "package": "@acme/ui",
+            "provider": "platform/ui"
+          }
+        ],
+        "id": "payments/invoicing",
+        "items": {
+          "badge": {
+            "direct": true,
+            "files": [
+              "src/components/ui/badge.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "c0fb971595022574d32a859d4793c970004609da9deb6e6c9a4e24f5fc469c2c",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "c0fb971595022574d32a859d4793c970004609da9deb6e6c9a4e24f5fc469c2c",
+            "usedBy": [
+              {
+                "file": "src/invoices.tsx",
+                "imports": [
+                  "Badge"
+                ]
+              }
+            ],
+            "via": []
+          },
+          "button": {
+            "direct": true,
+            "files": [
+              "src/components/ui/button.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "212741124cb9498b766a73c523038f7d830de13f423e65005955bcd4a72c7624",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": true,
+            "upstream": "d71e652bd163a39ce2ebce57bd0c1d5ccb49f9532e82f5ba05cfeab4dd681caf",
+            "usedBy": [
+              {
+                "file": "src/invoices.tsx",
+                "imports": [
+                  "Button"
+                ]
+              }
+            ],
+            "via": [
+              "dialog"
+            ]
+          },
+          "dialog": {
+            "direct": true,
+            "files": [
+              "src/components/ui/dialog.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "df3f508da33912daed521965c147c37dde8f8c7e90a7c1eab4036f57de7b3d2a",
+            "shelfDependencies": [
+              "button",
+              "foundations",
+              "icons",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "df3f508da33912daed521965c147c37dde8f8c7e90a7c1eab4036f57de7b3d2a",
+            "usedBy": [
+              {
+                "file": "src/invoices.tsx",
+                "imports": [
+                  "Dialog"
+                ]
+              }
+            ],
+            "via": []
+          },
+          "foundations": {
+            "direct": false,
+            "files": [
+              "src/styles/shelf/conditions.stylex.ts",
+              "src/styles/shelf/fonts.css",
+              "src/styles/shelf/themes.ts",
+              "src/styles/shelf/tokens.stylex.ts"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "c37e2a1ea76b36545a5731602d40af5922592c607fdbe119e8671d1630a70052",
+            "shelfDependencies": [],
+            "type": "foundation",
+            "updateAvailable": true,
+            "upstream": "96c2fe0f63e5ccbb35136597c585934b78428dcd4eb60895cb3ba0c1bcf6147c",
+            "usedBy": [],
+            "via": [
+              "badge",
+              "button",
+              "dialog",
+              "table"
+            ]
+          },
+          "icons": {
+            "direct": false,
+            "files": [
+              "src/components/ui/icons.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "a1a8148cf658c9127181311e79da78c8e0a842c72d8871e2c51e47b9d3519c83",
+            "shelfDependencies": [],
+            "type": "component",
+            "updateAvailable": true,
+            "upstream": "9275ac93c799a64fd7e229987beb906515f140c3b6e817d9f4928e9b3f21d0fc",
+            "usedBy": [],
+            "via": [
+              "dialog"
+            ]
+          },
+          "select": {
+            "direct": false,
+            "files": [
+              "src/components/ui/select.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "50a80cde9ce3a8bb8384c0142f683789a4a16c20c4f94dde5939ef29a6f103e1",
+            "shelfDependencies": [
+              "foundations",
+              "icons",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "50a80cde9ce3a8bb8384c0142f683789a4a16c20c4f94dde5939ef29a6f103e1",
+            "usedBy": [],
+            "via": []
+          },
+          "table": {
+            "direct": true,
+            "files": [
+              "src/components/ui/table.tsx"
+            ],
+            "modified": true,
+            "modifiedFiles": [
+              "src/components/ui/table.tsx"
+            ],
+            "registry": "this",
+            "removed": false,
+            "revision": "e75bd7500cb6876acb1ce65ae610c0a2e2ff5434cd924c4cad04d489dbd536f3",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "e75bd7500cb6876acb1ce65ae610c0a2e2ff5434cd924c4cad04d489dbd536f3",
+            "usedBy": [
+              {
+                "file": "src/invoices.tsx",
+                "imports": [
+                  "Table"
+                ]
+              }
+            ],
+            "via": []
+          },
+          "utils": {
+            "direct": false,
+            "files": [
+              "src/lib/shelf/utils.ts"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "94fd4082ca5a351bdb14336497347dcc0a227c48331cf9f69911ef20705ae625",
+            "shelfDependencies": [],
+            "type": "lib",
+            "updateAvailable": false,
+            "upstream": "94fd4082ca5a351bdb14336497347dcc0a227c48331cf9f69911ef20705ae625",
+            "usedBy": [],
+            "via": [
+              "badge",
+              "button",
+              "dialog",
+              "table"
+            ]
+          }
+        },
+        "missing": [],
+        "name": "invoicing",
+        "namespace": "payments",
+        "source": {
+          "commit": "612592c607bc23d2f14ec4a8526630d1393d5538",
+          "path": "examples/acme/apps/invoicing",
+          "repo": "https://github.com/pontusab/shelf.git"
+        }
+      },
+      {
+        "consumes": [],
+        "id": "platform/admin-tools",
+        "items": {
+          "button": {
+            "direct": true,
+            "files": [
+              "src/components/ui/button.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "f79cc395084a45604746a2fc095e982e8784c67b67f20ba2cf98039de1cc3232",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": true,
+            "upstream": "d71e652bd163a39ce2ebce57bd0c1d5ccb49f9532e82f5ba05cfeab4dd681caf",
+            "usedBy": [
+              {
+                "file": "src/audit-log.tsx",
+                "imports": [
+                  "Button"
+                ]
+              }
+            ],
+            "via": [
+              "toast"
+            ]
+          },
+          "dropdown-menu": {
+            "direct": true,
+            "files": [
+              "src/components/ui/dropdown-menu.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "12ad57d9fea6c933a140524ceefbd7ca5d1f0804ed5efe29cb18d1610fce8546",
+            "shelfDependencies": [
+              "foundations",
+              "icons",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "12ad57d9fea6c933a140524ceefbd7ca5d1f0804ed5efe29cb18d1610fce8546",
+            "usedBy": [
+              {
+                "file": "src/audit-log.tsx",
+                "imports": [
+                  "DropdownMenu"
+                ]
+              }
+            ],
+            "via": []
+          },
+          "foundations": {
+            "direct": false,
+            "files": [
+              "src/styles/shelf/conditions.stylex.ts",
+              "src/styles/shelf/fonts.css",
+              "src/styles/shelf/themes.ts",
+              "src/styles/shelf/tokens.stylex.ts"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "2e466e17475175de17383c2ce230b44d35bf8f6236b83cc34caa5c8f95d47d69",
+            "shelfDependencies": [],
+            "type": "foundation",
+            "updateAvailable": true,
+            "upstream": "96c2fe0f63e5ccbb35136597c585934b78428dcd4eb60895cb3ba0c1bcf6147c",
+            "usedBy": [],
+            "via": [
+              "button",
+              "dropdown-menu",
+              "spinner",
+              "table",
+              "toast"
+            ]
+          },
+          "icons": {
+            "direct": false,
+            "files": [
+              "src/components/ui/icons.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "a1a8148cf658c9127181311e79da78c8e0a842c72d8871e2c51e47b9d3519c83",
+            "shelfDependencies": [],
+            "type": "component",
+            "updateAvailable": true,
+            "upstream": "9275ac93c799a64fd7e229987beb906515f140c3b6e817d9f4928e9b3f21d0fc",
+            "usedBy": [],
+            "via": [
+              "dropdown-menu",
+              "spinner",
+              "toast"
+            ]
+          },
+          "spinner": {
+            "direct": false,
+            "files": [
+              "src/components/ui/spinner.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "0c715bcd6a75ed3f352adae0dca121826f88bff160cb543963b234fcd787b915",
+            "shelfDependencies": [
+              "foundations",
+              "icons",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "0c715bcd6a75ed3f352adae0dca121826f88bff160cb543963b234fcd787b915",
+            "usedBy": [],
+            "via": [
+              "toast"
+            ]
+          },
+          "table": {
+            "direct": true,
+            "files": [
+              "src/components/ui/table.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "e75bd7500cb6876acb1ce65ae610c0a2e2ff5434cd924c4cad04d489dbd536f3",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "e75bd7500cb6876acb1ce65ae610c0a2e2ff5434cd924c4cad04d489dbd536f3",
+            "usedBy": [
+              {
+                "file": "src/audit-log.tsx",
+                "imports": [
+                  "Table"
+                ]
+              }
+            ],
+            "via": []
+          },
+          "toast": {
+            "direct": true,
+            "files": [
+              "src/components/ui/toast.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "0b0b009f3687fd3883e8d14808b8a991d34e14ebd0884ff37ff21420c7ad9bff",
+            "shelfDependencies": [
+              "button",
+              "foundations",
+              "icons",
+              "spinner"
+            ],
+            "type": "component",
+            "updateAvailable": true,
+            "upstream": "0e0cbef043771fe43e6fb97ec61c161ca767896a972bb3216bfbed328418f923",
+            "usedBy": [
+              {
+                "file": "src/audit-log.tsx",
+                "imports": [
+                  "ToastProvider"
+                ]
+              }
+            ],
+            "via": []
+          },
+          "utils": {
+            "direct": false,
+            "files": [
+              "src/lib/shelf/utils.ts"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "94fd4082ca5a351bdb14336497347dcc0a227c48331cf9f69911ef20705ae625",
+            "shelfDependencies": [],
+            "type": "lib",
+            "updateAvailable": false,
+            "upstream": "94fd4082ca5a351bdb14336497347dcc0a227c48331cf9f69911ef20705ae625",
+            "usedBy": [],
+            "via": [
+              "button",
+              "dropdown-menu",
+              "spinner",
+              "table"
+            ]
+          }
+        },
+        "missing": [],
+        "name": "admin-tools",
+        "namespace": "platform",
+        "source": {
+          "commit": "612592c607bc23d2f14ec4a8526630d1393d5538",
+          "path": "examples/acme/apps/admin-tools",
+          "repo": "https://github.com/pontusab/shelf.git"
+        }
+      },
+      {
+        "consumes": [],
+        "id": "platform/ui",
+        "items": {
+          "button": {
+            "direct": true,
+            "files": [
+              "src/components/ui/button.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "d71e652bd163a39ce2ebce57bd0c1d5ccb49f9532e82f5ba05cfeab4dd681caf",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "d71e652bd163a39ce2ebce57bd0c1d5ccb49f9532e82f5ba05cfeab4dd681caf",
+            "usedBy": [
+              {
+                "file": "src/users.tsx",
+                "imports": [
+                  "Button"
+                ],
+                "package": "@acme/ui",
+                "project": "internal/admin"
+              },
+              {
+                "file": "src/bills.tsx",
+                "imports": [
+                  "Button"
+                ],
+                "package": "@acme/ui",
+                "project": "payments/bill-pay"
+              },
+              {
+                "file": "src/vendor-form.tsx",
+                "imports": [
+                  "Button"
+                ],
+                "package": "@acme/ui",
+                "project": "payments/bill-pay"
+              }
+            ],
+            "via": [
+              "dialog"
+            ]
+          },
+          "card": {
+            "direct": true,
+            "files": [
+              "src/components/ui/card.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "bfdc94b4981b1cc3ec3f7bdd4c226cfa1260377ac3c7fe104240ab4ae2cdec22",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "bfdc94b4981b1cc3ec3f7bdd4c226cfa1260377ac3c7fe104240ab4ae2cdec22",
+            "usedBy": [
+              {
+                "file": "src/bills.tsx",
+                "imports": [
+                  "Card"
+                ],
+                "package": "@acme/ui",
+                "project": "payments/bill-pay"
+              },
+              {
+                "file": "src/invoices.tsx",
+                "imports": [
+                  "Card"
+                ],
+                "package": "@acme/ui",
+                "project": "payments/invoicing"
+              }
+            ],
+            "via": []
+          },
+          "dialog": {
+            "direct": true,
+            "files": [
+              "src/components/ui/dialog.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "df3f508da33912daed521965c147c37dde8f8c7e90a7c1eab4036f57de7b3d2a",
+            "shelfDependencies": [
+              "button",
+              "foundations",
+              "icons",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "df3f508da33912daed521965c147c37dde8f8c7e90a7c1eab4036f57de7b3d2a",
+            "usedBy": [
+              {
+                "file": "src/bills.tsx",
+                "imports": [
+                  "Dialog"
+                ],
+                "package": "@acme/ui",
+                "project": "payments/bill-pay"
+              }
+            ],
+            "via": []
+          },
+          "foundations": {
+            "direct": false,
+            "files": [
+              "src/styles/shelf/conditions.stylex.ts",
+              "src/styles/shelf/fonts.css",
+              "src/styles/shelf/themes.ts",
+              "src/styles/shelf/tokens.stylex.ts"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "96c2fe0f63e5ccbb35136597c585934b78428dcd4eb60895cb3ba0c1bcf6147c",
+            "shelfDependencies": [],
+            "type": "foundation",
+            "updateAvailable": false,
+            "upstream": "96c2fe0f63e5ccbb35136597c585934b78428dcd4eb60895cb3ba0c1bcf6147c",
+            "usedBy": [],
+            "via": [
+              "button",
+              "card",
+              "dialog",
+              "input",
+              "tabs"
+            ]
+          },
+          "icons": {
+            "direct": false,
+            "files": [
+              "src/components/ui/icons.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "9275ac93c799a64fd7e229987beb906515f140c3b6e817d9f4928e9b3f21d0fc",
+            "shelfDependencies": [],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "9275ac93c799a64fd7e229987beb906515f140c3b6e817d9f4928e9b3f21d0fc",
+            "usedBy": [],
+            "via": [
+              "dialog"
+            ]
+          },
+          "input": {
+            "direct": true,
+            "files": [
+              "src/components/ui/input.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "1b95edd2aae7ce5ab2f917a8b80e77d02cd7a442e0f0532f3c8c37759692201e",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "1b95edd2aae7ce5ab2f917a8b80e77d02cd7a442e0f0532f3c8c37759692201e",
+            "usedBy": [
+              {
+                "file": "src/vendor-form.tsx",
+                "imports": [
+                  "Input"
+                ],
+                "package": "@acme/ui",
+                "project": "payments/bill-pay"
+              }
+            ],
+            "via": []
+          },
+          "tabs": {
+            "direct": true,
+            "files": [
+              "src/components/ui/tabs.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "7ae6042f2af869d76614c27a15e567fa4ed58757fd3307cb73b526e67397de45",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "7ae6042f2af869d76614c27a15e567fa4ed58757fd3307cb73b526e67397de45",
+            "usedBy": [
+              {
+                "file": "src/users.tsx",
+                "imports": [
+                  "Tabs"
+                ],
+                "package": "@acme/ui",
+                "project": "internal/admin"
+              },
+              {
+                "file": "src/invoices.tsx",
+                "imports": [
+                  "Tabs"
+                ],
+                "package": "@acme/ui",
+                "project": "payments/invoicing"
+              }
+            ],
+            "via": []
+          },
+          "utils": {
+            "direct": false,
+            "files": [
+              "src/lib/shelf/utils.ts"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "94fd4082ca5a351bdb14336497347dcc0a227c48331cf9f69911ef20705ae625",
+            "shelfDependencies": [],
+            "type": "lib",
+            "updateAvailable": false,
+            "upstream": "94fd4082ca5a351bdb14336497347dcc0a227c48331cf9f69911ef20705ae625",
+            "usedBy": [],
+            "via": [
+              "button",
+              "card",
+              "dialog",
+              "input",
+              "tabs"
+            ]
+          }
+        },
+        "missing": [],
+        "name": "ui",
+        "namespace": "platform",
+        "source": {
+          "commit": "612592c607bc23d2f14ec4a8526630d1393d5538",
+          "path": "examples/acme/packages/ui",
+          "repo": "https://github.com/pontusab/shelf.git"
+        }
+      },
+      {
+        "consumes": [],
+        "id": "support/help-center",
+        "items": {
+          "accordion": {
+            "direct": true,
+            "files": [
+              "src/components/ui/accordion.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "ae3d45cdc6d9465217739d62133f0642072223cf4a2b5cdf88e96a9a6003f0f4",
+            "shelfDependencies": [
+              "foundations",
+              "icons",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "ae3d45cdc6d9465217739d62133f0642072223cf4a2b5cdf88e96a9a6003f0f4",
+            "usedBy": [
+              {
+                "file": "src/articles.tsx",
+                "imports": [
+                  "Accordion"
+                ]
+              }
+            ],
+            "via": []
+          },
+          "button": {
+            "direct": true,
+            "files": [
+              "src/components/ui/button.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "f79cc395084a45604746a2fc095e982e8784c67b67f20ba2cf98039de1cc3232",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": true,
+            "upstream": "d71e652bd163a39ce2ebce57bd0c1d5ccb49f9532e82f5ba05cfeab4dd681caf",
+            "usedBy": [
+              {
+                "file": "src/articles.tsx",
+                "imports": [
+                  "Button"
+                ]
+              }
+            ],
+            "via": []
+          },
+          "card": {
+            "direct": true,
+            "files": [
+              "src/components/ui/card.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "bfdc94b4981b1cc3ec3f7bdd4c226cfa1260377ac3c7fe104240ab4ae2cdec22",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "bfdc94b4981b1cc3ec3f7bdd4c226cfa1260377ac3c7fe104240ab4ae2cdec22",
+            "usedBy": [
+              {
+                "file": "src/articles.tsx",
+                "imports": [
+                  "Card"
+                ]
+              }
+            ],
+            "via": []
+          },
+          "foundations": {
+            "direct": false,
+            "files": [
+              "src/styles/shelf/conditions.stylex.ts",
+              "src/styles/shelf/fonts.css",
+              "src/styles/shelf/themes.ts",
+              "src/styles/shelf/tokens.stylex.ts"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "2e466e17475175de17383c2ce230b44d35bf8f6236b83cc34caa5c8f95d47d69",
+            "shelfDependencies": [],
+            "type": "foundation",
+            "updateAvailable": true,
+            "upstream": "96c2fe0f63e5ccbb35136597c585934b78428dcd4eb60895cb3ba0c1bcf6147c",
+            "usedBy": [],
+            "via": [
+              "accordion",
+              "button",
+              "card"
+            ]
+          },
+          "icons": {
+            "direct": false,
+            "files": [
+              "src/components/ui/icons.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "a1a8148cf658c9127181311e79da78c8e0a842c72d8871e2c51e47b9d3519c83",
+            "shelfDependencies": [],
+            "type": "component",
+            "updateAvailable": true,
+            "upstream": "9275ac93c799a64fd7e229987beb906515f140c3b6e817d9f4928e9b3f21d0fc",
+            "usedBy": [],
+            "via": [
+              "accordion"
+            ]
+          },
+          "input": {
+            "direct": false,
+            "files": [
+              "src/components/ui/input.tsx"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "1b95edd2aae7ce5ab2f917a8b80e77d02cd7a442e0f0532f3c8c37759692201e",
+            "shelfDependencies": [
+              "foundations",
+              "utils"
+            ],
+            "type": "component",
+            "updateAvailable": false,
+            "upstream": "1b95edd2aae7ce5ab2f917a8b80e77d02cd7a442e0f0532f3c8c37759692201e",
+            "usedBy": [],
+            "via": []
+          },
+          "utils": {
+            "direct": false,
+            "files": [
+              "src/lib/shelf/utils.ts"
+            ],
+            "modified": false,
+            "modifiedFiles": [],
+            "registry": "this",
+            "removed": false,
+            "revision": "94fd4082ca5a351bdb14336497347dcc0a227c48331cf9f69911ef20705ae625",
+            "shelfDependencies": [],
+            "type": "lib",
+            "updateAvailable": false,
+            "upstream": "94fd4082ca5a351bdb14336497347dcc0a227c48331cf9f69911ef20705ae625",
+            "usedBy": [],
+            "via": [
+              "accordion",
+              "button",
+              "card"
+            ]
+          }
+        },
+        "missing": [],
+        "name": "help-center",
+        "namespace": "support",
+        "source": {
+          "commit": "612592c607bc23d2f14ec4a8526630d1393d5538",
+          "path": "examples/acme/apps/help-center",
+          "repo": "https://github.com/pontusab/shelf.git"
+        }
+      }
+    ],
+    "registry": {
+      "items": {
+        "accordion": {
+          "description": "Stacked sections that expand one at a time, or several at once.",
+          "revision": "ae3d45cdc6d9465217739d62133f0642072223cf4a2b5cdf88e96a9a6003f0f4",
+          "type": "component"
+        },
+        "alert": {
+          "description": "A message that stays on the page, with an optional icon.",
+          "revision": "49908e573e6f08d2c94a2fbf3d2e3adc5f1d38396ead8c48bb19cc345092f036",
+          "type": "component"
+        },
+        "alert-dialog": {
+          "description": "A modal that asks the user to confirm or cancel; clicking outside does not dismiss it.",
+          "revision": "96fb3b63adbc429f7643adc7f67c543ba214a305e22c298fff4acb2770fee426",
+          "type": "component"
+        },
+        "aspect-ratio": {
+          "description": "A box that keeps a width-to-height ratio, filled by its content.",
+          "revision": "6f3d2a049f54c441c89c388718df4a6be951c8e5204d3c587150b7ca94d51450",
+          "type": "component"
+        },
+        "autocomplete": {
+          "description": "A text input with suggestions; the value is whatever the user types.",
+          "revision": "e9223af1e6b24cfa174059d3429e0788149086fe720040a6e08239d4e85e8989",
+          "type": "component"
+        },
+        "avatar": {
+          "description": "A person's picture, with initials while it loads or if it fails. Includes a status badge and overlapping groups.",
+          "revision": "4a21959ab547f131f5f55adeb0f5b16ac14d0a66b23caa0d7f89c53e20476868",
+          "type": "component"
+        },
+        "badge": {
+          "description": "A short status or count label.",
+          "revision": "c0fb971595022574d32a859d4793c970004609da9deb6e6c9a4e24f5fc469c2c",
+          "type": "component"
+        },
+        "breadcrumb": {
+          "description": "Where the current page sits in the site's hierarchy.",
+          "revision": "1ec7ce00e0d514ad9ac2440c69b9dcf06e87f93f3685f94141b51856df25bfde",
+          "type": "component"
+        },
+        "button": {
+          "description": "An action trigger with default, outline, secondary, ghost, destructive, and link variants.",
+          "revision": "d71e652bd163a39ce2ebce57bd0c1d5ccb49f9532e82f5ba05cfeab4dd681caf",
+          "type": "component"
+        },
+        "button-group": {
+          "description": "Joins related Buttons into one row that shares borders.",
+          "revision": "782274ccee699ab7d6c65885f42c8cf42745d747a7b3d7b870985d6323a7dd21",
+          "type": "component"
+        },
+        "calendar": {
+          "description": "A month grid for picking a single date, a range, or several dates, built on react-day-picker.",
+          "revision": "770e0e50fb8aade70eabdfd42caa0fa0f4a3325a5e4bb5048a21fa391bd24db4",
+          "type": "component"
+        },
+        "card": {
+          "description": "A surface that groups related content.",
+          "revision": "bfdc94b4981b1cc3ec3f7bdd4c226cfa1260377ac3c7fe104240ab4ae2cdec22",
+          "type": "component"
+        },
+        "carousel": {
+          "description": "A slideshow built on Embla, composed from Root, Content, Item, Previous, and Next.",
+          "revision": "e60d45c86258086ca9ea6890e7cac2e568bd04f9eae6d812c15ed7df7cc8707d",
+          "type": "component"
+        },
+        "checkbox": {
+          "description": "A checkbox with checked, unchecked, and indeterminate states.",
+          "revision": "54be7412b591692be4bbb2b4aa52d22eacee94b2f8fc4231177a8d81fd1f103f",
+          "type": "component"
+        },
+        "checkbox-group": {
+          "description": "Shares one array value between a set of Checkboxes, with optional select-all.",
+          "revision": "67232dac2daf0c3befffe4926b0478b5cee101553ef7d814b29f0349499d7ffe",
+          "type": "component"
+        },
+        "collapsible": {
+          "description": "A section that shows and hides its panel.",
+          "revision": "7f4db66fc8216f98aebadcd8e1dfe108428e49b57dfdc94fa9b338902996e723",
+          "type": "component"
+        },
+        "combobox": {
+          "description": "Picks a value from a list you can filter by typing.",
+          "revision": "5473871311c79c55d57ca3d7aebb2295d63d47610a45e205d77c500851e06902",
+          "type": "component"
+        },
+        "command": {
+          "description": "A searchable command list with groups, shortcuts, and an empty state, inline or in a dialog.",
+          "revision": "94593de65b6680b036855f7d4c6e7aee42e85b14b383cc48380922592cfed34b",
+          "type": "component"
+        },
+        "context-menu": {
+          "description": "A menu opened by right-clicking or long-pressing an area.",
+          "revision": "99f256c5ca8cc4ea81adfba359a32d28e5c89813004e1b68ff0013f35670be6d",
+          "type": "component"
+        },
+        "dashboard-overview": {
+          "description": "A dashboard home with headline stats, progress toward goals, and recent invoices.",
+          "revision": "e6f598b885d9f51c581c25128a31bebd4db1ad5252f8b9ce49f46971155f2f8c",
+          "type": "block"
+        },
+        "dashboard-shell": {
+          "description": "An app shell with a collapsible sidebar, workspace switcher, user menu, breadcrumb, and search.",
+          "revision": "6e7b89995fef7a62bff084ca0e7dda8371ba6e1945dd809996fa76af7cf2ca43",
+          "type": "block"
+        },
+        "data-table": {
+          "description": "A table with sortable columns, row selection, and pagination, built on Table in plain React state.",
+          "revision": "198d11fb09669ef8a2343b49d04a2d612880e2ebc0782e586fa112a7a0c3cb39",
+          "type": "component"
+        },
+        "date-picker": {
+          "description": "A button that opens a Calendar in a Popover to pick a date or a date range.",
+          "revision": "2c526380f45bfa8c6961e2f9d4d3c3de1420af1bc7dab3fe226854c203445e7e",
+          "type": "component"
+        },
+        "dialog": {
+          "description": "A modal window composed from Root, Trigger, Content, Header, Footer, Title, Description, and Close.",
+          "revision": "df3f508da33912daed521965c147c37dde8f8c7e90a7c1eab4036f57de7b3d2a",
+          "type": "component"
+        },
+        "drawer": {
+          "description": "A modal panel that slides in from any edge of the screen and can be swiped away.",
+          "revision": "e8b5cf2caa065f81962b55c1d3dbd7d79d288f8027ac225bc12d07f967d35c1c",
+          "type": "component"
+        },
+        "dropdown-menu": {
+          "description": "A menu of actions opened from a button, with checkbox, radio, and submenu items.",
+          "revision": "12ad57d9fea6c933a140524ceefbd7ca5d1f0804ed5efe29cb18d1610fce8546",
+          "type": "component"
+        },
+        "empty": {
+          "description": "An empty state with media, a title, a description, and actions.",
+          "revision": "5ac5026553dd80d83bf00255b0c7747e267a305566f372569099d5cc579bcbf9",
+          "type": "component"
+        },
+        "field": {
+          "description": "Groups a control with its label, description, and error, and wires up accessibility and validation.",
+          "revision": "399b030dd1c576c2f90716a56d05559fdfba230488e43bed64917ca9173cb430",
+          "type": "component"
+        },
+        "fieldset": {
+          "description": "Groups related fields under a legend; disabling it disables every field inside.",
+          "revision": "86e160c98b38185c49ce5c6f4ca04f1ccd5c1bb8c30edc705a9c66a0e8139af9",
+          "type": "component"
+        },
+        "form": {
+          "description": "A form that validates its Fields together and focuses the first invalid one on submit.",
+          "revision": "26f53f35405a85daf9f5ac9cd398c6a52887e17400c1913b8651ff9dd688a3bf",
+          "type": "component"
+        },
+        "foundations": {
+          "description": "Semantic StyleX variables for color, typography, spacing, radius, elevation, and motion, named media queries and layers, plus a dark theme and the typefaces.",
+          "revision": "96c2fe0f63e5ccbb35136597c585934b78428dcd4eb60895cb3ba0c1bcf6147c",
+          "type": "foundation"
+        },
+        "hover-card": {
+          "description": "A preview of a link's destination, shown while a pointer rests on the link.",
+          "revision": "6ecf89cc947d9577f6935523371dc2df2e8240e058d17cc45da732406ebbcc66",
+          "type": "component"
+        },
+        "icons": {
+          "description": "The icons Shelf components use, in one file you own. lucide-react by default; swap the imports to change libraries.",
+          "revision": "9275ac93c799a64fd7e229987beb906515f140c3b6e817d9f4928e9b3f21d0fc",
+          "type": "component"
+        },
+        "input": {
+          "description": "A text input that takes part in a Field's label, description, and validation.",
+          "revision": "1b95edd2aae7ce5ab2f917a8b80e77d02cd7a442e0f0532f3c8c37759692201e",
+          "type": "component"
+        },
+        "input-group": {
+          "description": "An input with text, icons, or buttons attached inside its border.",
+          "revision": "2f510fe1322ea72994e2c745fdd9c960a6602e841995733a679e3a24bb598c29",
+          "type": "component"
+        },
+        "input-otp": {
+          "description": "A one-time code input with one slot per character and paste support.",
+          "revision": "333753c60b24c4526c5a22b6f29f75343ac9a0e841178e8f9c0b04480e644c81",
+          "type": "component"
+        },
+        "invoices-table": {
+          "description": "An invoices list with search, a status filter, column visibility, row actions, and empty states.",
+          "revision": "3bb37162873c9cc33fc64166318ee01542d9d5c4f84803c1090c6e7e6e0633ca",
+          "type": "block"
+        },
+        "item": {
+          "description": "A list row of media, a title, a description, and actions, that can render as a link.",
+          "revision": "d75f7f9489f44cc90bd727886ac91efc2ad794d5ccbc709dc38f141ed87542f6",
+          "type": "component"
+        },
+        "kbd": {
+          "description": "A keyboard key.",
+          "revision": "fe70d554abaf548eb7ae9ddbeb5a379da94d33aa8f1168388cb55c0917e423da",
+          "type": "component"
+        },
+        "label": {
+          "description": "A text label for a form control.",
+          "revision": "2b49fda26ac6a155afcfd43948551a6c208f811a0fd18cf93d7db0b4a20e9630",
+          "type": "component"
+        },
+        "login-form": {
+          "description": "A sign-in card with email and password fields, validation, a pending state, and SSO.",
+          "revision": "de9404473229484b72d1a6f6df55ea2e1fd35d49891c7d563331b7466d14c1c8",
+          "type": "block"
+        },
+        "login-split": {
+          "description": "A full-page sign-in with a brand panel and quote beside the login form.",
+          "revision": "7fde14c2fada7b3393e87552d0f5fb015c6d7f58885b8cad2a732ae2d3ffda2a",
+          "type": "block"
+        },
+        "menubar": {
+          "description": "A row of menus, as in a desktop app, with arrow-key movement between them.",
+          "revision": "5880e7ff748759a3616fb1ea74432f9ad96c8974d113b497460a027b9077cfca",
+          "type": "component"
+        },
+        "meter": {
+          "description": "A measurement within a known range, such as storage used.",
+          "revision": "5221bc8ab517f5fa6ce3119f23b643f6b21d23e20be223b9a2948743290a46cc",
+          "type": "component"
+        },
+        "native-select": {
+          "description": "The browser's own select, styled to match Input and Select, with option groups.",
+          "revision": "5ed82cdb18196fdaf5eb9ed6521edaec2047112e90291eb86ac6d87086487694",
+          "type": "component"
+        },
+        "navigation-menu": {
+          "description": "Site navigation where items open panels of links in one shared surface.",
+          "revision": "973b0eda5dc3eb943ff01619eb6bd5c655b66e78fc130131f0bf91d771b7ae5b",
+          "type": "component"
+        },
+        "number-field": {
+          "description": "A number input with step buttons, keyboard stepping, and locale-aware formatting.",
+          "revision": "dc84cd7f55d530b0c46841f30f508e7601fe5f24c7a1318b69359e133968900c",
+          "type": "component"
+        },
+        "otp-verification": {
+          "description": "A card that asks for a six-digit code, with verify and resend actions.",
+          "revision": "aec4c6d2c18155ddcc2c973a4b468c14c0a75113421947ae660df89f0cc7598e",
+          "type": "block"
+        },
+        "pagination": {
+          "description": "Links between the pages of a long list.",
+          "revision": "e60dbe02a70f71411374db1b11190634366ea7ae6f2ff5b740fe0587eaa454f5",
+          "type": "component"
+        },
+        "popover": {
+          "description": "Rich, interactive content in a floating panel opened from a button.",
+          "revision": "cf288d63672cfba13f9e64a8613db985d042ea4b7c1b51cfbdbf0c2c1d356636",
+          "type": "component"
+        },
+        "progress": {
+          "description": "How far along a task is, or that it is in progress.",
+          "revision": "76628059748aebeddf61f0d275a286edaa00067f04291da18d018254ba5c4f82",
+          "type": "component"
+        },
+        "radio-group": {
+          "description": "A set of options where exactly one can be chosen, with arrow-key navigation.",
+          "revision": "dbaa4bd3664b03ba92edbd789dfa7d1838feb9cfec83feb5f80068ff1f8efbd3",
+          "type": "component"
+        },
+        "resizable": {
+          "description": "Panels resized by dragging or the keyboard, composed from Group, Panel, and Handle.",
+          "revision": "d99b8061e1193ad11e0dd9ed4ee028193db576bde4ac07d5a68b619381bbc6a5",
+          "type": "component"
+        },
+        "scroll-area": {
+          "description": "A native scrolling region with thin, themed scrollbars.",
+          "revision": "ccacc52e3d6f3baa8f86a7628f21d86435bba4e87ef9ef5b72bc90e59e0a8944",
+          "type": "component"
+        },
+        "select": {
+          "description": "Picks one value from a list of options.",
+          "revision": "50a80cde9ce3a8bb8384c0142f683789a4a16c20c4f94dde5939ef29a6f103e1",
+          "type": "component"
+        },
+        "separator": {
+          "description": "A horizontal or vertical dividing line.",
+          "revision": "4a95e94f1faa3c4291dcb459a56bb121c27e85a8e127e8f1749e5c0894bf8bb5",
+          "type": "component"
+        },
+        "settings-section": {
+          "description": "A profile settings section with text fields, a notification switch, and Save and Cancel.",
+          "revision": "da0c0a8b91f878103e562d99f35b92a3201a52ee7c4f693a152b793037d67c3b",
+          "type": "block"
+        },
+        "sidebar": {
+          "description": "An app-shell sidebar that collapses offcanvas or to icons and becomes a sheet on small screens.",
+          "revision": "80f0564988c30168ed11d60d2cfafa8909817d3933b9294e5a1e2c6f4b01aeae",
+          "type": "component"
+        },
+        "sidebar-nested": {
+          "description": "An app shell whose sidebar sections expand into sub-pages, with search in the header.",
+          "revision": "96aa43da30efbc5b5f69298096cf843eeea487c897a65a4e05c0fb1387e5c770",
+          "type": "block"
+        },
+        "signup-form": {
+          "description": "A sign-up card with name, email, and password fields, a terms checkbox, and a pending state.",
+          "revision": "89e80c967bc7999166237c58c78b190408c152c0f13bfe794388af372e229ba8",
+          "type": "block"
+        },
+        "skeleton": {
+          "description": "A placeholder shape while content loads.",
+          "revision": "7afdac9fd155d48a69d7d335e8462d2d52e5b98e7690bfec004ac46ccf19febc",
+          "type": "component"
+        },
+        "slider": {
+          "description": "A draggable input for a single value or a range.",
+          "revision": "c335731a669d7796781f62b83a10e21157bc6e13dafadf42811455b92eca1dff",
+          "type": "component"
+        },
+        "spinner": {
+          "description": "A spinning loading indicator.",
+          "revision": "0c715bcd6a75ed3f352adae0dca121826f88bff160cb543963b234fcd787b915",
+          "type": "component"
+        },
+        "switch": {
+          "description": "An on/off control that takes effect immediately.",
+          "revision": "d7ace0e52c92382ba218bb562842616e0adf583ed1a572048b7c3a25f0287a9d",
+          "type": "component"
+        },
+        "table": {
+          "description": "A semantic HTML table with Shelf styles.",
+          "revision": "e75bd7500cb6876acb1ce65ae610c0a2e2ff5434cd924c4cad04d489dbd536f3",
+          "type": "component"
+        },
+        "tabs": {
+          "description": "Switches between panels of related content.",
+          "revision": "7ae6042f2af869d76614c27a15e567fa4ed58757fd3307cb73b526e67397de45",
+          "type": "component"
+        },
+        "textarea": {
+          "description": "A multi-line text input that grows with its content and takes part in a Field.",
+          "revision": "ddc3a98ab49db65d23b20512b9a0aca3b6fcb3e20861ac305bfdd843e4fee8af",
+          "type": "component"
+        },
+        "toast": {
+          "description": "Brief notifications queued from anywhere in the app.",
+          "revision": "0e0cbef043771fe43e6fb97ec61c161ca767896a972bb3216bfbed328418f923",
+          "type": "component"
+        },
+        "toggle": {
+          "description": "A two-state button with default and outline variants.",
+          "revision": "e9a0c7ecf5968a8677a2ad6cd2587b85f4755ab303af2b4acbcc5fd2ca1c23a2",
+          "type": "component"
+        },
+        "toggle-group": {
+          "description": "A set of Toggles sharing one value, with arrow-key navigation.",
+          "revision": "8722cc7ddc17ed92f27d02bfe2cf59e28faf3e1d60fcc95e4eb409bd06f6ccca",
+          "type": "component"
+        },
+        "toolbar": {
+          "description": "A row of controls that is one Tab stop, with arrow-key movement.",
+          "revision": "c0161b38dd65dfec53aaecc101f147ab3494b6e4ddfd3211becc581e9d190872",
+          "type": "component"
+        },
+        "tooltip": {
+          "description": "A short label shown on hover and keyboard focus.",
+          "revision": "196b55341ca9ba159be8f32b888c5b0806e800dde13ff5cf0653e1de26b2f4c9",
+          "type": "component"
+        },
+        "typography": {
+          "description": "Prose styles for headings, paragraphs, lead text, quotes, lists, and inline code.",
+          "revision": "fe7887910d4c8144177461d24515a4abcfe029b122016815fe3b65b0666241e0",
+          "type": "component"
+        },
+        "usage-explorer": {
+          "description": "Charts of where registry items are installed, what state each copy is in, and how far behind it has drifted, from shelf usage output.",
+          "revision": "5be3fb6b1dd50f77a20e3771a034eead7d3ec8384a5e41c72cb5020dd558d5b0",
+          "type": "block"
+        },
+        "utils": {
+          "description": "Shared types and helpers used by Shelf components.",
+          "revision": "94fd4082ca5a351bdb14336497347dcc0a227c48331cf9f69911ef20705ae625",
+          "type": "lib"
+        }
+      },
+      "location": "registry"
+    },
+    "version": 1
+  },
+  "items": [
+    {
+      "name": "accordion",
+      "type": "component",
+      "description": "Stacked sections that expand one at a time, or several at once."
+    },
+    {
+      "name": "alert",
+      "type": "component",
+      "description": "A message that stays on the page, with an optional icon."
+    },
+    {
+      "name": "alert-dialog",
+      "type": "component",
+      "description": "A modal that asks the user to confirm or cancel; clicking outside does not dismiss it."
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "component",
+      "description": "A box that keeps a width-to-height ratio, filled by its content."
+    },
+    {
+      "name": "autocomplete",
+      "type": "component",
+      "description": "A text input with suggestions; the value is whatever the user types."
+    },
+    {
+      "name": "avatar",
+      "type": "component",
+      "description": "A person's picture, with initials while it loads or if it fails. Includes a status badge and overlapping groups."
+    },
+    {
+      "name": "badge",
+      "type": "component",
+      "description": "A short status or count label."
+    },
+    {
+      "name": "breadcrumb",
+      "type": "component",
+      "description": "Where the current page sits in the site's hierarchy."
+    },
+    {
+      "name": "button",
+      "type": "component",
+      "description": "An action trigger with default, outline, secondary, ghost, destructive, and link variants."
+    },
+    {
+      "name": "button-group",
+      "type": "component",
+      "description": "Joins related Buttons into one row that shares borders."
+    },
+    {
+      "name": "calendar",
+      "type": "component",
+      "description": "A month grid for picking a single date, a range, or several dates, built on react-day-picker."
+    },
+    {
+      "name": "card",
+      "type": "component",
+      "description": "A surface that groups related content."
+    },
+    {
+      "name": "carousel",
+      "type": "component",
+      "description": "A slideshow built on Embla, composed from Root, Content, Item, Previous, and Next."
+    },
+    {
+      "name": "checkbox",
+      "type": "component",
+      "description": "A checkbox with checked, unchecked, and indeterminate states."
+    },
+    {
+      "name": "checkbox-group",
+      "type": "component",
+      "description": "Shares one array value between a set of Checkboxes, with optional select-all."
+    },
+    {
+      "name": "collapsible",
+      "type": "component",
+      "description": "A section that shows and hides its panel."
+    },
+    {
+      "name": "combobox",
+      "type": "component",
+      "description": "Picks a value from a list you can filter by typing."
+    },
+    {
+      "name": "command",
+      "type": "component",
+      "description": "A searchable command list with groups, shortcuts, and an empty state, inline or in a dialog."
+    },
+    {
+      "name": "context-menu",
+      "type": "component",
+      "description": "A menu opened by right-clicking or long-pressing an area."
+    },
+    {
+      "name": "dashboard-overview",
+      "type": "block",
+      "description": "A dashboard home with headline stats, progress toward goals, and recent invoices."
+    },
+    {
+      "name": "dashboard-shell",
+      "type": "block",
+      "description": "An app shell with a collapsible sidebar, workspace switcher, user menu, breadcrumb, and search."
+    },
+    {
+      "name": "data-table",
+      "type": "component",
+      "description": "A table with sortable columns, row selection, and pagination, built on Table in plain React state."
+    },
+    {
+      "name": "date-picker",
+      "type": "component",
+      "description": "A button that opens a Calendar in a Popover to pick a date or a date range."
+    },
+    {
+      "name": "dialog",
+      "type": "component",
+      "description": "A modal window composed from Root, Trigger, Content, Header, Footer, Title, Description, and Close."
+    },
+    {
+      "name": "drawer",
+      "type": "component",
+      "description": "A modal panel that slides in from any edge of the screen and can be swiped away."
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "component",
+      "description": "A menu of actions opened from a button, with checkbox, radio, and submenu items."
+    },
+    {
+      "name": "empty",
+      "type": "component",
+      "description": "An empty state with media, a title, a description, and actions."
+    },
+    {
+      "name": "field",
+      "type": "component",
+      "description": "Groups a control with its label, description, and error, and wires up accessibility and validation."
+    },
+    {
+      "name": "fieldset",
+      "type": "component",
+      "description": "Groups related fields under a legend; disabling it disables every field inside."
+    },
+    {
+      "name": "form",
+      "type": "component",
+      "description": "A form that validates its Fields together and focuses the first invalid one on submit."
+    },
+    {
+      "name": "foundations",
+      "type": "foundation",
+      "description": "Semantic StyleX variables for color, typography, spacing, radius, elevation, and motion, named media queries and layers, plus a dark theme and the typefaces."
+    },
+    {
+      "name": "hover-card",
+      "type": "component",
+      "description": "A preview of a link's destination, shown while a pointer rests on the link."
+    },
+    {
+      "name": "icons",
+      "type": "component",
+      "description": "The icons Shelf components use, in one file you own. lucide-react by default; swap the imports to change libraries."
+    },
+    {
+      "name": "input",
+      "type": "component",
+      "description": "A text input that takes part in a Field's label, description, and validation."
+    },
+    {
+      "name": "input-group",
+      "type": "component",
+      "description": "An input with text, icons, or buttons attached inside its border."
+    },
+    {
+      "name": "input-otp",
+      "type": "component",
+      "description": "A one-time code input with one slot per character and paste support."
+    },
+    {
+      "name": "invoices-table",
+      "type": "block",
+      "description": "An invoices list with search, a status filter, column visibility, row actions, and empty states."
+    },
+    {
+      "name": "item",
+      "type": "component",
+      "description": "A list row of media, a title, a description, and actions, that can render as a link."
+    },
+    {
+      "name": "kbd",
+      "type": "component",
+      "description": "A keyboard key."
+    },
+    {
+      "name": "label",
+      "type": "component",
+      "description": "A text label for a form control."
+    },
+    {
+      "name": "login-form",
+      "type": "block",
+      "description": "A sign-in card with email and password fields, validation, a pending state, and SSO."
+    },
+    {
+      "name": "login-split",
+      "type": "block",
+      "description": "A full-page sign-in with a brand panel and quote beside the login form."
+    },
+    {
+      "name": "menubar",
+      "type": "component",
+      "description": "A row of menus, as in a desktop app, with arrow-key movement between them."
+    },
+    {
+      "name": "meter",
+      "type": "component",
+      "description": "A measurement within a known range, such as storage used."
+    },
+    {
+      "name": "native-select",
+      "type": "component",
+      "description": "The browser's own select, styled to match Input and Select, with option groups."
+    },
+    {
+      "name": "navigation-menu",
+      "type": "component",
+      "description": "Site navigation where items open panels of links in one shared surface."
+    },
+    {
+      "name": "number-field",
+      "type": "component",
+      "description": "A number input with step buttons, keyboard stepping, and locale-aware formatting."
+    },
+    {
+      "name": "otp-verification",
+      "type": "block",
+      "description": "A card that asks for a six-digit code, with verify and resend actions."
+    },
+    {
+      "name": "pagination",
+      "type": "component",
+      "description": "Links between the pages of a long list."
+    },
+    {
+      "name": "popover",
+      "type": "component",
+      "description": "Rich, interactive content in a floating panel opened from a button."
+    },
+    {
+      "name": "progress",
+      "type": "component",
+      "description": "How far along a task is, or that it is in progress."
+    },
+    {
+      "name": "radio-group",
+      "type": "component",
+      "description": "A set of options where exactly one can be chosen, with arrow-key navigation."
+    },
+    {
+      "name": "resizable",
+      "type": "component",
+      "description": "Panels resized by dragging or the keyboard, composed from Group, Panel, and Handle."
+    },
+    {
+      "name": "scroll-area",
+      "type": "component",
+      "description": "A native scrolling region with thin, themed scrollbars."
+    },
+    {
+      "name": "select",
+      "type": "component",
+      "description": "Picks one value from a list of options."
+    },
+    {
+      "name": "separator",
+      "type": "component",
+      "description": "A horizontal or vertical dividing line."
+    },
+    {
+      "name": "settings-section",
+      "type": "block",
+      "description": "A profile settings section with text fields, a notification switch, and Save and Cancel."
+    },
+    {
+      "name": "sidebar",
+      "type": "component",
+      "description": "An app-shell sidebar that collapses offcanvas or to icons and becomes a sheet on small screens."
+    },
+    {
+      "name": "sidebar-nested",
+      "type": "block",
+      "description": "An app shell whose sidebar sections expand into sub-pages, with search in the header."
+    },
+    {
+      "name": "signup-form",
+      "type": "block",
+      "description": "A sign-up card with name, email, and password fields, a terms checkbox, and a pending state."
+    },
+    {
+      "name": "skeleton",
+      "type": "component",
+      "description": "A placeholder shape while content loads."
+    },
+    {
+      "name": "slider",
+      "type": "component",
+      "description": "A draggable input for a single value or a range."
+    },
+    {
+      "name": "spinner",
+      "type": "component",
+      "description": "A spinning loading indicator."
+    },
+    {
+      "name": "switch",
+      "type": "component",
+      "description": "An on/off control that takes effect immediately."
+    },
+    {
+      "name": "table",
+      "type": "component",
+      "description": "A semantic HTML table with Shelf styles."
+    },
+    {
+      "name": "tabs",
+      "type": "component",
+      "description": "Switches between panels of related content."
+    },
+    {
+      "name": "textarea",
+      "type": "component",
+      "description": "A multi-line text input that grows with its content and takes part in a Field."
+    },
+    {
+      "name": "toast",
+      "type": "component",
+      "description": "Brief notifications queued from anywhere in the app."
+    },
+    {
+      "name": "toggle",
+      "type": "component",
+      "description": "A two-state button with default and outline variants."
+    },
+    {
+      "name": "toggle-group",
+      "type": "component",
+      "description": "A set of Toggles sharing one value, with arrow-key navigation."
+    },
+    {
+      "name": "toolbar",
+      "type": "component",
+      "description": "A row of controls that is one Tab stop, with arrow-key movement."
+    },
+    {
+      "name": "tooltip",
+      "type": "component",
+      "description": "A short label shown on hover and keyboard focus."
+    },
+    {
+      "name": "typography",
+      "type": "component",
+      "description": "Prose styles for headings, paragraphs, lead text, quotes, lists, and inline code."
+    },
+    {
+      "name": "usage-explorer",
+      "type": "block",
+      "description": "Charts of where registry items are installed, what state each copy is in, and how far behind it has drifted, from shelf usage output."
+    },
+    {
+      "name": "utils",
+      "type": "lib",
+      "description": "Shared types and helpers used by Shelf components."
+    }
+  ],
+  "history": {
+    "button": [
+      {
+        "revision": "d71e652bd163a39ce2ebce57bd0c1d5ccb49f9532e82f5ba05cfeab4dd681caf",
+        "commit": "73c09e3ba5a92b9de22525b0f32ed743d240f185",
+        "date": "2026-09-28T10:33:58+02:00"
+      },
+      {
+        "revision": "212741124cb9498b766a73c523038f7d830de13f423e65005955bcd4a72c7624",
+        "commit": "8f9543d3984872f0a5cc7a6c5fc9c544744d88a9",
+        "date": "2026-09-28T10:13:04+02:00"
+      },
+      {
+        "revision": "f79cc395084a45604746a2fc095e982e8784c67b67f20ba2cf98039de1cc3232",
+        "commit": "2e16612f30339c038302ff71ac1882eb2e7d9edd",
+        "date": "2026-09-27T23:47:35+02:00"
+      },
+      {
+        "revision": "2e8a915cbb820f112e1c93682d60689aa930517ef73708b346de1b3587a7ef32",
+        "commit": "e974c078f0a73c52d2f28d16cd2e0326e3176e9e",
+        "date": "2026-09-27T23:42:36+02:00"
+      },
+      {
+        "revision": "adee4191fd45460bf5e3716b157f946035bfb8f6dc20ab41ba1f409b14a586c6",
+        "commit": "f6b0845716f1637d8344c82cd9623d952804ed91",
+        "date": "2026-09-27T23:23:54+02:00"
+      },
+      {
+        "revision": "2a32a590c11f50a57e14a874e4afb7c640fb0e73206e79f09b2035a956fe1ae3",
+        "commit": "c9294ff46d05da3f28aeae7433c08d088e2ba122",
+        "date": "2026-09-27T23:02:51+02:00"
+      },
+      {
+        "revision": "f3de572a3658eff2551b85ab455c0d7dbd4fba6c97b67a6ce56795f73429aca4",
+        "commit": "25141d76ea27d79168182a8659449ac2ff371f97",
+        "date": "2026-09-27T22:27:43+02:00"
+      },
+      {
+        "revision": "d065f9bd8f49524703fd9ae446b10a1d33b7fecb0b418ce6388dfc7039e9d8ab",
+        "commit": "66614afaf15f088e545f0e8839e27e24f69946c6",
+        "date": "2026-09-27T21:33:45+02:00"
+      }
+    ],
+    "foundations": [
+      {
+        "revision": "c37e2a1ea76b36545a5731602d40af5922592c607fdbe119e8671d1630a70052",
+        "commit": "8f9543d3984872f0a5cc7a6c5fc9c544744d88a9",
+        "date": "2026-09-28T10:13:04+02:00"
+      },
+      {
+        "revision": "2e466e17475175de17383c2ce230b44d35bf8f6236b83cc34caa5c8f95d47d69",
+        "commit": "66a6cfd2a6ce810c088ddef5a256929621b0c11e",
+        "date": "2026-09-28T02:02:14+02:00"
+      },
+      {
+        "revision": "c8d698bed007e30d980136b2fcd56ffd10122414079de4d4de234a96fb0e6ac2",
+        "commit": "e974c078f0a73c52d2f28d16cd2e0326e3176e9e",
+        "date": "2026-09-27T23:42:36+02:00"
+      },
+      {
+        "revision": "42e8527ff3060de1dc9a8522d10385b74cf3183001e71a2e1692b7429fb955b3",
+        "commit": "de51a11e2af13bed2645a2749294d8ac7a417671",
+        "date": "2026-09-27T22:42:44+02:00"
+      },
+      {
+        "revision": "7911fd503a0ab267c3572996382e578b57babdd2204d736d7fad8d3d77b02525",
+        "commit": "25141d76ea27d79168182a8659449ac2ff371f97",
+        "date": "2026-09-27T22:27:43+02:00"
+      },
+      {
+        "revision": "5a778d257324280d39f7d15b0045c228e8a58ff6d6e521b874acd06707e99cd6",
+        "commit": "7b74f1668cb2798f94c32cb2904f7ef6a48de634",
+        "date": "2026-09-27T22:06:23+02:00"
+      },
+      {
+        "revision": "5419ce79cdd6c59b60c4a19c4c70a130873c16a79ca753bae8d28a1296f8d4f6",
+        "commit": "66614afaf15f088e545f0e8839e27e24f69946c6",
+        "date": "2026-09-27T21:33:45+02:00"
+      }
+    ],
+    "dialog": [
+      {
+        "revision": "df3f508da33912daed521965c147c37dde8f8c7e90a7c1eab4036f57de7b3d2a",
+        "commit": "2e16612f30339c038302ff71ac1882eb2e7d9edd",
+        "date": "2026-09-27T23:47:35+02:00"
+      },
+      {
+        "revision": "6780394a1a2d12cb2a32f6d9eb8f7af90a0b358f596f40c79a3ab2db077f2b08",
+        "commit": "e974c078f0a73c52d2f28d16cd2e0326e3176e9e",
+        "date": "2026-09-27T23:42:36+02:00"
+      },
+      {
+        "revision": "136acf5269a76660a6c5fb839bb53d1a60a993a85ff0b993d36de6ba684b0184",
+        "commit": "c9294ff46d05da3f28aeae7433c08d088e2ba122",
+        "date": "2026-09-27T23:02:51+02:00"
+      },
+      {
+        "revision": "9dfc11c94a0531b21323c168db9b81e801f0cacd58e9bfcefeb4e7893c962b9d",
+        "commit": "25141d76ea27d79168182a8659449ac2ff371f97",
+        "date": "2026-09-27T22:27:43+02:00"
+      },
+      {
+        "revision": "842af6dbbb8bcf70b8a57be77a9966a6bbb29d85164a7e2617080f97faee9ed1",
+        "commit": "7b74f1668cb2798f94c32cb2904f7ef6a48de634",
+        "date": "2026-09-27T22:06:23+02:00"
+      }
+    ],
+    "field": [
+      {
+        "revision": "399b030dd1c576c2f90716a56d05559fdfba230488e43bed64917ca9173cb430",
+        "commit": "2e16612f30339c038302ff71ac1882eb2e7d9edd",
+        "date": "2026-09-27T23:47:35+02:00"
+      },
+      {
+        "revision": "6374ec35e34606f3c01259830777f877c53d95e78fa344ad8bafe3d831f201c0",
+        "commit": "c9294ff46d05da3f28aeae7433c08d088e2ba122",
+        "date": "2026-09-27T23:02:51+02:00"
+      },
+      {
+        "revision": "8911dd8a767f340d02c7bea8ecea9ffec03973b31bfc98f29be448ffcae6847c",
+        "commit": "25141d76ea27d79168182a8659449ac2ff371f97",
+        "date": "2026-09-27T22:27:43+02:00"
+      }
+    ],
+    "form": [
+      {
+        "revision": "26f53f35405a85daf9f5ac9cd398c6a52887e17400c1913b8651ff9dd688a3bf",
+        "commit": "2e16612f30339c038302ff71ac1882eb2e7d9edd",
+        "date": "2026-09-27T23:47:35+02:00"
+      },
+      {
+        "revision": "97f5576973bfe188c898fce9bb1791cd5b987efc6abb42b0b97334953ea4dcb6",
+        "commit": "c9294ff46d05da3f28aeae7433c08d088e2ba122",
+        "date": "2026-09-27T23:02:51+02:00"
+      },
+      {
+        "revision": "34e7deb9f7e0aeeb7fd36120d20c890871eb92200f9ea2440a4fdb52681c866e",
+        "commit": "25141d76ea27d79168182a8659449ac2ff371f97",
+        "date": "2026-09-27T22:27:43+02:00"
+      }
+    ],
+    "icons": [
+      {
+        "revision": "8a25e0c4e797c32d669fe3271b7d10ed4906d97e81e01370ac57e8111c066bed",
+        "commit": "de8a4421e0d7ba95b8f1bba7f459e96558302f46",
+        "date": "2026-09-28T11:54:51+02:00"
+      },
+      {
+        "revision": "d4ef528eef15be1fa7a3217410cd8bd42c908ede1652336b9df98dcc23f97ce3",
+        "commit": "0089db83cdf60ad0ebd7e1cd0fce5196580ffe36",
+        "date": "2026-09-28T11:04:25+02:00"
+      },
+      {
+        "revision": "a1a8148cf658c9127181311e79da78c8e0a842c72d8871e2c51e47b9d3519c83",
+        "commit": "66a6cfd2a6ce810c088ddef5a256929621b0c11e",
+        "date": "2026-09-28T02:02:14+02:00"
+      },
+      {
+        "revision": "6343302c1c1942c976ec843749672f4a533051ec36524e233b9a4efaacc8dec7",
+        "commit": "25141d76ea27d79168182a8659449ac2ff371f97",
+        "date": "2026-09-27T22:27:43+02:00"
+      }
+    ],
+    "input": [
+      {
+        "revision": "1b95edd2aae7ce5ab2f917a8b80e77d02cd7a442e0f0532f3c8c37759692201e",
+        "commit": "2e16612f30339c038302ff71ac1882eb2e7d9edd",
+        "date": "2026-09-27T23:47:35+02:00"
+      },
+      {
+        "revision": "f424c64f2158f66485139fb71a0243f0d19fd6a6c5b1456433934c3a5abf4a0f",
+        "commit": "e974c078f0a73c52d2f28d16cd2e0326e3176e9e",
+        "date": "2026-09-27T23:42:36+02:00"
+      },
+      {
+        "revision": "0f12dd2632e4108488e36982bc51fd898789bef8b00240631ccfc77d0bf80da5",
+        "commit": "c9294ff46d05da3f28aeae7433c08d088e2ba122",
+        "date": "2026-09-27T23:02:51+02:00"
+      },
+      {
+        "revision": "37ffd683e13a16616a441b6d13e805f5f136595811ab635091d6a8f8f1a4c2e8",
+        "commit": "25141d76ea27d79168182a8659449ac2ff371f97",
+        "date": "2026-09-27T22:27:43+02:00"
+      }
+    ],
+    "switch": [
+      {
+        "revision": "d7ace0e52c92382ba218bb562842616e0adf583ed1a572048b7c3a25f0287a9d",
+        "commit": "2e16612f30339c038302ff71ac1882eb2e7d9edd",
+        "date": "2026-09-27T23:47:35+02:00"
+      },
+      {
+        "revision": "d3406737997f048068dadd14831b95751e6e045e9ba08c44cfb520cad3d2a1ac",
+        "commit": "c9294ff46d05da3f28aeae7433c08d088e2ba122",
+        "date": "2026-09-27T23:02:51+02:00"
+      },
+      {
+        "revision": "9089424522397762fd9d3b0cb7d130f1092d308ae08db5dc529693ff4b29a249",
+        "commit": "25141d76ea27d79168182a8659449ac2ff371f97",
+        "date": "2026-09-27T22:27:43+02:00"
+      }
+    ],
+    "dropdown-menu": [
+      {
+        "revision": "12ad57d9fea6c933a140524ceefbd7ca5d1f0804ed5efe29cb18d1610fce8546",
+        "commit": "2e16612f30339c038302ff71ac1882eb2e7d9edd",
+        "date": "2026-09-27T23:47:35+02:00"
+      },
+      {
+        "revision": "1d772f5c506442d149f42d48111f309c38f28e0918bebc156388ded19160de0a",
+        "commit": "e974c078f0a73c52d2f28d16cd2e0326e3176e9e",
+        "date": "2026-09-27T23:42:36+02:00"
+      },
+      {
+        "revision": "953c10e0af90ce17307d6394a937ffd9eec5eefc2f9929f480fc53869bbcb77f",
+        "commit": "c9294ff46d05da3f28aeae7433c08d088e2ba122",
+        "date": "2026-09-27T23:02:51+02:00"
+      },
+      {
+        "revision": "9c91c76de2b098a039b3bb734fcdf42b35583b320ebd98d143878a85e6770ed4",
+        "commit": "de51a11e2af13bed2645a2749294d8ac7a417671",
+        "date": "2026-09-27T22:42:44+02:00"
+      }
+    ],
+    "select": [
+      {
+        "revision": "50a80cde9ce3a8bb8384c0142f683789a4a16c20c4f94dde5939ef29a6f103e1",
+        "commit": "2e16612f30339c038302ff71ac1882eb2e7d9edd",
+        "date": "2026-09-27T23:47:35+02:00"
+      },
+      {
+        "revision": "a572df50293fcabc2b30e0c42ae1cc5f77b1d0fe2819871a5760eee4fc8b94eb",
+        "commit": "e974c078f0a73c52d2f28d16cd2e0326e3176e9e",
+        "date": "2026-09-27T23:42:36+02:00"
+      },
+      {
+        "revision": "b87af4f67e87733be162a96d0fe3331dc3dd01cdf36806d6d30ce0ce55ba1672",
+        "commit": "c9294ff46d05da3f28aeae7433c08d088e2ba122",
+        "date": "2026-09-27T23:02:51+02:00"
+      },
+      {
+        "revision": "2c69f2dc505c87ff542a1b80ccea1b4abe1ae5f057648ddff8ecb9a6d1000576",
+        "commit": "de51a11e2af13bed2645a2749294d8ac7a417671",
+        "date": "2026-09-27T22:42:44+02:00"
+      }
+    ],
+    "toast": [
+      {
+        "revision": "0e0cbef043771fe43e6fb97ec61c161ca767896a972bb3216bfbed328418f923",
+        "commit": "73c09e3ba5a92b9de22525b0f32ed743d240f185",
+        "date": "2026-09-28T10:33:58+02:00"
+      },
+      {
+        "revision": "b5ac942bb47269698e0dc56e6fb20321efbf5caa1fd22a6760a738b00be61c8e",
+        "commit": "9ffcd56f466f49ad8f51240d2d123f5927795c49",
+        "date": "2026-09-28T02:33:32+02:00"
+      },
+      {
+        "revision": "e4d707a894298d327f265a3c38e4ccf694b7ee461b6a47a5f85329538609cb69",
+        "commit": "0aef9a5c507d5e799a9d07f1800c9854907b7c35",
+        "date": "2026-09-28T02:19:48+02:00"
+      },
+      {
+        "revision": "e436952270397a797fdd49b52af43d6b320855270ef0bfd74685b25a13b7dd20",
+        "commit": "268fbc61135b8c7ac37cf1c79e5cc0fcf2aef32c",
+        "date": "2026-09-28T02:02:59+02:00"
+      },
+      {
+        "revision": "0b0b009f3687fd3883e8d14808b8a991d34e14ebd0884ff37ff21420c7ad9bff",
+        "commit": "66a6cfd2a6ce810c088ddef5a256929621b0c11e",
+        "date": "2026-09-28T02:02:14+02:00"
+      },
+      {
+        "revision": "f98f180b90faa74727420e6f735b5946b2b330f9d429ecd2303c1f0bc7063ed1",
+        "commit": "2e16612f30339c038302ff71ac1882eb2e7d9edd",
+        "date": "2026-09-27T23:47:35+02:00"
+      },
+      {
+        "revision": "d3efc1c2de64fe3fa674db8856d198aeaf4f263ad8daad2bd50d7b9bedfa0b6d",
+        "commit": "e974c078f0a73c52d2f28d16cd2e0326e3176e9e",
+        "date": "2026-09-27T23:42:36+02:00"
+      },
+      {
+        "revision": "87156e027783a8da5d857856f6fc18c7e7f81ad8e4d6c7727d62f208c66ca98e",
+        "commit": "c9294ff46d05da3f28aeae7433c08d088e2ba122",
+        "date": "2026-09-27T23:02:51+02:00"
+      },
+      {
+        "revision": "8fb788c9fba1243c295957520d5024cb0fb105dcaf2415441164a93f194f1f15",
+        "commit": "de51a11e2af13bed2645a2749294d8ac7a417671",
+        "date": "2026-09-27T22:42:44+02:00"
+      }
+    ],
+    "tooltip": [
+      {
+        "revision": "196b55341ca9ba159be8f32b888c5b0806e800dde13ff5cf0653e1de26b2f4c9",
+        "commit": "2e16612f30339c038302ff71ac1882eb2e7d9edd",
+        "date": "2026-09-27T23:47:35+02:00"
+      },
+      {
+        "revision": "d4738f8ec2a2bb43ba1cb9b580c5764ba2357b9fd2f588d503f72186f8f86a00",
+        "commit": "e974c078f0a73c52d2f28d16cd2e0326e3176e9e",
+        "date": "2026-09-27T23:42:36+02:00"
+      },
+      {
+        "revision": "ba6702dbb7bd8878303b228bbc2bb0884ce900e1b7f837d7f5990aacaf3efe9d",
+        "commit": "c9294ff46d05da3f28aeae7433c08d088e2ba122",
+        "date": "2026-09-27T23:02:51+02:00"
+      },
+      {
+        "revision": "9ac6cd89a10cdfe1565c4f3e091a256bf66908b2be82c79acf4fa5cdf1c07cfc",
+        "commit": "de51a11e2af13bed2645a2749294d8ac7a417671",
+        "date": "2026-09-27T22:42:44+02:00"
+      }
+    ],
+    "accordion": [
+      {
+        "revision": "ae3d45cdc6d9465217739d62133f0642072223cf4a2b5cdf88e96a9a6003f0f4",
+        "commit": "2e16612f30339c038302ff71ac1882eb2e7d9edd",
+        "date": "2026-09-27T23:47:35+02:00"
+      },
+      {
+        "revision": "132a461cc602c56e2a402f654e5742a55f7cdfc0b91409a576f1e16de3a319c2",
+        "commit": "e974c078f0a73c52d2f28d16cd2e0326e3176e9e",
+        "date": "2026-09-27T23:42:36+02:00"
+      },
+      {
+        "revision": "35e0eac1b18abacc18c815cb5fd333a002c734794736b38c4171e7b8bee70f3a",
+        "commit": "c9294ff46d05da3f28aeae7433c08d088e2ba122",
+        "date": "2026-09-27T23:02:51+02:00"
+      }
+    ],
+    "avatar": [
+      {
+        "revision": "4a21959ab547f131f5f55adeb0f5b16ac14d0a66b23caa0d7f89c53e20476868",
+        "commit": "0aef9a5c507d5e799a9d07f1800c9854907b7c35",
+        "date": "2026-09-28T02:19:48+02:00"
+      },
+      {
+        "revision": "bddb319748d091a15479d66275a2e2167d88f3ab33059b0ba89666a0d6fa5c47",
+        "commit": "2e16612f30339c038302ff71ac1882eb2e7d9edd",
+        "date": "2026-09-27T23:47:35+02:00"
+      },
+      {
+        "revision": "5190fb0f998a670862a348e21a49f60bea2c6e67fd18fb1b3adde4c592af0787",
+        "commit": "619d078c266a8bf6f8dd220f7c54bf2ced373842",
+        "date": "2026-09-27T23:21:39+02:00"
+      },
+      {
+        "revision": "53bb93e973b54bda6e193009ed604216ec162cb50cd3ab5c4ae03f945d17a76a",
+        "commit": "c9294ff46d05da3f28aeae7433c08d088e2ba122",
+        "date": "2026-09-27T23:02:51+02:00"
+      }
+    ],
+    "badge": [
+      {
+        "revision": "c0fb971595022574d32a859d4793c970004609da9deb6e6c9a4e24f5fc469c2c",
+        "commit": "e974c078f0a73c52d2f28d16cd2e0326e3176e9e",
+        "date": "2026-09-27T23:42:36+02:00"
+      },
+      {
+        "revision": "1a494d5da6588173d20436d5e77f783d5782b9b71f7aa2c079f730cb862084b4",
+        "commit": "c9294ff46d05da3f28aeae7433c08d088e2ba122",
+        "date": "2026-09-27T23:02:51+02:00"
+      }
+    ],
+    "card": [
+      {
+        "revision": "bfdc94b4981b1cc3ec3f7bdd4c226cfa1260377ac3c7fe104240ab4ae2cdec22",
+        "commit": "e974c078f0a73c52d2f28d16cd2e0326e3176e9e",
+        "date": "2026-09-27T23:42:36+02:00"
+      },
+      {
+        "revision": "eb74f6abd650fda489bdd906524b20b1e62f3223e11753d7b9b93b4975755543",
+        "commit": "c9294ff46d05da3f28aeae7433c08d088e2ba122",
+        "date": "2026-09-27T23:02:51+02:00"
+      }
+    ],
+    "progress": [
+      {
+        "revision": "76628059748aebeddf61f0d275a286edaa00067f04291da18d018254ba5c4f82",
+        "commit": "2e16612f30339c038302ff71ac1882eb2e7d9edd",
+        "date": "2026-09-27T23:47:35+02:00"
+      },
+      {
+        "revision": "90ce1cc89395d4cc7f73310d52af723d1c642e5160603856b9d55772637fb438",
+        "commit": "e974c078f0a73c52d2f28d16cd2e0326e3176e9e",
+        "date": "2026-09-27T23:42:36+02:00"
+      },
+      {
+        "revision": "61632f73ec6555c2905e1f7aab30ba101cc9443d22d4e94b5e34aebaccce3b95",
+        "commit": "c9294ff46d05da3f28aeae7433c08d088e2ba122",
+        "date": "2026-09-27T23:02:51+02:00"
+      }
+    ],
+    "separator": [
+      {
+        "revision": "4a95e94f1faa3c4291dcb459a56bb121c27e85a8e127e8f1749e5c0894bf8bb5",
+        "commit": "2e16612f30339c038302ff71ac1882eb2e7d9edd",
+        "date": "2026-09-27T23:47:35+02:00"
+      },
+      {
+        "revision": "f38d002a765a2b7c94ab04a6d0bb2cf321a623e9a5403565bf56fd033214cd59",
+        "commit": "c9294ff46d05da3f28aeae7433c08d088e2ba122",
+        "date": "2026-09-27T23:02:51+02:00"
+      }
+    ],
+    "skeleton": [
+      {
+        "revision": "7afdac9fd155d48a69d7d335e8462d2d52e5b98e7690bfec004ac46ccf19febc",
+        "commit": "e974c078f0a73c52d2f28d16cd2e0326e3176e9e",
+        "date": "2026-09-27T23:42:36+02:00"
+      },
+      {
+        "revision": "eab4be3d530936f7d98a8b483a50781ad837ed64e98b2acd5c1201513038f488",
+        "commit": "c9294ff46d05da3f28aeae7433c08d088e2ba122",
+        "date": "2026-09-27T23:02:51+02:00"
+      }
+    ],
+    "spinner": [
+      {
+        "revision": "0c715bcd6a75ed3f352adae0dca121826f88bff160cb543963b234fcd787b915",
+        "commit": "c9294ff46d05da3f28aeae7433c08d088e2ba122",
+        "date": "2026-09-27T23:02:51+02:00"
+      }
+    ],
+    "table": [
+      {
+        "revision": "e75bd7500cb6876acb1ce65ae610c0a2e2ff5434cd924c4cad04d489dbd536f3",
+        "commit": "c9294ff46d05da3f28aeae7433c08d088e2ba122",
+        "date": "2026-09-27T23:02:51+02:00"
+      }
+    ],
+    "tabs": [
+      {
+        "revision": "7ae6042f2af869d76614c27a15e567fa4ed58757fd3307cb73b526e67397de45",
+        "commit": "73c09e3ba5a92b9de22525b0f32ed743d240f185",
+        "date": "2026-09-28T10:33:58+02:00"
+      },
+      {
+        "revision": "1934b9bca3469973f866a9fb2557840d6e923fdbfa907e6deada36106b6b3077",
+        "commit": "2e16612f30339c038302ff71ac1882eb2e7d9edd",
+        "date": "2026-09-27T23:47:35+02:00"
+      },
+      {
+        "revision": "29b35288dd006a29b15d0cddd9ab3ebd12ec6366a62873684a0e81eca7a4c2aa",
+        "commit": "e974c078f0a73c52d2f28d16cd2e0326e3176e9e",
+        "date": "2026-09-27T23:42:36+02:00"
+      },
+      {
+        "revision": "aa9753769594f972484db31758e1609d4b04715d202f66eff7845903adec1dc9",
+        "commit": "c9294ff46d05da3f28aeae7433c08d088e2ba122",
+        "date": "2026-09-27T23:02:51+02:00"
+      }
+    ],
+    "utils": [
+      {
+        "revision": "94fd4082ca5a351bdb14336497347dcc0a227c48331cf9f69911ef20705ae625",
+        "commit": "c9294ff46d05da3f28aeae7433c08d088e2ba122",
+        "date": "2026-09-27T23:02:51+02:00"
+      }
+    ],
+    "login-form": [
+      {
+        "revision": "de9404473229484b72d1a6f6df55ea2e1fd35d49891c7d563331b7466d14c1c8",
+        "commit": "0089db83cdf60ad0ebd7e1cd0fce5196580ffe36",
+        "date": "2026-09-28T11:04:25+02:00"
+      }
+    ]
+  }
+}

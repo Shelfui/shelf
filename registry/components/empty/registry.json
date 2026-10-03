@@ -1,0 +1,14 @@
+{
+  "name": "empty",
+  "type": "component",
+  "description": "An empty state with media, a title, a description, and actions.",
+  "files": [
+    {
+      "path": "empty.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "utils"]
+}

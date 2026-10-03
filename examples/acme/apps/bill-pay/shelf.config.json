@@ -1,0 +1,12 @@
+{
+  "registry": "../../../../registry",
+  "project": "payments/bill-pay",
+  "paths": {
+    "components": "src/components/ui",
+    "foundations": "src/styles/shelf",
+    "lib": "src/lib/shelf"
+  },
+  "aliases": {
+    "@/*": "src/*"
+  }
+}

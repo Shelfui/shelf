@@ -1,0 +1,15 @@
+{
+  "name": "Shelf",
+  "id": "shelf-ui",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "editorType": ["figma"],
+  "documentAccess": "dynamic-page",
+  "enablePrivatePluginApi": true,
+  "networkAccess": {
+    "allowedDomains": ["*"],
+    "reasoning": "The plugin window is your Shelf registry site, at whatever URL you host it.",
+    "devAllowedDomains": ["http://127.0.0.1:4400", "http://localhost:4400"]
+  },
+  "relaunchButtons": [{ "command": "sync", "name": "Check for Shelf updates" }]
+}

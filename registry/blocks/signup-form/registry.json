@@ -1,0 +1,23 @@
+{
+  "name": "signup-form",
+  "type": "block",
+  "description": "A sign-up card with name, email, and password fields, a terms checkbox, and a pending state.",
+  "files": [
+    {
+      "path": "signup-form.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": [
+    "button",
+    "card",
+    "checkbox",
+    "field",
+    "form",
+    "foundations",
+    "input",
+    "spinner"
+  ]
+}

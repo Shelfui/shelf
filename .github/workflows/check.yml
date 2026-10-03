@@ -1,0 +1,45 @@
+name: Check
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      GIT_AUTHOR_NAME: shelf-ci
+      GIT_AUTHOR_EMAIL: ci@shelf.invalid
+      GIT_COMMITTER_NAME: shelf-ci
+      GIT_COMMITTER_EMAIL: ci@shelf.invalid
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: oven-sh/setup-bun@v2
+      - uses: actions/cache@v4
+        with:
+          path: ~/.bun/install/cache
+          key: bun-${{ runner.os }}-${{ hashFiles('**/bun.lock') }}
+          restore-keys: bun-${{ runner.os }}-
+      - run: bun install --frozen-lockfile
+      - run: bunx playwright install --with-deps chromium
+      - run: bun run check
+      # The apps install the CLI from packages/cli, including its built dist/.
+      - run: bun run --cwd packages/cli build
+      - name: apps/registry
+        run: bun install --frozen-lockfile && bun run check
+        working-directory: apps/registry
+      - name: apps/example
+        run: bun install --frozen-lockfile && bun run check
+        working-directory: apps/example
+      - name: apps/web
+        run: bun install --frozen-lockfile && bun run check
+        working-directory: apps/web
