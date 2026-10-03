@@ -43,11 +43,15 @@ export const colors = stylex.defineVars({
   chart6: "oklch(0.56 0.19 28)",
 });
 
-/** Load the typefaces with `fonts.css`. */
+/**
+ * Typefaces. `fonts.css` loads the defaults. To use your own, define `--font-sans` and
+ * `--font-mono` (with next/font: `variable: "--font-sans"`), or edit these two values.
+ */
 export const typography = stylex.defineVars({
-  fontFamily: '"Geist Variable", ui-sans-serif, system-ui, sans-serif',
+  fontFamily: 'var(--font-sans, "Geist Variable"), ui-sans-serif, system-ui, sans-serif',
   /** Code, keyboard keys, and one-time codes. */
-  fontFamilyMono: '"Geist Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace',
+  fontFamilyMono:
+    'var(--font-mono, "Geist Mono Variable"), ui-monospace, SFMono-Regular, Menlo, monospace',
   fontSizeXs: "0.75rem",
   lineHeightXs: "1rem",
   fontSizeSm: "0.875rem",

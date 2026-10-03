@@ -100,7 +100,7 @@ export const SANS_FONTS: Font[] = [
   {
     name: "geist",
     title: "Geist",
-    stack: `"Geist Variable", ${sansFallback}`,
+    stack: `var(--font-geist), ${sansFallback}`,
     code: `"Geist Variable", ${sansFallback}`,
     package: "@fontsource-variable/geist",
     imports: ["@fontsource-variable/geist"],
@@ -126,7 +126,7 @@ export const MONO_FONTS: Font[] = [
   {
     name: "geist-mono",
     title: "Geist Mono",
-    stack: `"Geist Mono Variable", ${monoFallback}`,
+    stack: `var(--font-geist-mono), ${monoFallback}`,
     code: `"Geist Mono Variable", ${monoFallback}`,
     package: "@fontsource-variable/geist-mono",
     imports: ["@fontsource-variable/geist-mono"],

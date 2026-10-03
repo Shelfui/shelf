@@ -77,6 +77,16 @@ export default function Installation() {
         </Prose>
       </Section>
 
+      <Section title="Use your own fonts">
+        <Prose>
+          Foundations read the typefaces from <Code>--font-sans</Code> and <Code>--font-mono</Code>,
+          and fall back to Geist from <Code>fonts.css</Code>. With <Code>next/font</Code>, set{" "}
+          <Code>{'variable: "--font-sans"'}</Code> on your font and add its variable class to{" "}
+          <Code>&lt;html&gt;</Code>. Then delete <Code>fonts.css</Code> and its import. No Shelf
+          file needs editing.
+        </Prose>
+      </Section>
+
       <Section title="Check your install">
         <Command args="check" />
         <Prose>

@@ -81,14 +81,14 @@
           "source": "themes.ts"
         },
         "src/styles/shelf/tokens.stylex.ts": {
-          "baseHash": "6251074b08c0898ebf8cacd3dd8f87b6db119d51529c7fdf0452655d92d50450",
+          "baseHash": "f3d4ce8d82770b1cc6eeeb0ba0f03e0ded8c80f8029feeac87e2f6a4b2b7e9d2",
           "source": "tokens.stylex.ts"
         }
       },
-      "installedAt": "2026-09-28T13:26:10.467Z",
+      "installedAt": "2026-10-03T09:47:50.346Z",
       "path": "foundations",
       "registry": "../../registry",
-      "revision": "96c2fe0f63e5ccbb35136597c585934b78428dcd4eb60895cb3ba0c1bcf6147c",
+      "revision": "0bda5fe46c126b474addfeb723fd9a5b409e92c62e8f3b029e031805ae365c9a",
       "shelfDependencies": [],
       "type": "foundation"
     },
