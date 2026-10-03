@@ -1,0 +1,11 @@
+{
+  "name": "chart-line",
+  "type": "component",
+  "description": "A line chart for change over a range, with one or more series.",
+  "files": [{ "path": "chart-line.tsx" }],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1",
+    "recharts": "3.10.1"
+  },
+  "shelfDependencies": ["chart", "foundations"]
+}

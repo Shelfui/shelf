@@ -1,4 +1,14 @@
 {
-  "button": { "js": 73455, "css": 3350 },
-  "button+dialog": { "js": 93474, "css": 3950 }
+  "button": {
+    "js": 73455,
+    "css": 3350
+  },
+  "button+dialog": {
+    "js": 93474,
+    "css": 4154
+  },
+  "area-chart": {
+    "js": 160080,
+    "css": 3500
+  }
 }

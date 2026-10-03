@@ -32,15 +32,19 @@ export const colors = stylex.defineVars({
   /** Covers the page behind modal surfaces such as dialogs. */
   overlay: "rgb(0 0 0 / 40%)",
   /**
-   * Data series, in order: blue, orange, purple, green, cyan, red. Distinguishable with common
-   * color vision deficiencies, and 3:1 against `background` and `card`.
+   * Data series, in order, from strongest to faintest. Monochrome by default: tell series apart
+   * with the `pattern` prop (solid, hatch, dots), or override these for a colored palette.
    */
-  chart1: "oklch(0.55 0.15 250)",
-  chart2: "oklch(0.62 0.16 55)",
-  chart3: "oklch(0.55 0.17 330)",
-  chart4: "oklch(0.56 0.12 160)",
-  chart5: "oklch(0.58 0.1 210)",
-  chart6: "oklch(0.56 0.19 28)",
+  chart1: "oklch(0.2 0 0)",
+  chart2: "oklch(0.42 0 0)",
+  chart3: "oklch(0.58 0 0)",
+  chart4: "oklch(0.7 0 0)",
+  chart5: "oklch(0.8 0 0)",
+  chart6: "oklch(0.88 0 0)",
+  /** Gridlines behind a chart. Quieter than `border`, still 1.5:1 against `background`. */
+  chartGrid: "#d4d4d4",
+  /** The band or line that follows the pointer across a chart. */
+  chartCursor: "rgb(0 0 0 / 5%)",
 });
 
 /**

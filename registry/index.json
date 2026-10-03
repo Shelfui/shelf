@@ -19,6 +19,12 @@
       "path": "components/alert-dialog"
     },
     {
+      "name": "analytics-dashboard",
+      "type": "block",
+      "description": "An analytics page with headline figures and sparklines, revenue over time, orders by channel, and a heatmap of when customers buy.",
+      "path": "blocks/analytics-dashboard"
+    },
+    {
       "name": "aspect-ratio",
       "type": "component",
       "description": "A box that keeps a width-to-height ratio, filled by its content.",
@@ -79,6 +85,84 @@
       "path": "components/carousel"
     },
     {
+      "name": "chart",
+      "type": "component",
+      "description": "The shared parts of every chart: frame, grid, axes, tooltip, and a legend that hides series.",
+      "path": "components/chart"
+    },
+    {
+      "name": "chart-area",
+      "type": "component",
+      "description": "An area chart for trends over a range, with a soft fill under each line.",
+      "path": "components/chart-area"
+    },
+    {
+      "name": "chart-bar",
+      "type": "component",
+      "description": "A bar chart for comparing values across categories, grouped, stacked, or horizontal.",
+      "path": "components/chart-bar"
+    },
+    {
+      "name": "chart-card",
+      "type": "block",
+      "description": "A card with a headline figure, its change, a date range switch, and an area chart.",
+      "path": "blocks/chart-card"
+    },
+    {
+      "name": "chart-funnel",
+      "type": "component",
+      "description": "A funnel chart for drop-off through ordered steps.",
+      "path": "components/chart-funnel"
+    },
+    {
+      "name": "chart-heatmap",
+      "type": "component",
+      "description": "A heatmap for intensity across two categories, as an accessible table of tinted cells.",
+      "path": "components/chart-heatmap"
+    },
+    {
+      "name": "chart-line",
+      "type": "component",
+      "description": "A line chart for change over a range, with one or more series.",
+      "path": "components/chart-line"
+    },
+    {
+      "name": "chart-pie",
+      "type": "component",
+      "description": "A pie or donut chart for the parts of a whole, with an optional total in the middle.",
+      "path": "components/chart-pie"
+    },
+    {
+      "name": "chart-radar",
+      "type": "component",
+      "description": "A radar chart for comparing a few series across the same axes.",
+      "path": "components/chart-radar"
+    },
+    {
+      "name": "chart-radial",
+      "type": "component",
+      "description": "A radial chart for progress toward a goal, or a few values on concentric rings.",
+      "path": "components/chart-radial"
+    },
+    {
+      "name": "chart-sankey",
+      "type": "component",
+      "description": "A sankey chart for flow between stages.",
+      "path": "components/chart-sankey"
+    },
+    {
+      "name": "chart-scatter",
+      "type": "component",
+      "description": "A scatter chart for how two measures relate, with optional dot size for a third.",
+      "path": "components/chart-scatter"
+    },
+    {
+      "name": "chart-treemap",
+      "type": "component",
+      "description": "A treemap for sizes within a whole, as nested rectangles.",
+      "path": "components/chart-treemap"
+    },
+    {
       "name": "checkbox",
       "type": "component",
       "description": "A checkbox with checked, unchecked, and indeterminate states.",
@@ -117,7 +201,7 @@
     {
       "name": "dashboard-overview",
       "type": "block",
-      "description": "A dashboard home with headline stats, progress toward goals, and recent invoices.",
+      "description": "A dashboard home with headline stats, a revenue chart, progress toward goals, and recent invoices.",
       "path": "blocks/dashboard-overview"
     },
     {
@@ -371,6 +455,12 @@
       "type": "component",
       "description": "A draggable input for a single value or a range.",
       "path": "components/slider"
+    },
+    {
+      "name": "sparkline",
+      "type": "component",
+      "description": "A tiny line with no axes, for a table cell or a stat.",
+      "path": "components/sparkline"
     },
     {
       "name": "spinner",

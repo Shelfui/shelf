@@ -4,6 +4,8 @@ export interface ComponentDoc {
   description: string;
   useWhen: string;
   avoidWhen: string;
+  /** Components in a group appear under that group in the docs sidebar. */
+  group?: "charts";
   /** More demos, each in `src/demos/examples/<component>-<name>.tsx`. */
   examples?: ComponentExample[];
 }
@@ -188,6 +190,109 @@ export const components: ComponentDoc[] = [
     avoidWhen: "The content matters to everyone; put it on the page instead of behind a swipe.",
     description:
       "A slideshow built on Embla, composed from Root, Content, Item, Previous, and Next.",
+  },
+  {
+    name: "chart",
+    title: "Chart",
+    group: "charts",
+    useWhen: "Building any chart, or changing how every chart looks and reads.",
+    avoidWhen: "You only need one chart type; start from that chart's page.",
+    description:
+      "The shared parts of every chart: frame, grid, axes, tooltip, and a legend that hides series.",
+  },
+  {
+    name: "chart-area",
+    title: "Area Chart",
+    group: "charts",
+    useWhen: "Trends over a continuous range, such as revenue by month, where volume matters.",
+    avoidWhen:
+      "Exact values matter more than shape; use a table, or a Line Chart for several close series.",
+    description: "An area chart for trends over a range, with a soft fill under each line.",
+  },
+  {
+    name: "chart-bar",
+    title: "Bar Chart",
+    group: "charts",
+    useWhen: "Comparing values across categories, grouped, stacked, or horizontal.",
+    avoidWhen:
+      "There are many categories with long names on a narrow screen, or parts of a whole; use a horizontal bar or Pie Chart.",
+    description:
+      "A bar chart for comparing values across categories, grouped, stacked, or horizontal.",
+  },
+  {
+    name: "chart-funnel",
+    title: "Funnel Chart",
+    group: "charts",
+    useWhen: "Drop-off through ordered steps, such as visit, signup, purchase.",
+    avoidWhen: "The steps are not ordered or do not narrow; use a Bar Chart.",
+    description: "A funnel chart for drop-off through ordered steps.",
+  },
+  {
+    name: "chart-heatmap",
+    title: "Heatmap",
+    group: "charts",
+    useWhen: "Intensity across two categories, such as orders by weekday and hour.",
+    avoidWhen: "There are only a few values; use a table or Bar Chart.",
+    description:
+      "A heatmap for intensity across two categories, as an accessible table of tinted cells.",
+  },
+  {
+    name: "chart-line",
+    title: "Line Chart",
+    group: "charts",
+    useWhen:
+      "Change over a range where the line matters more than the area, or several series that overlap.",
+    avoidWhen: "Parts of a whole over time; use stacked Area Chart.",
+    description: "A line chart for change over a range, with one or more series.",
+  },
+  {
+    name: "chart-pie",
+    title: "Pie Chart",
+    group: "charts",
+    useWhen: "The parts of a whole, for up to six slices, with a total in the middle of a donut.",
+    avoidWhen: "More than six slices, or slices that are close in size; use a Bar Chart.",
+    description:
+      "A pie or donut chart for the parts of a whole, with an optional total in the middle.",
+  },
+  {
+    name: "chart-radar",
+    title: "Radar Chart",
+    group: "charts",
+    useWhen: "Comparing a few series across five to eight shared axes.",
+    avoidWhen: "Fewer than five axes, or axes that are not comparable; use a Bar Chart.",
+    description: "A radar chart for comparing a few series across the same axes.",
+  },
+  {
+    name: "chart-radial",
+    title: "Radial Chart",
+    group: "charts",
+    useWhen: "Progress toward a goal, or a few values on concentric rings.",
+    avoidWhen: "A single value in a range; Meter or Progress is simpler.",
+    description: "A radial chart for progress toward a goal, or a few values on concentric rings.",
+  },
+  {
+    name: "chart-sankey",
+    title: "Sankey Chart",
+    group: "charts",
+    useWhen: "Flow between stages, such as visitors to signups to paid.",
+    avoidWhen: "There is no flow between stages; use a Bar Chart or Funnel Chart.",
+    description: "A sankey chart for flow between stages.",
+  },
+  {
+    name: "chart-scatter",
+    title: "Scatter Chart",
+    group: "charts",
+    useWhen: "How two measures relate, one dot per item, with dot size for a third.",
+    avoidWhen: "Categories on one axis; use a Bar Chart.",
+    description: "A scatter chart for how two measures relate, with optional dot size for a third.",
+  },
+  {
+    name: "chart-treemap",
+    title: "Treemap",
+    group: "charts",
+    useWhen: "Sizes within a whole, as nested rectangles, such as storage by folder.",
+    avoidWhen: "Precise comparison; areas are harder to compare than bars.",
+    description: "A treemap for sizes within a whole, as nested rectangles.",
   },
   {
     name: "checkbox",
@@ -529,6 +634,14 @@ export const components: ComponentDoc[] = [
     useWhen: "Choosing an approximate value in a range, such as volume.",
     avoidWhen: "The exact value matters; use Number Field.",
     description: "A draggable input for a single value or a range.",
+  },
+  {
+    name: "sparkline",
+    title: "Sparkline",
+    group: "charts",
+    useWhen: "A tiny trend beside a number, in a stat or a table row.",
+    avoidWhen: "The values themselves matter; use an Area Chart or Line Chart with axes.",
+    description: "A tiny line with no axes, for a table cell or a stat.",
   },
   {
     name: "spinner",

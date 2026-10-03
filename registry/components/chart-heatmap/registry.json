@@ -1,0 +1,17 @@
+{
+  "name": "chart-heatmap",
+  "type": "component",
+  "description": "A heatmap for intensity across two categories, as an accessible table of tinted cells.",
+  "files": [
+    {
+      "path": "chart-heatmap.tsx"
+    },
+    {
+      "path": "heatmap-levels.ts"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["chart", "foundations", "utils"]
+}

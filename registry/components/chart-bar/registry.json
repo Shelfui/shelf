@@ -1,0 +1,11 @@
+{
+  "name": "chart-bar",
+  "type": "component",
+  "description": "A bar chart for comparing values across categories, grouped, stacked, or horizontal.",
+  "files": [{ "path": "chart-bar.tsx" }],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1",
+    "recharts": "3.10.1"
+  },
+  "shelfDependencies": ["chart", "foundations"]
+}

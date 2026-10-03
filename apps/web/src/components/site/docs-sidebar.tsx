@@ -17,10 +17,24 @@ export function DocsSidebar() {
           ))}
           <Group
             title="Components"
-            links={components.map((component) => ({
-              href: `/docs/components/${component.name}`,
-              title: component.title,
-            }))}
+            links={components
+              .filter((component) => component.group !== "charts")
+              .map((component) => ({
+                href: `/docs/components/${component.name}`,
+                title: component.title,
+              }))}
+          />
+          <Group
+            title="Charts"
+            links={[
+              { href: "/docs/charts", title: "Overview" },
+              ...components
+                .filter((component) => component.group === "charts")
+                .map((component) => ({
+                  href: `/docs/components/${component.name}`,
+                  title: component.title,
+                })),
+            ]}
           />
         </nav>
       </ScrollArea>

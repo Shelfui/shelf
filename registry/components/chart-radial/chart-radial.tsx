@@ -1,0 +1,75 @@
+"use client";
+
+import { type ComponentProps } from "react";
+import {
+  Cell,
+  RadialBar as RechartsRadialBar,
+  RadialBarChart as RechartsRadialBarChart,
+} from "recharts";
+import { colors } from "../../foundations/tokens.stylex";
+import { type ChartProps, Root, frameProps, seriesColors, splitFrameProps } from "../chart/chart";
+
+export type RadialChartProps = ChartProps<ComponentProps<typeof RechartsRadialBarChart>>;
+
+/**
+ * Progress toward a goal, or a few values on concentric rings. Compose the parts:
+ *
+ *   <RadialChart aria-label="Storage used" data={[{ name: "Used", value: 72 }]} startAngle={90} endAngle={-270}>
+ *     <RadialBar dataKey="value" max={100} />
+ *   </RadialChart>
+ *
+ * For a single value in a known range, Meter or Progress is often simpler.
+ */
+export function RadialChart({ children, aspect = 1, ...props }: RadialChartProps) {
+  const { frame, chart } = splitFrameProps({ aspect, ...props });
+  return (
+    <Root {...frame} empty={props.data?.length === 0}>
+      <RechartsRadialBarChart
+        responsive
+        innerRadius="65%"
+        outerRadius="100%"
+        {...frameProps}
+        {...chart}
+      >
+        {children}
+      </RechartsRadialBarChart>
+    </Root>
+  );
+}
+
+export interface RadialBarProps extends Omit<
+  ComponentProps<typeof RechartsRadialBar>,
+  "dataKey" | "fill" | "background" | "children"
+> {
+  /** The key in each data item that holds its value. */
+  dataKey: string;
+  /** Ring colors, in data order. Defaults to the series colors. */
+  ringColors?: readonly string[];
+  /** The value that fills a ring all the way. Defaults to the largest value. */
+  max?: number;
+  /** The data, needed to color one ring per item. */
+  data?: ReadonlyArray<unknown>;
+}
+
+/** The rings. */
+export function RadialBar({
+  dataKey,
+  ringColors = seriesColors,
+  max,
+  data = [],
+  ...props
+}: RadialBarProps) {
+  return (
+    <RechartsRadialBar
+      dataKey={dataKey}
+      cornerRadius={8}
+      background={{ fill: colors.muted }}
+      {...(max === undefined ? {} : { max })}
+      {...props}
+    >
+      {data.map((_, index) => (
+        <Cell key={index} fill={ringColors[index % ringColors.length] ?? seriesColors[0]} />
+      ))}
+    </RechartsRadialBar>
+  );
+}

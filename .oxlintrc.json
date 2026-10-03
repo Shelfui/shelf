@@ -40,6 +40,10 @@
           {
             "name": "lucide-react",
             "message": "Import icons from the Shelf icons item (components/icons/icons.tsx) so users can swap the icon library in one file."
+          },
+          {
+            "name": "recharts",
+            "message": "Import chart parts from the Shelf chart items (components/chart*), so a Recharts change is fixed in one file you own."
           }
         ]
       }
@@ -58,6 +62,42 @@
       "files": ["registry/components/icons/icons.tsx"],
       "rules": {
         "no-restricted-imports": "off"
+      }
+    },
+    {
+      "files": ["registry/components/chart*/*.tsx", "registry/components/sparkline/*.tsx"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "paths": [
+              {
+                "name": "lucide-react",
+                "message": "Import icons from the Shelf icons item (components/icons/icons.tsx) so users can swap the icon library in one file."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["registry/**/*.stories.tsx"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "paths": [
+              {
+                "name": "lucide-react",
+                "message": "Import icons from the Shelf icons item (components/icons/icons.tsx) so users can swap the icon library in one file."
+              },
+              {
+                "name": "recharts",
+                "message": "Import chart parts from the Shelf chart items (components/chart*), so a Recharts change is fixed in one file you own."
+              }
+            ]
+          }
+        ]
       }
     }
   ]

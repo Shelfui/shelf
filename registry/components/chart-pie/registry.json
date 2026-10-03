@@ -1,0 +1,11 @@
+{
+  "name": "chart-pie",
+  "type": "component",
+  "description": "A pie or donut chart for the parts of a whole, with an optional total in the middle.",
+  "files": [{ "path": "chart-pie.tsx" }],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1",
+    "recharts": "3.10.1"
+  },
+  "shelfDependencies": ["chart", "foundations"]
+}

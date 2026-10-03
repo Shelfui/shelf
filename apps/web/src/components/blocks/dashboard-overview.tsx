@@ -1,6 +1,8 @@
 import * as stylex from "@stylexjs/stylex";
 import { Badge, type BadgeVariant } from "@/components/ui/badge";
 import * as Card from "@/components/ui/card";
+import * as Chart from "@/components/ui/chart";
+import { Area, AreaChart } from "@/components/ui/chart-area";
 import { Progress } from "@/components/ui/progress";
 import * as Table from "@/components/ui/table";
 import { colors, spacing, typography } from "@/styles/shelf/tokens.stylex";
@@ -10,6 +12,15 @@ const STATS = [
   { label: "Outstanding", value: "$12,480.00", change: "+3.1%", up: false },
   { label: "Customers", value: "1,284", change: "+48", up: true },
   { label: "Avg. days to pay", value: "18", change: "−2", up: true },
+];
+
+const REVENUE = [
+  { month: "Jan", revenue: 18600 },
+  { month: "Feb", revenue: 20500 },
+  { month: "Mar", revenue: 23700 },
+  { month: "Apr", revenue: 22100 },
+  { month: "May", revenue: 27800 },
+  { month: "Jun", revenue: 31400 },
 ];
 
 const GOALS = [
@@ -66,6 +77,23 @@ export function DashboardOverview() {
           </li>
         ))}
       </ul>
+      <Card.Root>
+        <Card.Header>
+          <Card.Title>Revenue</Card.Title>
+          <Card.Description>Revenue by month this year.</Card.Description>
+        </Card.Header>
+        <Card.Content>
+          <AreaChart aria-label="Revenue by month" data={REVENUE} aspect={3}>
+            <Chart.Grid />
+            <Chart.XAxis dataKey="month" />
+            <Chart.YAxis format={{ notation: "compact", style: "currency", currency: "USD" }} />
+            <Chart.Tooltip
+              format={{ style: "currency", currency: "USD", maximumFractionDigits: 0 }}
+            />
+            <Area dataKey="revenue" name="Revenue" />
+          </AreaChart>
+        </Card.Content>
+      </Card.Root>
       <div {...stylex.props(styles.panels)}>
         <Card.Root style={styles.recent}>
           <Card.Header>

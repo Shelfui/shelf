@@ -1,4 +1,17 @@
 import type { ComponentType } from "react";
+import ChartDemo from "./chart";
+import ChartAreaDemo from "./chart-area";
+import ChartBarDemo from "./chart-bar";
+import ChartFunnelDemo from "./chart-funnel";
+import ChartHeatmapDemo from "./chart-heatmap";
+import ChartLineDemo from "./chart-line";
+import ChartPieDemo from "./chart-pie";
+import ChartRadarDemo from "./chart-radar";
+import ChartRadialDemo from "./chart-radial";
+import ChartSankeyDemo from "./chart-sankey";
+import ChartScatterDemo from "./chart-scatter";
+import ChartTreemapDemo from "./chart-treemap";
+import SparklineDemo from "./sparkline";
 import AccordionDemo from "./accordion";
 import AlertDemo from "./alert";
 import AlertDialogDemo from "./alert-dialog";
@@ -65,6 +78,19 @@ import TypographyDemo from "./typography";
 
 /** Each component's demo, by registry name. The docs read the same files as source. */
 export const demos: Record<string, ComponentType> = {
+  chart: ChartDemo,
+  "chart-area": ChartAreaDemo,
+  "chart-bar": ChartBarDemo,
+  "chart-funnel": ChartFunnelDemo,
+  "chart-heatmap": ChartHeatmapDemo,
+  "chart-line": ChartLineDemo,
+  "chart-pie": ChartPieDemo,
+  "chart-radar": ChartRadarDemo,
+  "chart-radial": ChartRadialDemo,
+  "chart-sankey": ChartSankeyDemo,
+  "chart-scatter": ChartScatterDemo,
+  "chart-treemap": ChartTreemapDemo,
+  sparkline: SparklineDemo,
   accordion: AccordionDemo,
   alert: AlertDemo,
   "alert-dialog": AlertDialogDemo,

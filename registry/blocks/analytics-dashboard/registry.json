@@ -1,0 +1,20 @@
+{
+  "name": "analytics-dashboard",
+  "type": "block",
+  "description": "An analytics page with headline figures and sparklines, revenue over time, orders by channel, and a heatmap of when customers buy.",
+  "files": [{ "path": "analytics-dashboard.tsx" }],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": [
+    "badge",
+    "card",
+    "chart",
+    "chart-area",
+    "chart-bar",
+    "chart-heatmap",
+    "chart-pie",
+    "foundations",
+    "sparkline"
+  ]
+}

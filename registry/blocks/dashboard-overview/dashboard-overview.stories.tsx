@@ -21,6 +21,8 @@ export const Default = meta.story({
       "72",
     );
 
+    await expect(canvas.getByRole("group", { name: "Revenue by month" })).toBeVisible();
+
     const table = canvas.getByRole("table", { name: "Recent invoices" });
     await expect(within(table).getAllByRole("row")).toHaveLength(6);
   },

@@ -463,6 +463,38 @@ describe("external consumer", () => {
   );
 
   test(
+    "an area chart ships only the chart parts it uses and stays within budget",
+    async () => {
+      const app = await read("src/App.tsx");
+      await writeFile(
+        path.join(dir, "src/App.tsx"),
+        `import * as Chart from "./components/ui/chart";\nimport { Area, AreaChart } from "./components/ui/chart-area";\n\nconst data = [\n  { x: "a", y: 1 },\n  { x: "b", y: 2 },\n];\n\nexport function App() {\n  return (\n    <AreaChart aria-label="Demo" data={data}>\n      <Chart.XAxis dataKey="x" />\n      <Area dataKey="y" />\n    </AreaChart>\n  );\n}\n`,
+      );
+      try {
+        const { js, sizes } = await bundle();
+        expect(js).toContain("recharts-area");
+        // Charts the app does not use are not bundled.
+        expect(js).not.toContain("recharts-sankey");
+        expect(js).not.toContain("recharts-treemap");
+
+        const budget = asRecord(
+          asRecord(JSON.parse(await readFile(BUDGETS, "utf8")))["area-chart"],
+        );
+        for (const kind of ["js", "css"] as const) {
+          const limit = Math.round(Number(budget[kind]) * (1 + BUDGET_SLACK));
+          expect(
+            sizes[kind],
+            `area-chart ${kind} is ${sizes[kind]} B gzipped, over its ${String(budget[kind])} B budget (+${BUDGET_SLACK * 100}%). If the growth is intended, update ${path.relative(REPO_ROOT, BUDGETS)}.`,
+          ).toBeLessThanOrEqual(limit);
+        }
+      } finally {
+        await writeFile(path.join(dir, "src/App.tsx"), app);
+      }
+    },
+    TIMEOUT,
+  );
+
+  test(
     "removing Shelf tooling leaves a working app",
     async () => {
       await rm(path.join(dir, ".shelf"), { recursive: true });

@@ -41,7 +41,8 @@
     "react": "19.3.0",
     "react-day-picker": "^10.0.1",
     "react-dom": "19.3.0",
-    "react-resizable-panels": "^4.14.1"
+    "react-resizable-panels": "^4.14.1",
+    "recharts": "3.10.1"
   },
   "devDependencies": {
     "@changesets/cli": "3.0.3",

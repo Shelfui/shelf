@@ -63,6 +63,33 @@
       ],
       "type": "component"
     },
+    "analytics-dashboard": {
+      "dependencies": {
+        "@stylexjs/stylex": "^0.19.1"
+      },
+      "files": {
+        "src/components/blocks/analytics-dashboard.tsx": {
+          "baseHash": "100c7317ded4672225b57626b1ccc0acb7e56ad4a0bc472bbe18f28b9877fae8",
+          "source": "analytics-dashboard.tsx"
+        }
+      },
+      "installedAt": "2026-10-03T10:27:52.292Z",
+      "path": "blocks/analytics-dashboard",
+      "registry": "../../registry",
+      "revision": "2bf59ecf1f86ffe36e3a3bcf34140e4786a4cc3eaefb44b97211c813cbabb083",
+      "shelfDependencies": [
+        "badge",
+        "card",
+        "chart",
+        "chart-area",
+        "chart-bar",
+        "chart-heatmap",
+        "chart-pie",
+        "foundations",
+        "sparkline"
+      ],
+      "type": "block"
+    },
     "aspect-ratio": {
       "dependencies": {
         "@stylexjs/stylex": "^0.19.1"
@@ -272,6 +299,291 @@
       ],
       "type": "component"
     },
+    "chart": {
+      "dependencies": {
+        "@stylexjs/stylex": "^0.19.1",
+        "recharts": "3.10.1"
+      },
+      "files": {
+        "src/components/ui/chart-format.ts": {
+          "baseHash": "88ca5ff70b3c3f30cb3a7de5aa92f2b0700ad0e9a0e9aef1bb465e660cf447d8",
+          "source": "chart-format.ts"
+        },
+        "src/components/ui/chart.tsx": {
+          "baseHash": "0af228c57902b5497d235e56200299f0b1be726aaaf1636ad5ec3dc239de9933",
+          "source": "chart.tsx"
+        }
+      },
+      "installedAt": "2026-10-03T10:46:15.262Z",
+      "path": "components/chart",
+      "registry": "../../registry",
+      "revision": "ecb9f7b0fdbefcc9247ccd6caca8523ab5ed332d7d6e6cb4fb4c4f6f26d8fe2f",
+      "shelfDependencies": [
+        "foundations",
+        "utils"
+      ],
+      "type": "component"
+    },
+    "chart-area": {
+      "dependencies": {
+        "@stylexjs/stylex": "^0.19.1",
+        "recharts": "3.10.1"
+      },
+      "files": {
+        "src/components/ui/chart-area.tsx": {
+          "baseHash": "403bd5bab46ea010c264c0c859b12d0d85971b99897e03628d010ea0c4aef78b",
+          "source": "chart-area.tsx"
+        }
+      },
+      "installedAt": "2026-10-03T10:46:15.262Z",
+      "path": "components/chart-area",
+      "registry": "../../registry",
+      "revision": "a3cb8cf9a724ce1c3433c91c36a7f393b07f0ffbb89595ebbd45eb21b66b5bef",
+      "shelfDependencies": [
+        "chart",
+        "foundations"
+      ],
+      "type": "component"
+    },
+    "chart-bar": {
+      "dependencies": {
+        "@stylexjs/stylex": "^0.19.1",
+        "recharts": "3.10.1"
+      },
+      "files": {
+        "src/components/ui/chart-bar.tsx": {
+          "baseHash": "68b48efd2644b83a00e9e74954c80270709d974ec28712a345911ac109c66c07",
+          "source": "chart-bar.tsx"
+        }
+      },
+      "installedAt": "2026-10-03T10:46:15.262Z",
+      "path": "components/chart-bar",
+      "registry": "../../registry",
+      "revision": "f75814420488feb70dd4c9435870f01930562b21b426fe7b234f2165e89f70d8",
+      "shelfDependencies": [
+        "chart",
+        "foundations"
+      ],
+      "type": "component"
+    },
+    "chart-card": {
+      "dependencies": {
+        "@stylexjs/stylex": "^0.19.1"
+      },
+      "files": {
+        "src/components/blocks/chart-card.tsx": {
+          "baseHash": "1914b5f3e4e91eb5e0e1c95aac70d971f7b4fdac425084dfec60bd728d943614",
+          "source": "chart-card.tsx"
+        }
+      },
+      "installedAt": "2026-10-03T10:27:52.292Z",
+      "path": "blocks/chart-card",
+      "registry": "../../registry",
+      "revision": "6d59d4e0b0341d24bcec45fd11e09edfbca0ca50d2ef5102b68b9e786abdfc83",
+      "shelfDependencies": [
+        "badge",
+        "card",
+        "chart",
+        "chart-area",
+        "foundations",
+        "toggle",
+        "toggle-group"
+      ],
+      "type": "block"
+    },
+    "chart-funnel": {
+      "dependencies": {
+        "@stylexjs/stylex": "^0.19.1",
+        "recharts": "3.10.1"
+      },
+      "files": {
+        "src/components/ui/chart-funnel.tsx": {
+          "baseHash": "29bbbf0701427f19ae7ad4cc7576083a2bd4d9ccb20c08765c4d1fa390c35984",
+          "source": "chart-funnel.tsx"
+        }
+      },
+      "installedAt": "2026-10-03T10:27:52.292Z",
+      "path": "components/chart-funnel",
+      "registry": "../../registry",
+      "revision": "454ad22f41c21396cf8e6cbfdfcb70d94552c22352485b2abf57040b653d9dc3",
+      "shelfDependencies": [
+        "chart",
+        "foundations"
+      ],
+      "type": "component"
+    },
+    "chart-heatmap": {
+      "dependencies": {
+        "@stylexjs/stylex": "^0.19.1"
+      },
+      "files": {
+        "src/components/ui/chart-heatmap.tsx": {
+          "baseHash": "98231064ea9ba9315701d702385993eafcf7b711f593a8da36e472dd3f2db6f2",
+          "source": "chart-heatmap.tsx"
+        },
+        "src/components/ui/heatmap-levels.ts": {
+          "baseHash": "0648d574a7f0a704a8660ea5cd0687a02f7576eda6a0983b141d841a09d6c1ca",
+          "source": "heatmap-levels.ts"
+        }
+      },
+      "installedAt": "2026-10-03T10:27:52.292Z",
+      "path": "components/chart-heatmap",
+      "registry": "../../registry",
+      "revision": "e8918e8a8cf7df6833fb7f6b1a968c50816650562fb75eddaa031750b64f4acb",
+      "shelfDependencies": [
+        "chart",
+        "foundations",
+        "utils"
+      ],
+      "type": "component"
+    },
+    "chart-line": {
+      "dependencies": {
+        "@stylexjs/stylex": "^0.19.1",
+        "recharts": "3.10.1"
+      },
+      "files": {
+        "src/components/ui/chart-line.tsx": {
+          "baseHash": "1822a8c8a5992b604c70ec1c4a7544f3fef2917398b3a0f107c328e80f3e57e1",
+          "source": "chart-line.tsx"
+        }
+      },
+      "installedAt": "2026-10-03T10:40:19.334Z",
+      "path": "components/chart-line",
+      "registry": "../../registry",
+      "revision": "e9ea4bba40a59d01adafd7e5c2a104ae668bdd90c8ea703bdf3f644b0cccc79b",
+      "shelfDependencies": [
+        "chart",
+        "foundations"
+      ],
+      "type": "component"
+    },
+    "chart-pie": {
+      "dependencies": {
+        "@stylexjs/stylex": "^0.19.1",
+        "recharts": "3.10.1"
+      },
+      "files": {
+        "src/components/ui/chart-pie.tsx": {
+          "baseHash": "7ad45efa1bfc4e6509cfa059e6498d834554f97cde1a8a43ce1744554b23efda",
+          "source": "chart-pie.tsx"
+        }
+      },
+      "installedAt": "2026-10-03T10:27:52.292Z",
+      "path": "components/chart-pie",
+      "registry": "../../registry",
+      "revision": "902827c610811e4b2eb0802ff381c23bc56199e6e1e00eb78fcf9b0fb0ccad1e",
+      "shelfDependencies": [
+        "chart",
+        "foundations"
+      ],
+      "type": "component"
+    },
+    "chart-radar": {
+      "dependencies": {
+        "@stylexjs/stylex": "^0.19.1",
+        "recharts": "3.10.1"
+      },
+      "files": {
+        "src/components/ui/chart-radar.tsx": {
+          "baseHash": "65b23295150ef53c0c78aa8bf62a0f89fc381e47f4104c2263b3b7f0c8c0b497",
+          "source": "chart-radar.tsx"
+        }
+      },
+      "installedAt": "2026-10-03T10:27:52.292Z",
+      "path": "components/chart-radar",
+      "registry": "../../registry",
+      "revision": "d3fb3688b12395f7cad5f44a7ce44bd912da3958745778bb4dde4b951d84e649",
+      "shelfDependencies": [
+        "chart",
+        "foundations"
+      ],
+      "type": "component"
+    },
+    "chart-radial": {
+      "dependencies": {
+        "@stylexjs/stylex": "^0.19.1",
+        "recharts": "3.10.1"
+      },
+      "files": {
+        "src/components/ui/chart-radial.tsx": {
+          "baseHash": "c196cb8301749c511528373c01d1caba4ccf13ede386b83e38ca6f79a00b4657",
+          "source": "chart-radial.tsx"
+        }
+      },
+      "installedAt": "2026-10-03T10:27:52.292Z",
+      "path": "components/chart-radial",
+      "registry": "../../registry",
+      "revision": "642155436d3592478d94ac7b420149c3e18d7ae963f3544e100b47d9397593d3",
+      "shelfDependencies": [
+        "chart",
+        "foundations"
+      ],
+      "type": "component"
+    },
+    "chart-sankey": {
+      "dependencies": {
+        "@stylexjs/stylex": "^0.19.1",
+        "recharts": "3.10.1"
+      },
+      "files": {
+        "src/components/ui/chart-sankey.tsx": {
+          "baseHash": "bbc16222f87b98af21db603e4c6b1dac0bf175b26a238890b9183d67a6f688be",
+          "source": "chart-sankey.tsx"
+        }
+      },
+      "installedAt": "2026-10-03T10:27:52.292Z",
+      "path": "components/chart-sankey",
+      "registry": "../../registry",
+      "revision": "4d65113f47eae1460ecd00e8fc7fbcbfce9f7d58e2420c601191612b079bc5fd",
+      "shelfDependencies": [
+        "chart",
+        "foundations"
+      ],
+      "type": "component"
+    },
+    "chart-scatter": {
+      "dependencies": {
+        "@stylexjs/stylex": "^0.19.1",
+        "recharts": "3.10.1"
+      },
+      "files": {
+        "src/components/ui/chart-scatter.tsx": {
+          "baseHash": "55729cb52a7a252fdae16d86aecda13576cbf9dcb11fbdf8b82e1c94713888a2",
+          "source": "chart-scatter.tsx"
+        }
+      },
+      "installedAt": "2026-10-03T10:27:52.292Z",
+      "path": "components/chart-scatter",
+      "registry": "../../registry",
+      "revision": "36610ac4a322620b537b55cffdbf2e402d3bff010af46720660bb14724f4afad",
+      "shelfDependencies": [
+        "chart",
+        "foundations"
+      ],
+      "type": "component"
+    },
+    "chart-treemap": {
+      "dependencies": {
+        "@stylexjs/stylex": "^0.19.1",
+        "recharts": "3.10.1"
+      },
+      "files": {
+        "src/components/ui/chart-treemap.tsx": {
+          "baseHash": "8511bfb574cfd35bb0fff71c2b9fdafdb589892c823f0d202de6091f9ab849b3",
+          "source": "chart-treemap.tsx"
+        }
+      },
+      "installedAt": "2026-10-03T10:27:52.292Z",
+      "path": "components/chart-treemap",
+      "registry": "../../registry",
+      "revision": "eca5f6abcd73d2eab2bcbf15659320e4a127ffa2c367ce313e4c8461ca2a1bc9",
+      "shelfDependencies": [
+        "chart",
+        "foundations"
+      ],
+      "type": "component"
+    },
     "checkbox": {
       "dependencies": {
         "@base-ui/react": "^1.8.0",
@@ -409,17 +721,19 @@
       },
       "files": {
         "src/components/blocks/dashboard-overview.tsx": {
-          "baseHash": "626dd1d72b73f67912d12d6e4361bb22d04100e8d64ea2afddffa2ac80f946d5",
+          "baseHash": "cafd363fd4e4ebb2735fd609e2c3089737652973496355a85a1506b0771ded21",
           "source": "dashboard-overview.tsx"
         }
       },
-      "installedAt": "2026-09-28T10:08:26.736Z",
+      "installedAt": "2026-10-03T10:27:52.367Z",
       "path": "blocks/dashboard-overview",
       "registry": "../../registry",
-      "revision": "e6f598b885d9f51c581c25128a31bebd4db1ad5252f8b9ce49f46971155f2f8c",
+      "revision": "436eeffd1b2d573339755d27f5f2a6288fa8bf41e897d7739f355c43f3308cae",
       "shelfDependencies": [
         "badge",
         "card",
+        "chart",
+        "chart-area",
         "foundations",
         "progress",
         "table"
@@ -668,18 +982,18 @@
           "source": "fonts.css"
         },
         "src/styles/shelf/themes.ts": {
-          "baseHash": "0875f501f3fd375f3253326bcc23939bfed4093f32071b158a1fc94ce1a73041",
+          "baseHash": "ff7c59f833af97b54c014220e36e653239ff2efb15912b0b3cad3223598ca5f5",
           "source": "themes.ts"
         },
         "src/styles/shelf/tokens.stylex.ts": {
-          "baseHash": "f3d4ce8d82770b1cc6eeeb0ba0f03e0ded8c80f8029feeac87e2f6a4b2b7e9d2",
+          "baseHash": "bdf207e22944194fea4b313c571e6841ad4f1c5b4fc4cd240b1372ebcb297b87",
           "source": "tokens.stylex.ts"
         }
       },
-      "installedAt": "2026-10-03T09:47:50.241Z",
+      "installedAt": "2026-10-03T10:46:15.262Z",
       "path": "foundations",
       "registry": "../../registry",
-      "revision": "0bda5fe46c126b474addfeb723fd9a5b409e92c62e8f3b029e031805ae365c9a",
+      "revision": "403f780ae7d4b968fcab1a19dada3e01a88ef47934fa759de38494d7e31a0f1e",
       "shelfDependencies": [],
       "type": "foundation"
     },
@@ -1362,6 +1676,27 @@
       "revision": "c335731a669d7796781f62b83a10e21157bc6e13dafadf42811455b92eca1dff",
       "shelfDependencies": [
         "foundations",
+        "utils"
+      ],
+      "type": "component"
+    },
+    "sparkline": {
+      "dependencies": {
+        "@stylexjs/stylex": "^0.19.1",
+        "recharts": "3.10.1"
+      },
+      "files": {
+        "src/components/ui/sparkline.tsx": {
+          "baseHash": "1e42d93a4d90f19a6211215cd2cc48d80201223723a836fb1d1544d247b7feb5",
+          "source": "sparkline.tsx"
+        }
+      },
+      "installedAt": "2026-10-03T10:27:52.292Z",
+      "path": "components/sparkline",
+      "registry": "../../registry",
+      "revision": "98b7b5ab1600fa2a4026f89412f3e5cab4537a3c73726585f9c7dfca1012a976",
+      "shelfDependencies": [
+        "chart",
         "utils"
       ],
       "type": "component"

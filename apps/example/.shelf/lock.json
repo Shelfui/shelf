@@ -60,18 +60,18 @@
           "source": "fonts.css"
         },
         "src/styles/shelf/themes.ts": {
-          "baseHash": "0875f501f3fd375f3253326bcc23939bfed4093f32071b158a1fc94ce1a73041",
+          "baseHash": "ff7c59f833af97b54c014220e36e653239ff2efb15912b0b3cad3223598ca5f5",
           "source": "themes.ts"
         },
         "src/styles/shelf/tokens.stylex.ts": {
-          "baseHash": "f3d4ce8d82770b1cc6eeeb0ba0f03e0ded8c80f8029feeac87e2f6a4b2b7e9d2",
+          "baseHash": "bdf207e22944194fea4b313c571e6841ad4f1c5b4fc4cd240b1372ebcb297b87",
           "source": "tokens.stylex.ts"
         }
       },
-      "installedAt": "2026-10-03T09:47:50.292Z",
+      "installedAt": "2026-10-03T10:46:15.686Z",
       "path": "foundations",
       "registry": "../../registry",
-      "revision": "0bda5fe46c126b474addfeb723fd9a5b409e92c62e8f3b029e031805ae365c9a",
+      "revision": "403f780ae7d4b968fcab1a19dada3e01a88ef47934fa759de38494d7e31a0f1e",
       "shelfDependencies": [],
       "type": "foundation"
     },

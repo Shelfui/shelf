@@ -31,12 +31,14 @@ export const darkTheme = stylex.createTheme(colors, {
   input: "#333333",
   ring: "#707070",
   overlay: "rgb(0 0 0 / 60%)",
-  chart1: "oklch(0.72 0.13 250)",
-  chart2: "oklch(0.78 0.14 65)",
-  chart3: "oklch(0.72 0.15 330)",
-  chart4: "oklch(0.74 0.13 160)",
-  chart5: "oklch(0.78 0.1 210)",
-  chart6: "oklch(0.7 0.17 28)",
+  chart1: "oklch(0.98 0 0)",
+  chart2: "oklch(0.78 0 0)",
+  chart3: "oklch(0.62 0 0)",
+  chart4: "oklch(0.5 0 0)",
+  chart5: "oklch(0.4 0 0)",
+  chart6: "oklch(0.32 0 0)",
+  chartGrid: "#3a3a3a",
+  chartCursor: "rgb(255 255 255 / 7%)",
 });
 
 export type Theme = "light" | "dark";

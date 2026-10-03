@@ -5,6 +5,7 @@ export interface BlockCategory {
 
 export const blockCategories: BlockCategory[] = [
   { slug: "dashboard", title: "Dashboard" },
+  { slug: "charts", title: "Charts" },
   { slug: "sidebar", title: "Sidebar" },
   { slug: "authentication", title: "Authentication" },
   { slug: "settings", title: "Settings" },
@@ -40,9 +41,28 @@ export const blocks: BlockDoc[] = [
   {
     name: "dashboard-overview",
     title: "Dashboard Overview",
-    description: "Key figures, recent invoices, and goals, laid out for the top of a dashboard.",
+    description:
+      "Key figures, a revenue chart, recent invoices, and goals, laid out for the top of a dashboard.",
     categories: ["dashboard"],
     height: 800,
+  },
+  {
+    name: "analytics-dashboard",
+    title: "Analytics Dashboard",
+    description:
+      "Figures with sparklines, revenue over time, orders by channel, and a heatmap of when customers buy.",
+    categories: ["dashboard", "charts"],
+    featured: true,
+    height: 1100,
+  },
+  {
+    name: "chart-card",
+    title: "Chart Card",
+    description:
+      "A headline figure, its change, a date range switch, and an area chart in one card.",
+    categories: ["charts"],
+    height: 520,
+    centered: true,
   },
   {
     name: "sidebar-nested",

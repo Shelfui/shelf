@@ -1,7 +1,7 @@
 {
   "name": "dashboard-overview",
   "type": "block",
-  "description": "A dashboard home with headline stats, progress toward goals, and recent invoices.",
+  "description": "A dashboard home with headline stats, a revenue chart, progress toward goals, and recent invoices.",
   "files": [
     {
       "path": "dashboard-overview.tsx"
@@ -10,5 +10,5 @@
   "dependencies": {
     "@stylexjs/stylex": "^0.19.1"
   },
-  "shelfDependencies": ["badge", "card", "foundations", "progress", "table"]
+  "shelfDependencies": ["badge", "card", "chart", "chart-area", "foundations", "progress", "table"]
 }
