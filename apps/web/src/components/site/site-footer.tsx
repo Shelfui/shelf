@@ -7,6 +7,8 @@ import { colors, spacing, typography } from "@/styles/shelf/tokens.stylex";
 import { screens, site } from "@/styles/site.stylex";
 import { Logo } from "./logo";
 
+const year = new Date().getFullYear();
+
 const COLUMNS = [
   {
     title: "Shelf",
@@ -66,7 +68,7 @@ export function SiteFooter() {
               <ArrowUpRightIcon />
             </Link>
             <p {...stylex.props(styles.legal)}>
-              © {new Date().getFullYear()} Shelf. Open source, MIT licensed.{" "}
+              © {year} Shelf. Open source, MIT licensed.{" "}
               <a href={siteConfig.repoUrl} {...stylex.props(styles.legalLink)}>
                 GitHub
               </a>

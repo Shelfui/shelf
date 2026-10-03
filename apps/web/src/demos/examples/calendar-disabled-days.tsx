@@ -7,13 +7,14 @@ import { colors, radius } from "@/styles/shelf/tokens.stylex";
 
 export default function CalendarDisabledDays() {
   const [date, setDate] = useState<Date | undefined>();
+  const [today] = useState(() => new Date());
 
   return (
     <Calendar
       mode="single"
       selected={date}
       onSelect={setDate}
-      disabled={[{ dayOfWeek: [0, 6] }, { before: new Date() }]}
+      disabled={[{ dayOfWeek: [0, 6] }, { before: today }]}
       style={styles.card}
     />
   );

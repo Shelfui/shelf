@@ -7,6 +7,7 @@ import { colors, radius } from "@/styles/shelf/tokens.stylex";
 
 export default function CalendarDropdowns() {
   const [date, setDate] = useState<Date | undefined>(() => new Date(1990, 5, 12));
+  const [today] = useState(() => new Date());
 
   return (
     <Calendar
@@ -16,7 +17,7 @@ export default function CalendarDropdowns() {
       selected={date}
       onSelect={setDate}
       startMonth={new Date(1930, 0)}
-      endMonth={new Date()}
+      endMonth={today}
       style={styles.card}
     />
   );
