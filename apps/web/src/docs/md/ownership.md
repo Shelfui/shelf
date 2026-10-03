@@ -1,0 +1,108 @@
+---
+title: Ownership and provenance
+description: What Shelf records when it installs a component, and how that lets you change anything without losing track.
+---
+
+# Ownership and provenance
+
+The source is yours. Shelf keeps a record of what it gave you, so you can change anything and lose nothing.
+
+Copy and paste loses the thread: after a few edits, nobody knows what the original was or what changed since. Shelf records it at install time, so divergence is intentional and visible instead of accidental.
+
+## What Shelf records
+
+`.shelf/lock.json` has an entry for every installed item: the registry revision, when it was installed, its dependencies, and a hash of each file exactly as installed. Commit it. Nothing else is copied: the hashes identify what you installed, and Shelf can always get the files back.
+
+```json
+{
+  "items": {
+    "button": {
+      "type": "component",
+      "revision": "f79cc395084a…",
+      "installedAt": "2026-09-27T21:46:22.143Z",
+      "files": {
+        "src/components/ui/button.tsx": {
+          "source": "button.tsx",
+          "baseHash": "a8357131844f…"
+        }
+      },
+      "dependencies": { "@base-ui/react": "^1.8.0", "@stylexjs/stylex": "^0.19.1" },
+      "shelfDependencies": ["foundations", "utils"]
+    }
+  }
+}
+```
+
+## Three versions of every file
+
+BASE is what you installed. LOCAL is the file in your app today. UPSTREAM is what the registry has now. Comparing all three is how a change of yours and a change of Shelf's can be told apart, instead of looking like one big difference.
+
+## Where BASE comes from
+
+The lock names BASE by its hash, so Shelf doesn't keep a copy. When it needs the bytes, it tries three places in order and only accepts bytes that match the hash.
+
+- The file itself: if you haven't changed it, it is BASE.
+- Your git history: commit after `shelf add` and that commit holds BASE exactly. No network, any git host.
+- The registry: every revision it has published stays available. Shelf checks the revision's hash, rewrites its imports the way add did, and checks the result against baseHash.
+
+A rebuild only matches if the install layout is the same, so changing `aliases` after installing, without having committed, leaves nothing that matches. Shelf says so rather than guessing.
+
+## What happens when you add again
+
+`shelf add` classifies every file before it touches anything:
+
+- Missing: the file is created.
+- Same as Shelf's: nothing to do.
+- Unchanged since install: it matches BASE, so Shelf's newer version replaces it.
+- Changed by you: if Shelf's version of it is the same as BASE, yours is kept. There is nothing to update.
+- Changed by you and by Shelf: Shelf merges its changes into yours, using BASE as the common ancestor. See Updating below.
+- Not installed by Shelf: treated like a change of yours. Shelf won't replace a file it didn't write.
+- Dropped by Shelf: if a newer version no longer has a file, yours is kept and listed so you can delete it.
+
+Shelf items that a component builds on, such as foundations, stay as you have them. Shelf says when a newer version exists, and updating it is an explicit `shelf add foundations`.
+
+## Seeing what you changed
+
+`shelf check` compares every installed file with its BASE hash and lists the ones you modified. It fails if the record itself is damaged, for example an installed file that was deleted, and says how to restore it.
+
+## Updating
+
+`shelf status` lists every installed item and whether you changed it, Shelf changed it, or both. It reads only the registry index, so it is quick enough to run often.
+
+```text
+$ shelf status
+Shelf status
+
+  button       modified locally, update available
+  dialog       update available
+  foundations  up to date
+
+2 updates available, 1 with local changes to merge. See: shelf diff <item>. Run: shelf update
+```
+
+`shelf diff button` shows what an update would bring: BASE against Shelf's current version. `shelf diff button --local` shows your changes: BASE against your file.
+
+`shelf update` updates every item with a newer version, or only the items you name. Files you haven't changed are replaced. Files you changed are merged with `git merge-file`, using BASE as the common ancestor, so your edits and Shelf's both survive when they touch different lines.
+
+When both sides changed the same lines, the file gets standard conflict markers and `shelf update` says how many. Resolve them in your editor, or ask an agent to; `shelf check` fails, with the file and line, until no marker is left.
+
+```text
+<<<<<<< yours
+    borderRadius: radius.full,
+=======
+    borderRadius: radius.lg,
+>>>>>>> shelf
+```
+
+- Nothing is half done: every merge is computed before any file is written. If one file can't be merged, nothing changes.
+- No BASE, no merge: if BASE can't be recovered, Shelf refuses and says why. `--overwrite` replaces your file with Shelf's instead.
+- Reformatted files: if your formatter rewrote most of a file, a merge conflicts widely. Shelf says so and points at `shelf diff --local`.
+- Changed packages: when a newer version needs a different range of a package you already have, Shelf prints the command to update it.
+
+After an update the lock records Shelf's new version as BASE, so a merged file reads as modified locally, and the next update merges from there.
+
+## What comes next
+
+Shelf is building toward `contribute` on top of this record: sending a local improvement back to the registry. It doesn't exist yet.
+
+The lifecycle it serves: start together, diverge intentionally, and converge when something proves reusable.

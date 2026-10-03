@@ -1,0 +1,57 @@
+import ShelfSteps from "@/docs/partials/shelf-steps.mdx";
+
+export const metadata = {
+  title: "Vite",
+  description: "Set up Shelf in a Vite and React project.",
+  alternates: { canonical: "/docs/installation/vite" },
+};
+
+<PageHeader title={metadata.title} description={metadata.description} />
+
+## Create a project
+
+```bash
+npm create vite@latest my-app -- --template react-ts
+```
+
+Skip this if you already have a Vite and React project.
+
+## Set up StyleX
+
+<Command packages={["@stylexjs/stylex"]} />
+
+<Command packages={["@stylexjs/unplugin"]} dev />
+
+Add the plugin to `vite.config.ts`, before the React plugin.
+
+<File name="vite.config.ts">
+
+```ts
+import stylex from "@stylexjs/unplugin/vite";
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
+
+export default defineConfig({
+  plugins: [stylex({ useCSSLayers: true }), react()],
+});
+```
+
+</File>
+
+<ShelfSteps />
+
+## Use a component
+
+<File name="src/App.tsx">
+
+```tsx
+import { Button } from "./components/ui/button";
+
+export function App() {
+  return <Button>Save</Button>;
+}
+```
+
+</File>
+
+Importing `./styles/shelf/fonts.css` once in your entry file loads Geist. To use your own fonts, see [installation](/docs/installation).

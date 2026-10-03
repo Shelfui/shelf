@@ -1,0 +1,71 @@
+---
+title: Installation
+description: Set up Shelf in a React project, add components, and check the result.
+---
+
+# Installation
+
+Install the CLI, point it at a registry, add what you need, and check it.
+
+Shelf needs Node 20.12 or newer, React, and a build that compiles StyleX. It works with npm, pnpm, yarn, and Bun, and uses the one your project's lockfile names. Components depend on Base UI and StyleX, which `shelf add` installs for you.
+
+## Pick your framework
+
+- [Vite]({{site}}/docs/installation/vite.md): StyleX through `@stylexjs/unplugin`. The reference setup.
+- [Next.js]({{site}}/docs/installation/nextjs.md): StyleX through Babel and PostCSS. This site runs on it.
+- [TanStack Start]({{site}}/docs/installation/tanstack-start.md): StyleX through the same Vite plugin. Not yet tested end to end.
+
+The steps below are the same in every framework once StyleX compiles. Each guide covers the StyleX setup for its framework.
+
+## Install the CLI
+
+```bash
+npm install -D @shelfui/cli
+```
+
+The package is `@shelfui/cli` and its command is `shelf`. Install it first: the npm package named `shelf` is unrelated, so running `npx shelf` without it installs something else.
+
+## Set up a project
+
+```bash
+npx shelf init --registry {{registry}}
+```
+
+`init` writes `shelf.config.json` and `.shelf/lock.json`. If your `tsconfig.json` declares path aliases such as `@/*`, it copies them, so installed files import the way your app does. It warns when the StyleX setup is missing. There is no default registry yet, so pass `--registry` or set `SHELF_REGISTRY`.
+
+## Add components
+
+```bash
+npx shelf add button dialog
+```
+
+Shelf resolves the items and the Shelf items they build on, copies the files, installs the packages they need, and records what it installed.
+
+```text
+$ shelf add button dialog
+✓ resolved button, dialog, foundations, utils, icons
+✓ added 8 files
+✓ recorded provenance in .shelf/lock.json
+```
+
+Commit all of it, including `.shelf/`. That record is how Shelf tells your changes apart from what it installed.
+
+## Change them
+
+Edit the files like any other source. `shelf add` never overwrites a file you changed unless you pass `--overwrite`. See [ownership and provenance]({{site}}/docs/ownership.md).
+
+## Use your own fonts
+
+Foundations read the typefaces from `--font-sans` and `--font-mono`, and fall back to Geist from `fonts.css`. With `next/font`, set `variable: "--font-sans"` on your font and add its variable class to `<html>`. Then delete `fonts.css` and its import. No Shelf file needs editing.
+
+## Check your install
+
+```bash
+npx shelf check
+```
+
+Checks that what Shelf installed is intact and lists what you changed. Your own TypeScript, lint, and build keep covering the code.
+
+## Removing Shelf
+
+Delete `shelf.config.json`, `.shelf/`, and the `@shelfui/cli` package. The components keep working, because they are your code.

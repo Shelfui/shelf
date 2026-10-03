@@ -43,7 +43,6 @@ const meta = preview.meta({
   },
   parameters: {
     figma: {
-      states: ["hover", "focus-visible"],
       omit: { size: ICON_SIZES },
       instances: { Icon: <PlusIcon /> },
     },

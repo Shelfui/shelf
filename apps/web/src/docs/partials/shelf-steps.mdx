@@ -1,0 +1,23 @@
+## Install the CLI
+
+<Command packages={["@shelfui/cli"]} dev />
+
+The package is `@shelfui/cli` and its command is `shelf`.
+
+## Initialize Shelf
+
+<Command args="init --registry <path-or-url>" />
+
+Writes `shelf.config.json` and `.shelf/lock.json`, copies the path aliases from your `tsconfig.json`, and adds a short agent block to `AGENTS.md` and a Shelf skill to `.agents/skills/shelf/`. It warns about anything missing from the StyleX setup above.
+
+## Add components
+
+<Command args="add button" />
+
+Copies Button, the foundations it uses, and the packages it needs into your project, then records what it installed. The files are yours to edit. See [ownership and provenance](/docs/ownership).
+
+## Check the result
+
+<Command args="check" />
+
+Verifies config, provenance, and imports. Your own build still covers the rest. See [validation](/docs/validation).

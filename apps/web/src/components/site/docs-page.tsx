@@ -25,6 +25,25 @@ export function Section({ title, children }: { title: string; children: ReactNod
   );
 }
 
+/** The `##` heading of a Markdown page: a Section title without the wrapping element. */
+export function Heading({ children }: { children?: ReactNode }) {
+  const id = typeof children === "string" ? children.toLowerCase().replaceAll(" ", "-") : undefined;
+  return (
+    <h2 id={id} {...stylex.props(styles.heading, styles.headingGap)}>
+      {children}
+    </h2>
+  );
+}
+
+/** The column a Markdown page's blocks sit in. */
+export function Article({ children }: { children: ReactNode }) {
+  return <div {...stylex.props(styles.article)}>{children}</div>;
+}
+
+export function BulletList({ children }: { children: ReactNode }) {
+  return <ul {...stylex.props(styles.bullets)}>{children}</ul>;
+}
+
 export function Prose({ children }: { children: ReactNode }) {
   return <p {...stylex.props(styles.prose)}>{children}</p>;
 }
@@ -88,6 +107,23 @@ const styles = stylex.create({
     letterSpacing: "-0.01em",
     lineHeight: 1.375,
     margin: 0,
+  },
+  article: {
+    gap: spacing["6"],
+    display: "grid",
+  },
+  headingGap: {
+    marginTop: { default: site.space8, [screens.md]: site.space12 },
+  },
+  bullets: {
+    color: colors.mutedForeground,
+    fontSize: typography.fontSizeLg,
+    lineHeight: 1.6,
+    margin: 0,
+    maxWidth: site.proseWidth,
+    paddingInlineStart: spacing["6"],
+    rowGap: spacing["2"],
+    display: "grid",
   },
   prose: {
     color: colors.mutedForeground,

@@ -82,7 +82,7 @@ export const Library = meta.story({
       button.variants.find((v) => variantName(v.props) === props)!.node;
 
     await step("Button has Variant × Size × State, a Label and an Icon", async () => {
-      await expect(button.variants).toHaveLength(6 * 4 * 4);
+      await expect(button.variants).toHaveLength(6 * 4 * 2);
       await expect(button.text).toEqual({ Label: "Button" });
       await expect(button.instances).toEqual({ Icon: "Icon/Plus" });
       await expect(button.source).toBe("registry/components/button/button.stories.tsx");
@@ -111,14 +111,11 @@ export const Library = meta.story({
     });
 
     await step("states render their pseudo-class styles", async () => {
-      const hover = variant("Variant=Default, Size=Default, State=Hover");
-      await expect(hover.fill).toMatchObject({ token: "colors.primary", color: { a: 0.9 } });
-      const focus = variant("Variant=Outline, Size=Default, State=Focus");
-      await expect(focus.stroke?.paint?.token).toBe("colors.ring");
-      await expect(focus.shadows?.[0]).toMatchObject({
-        spread: 3,
-        paint: { token: "colors.ring" },
-      });
+      const input = library.components.find((set) => set.name === "Input")!;
+      const focus = input.variants.find((v) => variantName(v.props).includes("State=Focus"))!.node;
+      await expect(focus.stroke?.paint?.token ?? focus.shadows?.[0]?.paint.token).toBe(
+        "colors.ring",
+      );
       await expect(variant("Variant=Default, Size=Default, State=Disabled").opacity).toBe(0.5);
     });
 

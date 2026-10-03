@@ -17,7 +17,7 @@ const meta = preview.meta({
     defaultPressed: { name: "Pressed", control: "boolean" },
     disabled: { control: "boolean" },
   },
-  parameters: { figma: { states: ["hover", "focus-visible"] } },
+  parameters: { figma: {} },
 });
 
 export const Default = meta.story({

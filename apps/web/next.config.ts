@@ -1,6 +1,8 @@
+import createMDX from "@next/mdx";
 import type { NextConfig } from "next";
 
 const config: NextConfig = {
+  pageExtensions: ["ts", "tsx", "mdx"],
   poweredByHeader: false,
   reactStrictMode: true,
   // Next's bundled polyfills (Array.prototype.at, Object.fromEntries, ...) are native in the browserslist targets.
@@ -13,4 +15,6 @@ const config: NextConfig = {
   ...(process.env["STATIC_EXPORT"] ? { output: "export", trailingSlash: true } : {}),
 };
 
-export default config;
+const withMDX = createMDX();
+
+export default withMDX(config);
