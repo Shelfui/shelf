@@ -20,7 +20,7 @@ export default function ChartRadarDemo() {
         <Chart.Tooltip />
         <Chart.Legend verticalAlign="bottom" />
         <Radar dataKey="team" name="Team" />
-        <Radar dataKey="benchmark" name="Benchmark" color={seriesColors[1]} />
+        <Radar dataKey="benchmark" name="Benchmark" color={seriesColors[1]} pattern="hatch" />
       </RadarChart>
     </div>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { type ComponentProps } from "react";
+import { type ComponentProps, useId } from "react";
 import {
   PolarAngleAxis,
   PolarGrid,
@@ -9,7 +9,10 @@ import {
 } from "recharts";
 import { colors } from "@/styles/shelf/tokens.stylex";
 import {
+  type ChartPattern,
   type ChartProps,
+  SeriesPattern,
+  patternFill,
   Root,
   frameProps,
   seriesColors,
@@ -60,22 +63,33 @@ export interface RadarProps extends Omit<
   dataKey: string;
   /** Defaults to the first series color. */
   color?: string;
+  /** What fills the shape: a flat tint by default, or `hatch` or `dots` to tell series apart without color. */
+  pattern?: ChartPattern;
 }
 
 /** One series, drawn as a filled shape. */
-export function Radar({ dataKey, color = seriesColors[0], ...props }: RadarProps) {
+export function Radar({
+  dataKey,
+  color = seriesColors[0],
+  pattern = "solid",
+  ...props
+}: RadarProps) {
   const { hiddenSeries } = useChart();
+  const id = useId();
 
   return (
-    <RechartsRadar
-      dataKey={dataKey}
-      stroke={color}
-      strokeWidth={2}
-      fill={color}
-      fillOpacity={0.18}
-      hide={hiddenSeries.includes(dataKey)}
-      dot={{ r: 3, fill: color, fillOpacity: 1, stroke: colors.background, strokeWidth: 1 }}
-      {...props}
-    />
+    <>
+      <SeriesPattern id={id} color={color} pattern={pattern} />
+      <RechartsRadar
+        dataKey={dataKey}
+        stroke={color}
+        strokeWidth={2}
+        fill={patternFill(pattern, id, color)}
+        fillOpacity={pattern === "solid" ? 0.18 : 1}
+        hide={hiddenSeries.includes(dataKey)}
+        dot={{ r: 3, fill: color, fillOpacity: 1, stroke: colors.background, strokeWidth: 1 }}
+        {...props}
+      />
+    </>
   );
 }

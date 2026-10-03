@@ -46,7 +46,13 @@ export const WithLegend = meta.story({
       <Chart.Tooltip />
       <Chart.Legend />
       <Line dataKey="visitors" name="Visitors" />
-      <Line dataKey="signups" name="Signups" color={seriesColors[3]} curve="step" />
+      <Line
+        dataKey="signups"
+        name="Signups"
+        color={seriesColors[1]}
+        curve="step"
+        pattern="dashed"
+      />
     </LineChart>
   ),
   play: async ({ canvas, canvasElement }) => {

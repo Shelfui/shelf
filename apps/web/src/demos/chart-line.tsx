@@ -22,7 +22,7 @@ export default function ChartLineDemo() {
         <Chart.Tooltip />
         <Chart.Legend />
         <Line dataKey="visitors" name="Visitors" />
-        <Line dataKey="signups" name="Signups" color={seriesColors[3]} />
+        <Line dataKey="signups" name="Signups" color={seriesColors[1]} pattern="dashed" />
       </LineChart>
     </div>
   );

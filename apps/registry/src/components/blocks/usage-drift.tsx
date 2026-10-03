@@ -414,7 +414,7 @@ const styles = stylex.create({
     transitionProperty: "opacity",
   },
   dotModified: {
-    stroke: colors.chart3,
+    stroke: "oklch(0.62 0.16 320)",
     strokeWidth: 2.5,
   },
   dimmed: {
@@ -441,7 +441,7 @@ const styles = stylex.create({
     width: spacing["2"],
   },
   swatchModified: {
-    borderColor: colors.chart3,
+    borderColor: "oklch(0.62 0.16 320)",
     borderStyle: "solid",
     borderWidth: 2,
     boxSizing: "border-box",

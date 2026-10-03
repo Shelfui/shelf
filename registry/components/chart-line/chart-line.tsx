@@ -46,10 +46,20 @@ export interface LineProps extends Omit<
   /** Defaults to the first series color. */
   color?: string;
   curve?: ChartCurve;
+  /** `solid` by default. `dashed` and `dotted` tell series apart without color. */
+  pattern?: "solid" | "dashed" | "dotted";
 }
 
+const dashes = { solid: undefined, dashed: "7 5", dotted: "0.1 6" } as const;
+
 /** One series, drawn as a line. Points show on hover and keyboard focus. */
-export function Line({ dataKey, color = seriesColors[0], curve = "smooth", ...props }: LineProps) {
+export function Line({
+  dataKey,
+  color = seriesColors[0],
+  curve = "smooth",
+  pattern = "solid",
+  ...props
+}: LineProps) {
   const { hiddenSeries } = useChart();
 
   return (
@@ -59,6 +69,7 @@ export function Line({ dataKey, color = seriesColors[0], curve = "smooth", ...pr
       stroke={color}
       strokeWidth={2}
       strokeLinecap="round"
+      strokeDasharray={dashes[pattern]}
       animationDuration={700}
       animationEasing="ease-out"
       hide={hiddenSeries.includes(dataKey)}

@@ -27,7 +27,7 @@ export const Default = meta.story({
       <Chart.Tooltip />
       <Chart.Legend />
       <Radar dataKey="team" name="Team" />
-      <Radar dataKey="benchmark" name="Benchmark" color={seriesColors[1]} />
+      <Radar dataKey="benchmark" name="Benchmark" color={seriesColors[1]} pattern="hatch" />
     </RadarChart>
   ),
   play: async ({ canvas, canvasElement }) => {

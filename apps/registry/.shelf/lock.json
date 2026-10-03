@@ -313,7 +313,7 @@
       },
       "files": {
         "src/components/blocks/usage-drift.tsx": {
-          "baseHash": "c6ae45ff0afb73a7a8b6bcb9570d80acc83f6ff52468a031b4b563c015fe95e5",
+          "baseHash": "5f000593602a599bd8f9cb0100d3a36bb75048823402e7f7ad237926660e8bfd",
           "source": "usage-drift.tsx"
         },
         "src/components/blocks/usage-explorer.tsx": {
@@ -329,7 +329,7 @@
           "source": "usage-model.ts"
         },
         "src/components/blocks/usage-palette.ts": {
-          "baseHash": "ec028c0d5bc673b176301cc688e8c618952c7d15cf4bc94745af4632d28e4852",
+          "baseHash": "96d8ca3742d78d537bedc6d86e07a4e22fb2c0ca7cbf484b720bea1ba3733675",
           "source": "usage-palette.ts"
         },
         "src/components/blocks/usage-radial.tsx": {
@@ -345,10 +345,10 @@
           "source": "usage-tooltip.tsx"
         }
       },
-      "installedAt": "2026-10-03T08:44:06.482Z",
+      "installedAt": "2026-10-03T10:54:10.981Z",
       "path": "blocks/usage-explorer",
       "registry": "../../registry",
-      "revision": "149e4a637c503d28b1beecd10acdb1827a10c9d72835e493c6c79fd318b601e8",
+      "revision": "431166c69d38495a2dd417cc8b071d01e5a241f7d797dc3a36b9224ad7362ddf",
       "shelfDependencies": [
         "button",
         "foundations",
