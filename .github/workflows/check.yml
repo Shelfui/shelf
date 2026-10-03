@@ -32,6 +32,8 @@ jobs:
           key: bun-${{ runner.os }}-${{ hashFiles('**/bun.lock') }}
           restore-keys: bun-${{ runner.os }}-
       - run: bun install --frozen-lockfile
+      # The e2e tests pack the CLI, and packing builds the registry site.
+      - run: bun install --frozen-lockfile --cwd apps/registry
       - run: bunx playwright install --with-deps chromium
       - run: bun run check
       # The apps install the CLI from packages/cli, including its built dist/.

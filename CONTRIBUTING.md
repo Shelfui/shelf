@@ -111,7 +111,7 @@ Stage-only means a compromised workflow can submit a version but can't make it p
 Also set these on GitHub:
 
 - Branch protection on `main`: require a PR and the `check` status.
-- Settings → Actions → General → Workflow permissions: **Read repository contents**, and tick *Allow GitHub Actions to create and approve pull requests*, which the Version Packages PR needs.
+- The Version Packages PR needs *Allow GitHub Actions to create and approve pull requests*. For an org-owned repo, an org owner turns it on first at the org's Settings → Actions → General → Workflow permissions, and then in the repository's Settings → Actions → General. Leave the default permissions at **Read repository contents**.
 
 The `repository` field in `packages/cli/package.json` must match the GitHub repository exactly, including case (`Shelfui/shelf`), or provenance is rejected.
 
