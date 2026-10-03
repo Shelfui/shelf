@@ -8,6 +8,11 @@ export const REPO_ROOT = path.resolve(import.meta.dir, "../../..");
 export const CLI = path.join(REPO_ROOT, "packages/cli/src/index.ts");
 export const REAL_REGISTRY = path.join(REPO_ROOT, "registry");
 
+/** The CLI's own version, so tests don't change on every release. */
+export const CLI_VERSION: string = (
+  await Bun.file(path.join(REPO_ROOT, "packages/cli/package.json")).json()
+).version;
+
 const TEMP_ROOT = path.join(REPO_ROOT, ".tmp/tests");
 const created: string[] = [];
 

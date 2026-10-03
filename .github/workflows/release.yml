@@ -1,0 +1,35 @@
+name: Release
+
+# Publishes @shelfui/cli to npm when a version tag is pushed:
+#   git tag v0.1.0 && git push origin v0.1.0
+# Publishing uses npm trusted publishing (OIDC), so no token is stored. Set it up once
+# on npmjs.com: @shelfui/cli → Settings → Trusted Publisher → GitHub Actions,
+# organization "Shelfui", repository "shelf", workflow "release.yml".
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+      # Trusted publishing needs npm 11.5.1 or newer.
+      - run: npm install -g npm@latest
+      - run: bun install --frozen-lockfile
+      # `prepack` builds the registry site into the package.
+      - run: bun install --frozen-lockfile --cwd apps/registry
+      - name: Tag matches package version
+        run: test "v$(node -p "require('./packages/cli/package.json').version")" = "${GITHUB_REF_NAME}"
+      - run: npm publish
+        working-directory: packages/cli

@@ -5,7 +5,7 @@ import { afterAll, beforeAll, describe, expect, test } from "bun:test";
 import { readBase } from "../src/core/base";
 import { isObject } from "../src/core/json";
 import { serveRegistry } from "../src/serve";
-import { REAL_REGISTRY, REPO_ROOT, json, tempDir } from "./helpers";
+import { CLI_VERSION, REAL_REGISTRY, REPO_ROOT, json, tempDir } from "./helpers";
 
 /**
  * The example consumer, copied outside the repo and stripped of everything
@@ -154,7 +154,7 @@ describe("external consumer", () => {
     expect(existsSync(path.join(real, "src"))).toBe(false);
     expect(existsSync(path.join(dir, "node_modules/commander"))).toBe(false);
     expect((await read("node_modules/.bin/shelf")).split("\n")[0]).toBe("#!/usr/bin/env node");
-    expect((await shelf("--version")).stdout).toBe("0.0.0\n");
+    expect((await shelf("--version")).stdout).toBe(`${CLI_VERSION}\n`);
   });
 
   test("starts without any Shelf source", async () => {

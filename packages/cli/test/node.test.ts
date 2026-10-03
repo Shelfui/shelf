@@ -2,7 +2,7 @@ import { existsSync } from "node:fs";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { beforeAll, describe, expect, test } from "bun:test";
-import { REPO_ROOT, fixtureRegistryDir, json, tempDir, writeTree } from "./helpers";
+import { CLI_VERSION, REPO_ROOT, fixtureRegistryDir, json, tempDir, writeTree } from "./helpers";
 
 const node = Bun.which("node");
 let bundle: string;
@@ -35,7 +35,7 @@ describe.skipIf(!node)("the CLI on Node, without Bun", () => {
     const help = await runNode(["--help"], REPO_ROOT);
     expect(help.exitCode).toBe(0);
     expect(help.stdout).toContain("Usage: shelf");
-    expect((await runNode(["--version"], REPO_ROOT)).stdout).toBe("0.0.0\n");
+    expect((await runNode(["--version"], REPO_ROOT)).stdout).toBe(`${CLI_VERSION}\n`);
   });
 
   test("init reads tsconfig paths with comments, then search and add work", async () => {
