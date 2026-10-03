@@ -83,7 +83,12 @@ export async function syncVariables(
         collection.renameMode(initial.modeId, mode);
         modes.set(mode, initial.modeId);
       } else {
-        modes.set(mode, collection.addMode(mode));
+        // Free Figma plans allow one mode per collection; keep the modes the plan has room for.
+        try {
+          modes.set(mode, collection.addMode(mode));
+        } catch (error) {
+          if (!String(error).includes("Limited to")) throw error;
+        }
       }
     }
     for (const wanted of specVariables(library, collection.name)) {
