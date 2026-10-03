@@ -239,7 +239,6 @@ export default function Home() {
       <section aria-labelledby="start" {...stylex.props(styles.closing)}>
         <Headline id="start" strong="Consistent by default. Yours when needed." align="center" />
         <GetStarted size="lg" />
-        <More href="/docs/future">Agentic systems are the future of interfaces</More>
       </section>
     </main>
   );
