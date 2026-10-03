@@ -18,16 +18,17 @@ const OBJECT_CONTEXT = /\bcreateContext\s*(?:<[^()]*>)?\(\s*(?:null|undefined|\{
 
 const count = (text: string, pattern: RegExp) => text.match(pattern)?.length ?? 0;
 
+const kebab = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
 /** Storybook's id for the first story in a file: the title and the export name, kebab-cased. */
 function firstStoryId(text: string): string | null {
   const title = text.match(/\btitle:\s*"([^"]+)"/)?.[1];
   const story = text.match(/export const (\w+) = \w+\.story\(/)?.[1];
   if (!title || !story) return null;
-  const kebab = (value: string) =>
-    value
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-|-$/g, "");
   // Storybook splits an export name's words (`WithLegend`) but not a title's (`NativeSelect`).
   return `${kebab(title)}--${kebab(story.replace(/([a-z0-9])([A-Z])/g, "$1-$2"))}`;
 }

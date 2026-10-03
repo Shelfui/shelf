@@ -177,6 +177,7 @@ const styles = stylex.create({
     borderColor: colors.border,
     borderRadius: radius.full,
     borderStyle: "solid",
+    cursor: "default",
     borderWidth: 1,
     gap: spacing["1.5"],
     paddingBlock: spacing["1"],

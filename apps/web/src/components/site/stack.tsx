@@ -131,6 +131,7 @@ const styles = stylex.create({
   link: {
     gap: spacing["2"],
     alignItems: "center",
+    cursor: "default",
     display: "flex",
     textDecorationLine: "none",
     fontSize: typography.fontSizeLg,
