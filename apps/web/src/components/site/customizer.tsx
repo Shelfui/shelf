@@ -19,6 +19,7 @@ import {
   findPreset,
   resolveTheme,
 } from "@/themes/presets";
+import { withoutTransitions } from "@/themes/apply";
 import { useMode, useThemeSelection } from "@/themes/use-theme";
 import { ThemeCodeDialog } from "./theme-code-dialog";
 
@@ -59,7 +60,7 @@ export function Customizer() {
               aria-label="Mode"
               value={theme ? [theme] : []}
               onValueChange={([value]) => {
-                if (value) setTheme(value);
+                if (value) withoutTransitions(() => setTheme(value));
               }}
               style={styles.row}
             >

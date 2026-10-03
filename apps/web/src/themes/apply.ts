@@ -65,6 +65,20 @@ export function selectionVars(selection: ThemeSelection, mode: Mode): ThemeVars 
   return vars;
 }
 
+/**
+ * Runs `change` with CSS transitions off, so a mode switch repaints at once instead of fading.
+ * Used for user-triggered switches only: next-themes' own `disableTransitionOnChange` forces a
+ * synchronous style recalculation (`getComputedStyle`) on every mount, which PageSpeed reports as
+ * a forced reflow.
+ */
+export function withoutTransitions(change: () => void): void {
+  const style = document.createElement("style");
+  style.textContent = "*,*::before,*::after{transition:none!important}";
+  document.head.append(style);
+  change();
+  requestAnimationFrame(() => requestAnimationFrame(() => style.remove()));
+}
+
 export function applyThemeVars(
   vars: ThemeVars,
   mode: Mode,

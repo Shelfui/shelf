@@ -63,7 +63,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           storageKey={MODE_STORAGE_KEY}
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange
         >
           <ThemeSync />
           <LucideProvider className={stylex.props(styles.icon).className}>
