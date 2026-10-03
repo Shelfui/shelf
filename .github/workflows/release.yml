@@ -1,35 +1,130 @@
 name: Release
 
-# Publishes @shelfui/cli to npm when a version tag is pushed:
-#   git tag v0.1.0 && git push origin v0.1.0
-# Publishing uses npm trusted publishing (OIDC), so no token is stored. Set it up once
-# on npmjs.com: @shelfui/cli → Settings → Trusted Publisher → GitHub Actions,
-# organization "Shelfui", repository "shelf", workflow "release.yml".
+# How a release happens (details in CONTRIBUTING.md):
+#
+#   1. A PR that changes @shelfui/cli includes a changeset (`bun run changeset`).
+#   2. On main, this workflow keeps a "Version Packages" PR open that bumps the
+#      version and writes CHANGELOG.md.
+#   3. Merging that PR makes main's version newer than npm's. This workflow then
+#      tests the package and runs `npm stage publish` with a short-lived OIDC
+#      credential. No npm token is stored anywhere.
+#   4. A maintainer approves the staged version with 2FA, on npmjs.com or with
+#      `npm stage approve`. Only then is it public, with provenance.
+#
+# One-time setup on npm: see "Releasing" in CONTRIBUTING.md.
 
 on:
   push:
-    tags: ["v*"]
+    branches: [main]
+  workflow_dispatch:
 
-permissions:
-  contents: read
-  id-token: write
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+permissions: {}
 
 jobs:
-  publish:
+  release:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write # push the Version Packages branch and the release tag
+      pull-requests: write # open the Version Packages PR
+      id-token: write # npm trusted publishing (OIDC)
     steps:
-      - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          node-version: 22
+          # Full history, so `shelf build` can write every past revision.
+          fetch-depth: 0
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
           registry-url: https://registry.npmjs.org
-      # Trusted publishing needs npm 11.5.1 or newer.
-      - run: npm install -g npm@latest
+      # Trusted publishing needs npm 11.5.1, and `npm stage` needs 11.15.0.
+      - run: npm install -g npm@^11.15.0 && npm --version
       - run: bun install --frozen-lockfile
-      # `prepack` builds the registry site into the package.
-      - run: bun install --frozen-lockfile --cwd apps/registry
-      - name: Tag matches package version
-        run: test "v$(node -p "require('./packages/cli/package.json').version")" = "${GITHUB_REF_NAME}"
-      - run: npm publish
+
+      # Opens or updates the Version Packages PR while changesets are pending.
+      - name: Version Packages PR
+        id: changesets
+        uses: changesets/action@ae32849d5ba541f9ae29e40e22a623bc13562f51 # v2.1.2
+        with:
+          version: bun run release:version
+          commit: "Version Packages"
+          title: "Version Packages"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # With no pending changesets, main holds a version. Release it if npm and
+      # the repository's tags don't have it yet.
+      - name: Is this version released?
+        id: gate
+        if: steps.changesets.outputs.hasChangesets == 'false'
         working-directory: packages/cli
+        run: |
+          name=$(node -p "require('./package.json').name")
+          version=$(node -p "require('./package.json').version")
+          echo "name=$name" >> "$GITHUB_OUTPUT"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+          if out=$(npm view "$name" name 2>&1); then
+            :
+          elif grep -q E404 <<<"$out"; then
+            echo "::notice::$name is not on npm yet. Publish its first version by hand (see CONTRIBUTING.md)."
+            echo "release=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          else
+            echo "$out"
+            exit 1
+          fi
+
+          if git ls-remote --exit-code --tags origin "refs/tags/v$version" >/dev/null 2>&1 \
+            || [ -n "$(npm view "$name@$version" version 2>/dev/null)" ]; then
+            echo "v$version is already released or staged."
+            echo "release=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "release=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install registry site dependencies
+        if: steps.gate.outputs.release == 'true'
+        run: bun install --frozen-lockfile --cwd apps/registry
+      - name: Test
+        if: steps.gate.outputs.release == 'true'
+        run: bun run typecheck && bun test ./packages
+      - name: Stage on npm
+        if: steps.gate.outputs.release == 'true'
+        working-directory: packages/cli
+        run: npm stage publish
+      - name: Tag and create the GitHub release
+        if: steps.gate.outputs.release == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NAME: ${{ steps.gate.outputs.name }}
+          VERSION: ${{ steps.gate.outputs.version }}
+        run: |
+          # This version's section of the changelog is the release body. Without
+          # one, GitHub generates notes from the merged PRs.
+          awk -v v="$VERSION" '/^## /{ if (found) exit; found = ($2 == v); next } found' \
+            packages/cli/CHANGELOG.md > "$RUNNER_TEMP/notes.md" 2>/dev/null || true
+          if [ -s "$RUNNER_TEMP/notes.md" ]; then
+            notes=(--notes-file "$RUNNER_TEMP/notes.md")
+          else
+            notes=(--generate-notes)
+          fi
+          git tag "v$VERSION"
+          git push origin "v$VERSION"
+          gh release create "v$VERSION" --title "v$VERSION" "${notes[@]}" --verify-tag
+          {
+            echo "### $NAME@$VERSION is staged on npm"
+            echo
+            echo "It is not public until a maintainer approves it with 2FA:"
+            echo
+            echo '```sh'
+            echo "npm stage approve $NAME@$VERSION"
+            echo '```'
+            echo
+            echo "Or open the Staged Packages tab at https://www.npmjs.com/package/$NAME."
+          } >> "$GITHUB_STEP_SUMMARY"

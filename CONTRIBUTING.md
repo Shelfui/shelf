@@ -64,6 +64,59 @@ Shelf components use StyleX the way it is designed to be used: every style is st
 - **Transitions name their properties.** List what actually changes, such as `"background-color, box-shadow"`, never `"all"`. Prefer `opacity` and `transform`. Animate `height` or `width` only where Base UI supplies the size, such as `--accordion-panel-height`. Every duration drops to `0s` under `media.reducedMotion`.
 - **Hover is for pointers.** Nest `:hover` under `media.hover` so touch devices don't get stuck hover states.
 
+## Releasing
+
+Two things ship, separately:
+
+- **The registry** (components, blocks, foundations) deploys to `registry.shelfui.dev` on every push to `main`, through `.github/workflows/registry.yml`. Users get it with `shelf update`. Nothing to do.
+- **The CLI**, `@shelfui/cli` on npm, is released with [Changesets](https://github.com/changesets/changesets) and npm trusted publishing.
+
+### Day to day
+
+A PR that changes `packages/cli` (behavior, flags, output, fixes) adds a changeset:
+
+```bash
+bun run changeset
+```
+
+Pick the bump (patch, minor, or major while we're 0.x: breaking changes are minor) and write one sentence for users. Commit the generated `.changeset/*.md` file with the PR. Changes that users don't see (tests, refactors) don't need one.
+
+On `main`, `.github/workflows/release.yml` then does the rest:
+
+1. It keeps a **Version Packages** PR open. The PR bumps `packages/cli/package.json`, writes `CHANGELOG.md`, and refreshes `bun.lock`. Read the changelog in it, since that's what users see. GitHub doesn't run `Check` on PRs that a workflow opens; `main` was already checked when the changesets landed.
+2. **Merging that PR is the release decision.** The workflow tests the package, runs `npm stage publish` with a short-lived OIDC credential (no npm token exists), pushes the `vX.Y.Z` tag, and creates the GitHub release from the changelog.
+3. A maintainer **approves the staged version** with 2FA, either on the package's Staged Packages tab at npmjs.com or with `npm stage approve @shelfui/cli@X.Y.Z`. Until then it isn't installable. The workflow run's summary has the exact command. Published versions carry provenance.
+
+To stop a release, reject the staged version (`npm stage reject`) and fix forward with a new changeset.
+
+### One-time setup
+
+The first version has to be published by hand, because npm can only trust a workflow for a package that exists:
+
+```bash
+npm login                              # as a member of the shelfui npm org, with 2FA
+cd packages/cli
+npm publish                            # `publishConfig` makes it public; prepack builds the site
+git tag v0.1.0 && git push origin v0.1.0
+```
+
+Then trust the release workflow, for staging only (needs npm 11.15 or newer and 2FA):
+
+```bash
+npm trust github @shelfui/cli --file release.yml --repo Shelfui/shelf --allow-stage-publish
+```
+
+Stage-only means a compromised workflow can submit a version but can't make it public. After that, turn on **Require two-factor authentication and disallow tokens** in the package's Settings → Publishing access.
+
+Also set these on GitHub:
+
+- Branch protection on `main`: require a PR and the `check` status.
+- Settings → Actions → General → Workflow permissions: **Read repository contents**, and tick *Allow GitHub Actions to create and approve pull requests*, which the Version Packages PR needs.
+
+The `repository` field in `packages/cli/package.json` must match the GitHub repository exactly, including case (`Shelfui/shelf`), or provenance is rejected.
+
+Actions are pinned to commit SHAs, and Dependabot proposes updates weekly. Read the diff of each Dependabot PR before merging it.
+
 ## The external-consumer rule
 
 `apps/example` and `apps/web` must behave like external projects. They are not workspace members and must never import from `registry/` or `packages/`. Components enter them only through `shelf add`.

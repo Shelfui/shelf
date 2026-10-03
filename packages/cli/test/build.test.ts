@@ -99,7 +99,9 @@ describe("shelf build", () => {
     }
     expect(out.text()).toContain(`✓ validated ${source.length} items`);
     for (const item of source) expect(built).toContain(revisionPath(item.revision));
-    expect(built.filter((file) => file.startsWith("revisions/")).length).toBeGreaterThan(
+    // Past revisions come from git history, which this repo may not have yet;
+    // "build writes every revision in the registry's git history" covers them.
+    expect(built.filter((file) => file.startsWith("revisions/")).length).toBeGreaterThanOrEqual(
       source.length,
     );
   });

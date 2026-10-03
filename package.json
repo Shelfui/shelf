@@ -21,7 +21,9 @@
     "figma:build": "bun build packages/figma/src/plugin/main.ts --outfile packages/figma/dist/code.js --format iife --target browser",
     "registry:build": "bun packages/cli/src/index.ts build registry --out dist/registry",
     "registry:serve": "bun packages/cli/src/index.ts serve registry",
-    "site:build": "bun run --cwd apps/registry build --outDir ../../packages/cli/dist/site --emptyOutDir"
+    "site:build": "bun run --cwd apps/registry build --outDir ../../packages/cli/dist/site --emptyOutDir",
+    "changeset": "changeset",
+    "release:version": "changeset version && bun install"
   },
   "dependencies": {
     "@base-ui/react": "1.8.0",
@@ -42,6 +44,7 @@
     "react-resizable-panels": "^4.14.1"
   },
   "devDependencies": {
+    "@changesets/cli": "3.0.3",
     "@figma/plugin-typings": "1.139.0",
     "@storybook/addon-a11y": "10.6.0",
     "@storybook/addon-docs": "10.6.0",

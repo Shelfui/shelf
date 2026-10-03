@@ -21,3 +21,4 @@
 - [ ] Behavioral tests added or updated
 - [ ] Registry metadata (`registry.json`, `registry/index.json`) updated
 - [ ] Installed source still works without Shelf tooling
+- [ ] Changeset added (`bun run changeset`) if `packages/cli` changed in a way users see
