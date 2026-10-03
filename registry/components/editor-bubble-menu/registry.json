@@ -1,0 +1,29 @@
+{
+  "name": "editor-bubble-menu",
+  "type": "component",
+  "description": "A floating toolbar over selected text: turn into, bold, italic, underline, strike, code, link, and highlight.",
+  "files": [
+    {
+      "path": "editor-bubble-menu.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1",
+    "@tiptap/core": "^3.31.4",
+    "@tiptap/extension-bubble-menu": "^3.31.4",
+    "@tiptap/react": "^3.31.4",
+    "@tiptap/extension-floating-menu": "^3.31.4",
+    "@floating-ui/dom": "^1.8.0"
+  },
+  "shelfDependencies": [
+    "button",
+    "dropdown-menu",
+    "editor",
+    "editor-link-popover",
+    "foundations",
+    "icons",
+    "toggle",
+    "toolbar",
+    "utils"
+  ]
+}

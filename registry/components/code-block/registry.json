@@ -1,0 +1,11 @@
+{
+  "name": "code-block",
+  "type": "component",
+  "description": "A code listing with a copy button. Syntax highlighting loads on demand, one grammar at a time, and the plain text shows until it arrives.",
+  "files": [{ "path": "code-block.tsx" }, { "path": "code-block-highlighter.ts" }],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1",
+    "shiki": "^4.5.0"
+  },
+  "shelfDependencies": ["button", "foundations", "icons", "utils"]
+}

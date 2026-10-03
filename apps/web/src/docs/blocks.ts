@@ -10,6 +10,7 @@ export const blockCategories: BlockCategory[] = [
   { slug: "authentication", title: "Authentication" },
   { slug: "settings", title: "Settings" },
   { slug: "tables", title: "Tables" },
+  { slug: "chat", title: "Chat" },
 ];
 
 export interface BlockDoc {
@@ -28,6 +29,15 @@ export interface BlockDoc {
 }
 
 export const blocks: BlockDoc[] = [
+  {
+    name: "chat",
+    title: "Chat",
+    description:
+      "A complete chat: a conversation that follows streaming markdown, a message box with attachments, and send that becomes stop.",
+    categories: ["chat"],
+    featured: true,
+    height: 640,
+  },
   {
     name: "dashboard-shell",
     title: "Dashboard Shell",

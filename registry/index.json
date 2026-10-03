@@ -163,6 +163,12 @@
       "path": "components/chart-treemap"
     },
     {
+      "name": "chat",
+      "type": "block",
+      "description": "A complete chat: scrolling conversation with streaming markdown, a message box with attachments, and send that becomes stop.",
+      "path": "blocks/chat"
+    },
+    {
       "name": "checkbox",
       "type": "component",
       "description": "A checkbox with checked, unchecked, and indeterminate states.",
@@ -173,6 +179,12 @@
       "type": "component",
       "description": "Shares one array value between a set of Checkboxes, with optional select-all.",
       "path": "components/checkbox-group"
+    },
+    {
+      "name": "code-block",
+      "type": "component",
+      "description": "A code listing with a copy button; syntax highlighting loads on demand.",
+      "path": "components/code-block"
     },
     {
       "name": "collapsible",
@@ -193,6 +205,12 @@
       "path": "components/command"
     },
     {
+      "name": "composer",
+      "type": "component",
+      "description": "The message box for a chat: a text field that becomes a Tiptap editor on demand, file attachments, and send that turns into stop.",
+      "path": "components/composer"
+    },
+    {
       "name": "context-menu",
       "type": "component",
       "description": "A menu opened by right-clicking or long-pressing an area.",
@@ -207,7 +225,7 @@
     {
       "name": "dashboard-shell",
       "type": "block",
-      "description": "An app shell with pinned and recent items in the sidebar, a ⌘K command palette, and an account menu.",
+      "description": "An app shell with pinned and recent items in the sidebar, a \u2318K command palette, and an account menu.",
       "path": "blocks/dashboard-shell"
     },
     {
@@ -239,6 +257,42 @@
       "type": "component",
       "description": "A menu of actions opened from a button, with checkbox, radio, and submenu items.",
       "path": "components/dropdown-menu"
+    },
+    {
+      "name": "dropzone",
+      "type": "component",
+      "description": "A drop target for files with a picker, a drag overlay, and readable rejections.",
+      "path": "components/dropzone"
+    },
+    {
+      "name": "editor",
+      "type": "component",
+      "description": "A block editor on Tiptap: headings, lists, task lists, quotes, code, links, and highlights.",
+      "path": "components/editor"
+    },
+    {
+      "name": "editor-block-handle",
+      "type": "component",
+      "description": "A drag handle beside each block, with a menu to turn it into another block, duplicate, or delete it.",
+      "path": "components/editor-block-handle"
+    },
+    {
+      "name": "editor-bubble-menu",
+      "type": "component",
+      "description": "A floating toolbar over selected text for bold, italic, link, highlight, and turning a block into another type.",
+      "path": "components/editor-bubble-menu"
+    },
+    {
+      "name": "editor-link-popover",
+      "type": "component",
+      "description": "A popover to add, edit, open, and remove a link on the selected text.",
+      "path": "components/editor-link-popover"
+    },
+    {
+      "name": "editor-slash-menu",
+      "type": "component",
+      "description": "A searchable menu opened by typing / at the start of a block, to insert headings, lists, quotes, code, and dividers.",
+      "path": "components/editor-slash-menu"
     },
     {
       "name": "empty",
@@ -337,10 +391,22 @@
       "path": "blocks/login-split"
     },
     {
+      "name": "markdown",
+      "type": "component",
+      "description": "Renders streaming model output: only the growing block re-renders, and output is safe by default.",
+      "path": "components/markdown"
+    },
+    {
       "name": "menubar",
       "type": "component",
       "description": "A row of menus, as in a desktop app, with arrow-key movement between them.",
       "path": "components/menubar"
+    },
+    {
+      "name": "message",
+      "type": "component",
+      "description": "One turn in a conversation: unboxed assistant text, a user bubble, and hover actions.",
+      "path": "components/message"
     },
     {
       "name": "meter",
@@ -427,6 +493,12 @@
       "path": "blocks/settings-section"
     },
     {
+      "name": "shimmer",
+      "type": "component",
+      "description": "Text with a soft highlight sweeping across it, for work in progress.",
+      "path": "components/shimmer"
+    },
+    {
       "name": "sidebar",
       "type": "component",
       "description": "An app-shell sidebar that collapses offcanvas or to icons and becomes a sheet on small screens.",
@@ -491,6 +563,12 @@
       "type": "component",
       "description": "A multi-line text input that grows with its content and takes part in a Field.",
       "path": "components/textarea"
+    },
+    {
+      "name": "thread",
+      "type": "component",
+      "description": "A conversation's scroll area: follows new messages, lets go when you scroll up, and brings you back with one button.",
+      "path": "components/thread"
     },
     {
       "name": "toast",

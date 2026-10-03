@@ -1,0 +1,19 @@
+{
+  "name": "editor-link-popover",
+  "type": "component",
+  "description": "A button and form to add, change, open, and remove a link on the selected text.",
+  "files": [{ "path": "editor-link-popover.tsx" }],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": [
+    "button",
+    "editor",
+    "foundations",
+    "icons",
+    "input",
+    "popover",
+    "toggle",
+    "toolbar"
+  ]
+}

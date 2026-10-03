@@ -1,0 +1,18 @@
+{
+  "name": "markdown",
+  "type": "component",
+  "description": "Renders model output as it streams: only the growing block re-renders, unfinished syntax is completed, and output is safe by default.",
+  "files": [
+    { "path": "markdown.tsx" },
+    { "path": "markdown-blocks.ts" },
+    { "path": "markdown-render.tsx" },
+    { "path": "markdown-url.ts" },
+    { "path": "use-smoothed-text.ts" }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1",
+    "marked": "^18.0.14",
+    "remend": "^1.4.0"
+  },
+  "shelfDependencies": ["code-block", "foundations", "utils"]
+}

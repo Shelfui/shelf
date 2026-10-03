@@ -108,6 +108,10 @@
       "own": 1173,
       "total": 79764
     },
+    "chat": {
+      "own": 1492,
+      "total": 465800
+    },
     "checkbox": {
       "own": 1425,
       "total": 11323
@@ -115,6 +119,10 @@
     "checkbox-group": {
       "own": 474,
       "total": 6077
+    },
+    "code-block": {
+      "own": 3919,
+      "total": 305102
     },
     "collapsible": {
       "own": 679,
@@ -127,6 +135,10 @@
     "command": {
       "own": 2784,
       "total": 44556
+    },
+    "composer": {
+      "own": 4599,
+      "total": 116983
     },
     "context-menu": {
       "own": 544,
@@ -160,6 +172,30 @@
       "own": 2655,
       "total": 50938
     },
+    "dropzone": {
+      "own": 2390,
+      "total": 14791
+    },
+    "editor": {
+      "own": 4496,
+      "total": 141917
+    },
+    "editor-block-handle": {
+      "own": 1469,
+      "total": 211992
+    },
+    "editor-bubble-menu": {
+      "own": 1543,
+      "total": 188823
+    },
+    "editor-link-popover": {
+      "own": 1259,
+      "total": 163929
+    },
+    "editor-slash-menu": {
+      "own": 2917,
+      "total": 136882
+    },
     "empty": {
       "own": 1431,
       "total": 3161
@@ -185,8 +221,8 @@
       "total": 31518
     },
     "icons": {
-      "own": 928,
-      "total": 4805
+      "own": 1440,
+      "total": 7389
     },
     "input": {
       "own": 1305,
@@ -224,9 +260,17 @@
       "own": 1640,
       "total": 18482
     },
+    "markdown": {
+      "own": 4279,
+      "total": 326706
+    },
     "menubar": {
       "own": 1501,
       "total": 53362
+    },
+    "message": {
+      "own": 1940,
+      "total": 37477
     },
     "meter": {
       "own": 944,
@@ -284,6 +328,10 @@
       "own": 1773,
       "total": 17542
     },
+    "shimmer": {
+      "own": 744,
+      "total": 2468
+    },
     "sidebar": {
       "own": 4138,
       "total": 58827
@@ -327,6 +375,10 @@
     "textarea": {
       "own": 1432,
       "total": 6927
+    },
+    "thread": {
+      "own": 2078,
+      "total": 12142
     },
     "toast": {
       "own": 3088,

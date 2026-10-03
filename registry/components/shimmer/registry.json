@@ -1,0 +1,10 @@
+{
+  "name": "shimmer",
+  "type": "component",
+  "description": "Text with a soft highlight sweeping across it, for a label that stands for work in progress.",
+  "files": [{ "path": "shimmer.tsx" }],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "utils"]
+}

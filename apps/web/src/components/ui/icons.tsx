@@ -6,38 +6,67 @@ import {
   ArrowUpDownIcon as ArrowUpDown,
   ArrowUpIcon as ArrowUp,
   ArrowUpRightIcon as ArrowUpRight,
+  BanIcon as Ban,
   BoldIcon as Bold,
+  BrainIcon as Brain,
   CalendarIcon as Calendar,
   CheckIcon as Check,
   ChevronDownIcon as ChevronDown,
   ChevronLeftIcon as ChevronLeft,
   ChevronRightIcon as ChevronRight,
-  ChevronUpIcon as ChevronUp,
   ChevronsUpDownIcon as ChevronsUpDown,
+  ChevronUpIcon as ChevronUp,
   CircleAlertIcon as CircleAlert,
   CircleCheckIcon as CircleCheck,
+  CodeIcon as Code,
   CopyIcon as Copy,
   CreditCardIcon as CreditCard,
   EllipsisIcon as Ellipsis,
   ExternalLinkIcon as ExternalLink,
+  FileIcon as File,
   FileTextIcon as FileText,
+  GlobeIcon as Globe,
   GripVerticalIcon as GripVertical,
+  Heading1Icon as Heading1,
+  Heading2Icon as Heading2,
+  Heading3Icon as Heading3,
+  HighlighterIcon as Highlighter,
   HouseIcon as House,
+  ImageIcon as Image,
   InboxIcon as Inbox,
   InfoIcon as Info,
   ItalicIcon as Italic,
   LayoutDashboardIcon as LayoutDashboard,
+  LinkIcon as Link,
+  ListChecksIcon as ListChecks,
+  ListIcon as List,
+  ListOrderedIcon as ListOrdered,
+  ListTodoIcon as ListTodo,
   LoaderCircleIcon as LoaderCircle,
   MinusIcon as Minus,
   MoonIcon as Moon,
   PanelLeftIcon as PanelLeft,
+  PaperclipIcon as Paperclip,
   PlusIcon as Plus,
+  QuoteIcon as Quote,
+  RotateCcwIcon as RotateCcw,
   SearchIcon as Search,
   SendIcon as Send,
   SettingsIcon as Settings,
+  SparklesIcon as Sparkles,
+  SquareCodeIcon as SquareCode,
+  SquareIcon as Square,
+  StrikethroughIcon as Strikethrough,
   SunIcon as Sun,
+  TerminalIcon as Terminal,
+  ThumbsDownIcon as ThumbsDown,
+  ThumbsUpIcon as ThumbsUp,
+  Trash2Icon as Trash2,
+  TypeIcon as Type,
   UnderlineIcon as Underline,
+  UnlinkIcon as Unlink,
   UsersIcon as Users,
+  WrenchIcon as Wrench,
   XIcon as X,
 } from "lucide-react";
 import type { SVGProps } from "react";
@@ -98,3 +127,32 @@ export const SettingsIcon = (props: IconProps) => <Settings {...DEFAULTS} {...pr
 export const SpinnerIcon = (props: IconProps) => <LoaderCircle {...DEFAULTS} {...props} />;
 export const UnderlineIcon = (props: IconProps) => <Underline {...DEFAULTS} {...props} />;
 export const UsersIcon = (props: IconProps) => <Users {...DEFAULTS} {...props} />;
+export const CodeIcon = (props: IconProps) => <Code {...DEFAULTS} {...props} />;
+export const CodeBlockIcon = (props: IconProps) => <SquareCode {...DEFAULTS} {...props} />;
+export const Heading1Icon = (props: IconProps) => <Heading1 {...DEFAULTS} {...props} />;
+export const Heading2Icon = (props: IconProps) => <Heading2 {...DEFAULTS} {...props} />;
+export const Heading3Icon = (props: IconProps) => <Heading3 {...DEFAULTS} {...props} />;
+export const HighlightIcon = (props: IconProps) => <Highlighter {...DEFAULTS} {...props} />;
+export const LinkIcon = (props: IconProps) => <Link {...DEFAULTS} {...props} />;
+export const BulletListIcon = (props: IconProps) => <List {...DEFAULTS} {...props} />;
+export const NumberedListIcon = (props: IconProps) => <ListOrdered {...DEFAULTS} {...props} />;
+export const TaskListIcon = (props: IconProps) => <ListTodo {...DEFAULTS} {...props} />;
+export const QuoteIcon = (props: IconProps) => <Quote {...DEFAULTS} {...props} />;
+export const StrikethroughIcon = (props: IconProps) => <Strikethrough {...DEFAULTS} {...props} />;
+export const DeleteIcon = (props: IconProps) => <Trash2 {...DEFAULTS} {...props} />;
+export const TextIcon = (props: IconProps) => <Type {...DEFAULTS} {...props} />;
+export const UnlinkIcon = (props: IconProps) => <Unlink {...DEFAULTS} {...props} />;
+export const StopIcon = (props: IconProps) => <Square {...DEFAULTS} {...props} />;
+export const AttachIcon = (props: IconProps) => <Paperclip {...DEFAULTS} {...props} />;
+export const RetryIcon = (props: IconProps) => <RotateCcw {...DEFAULTS} {...props} />;
+export const ReasoningIcon = (props: IconProps) => <Brain {...DEFAULTS} {...props} />;
+export const ToolIcon = (props: IconProps) => <Wrench {...DEFAULTS} {...props} />;
+export const SourceIcon = (props: IconProps) => <Globe {...DEFAULTS} {...props} />;
+export const FileIcon = (props: IconProps) => <File {...DEFAULTS} {...props} />;
+export const ImageIcon = (props: IconProps) => <Image {...DEFAULTS} {...props} />;
+export const PlanIcon = (props: IconProps) => <ListChecks {...DEFAULTS} {...props} />;
+export const ThumbsUpIcon = (props: IconProps) => <ThumbsUp {...DEFAULTS} {...props} />;
+export const ThumbsDownIcon = (props: IconProps) => <ThumbsDown {...DEFAULTS} {...props} />;
+export const TerminalIcon = (props: IconProps) => <Terminal {...DEFAULTS} {...props} />;
+export const DeniedIcon = (props: IconProps) => <Ban {...DEFAULTS} {...props} />;
+export const SparklesIcon = (props: IconProps) => <Sparkles {...DEFAULTS} {...props} />;

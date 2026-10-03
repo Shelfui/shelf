@@ -784,6 +784,35 @@
         "failed": 0
       }
     },
+    "chat": {
+      "size": {
+        "own": {
+          "js": 1100,
+          "css": 392
+        },
+        "total": {
+          "js": 460982,
+          "css": 4818
+        }
+      },
+      "packages": 1,
+      "shelfDependencies": 8,
+      "stories": {
+        "total": 1,
+        "interactive": 1
+      },
+      "storyId": "blocks-chat--default",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 2,
+        "failed": 0
+      }
+    },
     "checkbox": {
       "size": {
         "own": {
@@ -839,6 +868,35 @@
       },
       "compiler": {
         "compiled": 1,
+        "failed": 0
+      }
+    },
+    "code-block": {
+      "size": {
+        "own": {
+          "js": 3109,
+          "css": 810
+        },
+        "total": {
+          "js": 302015,
+          "css": 3087
+        }
+      },
+      "packages": 2,
+      "shelfDependencies": 4,
+      "stories": {
+        "total": 3,
+        "interactive": 2
+      },
+      "storyId": "components-codeblock--default",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 3,
         "failed": 0
       }
     },
@@ -926,6 +984,35 @@
       },
       "compiler": {
         "compiled": 10,
+        "failed": 0
+      }
+    },
+    "composer": {
+      "size": {
+        "own": {
+          "js": 3823,
+          "css": 776
+        },
+        "total": {
+          "js": 113759,
+          "css": 3224
+        }
+      },
+      "packages": 9,
+      "shelfDependencies": 6,
+      "stories": {
+        "total": 0,
+        "interactive": 0
+      },
+      "storyId": null,
+      "providesContext": true,
+      "renderTested": true,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 7,
         "failed": 0
       }
     },
@@ -1161,6 +1248,180 @@
         "failed": 0
       }
     },
+    "dropzone": {
+      "size": {
+        "own": {
+          "js": 1671,
+          "css": 719
+        },
+        "total": {
+          "js": 11910,
+          "css": 2881
+        }
+      },
+      "packages": 2,
+      "shelfDependencies": 3,
+      "stories": {
+        "total": 2,
+        "interactive": 2
+      },
+      "storyId": "components-dropzone--default",
+      "providesContext": true,
+      "renderTested": true,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 5,
+        "failed": 0
+      }
+    },
+    "editor": {
+      "size": {
+        "own": {
+          "js": 3442,
+          "css": 1054
+        },
+        "total": {
+          "js": 139433,
+          "css": 2484
+        }
+      },
+      "packages": 10,
+      "shelfDependencies": 4,
+      "stories": {
+        "total": 5,
+        "interactive": 5
+      },
+      "storyId": "components-editor--default",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 4,
+        "failed": 0
+      }
+    },
+    "editor-block-handle": {
+      "size": {
+        "own": {
+          "js": 1350,
+          "css": 119
+        },
+        "total": {
+          "js": 208319,
+          "css": 3673
+        }
+      },
+      "packages": 4,
+      "shelfDependencies": 5,
+      "stories": {
+        "total": 7,
+        "interactive": 7
+      },
+      "storyId": "components-editor-block-handle--duplicate",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 1,
+        "failed": 0
+      }
+    },
+    "editor-bubble-menu": {
+      "size": {
+        "own": {
+          "js": 1429,
+          "css": 114
+        },
+        "total": {
+          "js": 184939,
+          "css": 3884
+        }
+      },
+      "packages": 6,
+      "shelfDependencies": 9,
+      "stories": {
+        "total": 3,
+        "interactive": 3
+      },
+      "storyId": "components-editor-bubble-menu--default",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 4,
+        "failed": 0
+      }
+    },
+    "editor-link-popover": {
+      "size": {
+        "own": {
+          "js": 1125,
+          "css": 134
+        },
+        "total": {
+          "js": 160224,
+          "css": 3705
+        }
+      },
+      "packages": 1,
+      "shelfDependencies": 8,
+      "stories": {
+        "total": 0,
+        "interactive": 0
+      },
+      "storyId": null,
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 1,
+        "failed": 0
+      }
+    },
+    "editor-slash-menu": {
+      "size": {
+        "own": {
+          "js": 2262,
+          "css": 655
+        },
+        "total": {
+          "js": 134110,
+          "css": 2772
+        }
+      },
+      "packages": 4,
+      "shelfDependencies": 3,
+      "stories": {
+        "total": 3,
+        "interactive": 3
+      },
+      "storyId": "components-editor-slash-menu--default",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 2,
+        "failed": 0
+      }
+    },
     "empty": {
       "size": {
         "own": {
@@ -1335,11 +1596,11 @@
     "icons": {
       "size": {
         "own": {
-          "js": 928,
+          "js": 1440,
           "css": 0
         },
         "total": {
-          "js": 4805,
+          "js": 7389,
           "css": 0
         }
       },
@@ -1357,7 +1618,7 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 40,
+        "compiled": 69,
         "failed": 0
       }
     },
@@ -1622,6 +1883,35 @@
         "failed": 0
       }
     },
+    "markdown": {
+      "size": {
+        "own": {
+          "js": 3203,
+          "css": 1076
+        },
+        "total": {
+          "js": 323063,
+          "css": 3643
+        }
+      },
+      "packages": 3,
+      "shelfDependencies": 3,
+      "stories": {
+        "total": 3,
+        "interactive": 2
+      },
+      "storyId": "components-markdown--default",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 3,
+        "failed": 0
+      }
+    },
     "menubar": {
       "size": {
         "own": {
@@ -1648,6 +1938,35 @@
       },
       "compiler": {
         "compiled": 3,
+        "failed": 0
+      }
+    },
+    "message": {
+      "size": {
+        "own": {
+          "js": 1307,
+          "css": 633
+        },
+        "total": {
+          "js": 34473,
+          "css": 3004
+        }
+      },
+      "packages": 2,
+      "shelfDependencies": 5,
+      "stories": {
+        "total": 1,
+        "interactive": 1
+      },
+      "storyId": "components-message--conversation",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 5,
         "failed": 0
       }
     },
@@ -2057,6 +2376,35 @@
         "failed": 0
       }
     },
+    "shimmer": {
+      "size": {
+        "own": {
+          "js": 430,
+          "css": 314
+        },
+        "total": {
+          "js": 1118,
+          "css": 1350
+        }
+      },
+      "packages": 1,
+      "shelfDependencies": 2,
+      "stories": {
+        "total": 2,
+        "interactive": 1
+      },
+      "storyId": "components-shimmer--default",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 1,
+        "failed": 0
+      }
+    },
     "sidebar": {
       "size": {
         "own": {
@@ -2373,6 +2721,35 @@
       },
       "compiler": {
         "compiled": 1,
+        "failed": 0
+      }
+    },
+    "thread": {
+      "size": {
+        "own": {
+          "js": 1468,
+          "css": 610
+        },
+        "total": {
+          "js": 9216,
+          "css": 2926
+        }
+      },
+      "packages": 2,
+      "shelfDependencies": 5,
+      "stories": {
+        "total": 0,
+        "interactive": 0
+      },
+      "storyId": null,
+      "providesContext": true,
+      "renderTested": true,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 6,
         "failed": 0
       }
     },

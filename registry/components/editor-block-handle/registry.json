@@ -1,0 +1,17 @@
+{
+  "name": "editor-block-handle",
+  "type": "component",
+  "description": "A drag handle beside each block, with a menu to turn it into another kind, duplicate, or delete it.",
+  "files": [
+    {
+      "path": "editor-block-handle.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1",
+    "@tiptap/extension-drag-handle": "^3.31.4",
+    "@tiptap/extension-drag-handle-react": "^3.31.4",
+    "@tiptap/pm": "^3.31.4"
+  },
+  "shelfDependencies": ["button", "dropdown-menu", "editor", "foundations", "icons"]
+}

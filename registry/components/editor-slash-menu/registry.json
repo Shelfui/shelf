@@ -1,0 +1,13 @@
+{
+  "name": "editor-slash-menu",
+  "type": "component",
+  "description": "A searchable menu opened by typing / in a block, to insert headings, lists, quotes, code, and dividers.",
+  "files": [{ "path": "editor-slash-menu.tsx" }],
+  "dependencies": {
+    "@floating-ui/dom": "^1.8.0",
+    "@stylexjs/stylex": "^0.19.1",
+    "@tiptap/pm": "^3.31.4",
+    "@tiptap/suggestion": "^3.31.4"
+  },
+  "shelfDependencies": ["editor", "foundations", "utils"]
+}

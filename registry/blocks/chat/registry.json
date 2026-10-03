@@ -1,0 +1,19 @@
+{
+  "name": "chat",
+  "type": "block",
+  "description": "A complete chat: scrolling conversation with streaming markdown, a message box with attachments, and send that becomes stop. Works with the AI SDK or any stream.",
+  "files": [{ "path": "chat.tsx" }],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": [
+    "composer",
+    "foundations",
+    "icons",
+    "markdown",
+    "message",
+    "shimmer",
+    "thread",
+    "utils"
+  ]
+}

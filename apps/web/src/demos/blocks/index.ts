@@ -1,5 +1,6 @@
 import type { ComponentType } from "react";
 import AnalyticsDashboardDemo from "./analytics-dashboard";
+import ChatDemo from "./chat";
 import ChartCardDemo from "./chart-card";
 import DashboardOverviewDemo from "./dashboard-overview";
 import DashboardShellDemo from "./dashboard-shell";
@@ -14,6 +15,7 @@ import SignupFormDemo from "./signup-form";
 /** Each block's demo, by registry name. The docs read the same files as source. */
 export const blockDemos: Record<string, ComponentType> = {
   "analytics-dashboard": AnalyticsDashboardDemo,
+  chat: ChatDemo,
   "chart-card": ChartCardDemo,
   "dashboard-overview": DashboardOverviewDemo,
   "dashboard-shell": DashboardShellDemo,

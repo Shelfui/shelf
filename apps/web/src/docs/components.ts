@@ -309,6 +309,13 @@ export const components: ComponentDoc[] = [
     description: "Shares one array value between a set of Checkboxes, with optional select-all.",
   },
   {
+    name: "code-block",
+    title: "Code Block",
+    useWhen: "Showing a code listing, such as a model's answer or an example, with a copy button.",
+    avoidWhen: "The code is editable; use an editor. Inline code belongs in running text.",
+    description: "A code listing with a copy button; syntax highlighting loads on demand.",
+  },
+  {
     name: "collapsible",
     title: "Collapsible",
     useWhen: "One section of secondary detail that people can reveal.",
@@ -329,6 +336,15 @@ export const components: ComponentDoc[] = [
     avoidWhen: "There are only a few options; use Dropdown Menu or Select.",
     description:
       "A searchable command list with groups, shortcuts, and an empty state, inline or in a dialog.",
+  },
+  {
+    name: "composer",
+    title: "Composer",
+    useWhen:
+      "The message box of a chat: send on Enter, attach files by drop, paste, or picker, and stop a reply in progress.",
+    avoidWhen: "A single-line field for short answers; use Input.",
+    description:
+      "The message box for a chat: a text field that becomes a Tiptap editor on demand, file attachments, and send that turns into stop.",
   },
   {
     name: "context-menu",
@@ -393,6 +409,14 @@ export const components: ComponentDoc[] = [
     useWhen: "A list of actions behind one trigger, such as an overflow menu.",
     avoidWhen: "People pick a value from options; use Select.",
     description: "A menu of actions opened from a button, with checkbox, radio, and submenu items.",
+  },
+  {
+    name: "dropzone",
+    title: "Dropzone",
+    useWhen:
+      "People add files by dragging them onto the page or choosing them, with limits on type and size.",
+    avoidWhen: "The file is a single form field with no drag and drop; use a plain file Input.",
+    description: "A drop target for files with a picker, a drag overlay, and readable rejections.",
   },
   {
     name: "empty",
@@ -499,11 +523,28 @@ export const components: ComponentDoc[] = [
     avoidWhen: "You are using Field, which renders its own label.",
   },
   {
+    name: "markdown",
+    title: "Markdown",
+    useWhen:
+      "Showing model output as it streams in, with safe links, images off by default, and highlighted code.",
+    avoidWhen: "Authoring rich text; use an editor.",
+    description:
+      "Renders streaming model output: only the growing block re-renders, and output is safe by default.",
+  },
+  {
     name: "menubar",
     title: "Menubar",
     useWhen: "Application-style menus across the top of a tool, such as File, Edit, and View.",
     avoidWhen: "A website's main navigation; use Navigation Menu.",
     description: "A row of menus, as in a desktop app, with arrow-key movement between them.",
+  },
+  {
+    name: "message",
+    title: "Message",
+    useWhen: "One turn in a conversation, from the person or the assistant, with actions on hover.",
+    avoidWhen: "A notification or status; use Alert or Toast.",
+    description:
+      "One turn in a conversation: unboxed assistant text, a user bubble, and hover actions.",
   },
   {
     name: "meter",
@@ -610,6 +651,14 @@ export const components: ComponentDoc[] = [
     avoidWhen: "Spacing alone would separate the groups.",
   },
   {
+    name: "shimmer",
+    title: "Shimmer",
+    useWhen:
+      "A short label for work in progress, such as Thinking, where a spinner would be too loud.",
+    avoidWhen: "Progress that has a known amount; use Progress.",
+    description: "Text with a soft highlight sweeping across it, for work in progress.",
+  },
+  {
     name: "sidebar",
     title: "Sidebar",
     useWhen: "The main navigation of an app, collapsible on desktop and a sheet on mobile.",
@@ -684,6 +733,15 @@ export const components: ComponentDoc[] = [
     useWhen: "Multi-line text such as comments or descriptions.",
     avoidWhen: "The text is a single line; use Input.",
     description: "A multi-line text input that grows with its content and takes part in a Field.",
+  },
+  {
+    name: "thread",
+    title: "Thread",
+    useWhen:
+      "The scroll area of a conversation that grows over time, following new messages until the reader scrolls up.",
+    avoidWhen: "A static list that never grows; use a normal scroll area.",
+    description:
+      "A conversation's scroll area: follows new messages, lets go when you scroll up, and brings you back with one button.",
   },
   {
     name: "toast",

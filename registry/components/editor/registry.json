@@ -1,0 +1,29 @@
+{
+  "name": "editor",
+  "type": "component",
+  "description": "A block editor on Tiptap: headings, lists, task lists, quotes, code, links, and highlights, styled for reading.",
+  "files": [
+    {
+      "path": "editor.tsx"
+    },
+    {
+      "path": "blocks.ts"
+    },
+    {
+      "path": "block-commands.ts"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1",
+    "@tiptap/core": "^3.31.4",
+    "@tiptap/extension-heading": "^3.31.4",
+    "@tiptap/extension-highlight": "^3.31.4",
+    "@tiptap/extension-task-item": "^3.31.4",
+    "@tiptap/extension-task-list": "^3.31.4",
+    "@tiptap/extensions": "^3.31.4",
+    "@tiptap/pm": "^3.31.4",
+    "@tiptap/react": "^3.31.4",
+    "@tiptap/starter-kit": "^3.31.4"
+  },
+  "shelfDependencies": ["checkbox", "foundations", "icons", "utils"]
+}
