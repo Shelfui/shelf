@@ -27,6 +27,7 @@ jobs:
       - run: bun install --frozen-lockfile --cwd apps/registry
       - run: bun run storybook:build
       - run: bun run site:build
+      - run: bun run figma:build
       - name: Docs topics for `shelf docs`
         run: bun scripts/agent-docs.ts
         working-directory: apps/web

@@ -70,6 +70,10 @@ export default function Roadmap() {
               text: "The built registry is also a site: every item with its source, revisions, Storybook previews, and usage.",
             },
             {
+              term: "Figma library (early)",
+              text: "A plugin that builds native Figma variables, styles, and components from your registry and syncs changes. Optional, and installed privately for now.",
+            },
+            {
               term: <Code>shelf usage</Code>,
               text: "Which projects install and import each item, at which revision, across local directories or a GitHub organization.",
             },
@@ -84,10 +88,6 @@ export default function Roadmap() {
             {
               term: "Patterns and templates",
               text: "Reusable interactions and page-level starting points that install the same way as components.",
-            },
-            {
-              term: "Figma",
-              text: "Native Figma components compiled from React, starting with Button.",
             },
             {
               term: "Decisions that propagate",

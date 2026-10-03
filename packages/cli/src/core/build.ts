@@ -33,6 +33,8 @@ export interface BuildOptions {
   site?: boolean;
   /** The prebuilt site. Defaults to the one shipped with the CLI. */
   siteDir?: string;
+  /** The built Figma plugin (manifest and code), served at `figma/`. Defaults to the one shipped with the CLI. */
+  figmaDir?: string;
   /** A Storybook build (`storybook build`) to serve at `storybook/`, for previews. */
   storybook?: string;
   /** A `shelf usage --json` file to serve at `usage.json`. */
@@ -54,6 +56,7 @@ export async function build({
   out,
   site = true,
   siteDir = defaultSiteDir(),
+  figmaDir = defaultFigmaDir(),
   storybook,
   usage,
 }: BuildOptions): Promise<void> {
@@ -156,6 +159,9 @@ export async function build({
 
   const siteBuilt = site && existsSync(path.join(siteDir, "index.html"));
   if (siteBuilt) await cp(siteDir, target, { recursive: true });
+  // The plugin's window is the site, so one is only useful with the other.
+  const figmaBuilt = siteBuilt && existsSync(path.join(figmaDir, "manifest.json"));
+  if (figmaBuilt) await cp(figmaDir, path.join(target, FIGMA), { recursive: true });
   if (storybookDir) await cp(storybookDir, path.join(target, STORYBOOK), { recursive: true });
 
   out.log("Shelf build");
@@ -164,9 +170,13 @@ export async function build({
   out.log(`✓ wrote ${plural(files.length, "file")} (${(bytes / 1024).toFixed(1)} kB) to ${target}`);
   out.log(`✓ ${plural(kept, "revision")} in ${REVISIONS}/ (${written} new)`);
   if (siteBuilt) out.log("✓ site at index.html");
+  if (figmaBuilt) out.log(`✓ Figma plugin at ${FIGMA}/`);
   if (storybookDir) out.log(`✓ Storybook at ${STORYBOOK}/`);
   if (usageJson !== undefined) out.log("✓ usage at usage.json");
   if (site && !siteBuilt) out.log("! site not built, run: bun run site:build");
+  if (site && siteBuilt && !figmaBuilt) {
+    out.log("! Figma plugin not built, run: bun run figma:build");
+  }
   if (status !== "available") {
     out.log(
       `! registry history unavailable (${UNAVAILABLE[status]}); installs of older revisions can't be rebuilt.${status === "shallow" ? " Use fetch-depth: 0." : ""}`,
@@ -180,6 +190,15 @@ export async function build({
 
 const REVISIONS = "revisions";
 const STORYBOOK = "storybook";
+const FIGMA = "figma";
+
+/** Next to the bundled CLI in `dist/`, or in `dist/` when running from source. */
+function defaultFigmaDir(): string {
+  const bundled = fileURLToPath(new URL("./figma", import.meta.url));
+  return existsSync(bundled)
+    ? bundled
+    : fileURLToPath(new URL("../../dist/figma", import.meta.url));
+}
 
 /** Next to the bundled CLI in `dist/`, or in `dist/` when running from source. */
 function defaultSiteDir(): string {

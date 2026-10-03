@@ -272,10 +272,25 @@ function Guide({ registry }: { registry: Registry }) {
         <T.Muted>Once per team, by whoever maintains the library.</T.Muted>
         <ol {...stylex.props(styles.steps)}>
           <li>
-            Build the plugin with <code {...stylex.props(text.mono)}>bun run figma:build</code> and
-            publish <code {...stylex.props(text.mono)}>packages/figma/manifest.json</code> privately
-            to your Figma organization. Without an Organization or Enterprise plan, import it
-            instead: Plugins, Development, Import plugin from manifest.
+            Download the plugin:{" "}
+            <a
+              href={new URL("figma/manifest.json", registry.url).toString()}
+              download="manifest.json"
+              {...stylex.props(text.link)}
+            >
+              manifest.json
+            </a>{" "}
+            and{" "}
+            <a
+              href={new URL("figma/code.js", registry.url).toString()}
+              download="code.js"
+              {...stylex.props(text.link)}
+            >
+              code.js
+            </a>
+            , into one folder. In Figma, choose Plugins, Development, Import plugin from manifest,
+            and select the manifest. With an Organization or Enterprise plan you can publish it
+            privately to your organization instead.
           </li>
           <li>
             Open the file your team publishes as its library, run Shelf, and connect this registry.

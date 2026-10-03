@@ -115,7 +115,7 @@ A project needs React with StyleX in its build. The example app uses Vite with `
 
 **Available:** components, blocks, foundations and themes, and `init`, `search`, `add`, `status`, `diff`, `update`, `check`, `usage`, `build`, and `serve`. Private registries and the registry site.
 
-**In progress:** native Figma components compiled from the same React source, starting with Button.
+**Early:** an optional Figma plugin that builds a native library (variables, styles, components with variants) from the registry and syncs changes. Designers can also work in the real components without Figma.
 
 **Planned:** `shelf contribute` to send a local improvement back to the registry, patterns and templates, and visual validation in `shelf check`.
 

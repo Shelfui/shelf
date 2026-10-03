@@ -85,9 +85,9 @@ const AUDIENCES: { title: string; headline: string; text: string; href: string; 
     {
       title: "Designers",
       headline: "Design with what ships.",
-      text: "Work in the real components, in the browser or in code. Figma is optional, and native Figma components compiled from the same source are in progress.",
+      text: "Work in the real components, in the browser or in code. Want Figma? A plugin builds a native library from the same source.",
       href: "/docs/figma",
-      note: "Figma in progress",
+      note: "Figma: early",
     },
   ];
 

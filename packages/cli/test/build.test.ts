@@ -268,12 +268,15 @@ describe("shelf build: the Shelf Registry site", () => {
     const [source, dir] = await Promise.all([fixtureRegistryDir(), inputs()]);
     const outDir = path.join(dir, "out");
     const out = capture();
+    await Bun.write(path.join(dir, "figma/manifest.json"), '{"main":"code.js"}');
+    await Bun.write(path.join(dir, "figma/code.js"), "");
     await build({
       cwd: dir,
       source,
       outDir,
       out,
       siteDir: path.join(dir, "site"),
+      figmaDir: path.join(dir, "figma"),
       storybook: "storybook-static",
       usage: "usage.json",
     });
@@ -285,6 +288,8 @@ describe("shelf build: the Shelf Registry site", () => {
       "storybook/iframe.html",
       "storybook/index.json",
       "usage.json",
+      "figma/manifest.json",
+      "figma/code.js",
       "llms.txt",
       "index.json",
     ]) {
@@ -295,11 +300,14 @@ describe("shelf build: the Shelf Registry site", () => {
     );
     expect(out.text()).toContain("✓ site at index.html");
     expect(out.text()).toContain("✓ Storybook at storybook/");
+    expect(out.text()).toContain("✓ Figma plugin at figma/");
     expect(out.text()).toContain("✓ usage at usage.json");
 
     await build({ cwd: dir, source, outDir, out: capture(), site: false });
     const rebuilt = await Array.fromAsync(new Bun.Glob("**/*").scan(outDir));
-    expect(rebuilt.filter((file) => /^(index\.html|_site|storybook|usage)/.test(file))).toEqual([]);
+    expect(
+      rebuilt.filter((file) => /^(index\.html|_site|storybook|usage|figma)/.test(file)),
+    ).toEqual([]);
   });
 
   test("without a built site, writes the registry and says how to build it", async () => {
@@ -308,6 +316,7 @@ describe("shelf build: the Shelf Registry site", () => {
     const outDir = path.join(dir, "out");
     await build({ cwd: dir, source, outDir, out, siteDir: path.join(dir, "missing") });
     expect(out.text()).toContain("! site not built, run: bun run site:build");
+    expect(out.text()).not.toContain("Figma plugin");
     expect(await Bun.file(path.join(outDir, "index.json")).exists()).toBe(true);
     expect(await Bun.file(path.join(outDir, "index.html")).exists()).toBe(false);
   });

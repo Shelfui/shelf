@@ -1,71 +1,127 @@
 import type { Metadata } from "next";
 import { Diagram } from "@/components/site/diagram";
-import { Definitions, PageHeader, Prose, Section } from "@/components/site/docs-page";
+import { Code, Definitions, PageHeader, Prose, Section } from "@/components/site/docs-page";
 import { figma } from "@/docs/diagrams";
 
 export const metadata: Metadata = {
-  title: "Designers and Figma",
+  title: "Designers",
   description:
-    "Design with what actually ships: how Shelf is building native Figma components from production React.",
+    "Designers work in the real components. Figma is optional: Shelf can also build a native Figma library from the same React source.",
   alternates: { canonical: "/docs/figma" },
 };
 
-export default function Figma() {
+export default function Designers() {
   return (
     <>
       <PageHeader
-        title="Designers and Figma"
-        description="Design with what actually ships. This is in progress: nothing on this page is available yet."
+        title="Designers"
+        description="Design in the real components. Figma is optional, and the Figma library is compiled from the same source."
       />
       <Prose>
-        Designers don&apos;t need Figma to work with Shelf. The components are real and live, so a
-        designer can change them in the browser, in Storybook, or in code with an agent. Figma is
-        for the designers and the exploration that want it.
-      </Prose>
-      <Prose>
-        Code-first shouldn&apos;t make designers second-class. The goal is a Figma library that
-        matches production because it is compiled from production, not redrawn by hand next to it.
+        The component a designer sees should be the component that ships. With Shelf it is the same
+        file. You don&apos;t have to draw it twice, and you don&apos;t have to start in Figma.
       </Prose>
 
-      <Section title="How it will work">
+      <Section title="Work in the real thing">
+        <Prose>
+          Every component renders live in Storybook and in these docs, with its real states. Change
+          spacing, color, or a variant in the browser, or ask an agent to do it in code. The product
+          picks up the change because the product owns the file.
+        </Prose>
+        <Prose>
+          The tokens behind it are semantic: color, type, radius, spacing, and motion. A theme is
+          one file, in light and dark. Design in the theme your product will ship.
+        </Prose>
+      </Section>
+
+      <Section title="Figma, if your team wants it">
+        <Prose>
+          Teams that design in Figma get a native library instead of a redrawn one. The Shelf plugin
+          builds it from your registry, and syncs it again when the code changes. The conversion is
+          deterministic: no screenshots, and no AI redrawing a design.
+        </Prose>
         <Diagram title={figma.title} label={figma.label}>
           {figma.art}
         </Diagram>
+        <Definitions
+          items={[
+            { term: "Variables", text: "Semantic colors, radius, and spacing, in light and dark." },
+            { term: "Styles", text: "Text styles and effect styles from the foundations." },
+            {
+              term: "Components",
+              text: "Variants and properties for the states that exist in code.",
+            },
+            {
+              term: "Icons",
+              text: "From the Shelf icons item, kept as instances inside components.",
+            },
+          ]}
+        />
         <Prose>
-          The React component is the source of truth. Storybook defines its supported states. Shelf
-          captures the rendered output, turns it into a small internal description, and a Figma
-          plugin builds native components from it. The conversion is deterministic: no screenshots,
-          and no AI redrawing a design.
+          Hover and focus stay in code. The library holds the states a designer places, not the
+          states a pointer causes.
         </Prose>
       </Section>
 
-      <Section title="The quality bar">
+      <Section title="Set it up">
         <Prose>
-          Looking right isn&apos;t enough. A designer should be able to use the component and forget
-          it was generated.
+          Once per team, by whoever maintains the library file. Your registry must be built with a
+          Storybook: <Code>shelf build --storybook storybook-static</Code>.
         </Prose>
         <Definitions
           items={[
-            { term: "Auto Layout", text: "With correct resizing, not fixed frames." },
-            { term: "Variants", text: "The states that exist in code, and only those." },
-            { term: "Properties", text: "Labels, icons, and toggles a designer actually edits." },
-            { term: "Variables", text: "Semantic colors and sizes, not raw values." },
-            { term: "Instances", text: "A nested Icon stays an Icon instance, not loose vectors." },
-            { term: "Layers", text: "A clean hierarchy with meaningful names." },
+            {
+              term: "1. Get the plugin",
+              text: (
+                <>
+                  Every registry built with <Code>shelf build</Code> serves the plugin at{" "}
+                  <Code>/figma/manifest.json</Code> and <Code>/figma/code.js</Code>. Download both
+                  into one folder, then in Figma choose Plugins, Development, Import plugin from
+                  manifest. On an Organization or Enterprise plan you can publish it privately
+                  instead.
+                </>
+              ),
+            },
+            {
+              term: "2. Connect",
+              text: "Open the file your team publishes as its library, run Shelf, and enter your registry URL. The file remembers it.",
+            },
+            { term: "3. Sync", text: "Sync, then publish the file as a library." },
+            {
+              term: "4. Link",
+              text: "Copy the figma block the plugin shows into your registry's index.json and rebuild. Item pages then open their component in Figma.",
+            },
           ]}
         />
+        <Prose>
+          The registry site has a Figma page with these steps and download links for your registry,
+          and a check that shows what will sync.
+        </Prose>
       </Section>
 
-      <Section title="Exploration stays in Figma">
+      <Section title="Day to day">
         <Prose>
-          Production components follow code. Everything else is normal Figma work: designers compose
-          with the production components, detach and copy them, explore new concepts, and redesign
-          existing ones. When a direction is approved, it is built in React, and the production
-          Figma component follows.
+          Designers enable the library and use the components. They never run the plugin. When the
+          code changes, the library file offers Check for Shelf updates. Syncing updates components
+          in place, so instances stay linked. Removals ask first, because instances of a removed
+          variant detach.
         </Prose>
+      </Section>
+
+      <Section title="Exploration stays free">
         <Prose>
-          Because products own their source, a new interaction doesn&apos;t have to wait for the
-          shared system to support it. Design beyond the system without leaving it behind.
+          Production components follow code. Everything else is normal work: compose with them,
+          detach and copy them, explore new concepts, redesign existing ones. When a direction is
+          approved, it is built in React, and the library follows. Because products own their
+          source, a new interaction doesn&apos;t have to wait for the shared system.
+        </Prose>
+      </Section>
+
+      <Section title="Status">
+        <Prose>
+          Early. The plugin, the capture, and the sync run today and are tested, and most components
+          opt in to the library. It has not been through a long run of real design work yet, and the
+          plugin is installed privately rather than from the Figma Community.
         </Prose>
       </Section>
     </>

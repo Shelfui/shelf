@@ -161,7 +161,8 @@ export default async function ComponentPage({ params }: Props) {
               term: "Figma",
               text: (
                 <>
-                  In progress. See <TextLink href="/docs/figma">Designers and Figma</TextLink>.
+                  Optional native Figma library, early. See{" "}
+                  <TextLink href="/docs/figma">Designers</TextLink>.
                 </>
               ),
             },

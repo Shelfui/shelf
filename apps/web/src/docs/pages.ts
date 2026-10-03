@@ -24,7 +24,7 @@ export const docGroups = [
     title: "Workflows",
     links: [
       { href: "/docs/agents", title: "Agents" },
-      { href: "/docs/figma", title: "Designers and Figma" },
+      { href: "/docs/figma", title: "Designers" },
     ],
   },
   {

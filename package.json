@@ -18,7 +18,7 @@
     "test:storybook": "vitest run --project storybook",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
-    "figma:build": "bun build packages/figma/src/plugin/main.ts --outfile packages/figma/dist/code.js --format iife --target browser",
+    "figma:build": "bun build packages/figma/src/plugin/main.ts --outfile packages/cli/dist/figma/code.js --format iife --target browser && cp packages/figma/manifest.json packages/cli/dist/figma/manifest.json",
     "registry:build": "bun packages/cli/src/index.ts build registry --out dist/registry",
     "registry:serve": "bun packages/cli/src/index.ts serve registry",
     "skill:write": "bun packages/cli/src/skill-write.ts",

@@ -2,7 +2,7 @@
   "name": "Shelf",
   "id": "shelf-ui",
   "api": "1.0.0",
-  "main": "dist/code.js",
+  "main": "code.js",
   "editorType": ["figma"],
   "documentAccess": "dynamic-page",
   "enablePrivatePluginApi": true,

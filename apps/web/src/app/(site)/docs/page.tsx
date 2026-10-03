@@ -55,8 +55,8 @@ export default function DocsIntroduction() {
         </Prose>
         <Prose>
           Designers work from the same components too: in the browser, in Storybook, or in code with
-          an agent. Figma is optional, and native Figma components are{" "}
-          <TextLink href="/docs/figma">in progress</TextLink>.
+          an agent. Figma is optional: a plugin builds a native library from the same source, and it
+          is <TextLink href="/docs/figma">early</TextLink>.
         </Prose>
       </Section>
 

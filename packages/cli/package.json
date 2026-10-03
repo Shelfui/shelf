@@ -32,7 +32,7 @@
   },
   "scripts": {
     "build": "bun build src/index.ts --target node --outfile dist/index.js",
-    "prepack": "bun run build && bun run --cwd ../.. site:build"
+    "prepack": "bun run build && bun run --cwd ../.. site:build && bun run --cwd ../.. figma:build"
   },
   "devDependencies": {
     "@commander-js/extra-typings": "15.0.0",
