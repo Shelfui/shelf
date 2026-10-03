@@ -16,21 +16,6 @@ import { media } from "@/styles/shelf/conditions.stylex";
 import { colors, spacing, typography } from "@/styles/shelf/tokens.stylex";
 import { screens, site } from "@/styles/site.stylex";
 
-const STRIP = [
-  {
-    label: "The problem",
-    text: "Every product ends up on its own version of your system.",
-  },
-  {
-    label: "Shelf",
-    text: "One registry. Many owned copies. Every change tracked.",
-  },
-  {
-    label: "You get",
-    text: "Speed without drift. Edit a file and still take updates.",
-  },
-];
-
 const PILLARS = [
   {
     title: "Consistent by default",
@@ -122,22 +107,6 @@ export default function Home() {
           />
         </div>
         <Stack />
-      </section>
-
-      <section aria-labelledby="why" {...stylex.props(styles.split, styles.strip)}>
-        <h2 id="why" {...stylex.props(styles.srOnly)}>
-          Why Shelf
-        </h2>
-        <ul {...stylex.props(styles.grid, styles.stripGrid)}>
-          {STRIP.map((item) => (
-            <li key={item.label} {...stylex.props(styles.item)}>
-              <div {...stylex.props(styles.tile)}>
-                <span {...stylex.props(styles.eyebrow)}>{item.label}</span>
-                <p {...stylex.props(styles.stripText)}>{item.text}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
       </section>
 
       <FeatureTiles items={PILLARS} />
@@ -353,28 +322,6 @@ const styles = stylex.create({
     gap: spacing["3"],
     display: "flex",
     flexWrap: "wrap",
-  },
-  strip: {
-    paddingTop: { default: site.space12, [screens.md]: site.space16 },
-  },
-  stripGrid: {
-    gridTemplateColumns: { default: "1fr", [screens.md]: "repeat(3, minmax(0, 1fr))" },
-  },
-  stripText: {
-    margin: 0,
-    color: colors.foreground,
-    fontSize: { default: site.fontSizeXl, [screens.md]: site.fontSize2xl },
-    letterSpacing: "-0.01em",
-    lineHeight: 1.375,
-    textWrap: "pretty",
-  },
-  srOnly: {
-    clip: "rect(0 0 0 0)",
-    height: "1px",
-    overflow: "hidden",
-    position: "absolute",
-    whiteSpace: "nowrap",
-    width: "1px",
   },
   grid: {
     gap: spacing["4"],
