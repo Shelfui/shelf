@@ -12,6 +12,7 @@
     "stylex"
   ],
   "homepage": "https://shelfui.dev",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shelfui/shelf.git",

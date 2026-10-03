@@ -156,3 +156,7 @@ bun run check            # typecheck, lint, format, tests, Storybook with access
 | `bun install --cwd apps/web && bun run --cwd apps/web dev` | Run the website |
 
 Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before changing code, [`PROJECT.md`](PROJECT.md) for the architecture, and [`AGENTS.md`](AGENTS.md) for the engineering rules.
+
+## License
+
+[MIT](LICENSE). Components you install with `shelf add` become your source under the same terms.
