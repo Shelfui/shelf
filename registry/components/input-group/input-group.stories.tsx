@@ -1,4 +1,4 @@
-import { expect, userEvent } from "storybook/test";
+import { expect, userEvent, waitFor } from "storybook/test";
 import preview from "@/.storybook/preview";
 import { SearchIcon } from "../icons/icons";
 import { Kbd } from "../kbd/kbd";
@@ -32,6 +32,7 @@ export const Default = meta.story({
     await userEvent.type(input, "acme");
 
     await expect(input).toHaveValue("acme");
-    await expect(getComputedStyle(group).borderTopColor).toBe("rgb(143, 143, 143)");
+    // The border color transitions, so wait for it to settle.
+    await waitFor(() => expect(getComputedStyle(group).borderTopColor).toBe("rgb(143, 143, 143)"));
   },
 });

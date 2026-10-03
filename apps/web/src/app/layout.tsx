@@ -1,5 +1,8 @@
 import * as stylex from "@stylexjs/stylex";
 import type { Metadata, Viewport } from "next";
+import { preload } from "react-dom";
+import geistLatin from "@fontsource-variable/geist/files/geist-latin-wght-normal.woff2";
+import geistMonoLatin from "@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2";
 import { LucideProvider } from "lucide-react";
 import { ThemeProvider } from "next-themes";
 import type { ReactNode } from "react";
@@ -41,7 +44,14 @@ export const viewport: Viewport = {
   ],
 };
 
+const assetUrl = (asset: string | { src: string }) =>
+  typeof asset === "string" ? asset : asset.src;
+
 export default function RootLayout({ children }: { children: ReactNode }) {
+  // Start the font downloads with the HTML instead of after the CSS arrives.
+  for (const font of [geistLatin, geistMonoLatin]) {
+    preload(assetUrl(font), { as: "font", type: "font/woff2", crossOrigin: "anonymous" });
+  }
   return (
     <html lang="en" className={fontVariables} suppressHydrationWarning>
       <body suppressHydrationWarning {...stylex.props(styles.body)}>

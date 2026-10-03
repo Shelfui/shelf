@@ -17,7 +17,7 @@ export function FeatureTiles({ items }: { items: readonly FeatureTile[] }) {
         <li key={item.title} {...stylex.props(styles.tile)}>
           <div {...stylex.props(styles.art)}>{item.art}</div>
           <div {...stylex.props(styles.caption)}>
-            <h3 {...stylex.props(styles.title)}>{item.title}</h3>
+            <h2 {...stylex.props(styles.title)}>{item.title}</h2>
             <p {...stylex.props(styles.text)}>{item.text}</p>
           </div>
         </li>
