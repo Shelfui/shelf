@@ -38,7 +38,7 @@ export function VerifiedBadge({
 }) {
   return (
     <HoverCard.Root>
-      <HoverCard.Trigger href="#verified" delay={100} style={styles.pill}>
+      <HoverCard.Trigger tabIndex={0} delay={100} style={styles.pill}>
         <Seal cut={styles.cutPill} />
         Verified
       </HoverCard.Trigger>
