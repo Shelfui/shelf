@@ -39,6 +39,8 @@ export interface BuildOptions {
   storybook?: string;
   /** A `shelf usage --json` file to serve at `usage.json`. */
   usage?: string;
+  /** A `bun run verify` report to serve at `verify.json`. */
+  verify?: string;
 }
 
 /**
@@ -59,6 +61,7 @@ export async function build({
   figmaDir = defaultFigmaDir(),
   storybook,
   usage,
+  verify,
 }: BuildOptions): Promise<void> {
   const root = path.resolve(cwd, source);
   const storybookDir = storybook === undefined ? undefined : path.resolve(cwd, storybook);
@@ -68,6 +71,7 @@ export async function build({
     );
   }
   const usageJson = usage === undefined ? undefined : await readUsage(path.resolve(cwd, usage));
+  const verifyJson = verify === undefined ? undefined : await readVerify(path.resolve(cwd, verify));
   const target = path.resolve(cwd, outDir);
   if (isInside(target, root) || isInside(root, target)) {
     throw new ShelfError(
@@ -131,6 +135,7 @@ export async function build({
     ["llms.txt", llmsTxt(index, topics)],
   ];
   if (usageJson !== undefined) files.push(["usage.json", usageJson]);
+  if (verifyJson !== undefined) files.push(["verify.json", verifyJson]);
   files.push(...(await docsFiles(registry)));
   for (const item of items) {
     files.push([`${item.path}/registry.json`, await registry.read(`${item.path}/registry.json`)]);
@@ -173,6 +178,7 @@ export async function build({
   if (figmaBuilt) out.log(`✓ Figma plugin at ${FIGMA}/`);
   if (storybookDir) out.log(`✓ Storybook at ${STORYBOOK}/`);
   if (usageJson !== undefined) out.log("✓ usage at usage.json");
+  if (verifyJson !== undefined) out.log("✓ verification at verify.json");
   if (site && !siteBuilt) out.log("! site not built, run: bun run site:build");
   if (site && siteBuilt && !figmaBuilt) {
     out.log("! Figma plugin not built, run: bun run figma:build");
@@ -217,6 +223,18 @@ async function readUsage(file: string): Promise<string> {
   return content;
 }
 
+async function readVerify(file: string): Promise<string> {
+  const fix = `Write it with: bun run verify --out ${file}`;
+  const content = await readFile(file, "utf8").catch(() => {
+    throw new ShelfError(`Can't read ${file}. ${fix}`);
+  });
+  const report = parseJson(content, file, fix);
+  if (!isObject(report) || report["version"] !== 1 || !isObject(report["items"])) {
+    throw new ShelfError(`${file} is not a verify report. ${fix}`);
+  }
+  return content;
+}
+
 /** Each item's revisions, newest first, with the commit that introduced them. */
 function historyJson(history: HistoryItem[]): string {
   const items: Record<string, Array<{ revision: string; commit: string; date: string }>> = {};
@@ -234,12 +252,12 @@ function llmsTxt(index: IndexEntry[], topics: DocsTopic[]): string {
     "",
     "> React components and blocks built on Base UI and StyleX. Installing an item copies normal source into your project, which then owns it.",
     "",
-    "Install from this registry with the URL of this directory:",
+    "Install the CLI once per project (`bun add -d @shelfui/cli`); its command is `shelf`. Then install from this registry with the URL of this directory:",
     "",
-    "- `bunx @shelfui/cli init --registry <url>` once per project",
-    "- `bunx @shelfui/cli add <name>` for each item; Shelf dependencies and packages come along",
-    "- `bunx @shelfui/cli check` to validate installed items",
-    "- `bunx @shelfui/cli docs <topic or item>` prints documentation as Markdown",
+    "- `bunx shelf init --registry <url>` once per project",
+    "- `bunx shelf add <name>` for each item; Shelf dependencies and packages come along",
+    "- `bunx shelf check` to validate installed items",
+    "- `bunx shelf docs <topic or item>` prints documentation as Markdown",
     "",
     "Links are relative to this file. Each item's `registry.json` lists its files, packages, and Shelf dependencies. `index.json` lists every item.",
   ];

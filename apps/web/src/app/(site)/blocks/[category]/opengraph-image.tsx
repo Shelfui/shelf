@@ -10,8 +10,5 @@ export function generateStaticParams() {
 export default async function Image({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;
   const match = blockCategories.find((item) => item.slug === category);
-  return render(
-    match ? `${match.title} blocks` : "Blocks",
-    "Finished pieces of a page that install as source, with the components they use.",
-  );
+  return render(match ? `${match.title} blocks` : "Blocks");
 }

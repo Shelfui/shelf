@@ -35,10 +35,12 @@ jobs:
           NODE_ENV: production
       - name: Usage
         run: bun packages/cli/src/index.ts usage apps examples/acme --registry registry --json > usage.json
+      - name: Verify items (size, React Doctor, React Compiler, stories)
+        run: bun run verify
       - name: Build the registry
         run: >
           bun packages/cli/src/index.ts build registry --out dist/registry
-          --storybook storybook-static --usage usage.json
+          --storybook storybook-static --usage usage.json --verify dist/verify.json
       - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: dist/registry

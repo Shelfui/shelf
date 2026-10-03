@@ -91,7 +91,7 @@ export function forRegistry(library: Library, registry: Registry): Library {
         name: item.name,
         revision: item.revision ?? "",
         docs: `${registry.url}#/items/${item.name}`,
-        install: `bunx @shelfui/cli add ${item.name}`,
+        install: `bunx shelf add ${item.name}`,
       },
     };
   });

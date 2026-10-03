@@ -26,6 +26,12 @@ import { type Styled, type Placement, isTransitioning } from "../../lib/utils";
  * card only adds a sighted-pointer shortcut.
  */
 export const Root = BasePreviewCard.Root;
+
+/**
+ * Lets several triggers share one card. Pass the handle to `Root` and to each `Trigger`, with a
+ * `payload` per trigger; moving between triggers slides the open card instead of reopening it.
+ */
+export const createHandle = BasePreviewCard.createHandle;
 export type TriggerProps = Styled<ComponentProps<typeof BasePreviewCard.Trigger>>;
 
 /** The link that opens the card, underlined so it reads as a link. */
@@ -58,7 +64,9 @@ export function Content({
         alignOffset={alignOffset}
         side={side}
         sideOffset={sideOffset}
-        {...stylex.props(styles.positioner)}
+        className={(state) =>
+          stylex.props(styles.positioner, state.instant && styles.instant).className
+        }
       >
         <BasePreviewCard.Popup
           data-slot="hover-card-content"
@@ -100,7 +108,16 @@ const styles = stylex.create({
     transitionProperty: "text-decoration-color",
   },
   positioner: {
+    transitionDuration: {
+      default: motion.durationFast,
+      [media.reducedMotion]: "0s",
+    },
+    transitionProperty: "top, left, right, bottom",
+    transitionTimingFunction: motion.easingStandard,
     zIndex: layers.popover,
+  },
+  instant: {
+    transitionDuration: "0s",
   },
   popup: {
     fontSynthesis: "none",

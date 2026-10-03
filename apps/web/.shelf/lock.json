@@ -1004,14 +1004,14 @@
       },
       "files": {
         "src/components/ui/hover-card.tsx": {
-          "baseHash": "66debd08048f2010705d89edde07e65ff8937d9ccfbdf860073724f1531a8a7b",
+          "baseHash": "7cb492fa165a4a45b16b31236a7f99f2d6152475e705160e5d635f70e222f329",
           "source": "hover-card.tsx"
         }
       },
-      "installedAt": "2026-09-28T00:32:26.099Z",
+      "installedAt": "2026-10-03T13:07:56.592Z",
       "path": "components/hover-card",
       "registry": "../../registry",
-      "revision": "6ecf89cc947d9577f6935523371dc2df2e8240e058d17cc45da732406ebbcc66",
+      "revision": "c47ee33c79109312fedee718cd8f0b4c4d78472bfa0a3e9710b35b2ec189a3da",
       "shelfDependencies": [
         "foundations",
         "utils"
@@ -1949,7 +1949,7 @@
       },
       "files": {
         "src/components/blocks/usage-drift.tsx": {
-          "baseHash": "5f000593602a599bd8f9cb0100d3a36bb75048823402e7f7ad237926660e8bfd",
+          "baseHash": "0d38f807e834d0054e5abf766adf72b6010ad8e480789379386be6dcffac71cb",
           "source": "usage-drift.tsx"
         },
         "src/components/blocks/usage-explorer.tsx": {
@@ -1961,7 +1961,7 @@
           "source": "usage-flow.tsx"
         },
         "src/components/blocks/usage-model.ts": {
-          "baseHash": "63d8749db908d316ecadc48f7eb1b2367be2084884f950a4e42a847452644b9a",
+          "baseHash": "079221c0b211c7dadb03d571c73ff7920b02d21f97efd96a1aa6507a3d395b65",
           "source": "usage-model.ts"
         },
         "src/components/blocks/usage-palette.ts": {
@@ -1981,10 +1981,10 @@
           "source": "usage-tooltip.tsx"
         }
       },
-      "installedAt": "2026-10-03T10:54:07.253Z",
+      "installedAt": "2026-10-03T12:20:22.792Z",
       "path": "blocks/usage-explorer",
       "registry": "../../registry",
-      "revision": "431166c69d38495a2dd417cc8b071d01e5a241f7d797dc3a36b9224ad7362ddf",
+      "revision": "dd09d4455b2f997f7e98d6bd1bc7e718d83cac78d0e59ef7c5daed5510524eda",
       "shelfDependencies": [
         "button",
         "foundations",

@@ -33,7 +33,7 @@ describe("the real registry", () => {
       const unlisted = onDisk.filter(
         (file) =>
           file !== "registry.json" &&
-          !/\.(stories|test)\.tsx?$/.test(file) &&
+          !/\.(stories|test|perf)\.tsx?$/.test(file) &&
           !item.files.some((listed) => listed.path === file),
       );
       expect(

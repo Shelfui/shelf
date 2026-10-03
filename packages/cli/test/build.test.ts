@@ -259,6 +259,8 @@ async function inputs() {
     "storybook-static/index.json": json({ v: 5, entries: {} }),
     "usage.json": json({ version: 1, registry: null, projects: [] }),
     "not-usage.json": json({ projects: [] }),
+    "verify.json": json({ version: 1, items: {} }),
+    "not-verify.json": json({ items: {} }),
   });
   return dir;
 }
@@ -279,6 +281,7 @@ describe("shelf build: the Shelf Registry site", () => {
       figmaDir: path.join(dir, "figma"),
       storybook: "storybook-static",
       usage: "usage.json",
+      verify: "verify.json",
     });
 
     const built = await Array.fromAsync(new Bun.Glob("**/*").scan(outDir));
@@ -288,6 +291,7 @@ describe("shelf build: the Shelf Registry site", () => {
       "storybook/iframe.html",
       "storybook/index.json",
       "usage.json",
+      "verify.json",
       "figma/manifest.json",
       "figma/code.js",
       "llms.txt",
@@ -302,11 +306,12 @@ describe("shelf build: the Shelf Registry site", () => {
     expect(out.text()).toContain("✓ Storybook at storybook/");
     expect(out.text()).toContain("✓ Figma plugin at figma/");
     expect(out.text()).toContain("✓ usage at usage.json");
+    expect(out.text()).toContain("✓ verification at verify.json");
 
     await build({ cwd: dir, source, outDir, out: capture(), site: false });
     const rebuilt = await Array.fromAsync(new Bun.Glob("**/*").scan(outDir));
     expect(
-      rebuilt.filter((file) => /^(index\.html|_site|storybook|usage|figma)/.test(file)),
+      rebuilt.filter((file) => /^(index\.html|_site|storybook|usage|verify|figma)/.test(file)),
     ).toEqual([]);
   });
 
@@ -332,6 +337,9 @@ describe("shelf build: the Shelf Registry site", () => {
     );
     expect(await rejection(build({ ...options, usage: "missing.json" }))).toContain(
       `Can't read ${path.join(dir, "missing.json")}.`,
+    );
+    expect(await rejection(build({ ...options, verify: "not-verify.json" }))).toContain(
+      `${path.join(dir, "not-verify.json")} is not a verify report.`,
     );
   });
 });

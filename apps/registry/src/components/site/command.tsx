@@ -19,7 +19,7 @@ export function Command({
   label,
   switcher = false,
 }: {
-  /** What follows `@shelfui/cli`, such as `add button`. */
+  /** What follows `shelf`, such as `add button`. */
   args: string;
   label?: string;
   switcher?: boolean;
@@ -97,7 +97,7 @@ async function writeClipboard(value: string): Promise<void> {
   }
 }
 
-/** A Shelf CLI prefix, such as `npx @shelfui/cli`, for the reader's package manager. */
+/** A Shelf CLI prefix, such as `npx shelf`, for the reader's package manager. */
 export function useRunner(): string {
   return runner(usePackageManager()[0]);
 }

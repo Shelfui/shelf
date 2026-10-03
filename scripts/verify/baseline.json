@@ -1,0 +1,364 @@
+{
+  "items": {
+    "accordion": {
+      "own": 1954,
+      "total": 12913
+    },
+    "alert": {
+      "own": 1079,
+      "total": 2806
+    },
+    "alert-dialog": {
+      "own": 1883,
+      "total": 23763
+    },
+    "analytics-dashboard": {
+      "own": 2262,
+      "total": 124539
+    },
+    "aspect-ratio": {
+      "own": 441,
+      "total": 1378
+    },
+    "autocomplete": {
+      "own": 2647,
+      "total": 49014
+    },
+    "avatar": {
+      "own": 1586,
+      "total": 7172
+    },
+    "badge": {
+      "own": 1041,
+      "total": 2774
+    },
+    "breadcrumb": {
+      "own": 1458,
+      "total": 4634
+    },
+    "button": {
+      "own": 3033,
+      "total": 7635
+    },
+    "button-group": {
+      "own": 374,
+      "total": 1193
+    },
+    "calendar": {
+      "own": 2607,
+      "total": 29725
+    },
+    "card": {
+      "own": 1119,
+      "total": 2845
+    },
+    "carousel": {
+      "own": 1948,
+      "total": 17895
+    },
+    "chart": {
+      "own": 4024,
+      "total": 88305
+    },
+    "chart-area": {
+      "own": 762,
+      "total": 86608
+    },
+    "chart-bar": {
+      "own": 625,
+      "total": 85100
+    },
+    "chart-card": {
+      "own": 1450,
+      "total": 115218
+    },
+    "chart-funnel": {
+      "own": 1116,
+      "total": 83449
+    },
+    "chart-heatmap": {
+      "own": 2380,
+      "total": 4721
+    },
+    "chart-line": {
+      "own": 606,
+      "total": 85727
+    },
+    "chart-pie": {
+      "own": 1444,
+      "total": 86875
+    },
+    "chart-radar": {
+      "own": 1059,
+      "total": 83403
+    },
+    "chart-radial": {
+      "own": 1011,
+      "total": 84058
+    },
+    "chart-sankey": {
+      "own": 1210,
+      "total": 78526
+    },
+    "chart-scatter": {
+      "own": 445,
+      "total": 86291
+    },
+    "chart-treemap": {
+      "own": 1173,
+      "total": 79764
+    },
+    "checkbox": {
+      "own": 1425,
+      "total": 11323
+    },
+    "checkbox-group": {
+      "own": 474,
+      "total": 6077
+    },
+    "collapsible": {
+      "own": 679,
+      "total": 8589
+    },
+    "combobox": {
+      "own": 2748,
+      "total": 50599
+    },
+    "command": {
+      "own": 2784,
+      "total": 44556
+    },
+    "context-menu": {
+      "own": 544,
+      "total": 51663
+    },
+    "dashboard-overview": {
+      "own": 2104,
+      "total": 111388
+    },
+    "dashboard-shell": {
+      "own": 3186,
+      "total": 88351
+    },
+    "data-table": {
+      "own": 2688,
+      "total": 56342
+    },
+    "date-picker": {
+      "own": 1299,
+      "total": 63637
+    },
+    "dialog": {
+      "own": 2092,
+      "total": 27636
+    },
+    "drawer": {
+      "own": 2796,
+      "total": 34269
+    },
+    "dropdown-menu": {
+      "own": 2655,
+      "total": 50938
+    },
+    "empty": {
+      "own": 1431,
+      "total": 3161
+    },
+    "field": {
+      "own": 925,
+      "total": 9631
+    },
+    "fieldset": {
+      "own": 754,
+      "total": 4580
+    },
+    "form": {
+      "own": 448,
+      "total": 4732
+    },
+    "foundations": {
+      "own": 3353,
+      "total": 3338
+    },
+    "hover-card": {
+      "own": 1702,
+      "total": 31518
+    },
+    "icons": {
+      "own": 928,
+      "total": 4805
+    },
+    "input": {
+      "own": 1305,
+      "total": 6817
+    },
+    "input-group": {
+      "own": 1534,
+      "total": 7077
+    },
+    "input-otp": {
+      "own": 1328,
+      "total": 10605
+    },
+    "invoices-table": {
+      "own": 3214,
+      "total": 64749
+    },
+    "item": {
+      "own": 2376,
+      "total": 6007
+    },
+    "kbd": {
+      "own": 898,
+      "total": 2631
+    },
+    "label": {
+      "own": 617,
+      "total": 2342
+    },
+    "login-form": {
+      "own": 1608,
+      "total": 17605
+    },
+    "login-split": {
+      "own": 1640,
+      "total": 18482
+    },
+    "menubar": {
+      "own": 1501,
+      "total": 53362
+    },
+    "meter": {
+      "own": 944,
+      "total": 5349
+    },
+    "native-select": {
+      "own": 1862,
+      "total": 4968
+    },
+    "navigation-menu": {
+      "own": 2385,
+      "total": 40241
+    },
+    "number-field": {
+      "own": 1716,
+      "total": 14998
+    },
+    "otp-verification": {
+      "own": 1188,
+      "total": 14466
+    },
+    "pagination": {
+      "own": 992,
+      "total": 6554
+    },
+    "popover": {
+      "own": 1539,
+      "total": 38275
+    },
+    "progress": {
+      "own": 1294,
+      "total": 5883
+    },
+    "radio-group": {
+      "own": 1392,
+      "total": 13713
+    },
+    "resizable": {
+      "own": 1308,
+      "total": 17365
+    },
+    "scroll-area": {
+      "own": 1094,
+      "total": 9519
+    },
+    "select": {
+      "own": 2607,
+      "total": 45263
+    },
+    "separator": {
+      "own": 557,
+      "total": 4023
+    },
+    "settings-section": {
+      "own": 1773,
+      "total": 17542
+    },
+    "sidebar": {
+      "own": 4138,
+      "total": 58827
+    },
+    "sidebar-nested": {
+      "own": 2862,
+      "total": 76889
+    },
+    "signup-form": {
+      "own": 1673,
+      "total": 19649
+    },
+    "skeleton": {
+      "own": 599,
+      "total": 2318
+    },
+    "slider": {
+      "own": 1195,
+      "total": 14415
+    },
+    "sparkline": {
+      "own": 602,
+      "total": 85111
+    },
+    "spinner": {
+      "own": 434,
+      "total": 2785
+    },
+    "switch": {
+      "own": 1350,
+      "total": 8111
+    },
+    "table": {
+      "own": 1168,
+      "total": 2889
+    },
+    "tabs": {
+      "own": 1834,
+      "total": 13371
+    },
+    "textarea": {
+      "own": 1432,
+      "total": 6927
+    },
+    "toast": {
+      "own": 3088,
+      "total": 21178
+    },
+    "toggle": {
+      "own": 1622,
+      "total": 7262
+    },
+    "toggle-group": {
+      "own": 508,
+      "total": 7816
+    },
+    "toolbar": {
+      "own": 1045,
+      "total": 9771
+    },
+    "tooltip": {
+      "own": 1100,
+      "total": 31636
+    },
+    "typography": {
+      "own": 1681,
+      "total": 3422
+    },
+    "usage-explorer": {
+      "own": 11601,
+      "total": 67449
+    },
+    "utils": {
+      "own": 240,
+      "total": 240
+    }
+  }
+}

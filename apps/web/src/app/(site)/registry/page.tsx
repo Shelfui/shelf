@@ -33,10 +33,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
       - run: bun install
-      - run: bunx @shelfui/cli usage --github acme --registry registry --json > usage.json
+      - run: bunx shelf usage --github acme --registry registry --json > usage.json
         env: { GH_TOKEN: "\${{ secrets.SHELF_USAGE_TOKEN }}" }
       - run: bunx storybook build --output-dir storybook-static
-      - run: bunx @shelfui/cli build registry --out dist --storybook storybook-static --usage usage.json
+      - run: bunx shelf build registry --out dist --storybook storybook-static --usage usage.json
       - uses: actions/upload-pages-artifact@v3
         with: { path: dist }
       - uses: actions/deploy-pages@v4`;

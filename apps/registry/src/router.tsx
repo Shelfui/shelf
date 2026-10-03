@@ -4,16 +4,13 @@ import {
   createRootRoute,
   createRoute,
   createRouter,
+  lazyRouteComponent,
 } from "@tanstack/react-router";
 import { Layout } from "@/components/site/layout";
 import { inPluginWindow } from "@/figma";
 import { Catalog } from "@/views/catalog";
-import { Figma } from "@/views/figma";
-import { Foundations } from "@/views/foundations";
-import { Item } from "@/views/item";
 import { NotFound } from "@/views/not-found";
-import { Project } from "@/views/project";
-import { Usage, type UsageSearch } from "@/views/usage";
+import type { UsageSearch } from "@/views/usage";
 
 interface CatalogSearch {
   q?: string;
@@ -46,7 +43,7 @@ const catalogRoute = createRoute({
 const itemRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/items/$name",
-  component: Item,
+  component: lazyRouteComponent(() => import("@/views/item"), "Item"),
 });
 
 const usageRoute = createRoute({
@@ -57,13 +54,13 @@ const usageRoute = createRoute({
     ...(typeof search["ns"] === "string" && search["ns"] && { ns: search["ns"] }),
     ...(typeof search["state"] === "string" && search["state"] && { state: search["state"] }),
   }),
-  component: Usage,
+  component: lazyRouteComponent(() => import("@/views/usage"), "Usage"),
 });
 
 const foundationsRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/foundations",
-  component: Foundations,
+  component: lazyRouteComponent(() => import("@/views/foundations"), "Foundations"),
 });
 
 const figmaRoute = createRoute({
@@ -71,14 +68,14 @@ const figmaRoute = createRoute({
   path: "/figma",
   validateSearch: (search: Record<string, unknown>): { plugin?: 1 } =>
     search["plugin"] === undefined ? {} : { plugin: 1 },
-  component: Figma,
+  component: lazyRouteComponent(() => import("@/views/figma"), "Figma"),
 });
 
 // Project ids contain slashes (`payments/bill-pay`), so the rest of the path is the id.
 const projectRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/projects/$",
-  component: Project,
+  component: lazyRouteComponent(() => import("@/views/project"), "Project"),
 });
 
 const routeTree = rootRoute.addChildren([

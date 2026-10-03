@@ -4,6 +4,7 @@ import { Command } from "@/components/site/command";
 import { FigmaLogo } from "@/components/site/brand-logos";
 import { PageHeader } from "@/components/site/page-header";
 import { layout } from "@/components/site/styles";
+import { formatSize, weigh } from "@/components/site/verified";
 import { Badge } from "@/components/ui/badge";
 import * as Empty from "@/components/ui/empty";
 import { Input } from "@/components/ui/input";
@@ -45,6 +46,9 @@ export function Catalog() {
             <br />
             Every install is recorded, so you can see where each item is used and which copies are
             behind.
+            <br />
+            Install the <code>@shelfui/cli</code> package as a dev dependency first. Its command is{" "}
+            <code>shelf</code>.
           </>
         }
       >
@@ -92,6 +96,7 @@ export function Catalog() {
           {items.map((item) => {
             const usage = registry.usage && projectsUsing(registry.usage, item.name);
             const count = usage ? usage.installed.length + usage.consuming.length : 0;
+            const verification = registry.verify?.items[item.name];
             return (
               <li key={item.name} {...stylex.props(styles.cell)}>
                 <Link to="/items/$name" params={{ name: item.name }} {...stylex.props(styles.tile)}>
@@ -108,11 +113,17 @@ export function Catalog() {
                     </span>
                   </span>
                   <span {...stylex.props(styles.tileDescription)}>{item.description}</span>
-                  {registry.usage && (
+                  {(registry.usage || verification) && (
                     <span {...stylex.props(styles.tileMeta)}>
-                      {count === 0
-                        ? "Not used yet"
-                        : `Used in ${count} project${count === 1 ? "" : "s"}`}
+                      {[
+                        verification && `${formatSize(weigh(verification.size.total))} gzipped`,
+                        registry.usage &&
+                          (count === 0
+                            ? "Not used yet"
+                            : `Used in ${count} project${count === 1 ? "" : "s"}`),
+                      ]
+                        .filter(Boolean)
+                        .join(" · ")}
                     </span>
                   )}
                 </Link>

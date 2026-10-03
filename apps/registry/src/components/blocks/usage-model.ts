@@ -369,7 +369,7 @@ export function flowGraph(rows: Install[]): { nodes: FlowNode[]; links: FlowLink
   return { nodes, links: [...links.values()] };
 }
 
-export const DEFAULT_RUNNER = "bunx @shelfui/cli";
+export const DEFAULT_RUNNER = "bunx shelf";
 
 /** The command that resolves an install, run in its project. */
 export function fixCommand(row: Install, runner = DEFAULT_RUNNER): string | null {

@@ -8,6 +8,7 @@ import { PageHeader } from "@/components/site/page-header";
 import { FigmaLogo, StorybookLogo } from "@/components/site/brand-logos";
 import { ProjectLink } from "@/components/site/links";
 import { SourceFile } from "@/components/site/source-file";
+import { Verified } from "@/components/site/verified";
 import { layout, text } from "@/components/site/styles";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLinkIcon } from "@/components/ui/icons";
@@ -54,6 +55,7 @@ function ItemPage({ registry, item }: { registry: Registry; item: IndexItem }) {
   }, item.path);
   const stories = storiesFor(registry, item);
   const history = registry.history[item.name] ?? [];
+  const verification = registry.verify?.items[item.name];
   const dependents = registry.items.filter((entry) => entry.shelfDependencies?.includes(item.name));
   const [story, setStory] = useState(stories[0]);
   const tabs = [
@@ -138,6 +140,11 @@ function ItemPage({ registry, item }: { registry: Registry; item: IndexItem }) {
                 </li>
               )}
             </ul>
+          </AsideSection>
+        )}
+        {verification && (
+          <AsideSection title="Verified">
+            <Verified verification={verification} />
           </AsideSection>
         )}
         <AsideSection title="Needs">

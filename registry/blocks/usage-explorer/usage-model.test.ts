@@ -195,13 +195,11 @@ describe("usage explorer model", () => {
   });
 
   test("fix commands and ages read the way the CLI prints them", () => {
-    expect(fixCommand(row("payments/bill-pay", "button"))).toBe("bunx @shelfui/cli update button");
-    expect(fixCommand(row("payments/bill-pay", "badge"))).toBe(
-      "bunx @shelfui/cli diff badge --local",
-    );
+    expect(fixCommand(row("payments/bill-pay", "button"))).toBe("bunx shelf update button");
+    expect(fixCommand(row("payments/bill-pay", "badge"))).toBe("bunx shelf diff badge --local");
     expect(fixCommand(row("platform/ui", "button"))).toBeNull();
-    expect(fixCommand(row("payments/bill-pay", "button"), "pnpm dlx @shelfui/cli")).toBe(
-      "pnpm dlx @shelfui/cli update button",
+    expect(fixCommand(row("payments/bill-pay", "button"), "pnpm shelf")).toBe(
+      "pnpm shelf update button",
     );
     expect([formatAge(0.1), formatAge(3.4), formatAge(90)]).toEqual(["2h", "3d", "3mo"]);
   });

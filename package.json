@@ -8,7 +8,7 @@
   "type": "module",
   "scripts": {
     "postinstall": "bun run --cwd packages/cli build",
-    "check": "bun run typecheck && bun run lint && bun run format:check && bun run test && bun run test:storybook",
+    "check": "bun run typecheck && bun run lint && bun run format:check && bun run doctor && bun run verify --check && bun run test && bun run test:perf && bun run test:storybook",
     "typecheck": "tsc --noEmit",
     "lint": "oxlint --type-aware --deny-warnings --disable-nested-config",
     "lint:fix": "oxlint --type-aware --disable-nested-config --fix",
@@ -19,12 +19,15 @@
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
     "figma:build": "bun build packages/figma/src/plugin/main.ts --outfile packages/cli/dist/figma/code.js --format iife --target browser && cp packages/figma/manifest.json packages/cli/dist/figma/manifest.json",
-    "registry:build": "bun packages/cli/src/index.ts build registry --out dist/registry",
+    "registry:build": "bun run verify && bun packages/cli/src/index.ts build registry --out dist/registry --verify dist/verify.json",
     "registry:serve": "bun packages/cli/src/index.ts serve registry",
     "skill:write": "bun packages/cli/src/skill-write.ts",
     "site:build": "bun run --cwd apps/registry build --outDir ../../packages/cli/dist/site --emptyOutDir",
     "changeset": "changeset",
-    "release:version": "changeset version && bun install"
+    "release:version": "changeset version && bun install",
+    "doctor": "react-doctor registry --no-telemetry --no-supply-chain --blocking warning",
+    "test:perf": "vitest run --project perf",
+    "verify": "bun scripts/verify/index.ts"
   },
   "dependencies": {
     "@base-ui/react": "1.8.0",
@@ -46,6 +49,9 @@
     "recharts": "3.10.1"
   },
   "devDependencies": {
+    "@babel/core": "7.29.7",
+    "@babel/plugin-syntax-jsx": "7.29.7",
+    "@babel/preset-typescript": "7.29.7",
     "@changesets/cli": "3.0.3",
     "@figma/plugin-typings": "1.140.0",
     "@storybook/addon-a11y": "10.6.1",
@@ -55,6 +61,7 @@
     "@storybook/react-vite": "10.6.1",
     "@stylexjs/eslint-plugin": "0.19.1",
     "@stylexjs/unplugin": "0.19.1",
+    "@types/babel__core": "7.20.5",
     "@types/bun": "1.4.2",
     "@types/culori": "4.0.1",
     "@types/d3-force": "^3.0.10",
@@ -66,10 +73,12 @@
     "@types/react-dom": "19.3.0",
     "@vitejs/plugin-react": "6.1.1",
     "@vitest/browser-playwright": "5.0.3",
+    "babel-plugin-react-compiler": "1.0.0",
     "oxfmt": "0.71.0",
     "oxlint": "1.86.0",
     "oxlint-tsgolint": "7.0.2003",
     "playwright": "1.63.0",
+    "react-doctor": "0.9.14",
     "storybook": "10.6.1",
     "typescript": "7.0.2",
     "vite": "8.3.2",

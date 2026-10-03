@@ -27,13 +27,10 @@ export interface SignupFormProps {
 export function SignupForm({ onSubmit }: SignupFormProps) {
   const [pending, setPending] = useState(false);
 
+  // Not try/finally: React Compiler cannot compile a try without a catch yet.
   async function submit(values: SignupValues) {
     setPending(true);
-    try {
-      await onSubmit(values);
-    } finally {
-      setPending(false);
-    }
+    await Promise.resolve(onSubmit(values)).finally(() => setPending(false));
   }
 
   return (

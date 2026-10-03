@@ -167,14 +167,14 @@ function SidebarSearch() {
   }
 
   return (
-    <div role="search">
+    <search>
       <InputGroup.Root>
         <InputGroup.Addon>
           <SearchIcon />
         </InputGroup.Addon>
         <InputGroup.Input ref={input} type="search" aria-label="Search" placeholder="Search" />
       </InputGroup.Root>
-    </div>
+    </search>
   );
 }
 

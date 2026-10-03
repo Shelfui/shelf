@@ -741,6 +741,8 @@ bun run check
 
 plus relevant tests/builds.
 
+`bun run check` also runs React Doctor, the render-count tests, and the per-item size budget. When a component grows or a provider changes, read the failure: fix the code, or run `bun run verify --update` only when the growth is intended. A new item needs `bun run verify --update`, and a `<name>.perf.tsx` when it creates an object context. See `CONTRIBUTING.md`, "Performance and verification".
+
 Do not disable validation to get a green result.
 
 Fix the underlying issue.

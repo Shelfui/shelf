@@ -9,6 +9,7 @@ import {
   use,
   useCallback,
   useEffect,
+  useMemo,
   useState,
   useSyncExternalStore,
 } from "react";
@@ -145,8 +146,13 @@ export function SidebarProvider({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [toggleSidebar]);
 
+  const context = useMemo(
+    () => ({ open, setOpen, openMobile, setOpenMobile, isMobile, toggleSidebar }),
+    [open, setOpen, openMobile, isMobile, toggleSidebar],
+  );
+
   return (
-    <SidebarContext value={{ open, setOpen, openMobile, setOpenMobile, isMobile, toggleSidebar }}>
+    <SidebarContext value={context}>
       <Tooltip.Provider>
         <div data-slot="sidebar-wrapper" {...props} {...stylex.props(styles.wrapper, style)}>
           {children}
@@ -175,10 +181,15 @@ export function Sidebar({
   ...props
 }: SidebarProps) {
   const { open, isMobile, openMobile, setOpenMobile } = useSidebar();
+  const collapsed = collapsible !== "none" && !open;
+  const iconOnly = collapsed && collapsible === "icon";
+  const hidden = collapsed && collapsible === "offcanvas";
+  const mobilePanel = useMemo(() => ({ iconOnly: false, side }), [side]);
+  const desktopPanel = useMemo(() => ({ iconOnly, side }), [iconOnly, side]);
 
   if (isMobile && collapsible !== "none") {
     return (
-      <SidebarPanelContext value={{ iconOnly: false, side }}>
+      <SidebarPanelContext value={mobilePanel}>
         <Drawer.Root open={openMobile} onOpenChange={setOpenMobile} swipeDirection={side}>
           <Drawer.Content aria-label="Sidebar" style={styles.sheet}>
             <div
@@ -195,12 +206,8 @@ export function Sidebar({
     );
   }
 
-  const collapsed = collapsible !== "none" && !open;
-  const iconOnly = collapsed && collapsible === "icon";
-  const hidden = collapsed && collapsible === "offcanvas";
-
   return (
-    <SidebarPanelContext value={{ iconOnly, side }}>
+    <SidebarPanelContext value={desktopPanel}>
       <div
         data-slot="sidebar-gap"
         data-state={collapsed ? "collapsed" : "expanded"}

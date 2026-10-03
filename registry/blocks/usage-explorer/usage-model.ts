@@ -175,10 +175,12 @@ export function installs(
 
 export function applyFilters(rows: Install[], filters: Filters): Install[] {
   const query = filters.query.trim().toLowerCase();
+  const namespaces = new Set(filters.namespaces);
+  const states = new Set(filters.states);
   return rows.filter(
     (row) =>
-      (filters.namespaces.length === 0 || filters.namespaces.includes(row.namespace)) &&
-      (filters.states.length === 0 || filters.states.includes(row.state)) &&
+      (namespaces.size === 0 || namespaces.has(row.namespace)) &&
+      (states.size === 0 || states.has(row.state)) &&
       (!query || row.item.includes(query) || row.project.toLowerCase().includes(query)),
   );
 }
@@ -369,7 +371,7 @@ export function flowGraph(rows: Install[]): { nodes: FlowNode[]; links: FlowLink
   return { nodes, links: [...links.values()] };
 }
 
-export const DEFAULT_RUNNER = "bunx @shelfui/cli";
+export const DEFAULT_RUNNER = "bunx shelf";
 
 /** The command that resolves an install, run in its project. */
 export function fixCommand(row: Install, runner = DEFAULT_RUNNER): string | null {

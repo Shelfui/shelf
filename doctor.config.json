@@ -1,0 +1,13 @@
+{
+  "$schema": "https://react.doctor/schema/config.json",
+  "adoptExistingLintConfig": false,
+  "rules": {
+    "react-doctor/prefer-dynamic-import": "off",
+    "react-doctor/only-export-components": "off",
+    "react-doctor/no-pass-data-to-parent": "off",
+    "react-doctor/no-pass-live-state-to-parent": "off",
+    "react-doctor/no-prop-callback-in-effect": "off",
+    "react-doctor/anchor-has-content": "off",
+    "react-doctor/anchor-target-exists": "off"
+  }
+}

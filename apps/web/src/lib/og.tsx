@@ -29,10 +29,10 @@ function textOf(title: Metadata["title"]): string {
 
 /** The image for a page, from the title and description in its metadata. */
 export function ogImage(metadata: Metadata): Promise<ImageResponse> {
-  return render(textOf(metadata.title), metadata.description ?? "");
+  return render(textOf(metadata.title));
 }
 
-export async function render(title: string, description: string): Promise<ImageResponse> {
+export async function render(title: string): Promise<ImageResponse> {
   const [regular, medium] = await Promise.all([
     font("Geist-Regular.ttf"),
     font("Geist-Medium.ttf"),
@@ -48,35 +48,22 @@ export async function render(title: string, description: string): Promise<ImageR
         fontFamily: "Geist",
         height: "100%",
         justifyContent: "space-between",
-        padding: 72,
+        padding: 88,
         width: "100%",
       }}
     >
-      <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
-        <div
-          style={{
-            fontSize: 76,
-            fontWeight: 500,
-            letterSpacing: "-0.03em",
-            lineClamp: 3,
-            lineHeight: 1.05,
-          }}
-        >
-          {title}
-        </div>
-        {description && (
-          <div
-            style={{
-              color: colors.mutedForeground,
-              fontSize: 32,
-              lineClamp: 2,
-              lineHeight: 1.35,
-              maxWidth: 900,
-            }}
-          >
-            {description}
-          </div>
-        )}
+      <div
+        style={{
+          display: "flex",
+          fontSize: title.length > 40 ? 104 : 128,
+          fontWeight: 500,
+          letterSpacing: "-0.04em",
+          lineClamp: 4,
+          lineHeight: 1.02,
+          maxWidth: 1000,
+        }}
+      >
+        {title}
       </div>
       <div style={{ alignItems: "center", display: "flex", gap: 16 }}>
         <svg

@@ -63,7 +63,7 @@ export function Input({ style, ...props }: Styled<ComponentProps<typeof BaseNumb
 /** Steps down. Renders a minus icon unless you pass children. */
 export function Decrement({
   style,
-  children = <MinusIcon />,
+  children,
   ...props
 }: Styled<ComponentProps<typeof BaseNumberField.Decrement>>) {
   return (
@@ -73,7 +73,7 @@ export function Decrement({
       {...props}
       {...stylex.props(styles.step, style)}
     >
-      {children}
+      {children === undefined ? <MinusIcon /> : children}
     </BaseNumberField.Decrement>
   );
 }
@@ -81,7 +81,7 @@ export function Decrement({
 /** Steps up. Renders a plus icon unless you pass children. */
 export function Increment({
   style,
-  children = <PlusIcon />,
+  children,
   ...props
 }: Styled<ComponentProps<typeof BaseNumberField.Increment>>) {
   return (
@@ -91,7 +91,7 @@ export function Increment({
       {...props}
       {...stylex.props(styles.step, style)}
     >
-      {children}
+      {children === undefined ? <PlusIcon /> : children}
     </BaseNumberField.Increment>
   );
 }

@@ -8,7 +8,7 @@ export function isPackageManager(value: unknown): value is PackageManager {
   return PACKAGE_MANAGERS.some((pm) => pm === value);
 }
 
-/** How to run the Shelf CLI without installing it first. */
+/** How to run `shelf` through the project's locally installed `@shelfui/cli`. */
 export function runner(pm: PackageManager): string {
-  return { npm: "npx", pnpm: "pnpm dlx", yarn: "yarn dlx", bun: "bunx" }[pm] + " @shelfui/cli";
+  return { npm: "npx", pnpm: "pnpm", yarn: "yarn", bun: "bunx" }[pm] + " shelf";
 }

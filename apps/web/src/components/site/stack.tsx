@@ -1,12 +1,22 @@
+"use client";
+
 import * as stylex from "@stylexjs/stylex";
 import type { ReactNode } from "react";
+import * as HoverCard from "@/components/ui/hover-card";
 import { colors, spacing, typography } from "@/styles/shelf/tokens.stylex";
 import { screens, site } from "@/styles/site.stylex";
 
 /** Official marks, drawn in the current text color. */
-const STACK: { name: string; viewBox: string; mark: ReactNode }[] = [
+const STACK: {
+  name: string;
+  about: string;
+  viewBox: string;
+  mark: ReactNode;
+}[] = [
   {
     name: "StyleX",
+    about:
+      "Compile-time CSS. Every Shelf component is styled with StyleX and semantic tokens, so styles stay static and easy to edit.",
     viewBox: "0 0 377 435",
     mark: (
       <>
@@ -33,6 +43,8 @@ const STACK: { name: string; viewBox: string; mark: ReactNode }[] = [
   },
   {
     name: "Base UI",
+    about:
+      "Unstyled, accessible primitives. Shelf uses them for focus, keyboard and ARIA behavior instead of hand-rolling it.",
     viewBox: "0 0 24 24",
     mark: (
       <path d="M13.082 6.562a.52.52 0 0 0-.546.529V24a8.727 8.727 0 0 0 .546-17.438M11.446 9.6V24c-4.82 0-8.728-4.298-8.728-9.6V0c4.82 0 8.728 4.298 8.728 9.6Z" />
@@ -40,6 +52,8 @@ const STACK: { name: string; viewBox: string; mark: ReactNode }[] = [
   },
   {
     name: "React",
+    about:
+      "Components are plain React source, so they stay readable after Shelf tooling is removed.",
     viewBox: "0 0 24 24",
     mark: (
       <path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.020 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.020 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.160-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.010 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.010-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.280c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.180zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.920 16.320c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.110-2.280.686-.72 1.370-1.536 2.020-2.440 1.107-.118 2.154-.3 3.113-.54zm-11.830.010c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.560.640c.44.02.89.034 1.345.034.46 0 .915-.01 1.360-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.360-1.565z" />
@@ -47,6 +61,7 @@ const STACK: { name: string; viewBox: string; mark: ReactNode }[] = [
   },
   {
     name: "Storybook",
+    about: "Every component has stories, which also drive docs and accessibility tests.",
     viewBox: "0 0 24 24",
     mark: (
       <path d="M16.71.243l-.12 2.71a.18.18 0 00.29.15l1.06-.8.9.7a.18.18 0 00.28-.14l-.1-2.76 1.33-.1a1.2 1.2 0 011.279 1.2v21.596a1.2 1.2 0 01-1.26 1.2l-16.096-.72a1.2 1.2 0 01-1.15-1.16l-.75-19.797a1.2 1.2 0 011.13-1.27L16.7.222zM13.64 9.3c0 .47 3.16.24 3.59-.08 0-3.2-1.72-4.89-4.859-4.89-3.15 0-4.899 1.72-4.899 4.29 0 4.45 5.999 4.53 5.999 6.959 0 .7-.32 1.1-1.05 1.1-.96 0-1.35-.49-1.3-2.16 0-.36-3.649-.48-3.769 0-.27 4.03 2.23 5.2 5.099 5.2 2.79 0 4.969-1.49 4.969-4.18 0-4.77-6.099-4.64-6.099-6.999 0-.97.72-1.1 1.13-1.1.45 0 1.25.07 1.19 1.87z" />
@@ -54,6 +69,7 @@ const STACK: { name: string; viewBox: string; mark: ReactNode }[] = [
   },
   {
     name: "Figma",
+    about: "Shelf is building a code-to-Figma pipeline so designers can use production components.",
     viewBox: "0 0 24 24",
     mark: (
       <path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z" />
@@ -61,24 +77,40 @@ const STACK: { name: string; viewBox: string; mark: ReactNode }[] = [
   },
 ];
 
+const hoverCard = HoverCard.createHandle<string>();
+
 /** The open-source stack Shelf is built on and runs in. */
 export function Stack() {
   return (
-    <ul aria-label="Built with" {...stylex.props(styles.list)}>
-      {STACK.map((item) => (
-        <li key={item.name} {...stylex.props(styles.item)}>
-          <svg
-            aria-hidden
-            viewBox={item.viewBox}
-            fill="currentColor"
-            {...stylex.props(styles.mark)}
-          >
-            {item.mark}
-          </svg>
-          {item.name}
-        </li>
-      ))}
-    </ul>
+    <>
+      <ul aria-label="Built with" {...stylex.props(styles.list)}>
+        {STACK.map((item) => (
+          <li key={item.name} {...stylex.props(styles.item)}>
+            <HoverCard.Trigger
+              handle={hoverCard}
+              payload={item.about}
+              delay={100}
+              closeDelay={200}
+              tabIndex={0}
+              style={styles.link}
+            >
+              <svg
+                aria-hidden
+                viewBox={item.viewBox}
+                fill="currentColor"
+                {...stylex.props(styles.mark)}
+              >
+                {item.mark}
+              </svg>
+              {item.name}
+            </HoverCard.Trigger>
+          </li>
+        ))}
+      </ul>
+      <HoverCard.Root handle={hoverCard}>
+        {({ payload }) => <HoverCard.Content>{payload}</HoverCard.Content>}
+      </HoverCard.Root>
+    </>
   );
 }
 
@@ -94,9 +126,13 @@ const styles = stylex.create({
     padding: 0,
   },
   item: {
+    display: "flex",
+  },
+  link: {
     gap: spacing["2"],
     alignItems: "center",
     display: "flex",
+    textDecorationLine: "none",
     fontSize: typography.fontSizeLg,
     fontWeight: typography.fontWeightMedium,
     letterSpacing: "-0.01em",

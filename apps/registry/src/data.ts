@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import type { InstalledItem, UsageGraph } from "../../../packages/cli/src/core/usage/types";
+import type { VerifyReport } from "../../../scripts/verify/types";
 
 /** One entry of the published `index.json`, as `shelf build` writes it. */
 export interface IndexItem {
@@ -28,6 +29,8 @@ export interface Story {
   importPath: string;
 }
 
+export type { Verification, VerifyReport, Weight } from "../../../scripts/verify/types";
+
 export type {
   InstalledItem,
   ProjectUsage,
@@ -42,6 +45,8 @@ export interface Registry {
   /** The Figma library file and each item's node in it, from index.json. */
   figma?: { file: string; nodes: Record<string, string> };
   usage: UsageGraph | null;
+  /** What each item weighs and has been checked for, from `bun run verify`. Absent in older builds. */
+  verify: VerifyReport | null;
   stories: Story[];
   history: Record<string, HistoryEntry[]>;
 }
@@ -68,9 +73,10 @@ export function fetchText(path: string): Promise<string> {
 }
 
 export async function loadRegistry(): Promise<Registry> {
-  const [index, usage, storybook, history] = await Promise.all([
+  const [index, usage, verify, storybook, history] = await Promise.all([
     fetchJson<{ items: IndexItem[]; figma?: Registry["figma"] }>("index.json"),
     fetchJson<UsageGraph>("usage.json").catch(() => null),
+    fetchJson<VerifyReport>("verify.json").catch(() => null),
     fetchJson<{ entries?: Record<string, Story & { type: string }> }>("storybook/index.json").catch(
       () => null,
     ),
@@ -82,6 +88,7 @@ export async function loadRegistry(): Promise<Registry> {
     items: index.items,
     ...(index.figma && { figma: index.figma }),
     usage,
+    verify,
     stories: Object.values(storybook?.entries ?? {}).filter((entry) => entry.type === "story"),
     history: history?.items ?? {},
   };

@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { Fragment, type ReactNode } from "react";
 import { CodeBlock } from "@/components/site/code-block";
 import { ComponentPreview } from "@/components/site/component-preview";
+import { VerifiedBadge } from "@/components/site/verified";
 import { InstallTabs } from "@/components/site/install-tabs";
 import {
   Code,
@@ -19,7 +20,9 @@ import {
 import { demos } from "@/demos";
 import { examples } from "@/demos/examples";
 import { components, findComponent } from "@/docs/components";
+import { checksFor, formatSize, summaryFor, verificationFor, weigh } from "@/docs/verify";
 import { installedDependencies, installedFiles, usageExample } from "@/docs/source";
+import { siteConfig } from "@/site";
 import { colors, spacing, typography } from "@/styles/shelf/tokens.stylex";
 import { site } from "@/styles/site.stylex";
 
@@ -58,6 +61,7 @@ export default async function ComponentPage({ params }: Props) {
       (component.examples ?? []).map((example) => readDemo(`examples/${name}-${example.name}.tsx`)),
     ),
   ]);
+  const verification = verificationFor(name);
   const main = files.find((file) => file.path.endsWith(`/${name}.tsx`)) ?? files[0];
   const usage = main && usageExample(main);
   const index = components.indexOf(component);
@@ -66,7 +70,25 @@ export default async function ComponentPage({ params }: Props) {
 
   return (
     <article>
-      <PageHeader title={component.title} description={component.description} />
+      <PageHeader
+        title={component.title}
+        description={component.description}
+        aside={
+          verification && (
+            <VerifiedBadge
+              summary={summaryFor(verification)}
+              storybookHref={
+                verification.storyId
+                  ? new URL(
+                      `storybook/?path=/story/${verification.storyId}`,
+                      siteConfig.registryUrl,
+                    ).href
+                  : undefined
+              }
+            />
+          )
+        }
+      />
 
       <ComponentPreview code={source}>
         <Demo />
@@ -169,6 +191,23 @@ export default async function ComponentPage({ params }: Props) {
           ]}
         />
       </Section>
+
+      {verification && (
+        <Section title="Verified">
+          <Definitions
+            items={[
+              {
+                term: "Size",
+                text: `${formatSize(weigh(verification.size.own))} gzipped on its own, ${formatSize(weigh(verification.size.total))} with the Shelf items and packages it builds on. JS and CSS in a production build, without React.`,
+              },
+              ...checksFor(verification).map((check) => ({
+                term: check.label,
+                text: check.detail,
+              })),
+            ]}
+          />
+        </Section>
+      )}
 
       <nav aria-label="Components" {...stylex.props(styles.pager)}>
         {previous ? (

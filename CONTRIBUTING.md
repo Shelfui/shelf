@@ -49,7 +49,23 @@ Commander appears only in `cli/`. A command module parses input and calls one `c
 4. Add `registry/components/<name>/` with the source, `registry.json`, and `<name>.stories.tsx`.
 5. Add the item to `registry/index.json`.
 6. Add stories for the meaningful states, with play functions for behavior. Accessibility checks run on every story.
-7. Run `bun run check`.
+7. If it creates a React context whose value is an object, add `<name>.perf.tsx` (see below).
+8. Run `bun run verify --update` to record its size, and commit `scripts/verify/baseline.json`.
+9. Run `bun run check`.
+
+Nothing else needs wiring. Every script below finds the new item through `registry/index.json`.
+
+## Performance and verification
+
+Every item is measured, and the site shows only what was measured. `bun run check` enforces three things:
+
+- **React Doctor** (`bun run doctor`) scans `registry/` and fails on any finding. `doctor.config.json` turns off the rules that don't fit source we ship to other people: eager imports of heavy libraries (a chart exists to import Recharts, and the consumer decides how to split), callback props that fire from effects (`setApi`, `onChange` style APIs), several exports per file (compound components), and links whose target is a render prop. Fix a finding in the code. Disable a rule only with a reason, in that file.
+- **Render tests** (`bun run test:perf`) prove that a parent re-render does not re-render context consumers. A provider with an object value memoizes it with `useMemo`; a new object on every render re-renders every consumer. Add `<name>.perf.tsx` beside the item with `renderCount` from `registry/test/render-count.tsx`. Write one test that a plain parent re-render costs nothing, and one that a real change still reaches the consumer, so the first test can't pass for the wrong reason. `bun run verify` lists items that create an object context without one.
+- **Size budgets** (`bun run verify --check`) bundle every item for production and compare its gzipped JS and CSS with `scripts/verify/baseline.json`. An item fails when it grows by more than 10% and 300 bytes. When growth is intended, run `bun run verify --update` and commit the baseline.
+
+`bun run verify` writes `dist/verify.json`: sizes, story and interaction-test counts, render-test coverage, React Compiler results, and React Doctor findings per item. `bun run registry:build` publishes it as `verify.json`, and the registry site shows it as the "Verified" block on each item and the size on each catalog tile. A check an item doesn't pass is left out of the block, never shown as a failure.
+
+Two details of the size numbers. "This item" bundles only the item's files and leaves the shared token CSS out; "With dependencies" adds the Shelf items and packages it imports. React and fonts are not counted.
 
 ## Writing styles
 

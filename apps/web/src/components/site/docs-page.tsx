@@ -9,9 +9,12 @@ export function PageHeader({
   title,
   description,
   path,
+  aside,
 }: {
   title: string;
   description: string;
+  /** Sits at the right of the title, such as a status badge. */
+  aside?: ReactNode;
   /** The page's route. Pages with a generated Markdown version pass it, to show the copy actions. */
   path?: string;
 }) {
@@ -20,6 +23,7 @@ export function PageHeader({
       <div {...stylex.props(styles.titleRow)}>
         <h1 {...stylex.props(styles.title)}>{title}</h1>
         {path && <PageActions path={path} />}
+        {aside}
       </div>
       <p {...stylex.props(styles.lead)}>{description}</p>
     </header>

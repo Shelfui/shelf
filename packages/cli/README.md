@@ -109,4 +109,4 @@ shelf usage apps --registry registry --json > usage.json
 shelf build registry --out dist/registry --storybook storybook-static --usage usage.json
 ```
 
-`--storybook` serves a Storybook build at `storybook/` for previews, `--usage` serves `shelf usage --json` output at `usage.json`, and `--no-site` writes only the files that install. `usage.json` contains file paths and repository URLs; host it privately when it covers private code.
+`--storybook` serves a Storybook build at `storybook/` for previews, `--usage` serves `shelf usage --json` output at `usage.json`, `--verify` serves a `bun run verify` report at `verify.json` (what each item weighs and has been checked for), and `--no-site` writes only the files that install. `usage.json` contains file paths and repository URLs; host it privately when it covers private code.

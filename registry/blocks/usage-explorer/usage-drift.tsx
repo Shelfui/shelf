@@ -32,7 +32,7 @@ export interface ChartProps {
   onHover: (focus: Focus) => void;
   onPin: (focus: Focus) => void;
   onTip: (tip: Tip | null) => void;
-  /** How fix commands start, such as `npx @shelfui/cli`. */
+  /** How fix commands start, such as `npx shelf`. */
   runner: string;
 }
 

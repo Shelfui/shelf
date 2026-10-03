@@ -9,5 +9,5 @@ export function generateStaticParams() {
 
 export default async function Image({ params }: { params: Promise<{ name: string }> }) {
   const component = findComponent((await params).name);
-  return render(component?.title ?? "Components", component?.description ?? "");
+  return render(component?.title ?? "Components");
 }

@@ -32,10 +32,14 @@ function revenueFor(days: number) {
   }));
 }
 
-const dateLabel = (value: number) =>
-  new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", timeZone: "UTC" }).format(
-    value,
-  );
+const dateFormat = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  day: "numeric",
+  timeZone: "UTC",
+});
+const usdFormat = new Intl.NumberFormat("en-US", USD);
+
+const dateLabel = (value: number) => dateFormat.format(value);
 
 /**
  * A card with a headline figure, how it changed, a range switch, and an area chart. The
@@ -57,9 +61,7 @@ export function ChartCard() {
         <div {...stylex.props(styles.heading)}>
           <div>
             <Card.Description>Revenue</Card.Description>
-            <Card.Title style={styles.total}>
-              {new Intl.NumberFormat("en-US", USD).format(total)}
-            </Card.Title>
+            <Card.Title style={styles.total}>{usdFormat.format(total)}</Card.Title>
           </div>
           <ToggleGroup
             aria-label="Date range"

@@ -19,6 +19,6 @@
     "paths": { "@/.storybook/*": ["./.storybook/*"] }
   },
   "files": ["node_modules/@figma/plugin-typings/plugin-api.d.ts"],
-  "include": ["registry", "packages", ".storybook", "*.ts"],
+  "include": ["registry", "packages", "scripts", ".storybook", "*.ts"],
   "exclude": ["node_modules", "**/dist", "**/.tmp"]
 }

@@ -183,9 +183,9 @@ export const Drift = meta.story({
 
     const selection = canvas.getByRole("region", { name: "Selected item: button" });
     await expect(within(selection).getAllByRole("row")).toHaveLength(8);
-    await expect(
-      within(selection).getAllByText("bunx @shelfui/cli update button").length,
-    ).toBeGreaterThan(0);
+    await expect(within(selection).getAllByText("bunx shelf update button").length).toBeGreaterThan(
+      0,
+    );
 
     await userEvent.keyboard("{Escape}");
     await waitFor(() => expect(canvas.queryByRole("region", { name: /^Selected/ })).toBeNull());

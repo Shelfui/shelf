@@ -66,9 +66,9 @@ jobs:
       - uses: oven-sh/setup-bun@v2
       - run: bun install
       - run: bunx storybook build
-      - run: bunx @shelfui/cli usage apps --registry registry --json > usage.json
+      - run: bunx shelf usage apps --registry registry --json > usage.json
       - run: >
-          bunx @shelfui/cli build registry --out dist/registry
+          bunx shelf build registry --out dist/registry
           --storybook storybook-static --usage usage.json
       - uses: actions/upload-pages-artifact@v3
         with:
@@ -99,7 +99,7 @@ platform/ui  (packages/ui @ 612592c)
 
 3 projects. For the full graph: shelf usage --json`;
 
-const REPOS = `- run: bunx @shelfui/cli usage --github acme --registry registry --json > usage.json
+const REPOS = `- run: bunx shelf usage --github acme --registry registry --json > usage.json
   env:
     GH_TOKEN: \${{ secrets.SHELF_USAGE_TOKEN }}`;
 
