@@ -12,7 +12,9 @@ export default defineConfig({
           browser: {
             enabled: true,
             headless: true,
-            provider: playwright(),
+            // Components set every transition to 0s under prefers-reduced-motion,
+            // so stories assert settled styles the same way on any machine.
+            provider: playwright({ contextOptions: { reducedMotion: "reduce" } }),
             instances: [{ browser: "chromium" }],
           },
         },
