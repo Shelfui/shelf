@@ -5,7 +5,7 @@ import { EditorSlashMenu } from "@/components/ui/editor-slash-menu";
 
 export default function EditorSlashMenuDemo() {
   return (
-    <div style={{ minHeight: 260 }}>
+    <div style={{ width: "min(100%, 36rem)", minHeight: 260 }}>
       <Editor.Root aria-label="Document" placeholder="Write, or press / for commands">
         <Editor.Content />
         <EditorSlashMenu />

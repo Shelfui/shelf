@@ -6,7 +6,7 @@ import { EditorSlashMenu } from "@/components/ui/editor-slash-menu";
 
 export default function EditorBlockHandleDemo() {
   return (
-    <div style={{ minHeight: 220 }}>
+    <div style={{ width: "min(100%, 36rem)", minHeight: 220 }}>
       <Editor.Root
         aria-label="Document"
         defaultValue="<h2>Plan</h2><p>First paragraph.</p><p>Second paragraph.</p>"

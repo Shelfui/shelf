@@ -27,7 +27,7 @@ function Menu() {
 
 export default function EditorSuggestionDemo() {
   return (
-    <div style={{ minHeight: 200 }}>
+    <div style={{ width: "min(100%, 36rem)", minHeight: 200 }}>
       <Editor.Root aria-label="Document" placeholder="Type @ to mention someone">
         <Editor.Content />
         <Menu />

@@ -5,7 +5,7 @@ import { EditorBubbleMenu } from "@/components/ui/editor-bubble-menu";
 
 export default function EditorBubbleMenuDemo() {
   return (
-    <div style={{ minHeight: 200 }}>
+    <div style={{ width: "min(100%, 36rem)", minHeight: 200 }}>
       <Editor.Root
         aria-label="Document"
         defaultValue="<p>Select any word to format it.</p><p>A second paragraph.</p>"
