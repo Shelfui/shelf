@@ -1454,12 +1454,12 @@
     "editor-block-handle": {
       "size": {
         "own": {
-          "js": 1350,
-          "css": 119
+          "js": 1544,
+          "css": 167
         },
         "total": {
-          "js": 208319,
-          "css": 3673
+          "js": 208473,
+          "css": 3708
         }
       },
       "packages": 4,

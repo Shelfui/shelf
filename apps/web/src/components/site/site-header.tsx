@@ -8,6 +8,7 @@ import { Customizer } from "./customizer";
 import { GetStarted } from "./get-started";
 import { Logo } from "./logo";
 import { NavLink } from "./nav-link";
+import { SearchTrigger } from "./search-trigger";
 
 export function SiteHeader() {
   return (
@@ -40,6 +41,7 @@ export function SiteHeader() {
           </NavLink>
         </nav>
         <div {...stylex.props(styles.end)}>
+          <SearchTrigger />
           <Customizer />
           <GetStarted style={styles.cta} />
         </div>

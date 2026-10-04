@@ -1161,14 +1161,14 @@
       },
       "files": {
         "src/components/ui/editor-block-handle.tsx": {
-          "baseHash": "f522455d39483871334476a59c2c53dd23fa535b7a84de234b99727c3d2dea51",
+          "baseHash": "3990b7b6387aae4f623652d6442b909bbf0d7333bb5a88a361351bb5cfb25a29",
           "source": "editor-block-handle.tsx"
         }
       },
-      "installedAt": "2026-10-04T09:31:51.408Z",
+      "installedAt": "2026-10-04T09:40:15.712Z",
       "path": "components/editor-block-handle",
       "registry": "../../registry",
-      "revision": "7786956783c6c69c9d76cd53664c2d209560e2c98535c98a8ca5a02297675fbc",
+      "revision": "41efb0a849043918a021024f71767636c4ec9568dbf6da08080fefe985218153",
       "shelfDependencies": [
         "button",
         "dropdown-menu",
