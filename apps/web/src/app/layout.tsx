@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { LucideProvider } from "lucide-react";
 import { ThemeProvider } from "next-themes";
 import type { ReactNode } from "react";
+import { JsonLd } from "@/components/site/json-ld";
 import { ToastProvider } from "@/components/ui/toast";
 import * as Tooltip from "@/components/ui/tooltip";
 import { siteConfig } from "@/site";
@@ -44,6 +45,29 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <body suppressHydrationWarning {...stylex.props(styles.body)}>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": `${siteConfig.url}/#organization`,
+                name: siteConfig.name,
+                url: siteConfig.url,
+                logo: `${siteConfig.url}/icon.svg`,
+                sameAs: [siteConfig.repoUrl],
+              },
+              {
+                "@type": "WebSite",
+                "@id": `${siteConfig.url}/#website`,
+                name: siteConfig.name,
+                url: siteConfig.url,
+                description: siteConfig.lead,
+                publisher: { "@id": `${siteConfig.url}/#organization` },
+              },
+            ],
+          }}
+        />
         <ThemeProvider
           attribute="class"
           value={{ light: "light", dark: darkClass }}

@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Fragment, type ReactNode } from "react";
+import { JsonLd } from "@/components/site/json-ld";
 import { CodeBlock } from "@/components/site/code-block";
 import { ComponentPreview } from "@/components/site/component-preview";
 import { VerifiedBadge } from "@/components/site/verified";
@@ -70,6 +71,33 @@ export default async function ComponentPage({ params }: Props) {
 
   return (
     <article>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "TechArticle",
+              headline: `${component.title} | Shelf`,
+              description: component.description,
+              url: `${siteConfig.url}/docs/components/${component.name}`,
+              publisher: { "@id": `${siteConfig.url}/#organization` },
+            },
+            {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { name: "Docs", path: "/docs" },
+                { name: "Components", path: "/docs/components" },
+                { name: component.title, path: `/docs/components/${component.name}` },
+              ].map((crumb, i) => ({
+                "@type": "ListItem",
+                position: i + 1,
+                name: crumb.name,
+                item: `${siteConfig.url}${crumb.path}`,
+              })),
+            },
+          ],
+        }}
+      />
       <PageHeader
         title={component.title}
         description={component.description}

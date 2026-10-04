@@ -1,6 +1,7 @@
 import * as stylex from "@stylexjs/stylex";
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Faq } from "@/components/home/faq";
 import { DriftArt, GraphArt, SourceArt, TrackedArt } from "@/components/home/illustrations";
@@ -15,6 +16,12 @@ import { siteConfig } from "@/site";
 import { media } from "@/styles/shelf/conditions.stylex";
 import { colors, spacing, typography } from "@/styles/shelf/tokens.stylex";
 import { screens, site } from "@/styles/site.stylex";
+
+export const metadata: Metadata = {
+  description:
+    "Shelf installs a design system as plain React source in each product, and tracks every change so you can still update.",
+  alternates: { canonical: "/" },
+};
 
 const PILLARS = [
   {

@@ -16,8 +16,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { category } = await params;
   const match = blockCategories.find((item) => item.slug === category);
+  const names = blocks
+    .filter((block) => block.categories.includes(category))
+    .map((block) => block.title);
   return {
     title: match ? `${match.title} blocks` : "Blocks",
+    description:
+      match && names.length > 0
+        ? `${match.title} blocks for React, installed as source with one command: ${names.join(", ")}.`
+        : undefined,
     alternates: { canonical: `/blocks/${category}` },
   };
 }

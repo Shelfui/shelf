@@ -7,16 +7,21 @@ import { siteConfig } from "@/site";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date();
   const pages = [
     "",
     "/registry",
     ...docGroups.flatMap((group) => group.links.map((link) => link.href)),
   ];
   return [
-    ...pages.map((page) => ({ url: `${siteConfig.url}${page}` })),
+    ...pages.map((page) => ({ url: `${siteConfig.url}${page}`, lastModified })),
     ...components.map((component) => ({
       url: `${siteConfig.url}/docs/components/${component.name}`,
+      lastModified,
     })),
-    ...blockCategories.map((category) => ({ url: `${siteConfig.url}/blocks/${category.slug}` })),
+    ...blockCategories.map((category) => ({
+      url: `${siteConfig.url}/blocks/${category.slug}`,
+      lastModified,
+    })),
   ];
 }
