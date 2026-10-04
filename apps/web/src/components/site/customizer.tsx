@@ -28,9 +28,8 @@ export function Customizer() {
           if (next) setPanelUsed(true);
         }}
       >
-        <Popover.Trigger render={<Button variant="ghost" size="sm" />}>
+        <Popover.Trigger render={<Button variant="ghost" size="icon-sm" aria-label="Customize" />}>
           <PaletteIcon />
-          Customize
         </Popover.Trigger>
         {panelUsed && (
           <CustomizerPanel

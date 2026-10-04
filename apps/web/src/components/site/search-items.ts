@@ -64,32 +64,6 @@ export const searchGroups: SearchGroup[] = [
   { value: "Blocks", items: blockItems },
 ];
 
-const byHref = new Map(searchGroups.flatMap((group) => group.items).map((i) => [i.href, i]));
-
-/** Shown before anything is typed. */
-export const suggestedGroups: SearchGroup[] = [
-  {
-    value: "Suggested",
-    items: [
-      "/docs",
-      "/docs/installation",
-      "/docs/components",
-      "/blocks",
-      "/docs/agents",
-      "/docs/figma",
-    ].map(
-      (href) =>
-        byHref.get(href) ?? {
-          value: href,
-          label: href === "/docs/components" ? "All components" : "All blocks",
-          href,
-          kind: "page" as const,
-          keywords: "",
-        },
-    ),
-  },
-];
-
 /** Every word typed must appear in the title, the description, or the keywords. */
 export function matchesSearch(item: SearchItem, query: string): boolean {
   const words = query.toLowerCase().split(/\s+/).filter(Boolean);
@@ -113,7 +87,7 @@ export function rankSearch(items: SearchItem[], query: string): SearchItem[] {
 
 /** Groups with only the matching, ranked items; empty groups are dropped. */
 export function searchFor(query: string): SearchGroup[] {
-  if (!query.trim()) return suggestedGroups;
+  if (!query.trim()) return searchGroups;
   return searchGroups
     .map((group) => ({
       value: group.value,

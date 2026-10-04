@@ -4,22 +4,17 @@ import * as stylex from "@stylexjs/stylex";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import * as Command from "@/components/ui/command";
-import {
-  CodeBlockIcon,
-  FileTextIcon,
-  LayoutDashboardIcon,
-  SearchIcon,
-} from "@/components/ui/icons";
+import { SearchIcon } from "@/components/ui/icons";
 import { Kbd } from "@/components/ui/kbd";
 import { media } from "@/styles/shelf/conditions.stylex";
 import { colors, motion, radius, spacing, typography } from "@/styles/shelf/tokens.stylex";
 import { screens } from "@/styles/site.stylex";
 import { type SearchGroup, type SearchItem, type SearchKind, searchFor } from "./search-items";
 
-const KIND: Record<SearchKind, { label: string; Icon: typeof FileTextIcon }> = {
-  page: { label: "Page", Icon: FileTextIcon },
-  component: { label: "Component", Icon: CodeBlockIcon },
-  block: { label: "Block", Icon: LayoutDashboardIcon },
+const KIND: Record<SearchKind, string> = {
+  page: "Page",
+  component: "Component",
+  block: "Block",
 };
 
 export function SearchPalette({
@@ -110,16 +105,13 @@ function Result({
   query: string;
   onSelect: (item: SearchItem) => void;
 }) {
-  const { label, Icon } = KIND[item.kind];
+  const label = KIND[item.kind];
   return (
     <Command.Item
       value={item}
       onClick={() => onSelect(item)}
       style={[stylex.defaultMarker(), styles.item]}
     >
-      <span {...stylex.props(styles.tile)}>
-        <Icon />
-      </span>
       <span {...stylex.props(styles.text)}>
         <span {...stylex.props(styles.title)}>
           <Marked text={item.label} query={query} />
@@ -181,28 +173,28 @@ const styles = stylex.create({
     gap: spacing["3"],
     // Leaves room for the Esc key.
     paddingInlineEnd: "4rem",
-    height: "3.5rem",
+    height: "3rem",
   },
   esc: {
     insetInlineEnd: spacing["4"],
     position: "absolute",
-    top: "1.125rem",
+    top: "0.875rem",
   },
   body: {
     position: "relative",
-    height: "min(24rem, 56dvh)",
+    height: "min(20rem, 56dvh)",
   },
   list: {
-    padding: spacing["2"],
-    scrollPaddingBlock: spacing["2"],
+    padding: spacing["1.5"],
+    scrollPaddingBlock: spacing["1.5"],
     height: "100%",
     maxHeight: "none",
   },
   group: {
-    paddingBlock: spacing["1"],
+    paddingBlock: 0,
   },
   groupLabel: {
-    paddingBlock: spacing["2"],
+    paddingBlock: spacing["1.5"],
     paddingInline: spacing["3"],
     fontSize: typography.fontSizeXs,
     fontWeight: typography.fontWeightMedium,
@@ -210,56 +202,30 @@ const styles = stylex.create({
   item: {
     borderRadius: radius.md,
     gap: spacing["3"],
-    paddingBlock: spacing["2"],
+    paddingBlock: spacing["1"],
     paddingInline: spacing["3"],
-    minHeight: "2.75rem",
+    minHeight: "2rem",
     transitionDuration: {
       default: motion.durationFast,
       [media.reducedMotion]: "0s",
     },
     transitionProperty: "background-color",
   },
-  tile: {
-    borderColor: {
-      default: colors.border,
-      [stylex.when.ancestor(highlighted)]: "transparent",
-    },
-    borderRadius: radius.md,
-    borderStyle: "solid",
-    borderWidth: 1,
-    alignItems: "center",
-    backgroundColor: {
-      default: colors.muted,
-      [stylex.when.ancestor(highlighted)]: colors.primary,
-    },
-    color: {
-      default: colors.mutedForeground,
-      [stylex.when.ancestor(highlighted)]: colors.primaryForeground,
-    },
-    display: "flex",
-    flexShrink: 0,
-    height: "2rem",
-    justifyContent: "center",
-    transitionDuration: {
-      default: motion.durationFast,
-      [media.reducedMotion]: "0s",
-    },
-    transitionProperty: "background-color, color, border-color",
-    width: "2rem",
-  },
   text: {
+    gap: spacing["2"],
+    alignItems: "baseline",
     display: "flex",
-    flexDirection: "column",
     flexGrow: 1,
     minWidth: 0,
   },
   title: {
-    overflow: "hidden",
+    flexShrink: 0,
     fontWeight: typography.fontWeightMedium,
-    textOverflow: "ellipsis",
     whiteSpace: "nowrap",
   },
   description: {
+    flexShrink: 1,
+    minWidth: 0,
     overflow: "hidden",
     color: colors.mutedForeground,
     fontSize: typography.fontSizeXs,
@@ -271,10 +237,6 @@ const styles = stylex.create({
     backgroundColor: "transparent",
     color: "inherit",
     fontWeight: typography.fontWeightSemibold,
-    textDecorationColor: colors.mutedForeground,
-    textDecorationLine: "underline",
-    textDecorationThickness: "1px",
-    textUnderlineOffset: "3px",
   },
   kind: {
     color: colors.mutedForeground,
@@ -294,6 +256,7 @@ const styles = stylex.create({
     gap: spacing["1.5"],
     alignItems: "center",
     color: colors.mutedForeground,
+    display: { default: "flex", ":empty": "none" },
     flexDirection: "column",
     justifyContent: "center",
     position: "absolute",

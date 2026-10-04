@@ -6,7 +6,7 @@ import { useEffect, useState, useSyncExternalStore } from "react";
 import { Button } from "@/components/ui/button";
 import { SearchIcon } from "@/components/ui/icons";
 import { Kbd } from "@/components/ui/kbd";
-import { colors, radius, spacing } from "@/styles/shelf/tokens.stylex";
+import { colors, spacing, typography } from "@/styles/shelf/tokens.stylex";
 import { screens } from "@/styles/site.stylex";
 
 // The results and their index load on first open; the header paints without them.
@@ -43,7 +43,7 @@ export function SearchTrigger() {
     <>
       <Button
         variant="outline"
-        size="sm"
+        size="default"
         aria-label="Search documentation"
         aria-keyshortcuts="Meta+K Control+K"
         onClick={() => show(true)}
@@ -63,11 +63,11 @@ export function SearchTrigger() {
 
 const styles = stylex.create({
   trigger: {
-    borderRadius: radius.full,
     gap: spacing["2"],
     color: colors.mutedForeground,
-    justifyContent: { default: "center", [screens.md]: "flex-start" },
-    width: { default: null, [screens.md]: "15rem" },
+    fontWeight: typography.fontWeightRegular,
+    justifyContent: "flex-start",
+    width: { default: null, [screens.md]: "16rem" },
   },
   label: {
     display: { default: "none", [screens.md]: "inline" },

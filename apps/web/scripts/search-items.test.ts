@@ -1,12 +1,12 @@
 import { describe, expect, test } from "bun:test";
-import { searchFor, suggestedGroups } from "../src/components/site/search-items";
+import { searchFor, searchGroups } from "../src/components/site/search-items";
 
 const labels = (query: string) => searchFor(query).flatMap((g) => g.items.map((i) => i.label));
 
 describe("site search", () => {
-  test("an empty query shows the suggestions", () => {
-    expect(searchFor("  ")).toBe(suggestedGroups);
-    expect(suggestedGroups[0]?.items.length).toBeGreaterThan(0);
+  test("an empty query lists everything, by kind", () => {
+    expect(searchFor("  ")).toBe(searchGroups);
+    expect(searchGroups.map((g) => g.value)).toEqual(["Pages", "Components", "Charts", "Blocks"]);
   });
 
   test("finds a component by its name, best match first", () => {
