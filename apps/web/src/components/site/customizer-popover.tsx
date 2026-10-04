@@ -6,9 +6,10 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import * as Popover from "@/components/ui/popover";
 import { useThemeSelection } from "@/themes/use-theme";
+import { CustomizerPanel } from "./customizer-panel";
 
-// Both load on first use: neither is needed to paint or hydrate the header.
-const CustomizerPanel = dynamic(() => import("./customizer-panel").then((m) => m.CustomizerPanel));
+// The panel ships in this module, which is already loaded on first use. The code dialog is
+// rarer, so it loads when "Copy code" is pressed.
 const ThemeCodeDialog = dynamic(() => import("./theme-code-dialog").then((m) => m.ThemeCodeDialog));
 
 /** The popover with its trigger. Loaded on first use; `defaultOpen` opens it as it mounts. */
