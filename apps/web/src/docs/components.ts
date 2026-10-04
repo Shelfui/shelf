@@ -395,9 +395,18 @@ export const components: ComponentDoc[] = [
     name: "data-table",
     title: "Data Table",
     useWhen: "Rows people need to sort, select, and page through, such as invoices or users.",
-    avoidWhen: "The data is short and read-only; use Table.",
+    avoidWhen:
+      "The data is short and read-only, use Table. Thousands of rows that should scroll instead of page, use Data Table Virtual.",
     description:
-      "A table with sortable columns, row selection, and pagination, built on Table in plain React state.",
+      "A TanStack Table data table with sorting, filtering, row selection, pagination, and column visibility, built on Table.",
+  },
+  {
+    name: "data-table-virtual",
+    title: "Data Table Virtual",
+    useWhen: "Thousands of rows that people sort, filter, and select in one scrolling list.",
+    avoidWhen: "A few hundred rows or fewer, or people expect pages; use Data Table.",
+    description:
+      "A TanStack Table data table that scrolls and renders only the rows in view, for thousands of rows.",
   },
   {
     name: "date-picker",

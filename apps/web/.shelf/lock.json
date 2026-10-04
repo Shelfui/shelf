@@ -985,24 +985,49 @@
     },
     "data-table": {
       "dependencies": {
-        "@stylexjs/stylex": "^0.19.1"
+        "@stylexjs/stylex": "^0.19.1",
+        "@tanstack/react-table": "^9.2.5"
       },
       "files": {
         "src/components/ui/data-table.tsx": {
-          "baseHash": "a628e318149908a304d988588b2686303334f1f7ef84067f31f26482ae8f2e13",
+          "baseHash": "e9b0f28eba45d7ec0ff52ce090eec1ec7b00c5e0ce69f31d5006b789e7bf86ea",
           "source": "data-table.tsx"
         }
       },
-      "installedAt": "2026-10-03T22:34:20.866Z",
+      "installedAt": "2026-10-04T15:17:28.373Z",
       "path": "components/data-table",
       "registry": "../../registry",
-      "revision": "a34b1b6a6dbc2618f2dff2f62ce85939e3c8a951b40f232c82d410ccf6d56312",
+      "revision": "89e8876ae4a78618829b7468787e237fe64b55b91a07d75ef22cb9f68884bb3d",
       "shelfDependencies": [
         "button",
         "checkbox",
         "dropdown-menu",
         "foundations",
         "icons",
+        "table",
+        "utils"
+      ],
+      "type": "component"
+    },
+    "data-table-virtual": {
+      "dependencies": {
+        "@stylexjs/stylex": "^0.19.1",
+        "@tanstack/react-table": "^9.2.5",
+        "@tanstack/react-virtual": "^3.14.13"
+      },
+      "files": {
+        "src/components/ui/data-table-virtual.tsx": {
+          "baseHash": "46052eae8e7e0f3877acb30cbdc6901a6703d4bc77d58a9c878236802f93b5e8",
+          "source": "data-table-virtual.tsx"
+        }
+      },
+      "installedAt": "2026-10-04T15:17:28.373Z",
+      "path": "components/data-table-virtual",
+      "registry": "../../registry",
+      "revision": "ca1be9fce65a6f7ae423568610e467c6567e14ca0af418fea6ab25b1bd478cf1",
+      "shelfDependencies": [
+        "data-table",
+        "foundations",
         "table",
         "utils"
       ],
@@ -1516,14 +1541,14 @@
       },
       "files": {
         "src/components/blocks/invoices-table.tsx": {
-          "baseHash": "a4dc906c837070e020a4c3758e4a8fb2cf1b19fca6f4a651edd5d8c08ad66c56",
+          "baseHash": "c5b0ddab964b5a530adb4fc75d797f0e7b05a21ad92ac2e4d0e2e80c84a02a8e",
           "source": "invoices-table.tsx"
         }
       },
-      "installedAt": "2026-10-03T22:34:20.866Z",
+      "installedAt": "2026-10-04T15:12:11.280Z",
       "path": "blocks/invoices-table",
       "registry": "../../registry",
-      "revision": "ef5353dd738d9efc24b6a837efd15358aff17333bbda3fcc0a8c1b0a18410d67",
+      "revision": "cd7543fd88ffbbed5fbc50be06ffa9e9d66064852c0187b832fef36b7071a741",
       "shelfDependencies": [
         "badge",
         "button",

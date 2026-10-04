@@ -177,8 +177,12 @@
       "total": 88351
     },
     "data-table": {
-      "own": 2688,
-      "total": 56343
+      "own": 3087,
+      "total": 72451
+    },
+    "data-table-virtual": {
+      "own": 1962,
+      "total": 44475
     },
     "date-picker": {
       "own": 1299,
@@ -265,8 +269,8 @@
       "total": 10605
     },
     "invoices-table": {
-      "own": 3214,
-      "total": 64750
+      "own": 3222,
+      "total": 81371
     },
     "item": {
       "own": 2376,

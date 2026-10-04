@@ -1,11 +1,15 @@
 "use client";
 
 import * as stylex from "@stylexjs/stylex";
-import { useId, useState } from "react";
+import { useId, useMemo, useState } from "react";
 import { Badge, type BadgeVariant } from "../../components/badge/badge";
 import { Button } from "../../components/button/button";
-import type { DataTableColumn } from "../../components/data-table/data-table";
-import { DataTable, DataTableColumnsMenu } from "../../components/data-table/data-table";
+import {
+  DataTable,
+  type DataTableColumnDef,
+  DataTableColumnsMenu,
+  useDataTable,
+} from "../../components/data-table/data-table";
 import * as DropdownMenu from "../../components/dropdown-menu/dropdown-menu";
 import * as Empty from "../../components/empty/empty";
 import { FileTextIcon, MoreIcon, PlusIcon, SearchIcon } from "../../components/icons/icons";
@@ -35,42 +39,40 @@ const STATUSES: { value: InvoiceStatus; label: string; badge: BadgeVariant }[] =
 const currency = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
 const date = new Intl.DateTimeFormat("en-US", { dateStyle: "medium", timeZone: "UTC" });
 
-const COLUMNS: DataTableColumn<Invoice>[] = [
-  { id: "id", header: "Invoice", cell: (row) => row.id, sortValue: (row) => row.id },
+const COLUMNS: DataTableColumnDef<Invoice>[] = [
+  { accessorKey: "id", header: "Invoice" },
+  { accessorKey: "customer", header: "Customer" },
   {
-    id: "customer",
-    header: "Customer",
-    cell: (row) => row.customer,
-    sortValue: (row) => row.customer,
-  },
-  {
-    id: "status",
+    accessorKey: "status",
     header: "Status",
-    cell: (row) => {
-      const status = STATUSES.find((option) => option.value === row.status)!;
+    enableSorting: false,
+    cell: ({ row }) => {
+      const status = STATUSES.find((option) => option.value === row.original.status)!;
       return <Badge variant={status.badge}>{status.label}</Badge>;
     },
   },
   {
-    id: "dueDate",
+    accessorKey: "dueDate",
     header: "Due",
-    cell: (row) => date.format(new Date(row.dueDate)),
-    sortValue: (row) => row.dueDate,
+    cell: ({ row }) => date.format(new Date(row.original.dueDate)),
   },
   {
-    id: "amount",
+    accessorKey: "amount",
     header: "Amount",
-    cell: (row) => currency.format(row.amount),
-    sortValue: (row) => row.amount,
-    align: "end",
+    cell: ({ row }) => currency.format(row.original.amount),
+    meta: { align: "end" },
   },
   {
     id: "actions",
-    header: <ActionsLabel />,
-    cell: (row) => (
+    header: () => <ActionsLabel />,
+    enableSorting: false,
+    enableHiding: false,
+    cell: ({ row }) => (
       <DropdownMenu.Root>
         <DropdownMenu.Trigger
-          render={<Button variant="ghost" size="icon-sm" aria-label={`Actions for ${row.id}`} />}
+          render={
+            <Button variant="ghost" size="icon-sm" aria-label={`Actions for ${row.original.id}`} />
+          }
         >
           <MoreIcon />
         </DropdownMenu.Trigger>
@@ -82,7 +84,7 @@ const COLUMNS: DataTableColumn<Invoice>[] = [
         </DropdownMenu.Content>
       </DropdownMenu.Root>
     ),
-    align: "end",
+    meta: { align: "end" },
   },
 ];
 
@@ -112,22 +114,34 @@ export function InvoicesTable({ invoices, onCreate, onRemind, onMarkPaid }: Invo
   const [items, setItems] = useState(invoices);
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState<InvoiceStatus | "all">("all");
-  const [visible, setVisible] = useState(() => COLUMNS.map((column) => column.id));
-  const [selected, setSelected] = useState<string[]>([]);
-  const [selection, setSelection] = useState(0);
   const [notice, setNotice] = useState("");
 
   const search = query.trim().toLowerCase();
-  const matching = items.filter(
-    (invoice) =>
-      invoice.customer.toLowerCase().includes(search) || invoice.id.toLowerCase().includes(search),
+  const matching = useMemo(
+    () =>
+      items.filter(
+        (invoice) =>
+          invoice.customer.toLowerCase().includes(search) ||
+          invoice.id.toLowerCase().includes(search),
+      ),
+    [items, search],
   );
-  const rows = matching.filter((invoice) => status === "all" || invoice.status === status);
+  const rows = useMemo(
+    () => matching.filter((invoice) => status === "all" || invoice.status === status),
+    [matching, status],
+  );
   const total = rows.reduce((sum, invoice) => sum + invoice.amount, 0);
 
+  const table = useDataTable({
+    columns: COLUMNS,
+    data: rows,
+    getRowId: (row) => row.id,
+    pageSize: 5,
+  });
+  const selected = table.getSelectedRowModel().rows.map((row) => row.id);
+
   function clearSelection() {
-    setSelected([]);
-    setSelection((key) => key + 1);
+    table.resetRowSelection(true);
   }
 
   function changeStatus(next: InvoiceStatus | "all") {
@@ -231,11 +245,7 @@ export function InvoicesTable({ invoices, onCreate, onRemind, onMarkPaid }: Invo
                   style={styles.search}
                 />
                 <div {...stylex.props(styles.end)}>
-                  <DataTableColumnsMenu
-                    columns={COLUMNS.filter((column) => column.id !== "actions")}
-                    visible={visible}
-                    onVisibleChange={(next) => setVisible([...next, "actions"])}
-                  />
+                  <DataTableColumnsMenu table={table} />
                 </div>
               </div>
             )}
@@ -259,16 +269,7 @@ export function InvoicesTable({ invoices, onCreate, onRemind, onMarkPaid }: Invo
               </Empty.Root>
             ) : (
               <>
-                <DataTable
-                  key={selection}
-                  label="Invoices"
-                  columns={COLUMNS.filter((column) => visible.includes(column.id))}
-                  data={rows}
-                  getRowId={(row) => row.id}
-                  pageSize={5}
-                  selectable
-                  onSelectionChange={setSelected}
-                />
+                <DataTable table={table} label="Invoices" selectable />
                 <p {...stylex.props(styles.total)}>
                   <span>{plural(rows.length)}</span>
                   <span>

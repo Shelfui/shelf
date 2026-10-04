@@ -28,6 +28,8 @@ const config: StorybookConfig = {
       include: [
         ...(viteConfig.optimizeDeps?.include ?? []),
         "@stylexjs/stylex/lib/stylex-inject",
+        "@tanstack/react-table",
+        "@tanstack/react-virtual",
         "embla-carousel-react",
         "react-day-picker",
         "react-dom/client",

@@ -1,7 +1,33 @@
 "use client";
 
+import {
+  type Cell,
+  type ColumnDef,
+  type Column,
+  FlexRender,
+  type Header,
+  type ReactTable,
+  type Row,
+  type RowData,
+  columnFilteringFeature,
+  columnVisibilityFeature,
+  createFilteredRowModel,
+  createPaginatedRowModel,
+  createSortedRowModel,
+  filterFn_includesString,
+  globalFilteringFeature,
+  rowPaginationFeature,
+  rowSelectionFeature,
+  rowSortingFeature,
+  sortFn_alphanumeric,
+  sortFn_basic,
+  sortFn_datetime,
+  sortFn_text,
+  tableFeatures,
+  useTable,
+} from "@tanstack/react-table";
 import * as stylex from "@stylexjs/stylex";
-import { type ComponentProps, type ReactNode, useState } from "react";
+import { type ComponentProps, type ReactNode, memo } from "react";
 import { media } from "@/styles/shelf/conditions.stylex";
 import { colors, radius, spacing, typography } from "@/styles/shelf/tokens.stylex";
 import { Button } from "./button";
@@ -18,93 +44,132 @@ import {
 import * as Table from "./table";
 import type { Styled } from "@/lib/shelf/utils";
 
-export interface DataTableColumn<Row> {
-  id: string;
-  header: ReactNode;
-  cell: (row: Row) => ReactNode;
-  /** Makes the column sortable, by the value it returns. */
-  sortValue?: (row: Row) => string | number;
+// A type-only slot: TanStack Table reads the type of `meta` on a column from it.
+const columnMeta: DataTableColumnMeta = {};
+
+/**
+ * The TanStack Table features a Shelf data table uses. Add a feature here (and its row model)
+ * to unlock more of TanStack Table, such as `columnPinningFeature` or `rowExpandingFeature`.
+ */
+export const dataTableFeatures = tableFeatures({
+  columnFilteringFeature,
+  columnVisibilityFeature,
+  globalFilteringFeature,
+  rowPaginationFeature,
+  rowSelectionFeature,
+  rowSortingFeature,
+  filteredRowModel: createFilteredRowModel(),
+  paginatedRowModel: createPaginatedRowModel(),
+  sortedRowModel: createSortedRowModel(),
+  filterFns: { includesString: filterFn_includesString },
+  sortFns: {
+    alphanumeric: sortFn_alphanumeric,
+    basic: sortFn_basic,
+    datetime: sortFn_datetime,
+    text: sortFn_text,
+  },
+  columnMeta,
+});
+
+export type DataTableFeatures = typeof dataTableFeatures;
+
+/** Extra, optional column settings, set in a column's `meta`. */
+export interface DataTableColumnMeta {
   /** Use `end` for numbers such as amounts. */
   align?: "start" | "end";
 }
 
-type SortDirection = "ascending" | "descending";
+/** A TanStack column definition for a Shelf data table. */
+export type DataTableColumnDef<TData extends RowData> = ColumnDef<DataTableFeatures, TData>;
 
-export type DataTableProps<Row> = Styled<Omit<ComponentProps<"div">, "children">> & {
-  /** The columns to show, in order. Leave hidden columns out. */
-  columns: DataTableColumn<Row>[];
-  /** The rows to show. Filter them before passing them in. */
-  data: Row[];
-  getRowId: (row: Row) => string;
+/** The table instance that `useDataTable` returns and the other parts take. */
+export type DataTableInstance<TData extends RowData> = ReactTable<DataTableFeatures, TData>;
+
+export interface UseDataTableOptions<TData extends RowData> {
+  /** Keep this array stable: define it outside the component or wrap it in `useMemo`. */
+  columns: DataTableColumnDef<TData>[];
+  /** Keep this array stable too, so sorting and filtering are not redone on every render. */
+  data: TData[];
+  getRowId: (row: TData) => string;
   /** @default 10 */
   pageSize?: number;
+  /**
+   * Set to `false` to show every row, for a table that scrolls instead of paging.
+   * @default true
+   */
+  paginate?: boolean;
+}
+
+/**
+ * A TanStack table with sorting, filtering, pagination, row selection, and column visibility.
+ * It returns the plain TanStack table, so every TanStack method works on it:
+ *
+ *   const table = useDataTable({ columns, data, getRowId: (row) => row.id });
+ *   table.getColumn("customer")?.setFilterValue("acme");
+ */
+export function useDataTable<TData extends RowData>({
+  columns,
+  data,
+  getRowId,
+  pageSize = 10,
+  paginate = true,
+}: UseDataTableOptions<TData>): DataTableInstance<TData> {
+  return useTable<DataTableFeatures, TData>({
+    features: dataTableFeatures,
+    columns,
+    data,
+    getRowId,
+    manualPagination: !paginate,
+    // The first click sorts ascending, for numbers too.
+    sortDescFirst: false,
+    initialState: { pagination: { pageIndex: 0, pageSize } },
+  });
+}
+
+export type DataTableProps<TData extends RowData> = Styled<
+  Omit<ComponentProps<"div">, "children">
+> & {
+  table: DataTableInstance<TData>;
   /** Adds a checkbox column with select-all for the current page. */
   selectable?: boolean;
-  onSelectionChange?: (ids: string[]) => void;
   /** Controls above the table, such as a filter `Input` and `DataTableColumnsMenu`. */
   toolbar?: ReactNode;
+  /** Replaces the default footer, which is `DataTablePagination`. */
+  footer?: ReactNode;
   /** Names the table for assistive tech. */
   label?: string;
 };
 
 /**
- * A Shelf Table with sorting, row selection, and pagination, in plain React state.
- * Filtering and column visibility stay with you: pass the rows and columns to show.
+ * A Shelf Table driven by a TanStack table from `useDataTable`.
  *
- *   <DataTable
- *     label="Invoices"
- *     columns={[
- *       { id: "customer", header: "Customer", cell: (row) => row.customer, sortValue: (row) => row.customer },
- *       { id: "amount", header: "Amount", cell: (row) => format(row.amount), sortValue: (row) => row.amount, align: "end" },
- *     ]}
- *     data={invoices}
- *     getRowId={(row) => row.id}
- *     selectable
- *   />
+ *   const columns: DataTableColumnDef<Invoice>[] = [
+ *     { accessorKey: "customer", header: "Customer" },
+ *     {
+ *       accessorKey: "amount",
+ *       header: "Amount",
+ *       cell: ({ row }) => format(row.original.amount),
+ *       meta: { align: "end" },
+ *     },
+ *   ];
  *
- * Sort buttons cycle ascending, descending, and unsorted, and set `aria-sort` on the header.
+ *   const table = useDataTable({ columns, data: invoices, getRowId: (row) => row.id });
+ *   <DataTable table={table} label="Invoices" selectable />
+ *
+ * Sortable columns get a sort button that cycles ascending, descending, and unsorted, and sets
+ * `aria-sort` on the header. Turn it off for a column with `enableSorting: false`.
  */
-export function DataTable<Row>({
-  columns,
-  data,
-  getRowId,
-  pageSize = 10,
+export function DataTable<TData extends RowData>({
+  table,
   selectable = false,
-  onSelectionChange,
   toolbar,
+  footer,
   label,
   style,
   ...props
-}: DataTableProps<Row>) {
-  const [sort, setSort] = useState<{ id: string; direction: SortDirection } | null>(null);
-  const [selected, setSelected] = useState<ReadonlySet<string>>(new Set());
-  const [pageIndex, setPageIndex] = useState(0);
-
-  const sortValue = sort && columns.find((column) => column.id === sort.id)?.sortValue;
-  const sorted = sortValue
-    ? data.toSorted((a, b) => {
-        const order = compare(sortValue(a), sortValue(b));
-        return sort.direction === "ascending" ? order : -order;
-      })
-    : data;
-
-  const pageCount = Math.max(1, Math.ceil(sorted.length / pageSize));
-  const page = Math.min(pageIndex, pageCount - 1);
-  const rows = sorted.slice(page * pageSize, (page + 1) * pageSize);
-  const pageIds = rows.map(getRowId);
-  const selectedOnPage = pageIds.filter((id) => selected.has(id)).length;
-  const selectedCount = data.filter((row) => selected.has(getRowId(row))).length;
-
-  function updateSelection(next: Set<string>) {
-    setSelected(next);
-    onSelectionChange?.([...next]);
-  }
-
-  function toggleSort(id: string) {
-    if (sort?.id !== id) setSort({ id, direction: "ascending" });
-    else if (sort.direction === "ascending") setSort({ id, direction: "descending" });
-    else setSort(null);
-  }
+}: DataTableProps<TData>) {
+  const rows = table.getRowModel().rows;
+  const columnCount = table.getVisibleLeafColumns().length + (selectable ? 1 : 0);
 
   return (
     <div data-slot="data-table" {...props} {...stylex.props(styles.root, style)}>
@@ -116,96 +181,21 @@ export function DataTable<Row>({
       <div {...stylex.props(styles.frame)}>
         <Table.Root aria-label={label}>
           <Table.Header>
-            <Table.Row>
-              {selectable && (
-                <Table.Head style={styles.select}>
-                  <Checkbox
-                    aria-label="Select all rows on this page"
-                    style={styles.checkbox}
-                    checked={rows.length > 0 && selectedOnPage === rows.length}
-                    indeterminate={selectedOnPage > 0 && selectedOnPage < rows.length}
-                    disabled={rows.length === 0}
-                    onCheckedChange={(checked) => {
-                      const next = new Set(selected);
-                      for (const id of pageIds) {
-                        if (checked) next.add(id);
-                        else next.delete(id);
-                      }
-                      updateSelection(next);
-                    }}
-                  />
-                </Table.Head>
-              )}
-              {columns.map((column) => {
-                const direction = sort?.id === column.id ? sort.direction : undefined;
-                const SortIcon =
-                  direction === "ascending"
-                    ? ArrowUpIcon
-                    : direction === "descending"
-                      ? ArrowDownIcon
-                      : ArrowUpDownIcon;
-
-                return (
-                  <Table.Head
-                    key={column.id}
-                    aria-sort={column.sortValue ? (direction ?? "none") : undefined}
-                    style={column.align === "end" && styles.end}
-                  >
-                    {column.sortValue ? (
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => toggleSort(column.id)}
-                        style={[styles.sort, column.align === "end" && styles.sortEnd]}
-                      >
-                        {column.header}
-                        <SortIcon {...stylex.props(!direction && styles.sortIconIdle)} />
-                      </Button>
-                    ) : (
-                      column.header
-                    )}
-                  </Table.Head>
-                );
-              })}
-            </Table.Row>
+            <DataTableHeaderRow table={table} selectable={selectable} />
           </Table.Header>
           <Table.Body>
-            {rows.map((row) => {
-              const id = getRowId(row);
-              const isSelected = selected.has(id);
-
-              return (
-                <Table.Row
-                  key={id}
-                  data-state={isSelected ? "selected" : undefined}
-                  style={[styles.row, isSelected && styles.rowSelected]}
-                >
-                  {selectable && (
-                    <Table.Cell style={styles.select}>
-                      <Checkbox
-                        aria-label="Select row"
-                        style={styles.checkbox}
-                        checked={isSelected}
-                        onCheckedChange={(checked) => {
-                          const next = new Set(selected);
-                          if (checked) next.add(id);
-                          else next.delete(id);
-                          updateSelection(next);
-                        }}
-                      />
-                    </Table.Cell>
-                  )}
-                  {columns.map((column) => (
-                    <Table.Cell key={column.id} style={column.align === "end" && styles.end}>
-                      {column.cell(row)}
-                    </Table.Cell>
-                  ))}
-                </Table.Row>
-              );
-            })}
+            {rows.map((row) => (
+              <DataTableRow
+                key={row.id}
+                row={row}
+                cells={row.getVisibleCells()}
+                selected={row.getIsSelected()}
+                selectable={selectable}
+              />
+            ))}
             {rows.length === 0 && (
               <Table.Row style={styles.row}>
-                <Table.Cell colSpan={columns.length + (selectable ? 1 : 0)} style={styles.empty}>
+                <Table.Cell colSpan={columnCount} style={styles.empty}>
                   No results.
                 </Table.Cell>
               </Table.Row>
@@ -213,51 +203,221 @@ export function DataTable<Row>({
           </Table.Body>
         </Table.Root>
       </div>
-      <div data-slot="data-table-footer" {...stylex.props(styles.footer)}>
-        <span {...stylex.props(styles.summary)}>
-          {selectable && `${selectedCount} of ${data.length} selected`}
-        </span>
-        <span {...stylex.props(styles.summary)}>
-          Page {page + 1} of {pageCount}
-        </span>
-        <Button
-          variant="outline"
-          size="icon-sm"
-          aria-label="Go to previous page"
-          disabled={page === 0}
-          onClick={() => setPageIndex(page - 1)}
-        >
-          <ChevronLeftIcon />
-        </Button>
-        <Button
-          variant="outline"
-          size="icon-sm"
-          aria-label="Go to next page"
-          disabled={page >= pageCount - 1}
-          onClick={() => setPageIndex(page + 1)}
-        >
-          <ChevronRightIcon />
-        </Button>
-      </div>
+      {footer === undefined ? (
+        <DataTablePagination table={table} selectable={selectable} />
+      ) : (
+        footer
+      )}
     </div>
   );
 }
 
-export interface DataTableColumnsMenuProps<Row> {
-  /** Every column that can be shown, including hidden ones. */
-  columns: DataTableColumn<Row>[];
-  /** The ids of the columns to show. */
-  visible: string[];
-  onVisibleChange: (visible: string[]) => void;
+export interface DataTableHeaderRowProps<TData extends RowData> {
+  table: DataTableInstance<TData>;
+  selectable?: boolean;
+}
+
+/** The header row: a select-all checkbox and a sort button on every sortable column. */
+export function DataTableHeaderRow<TData extends RowData>({
+  table,
+  selectable = false,
+}: DataTableHeaderRowProps<TData>) {
+  const rows = table.getRowModel().rows;
+  const selectedOnPage = rows.filter((row) => row.getIsSelected()).length;
+
+  return table.getHeaderGroups().map((group) => (
+    <Table.Row key={group.id}>
+      {selectable && (
+        <Table.Head style={styles.select}>
+          <Checkbox
+            aria-label={
+              table.options.manualPagination ? "Select all rows" : "Select all rows on this page"
+            }
+            style={styles.checkbox}
+            checked={rows.length > 0 && selectedOnPage === rows.length}
+            indeterminate={selectedOnPage > 0 && selectedOnPage < rows.length}
+            disabled={rows.length === 0}
+            onCheckedChange={(checked) => table.toggleAllPageRowsSelected(checked)}
+          />
+        </Table.Head>
+      )}
+      {group.headers.map((header) => (
+        <DataTableHead
+          key={header.id}
+          header={header}
+          sorted={header.column.getIsSorted()}
+          canSort={header.column.getCanSort()}
+        />
+      ))}
+    </Table.Row>
+  ));
+}
+
+interface DataTableHeadProps<TData extends RowData> {
+  header: Header<DataTableFeatures, TData>;
+  sorted: false | "asc" | "desc";
+  canSort: boolean;
+}
+
+function DataTableHeadView<TData extends RowData>({
+  header,
+  sorted,
+  canSort,
+}: DataTableHeadProps<TData>) {
+  const align = header.column.columnDef.meta?.align;
+  const SortIcon =
+    sorted === "asc" ? ArrowUpIcon : sorted === "desc" ? ArrowDownIcon : ArrowUpDownIcon;
+  const title = header.isPlaceholder ? null : <FlexRender header={header} />;
+
+  return (
+    <Table.Head
+      aria-sort={
+        canSort
+          ? sorted === "asc"
+            ? "ascending"
+            : sorted === "desc"
+              ? "descending"
+              : "none"
+          : undefined
+      }
+      style={align === "end" && styles.end}
+    >
+      {canSort ? (
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => header.column.toggleSorting()}
+          style={[styles.sort, align === "end" && styles.sortEnd]}
+        >
+          {title}
+          <SortIcon {...stylex.props(!sorted && styles.sortIconIdle)} />
+        </Button>
+      ) : (
+        title
+      )}
+    </Table.Head>
+  );
+}
+
+// `memo` drops the generic signature, so the cast puts it back.
+// oxlint-disable-next-line typescript/no-unsafe-type-assertion
+const DataTableHead = memo(DataTableHeadView) as typeof DataTableHeadView;
+
+export interface DataTableRowProps<TData extends RowData> {
+  row: Row<DataTableFeatures, TData>;
+  /** `row.getVisibleCells()`. Passing it in keeps the row from rendering when nothing changed. */
+  cells: Cell<DataTableFeatures, TData>[];
+  /** `row.getIsSelected()`. */
+  selected: boolean;
+  selectable?: boolean;
+  /** Styles merged after the row's own, such as a fixed height. */
+  style?: stylex.StaticStyles;
+}
+
+/**
+ * One body row. It only renders again when its row, cells, or selection change, so selecting
+ * one row does not render the rest.
+ */
+function DataTableRowView<TData extends RowData>({
+  row,
+  cells,
+  selected,
+  selectable = false,
+  style,
+  ...props
+}: DataTableRowProps<TData> & Omit<ComponentProps<"tr">, "style" | "className">) {
+  return (
+    <Table.Row
+      {...props}
+      data-state={selected ? "selected" : undefined}
+      style={[styles.row, selected && styles.rowSelected, style]}
+    >
+      {selectable && (
+        <Table.Cell style={styles.select}>
+          <Checkbox
+            aria-label="Select row"
+            style={styles.checkbox}
+            checked={selected}
+            onCheckedChange={(checked) => row.toggleSelected(checked)}
+          />
+        </Table.Cell>
+      )}
+      {cells.map((cell) => (
+        <Table.Cell key={cell.id} style={cell.column.columnDef.meta?.align === "end" && styles.end}>
+          <FlexRender cell={cell} />
+        </Table.Cell>
+      ))}
+    </Table.Row>
+  );
+}
+
+// oxlint-disable-next-line typescript/no-unsafe-type-assertion -- `memo` drops the generic signature
+export const DataTableRow = memo(DataTableRowView) as typeof DataTableRowView;
+
+export interface DataTablePaginationProps<TData extends RowData> {
+  table: DataTableInstance<TData>;
+  /** Shows how many rows are selected. */
+  selectable?: boolean;
+}
+
+/** "N of M selected", the page number, and previous and next buttons. */
+export function DataTablePagination<TData extends RowData>({
+  table,
+  selectable = false,
+}: DataTablePaginationProps<TData>) {
+  const { pageIndex } = table.state.pagination;
+
+  return (
+    <div data-slot="data-table-footer" {...stylex.props(styles.footer)}>
+      <span {...stylex.props(styles.summary)}>
+        {selectable && <DataTableSelectionCount table={table} />}
+      </span>
+      <span {...stylex.props(styles.summary)}>
+        Page {pageIndex + 1} of {Math.max(1, table.getPageCount())}
+      </span>
+      <Button
+        variant="outline"
+        size="icon-sm"
+        aria-label="Go to previous page"
+        disabled={!table.getCanPreviousPage()}
+        onClick={() => table.previousPage()}
+      >
+        <ChevronLeftIcon />
+      </Button>
+      <Button
+        variant="outline"
+        size="icon-sm"
+        aria-label="Go to next page"
+        disabled={!table.getCanNextPage()}
+        onClick={() => table.nextPage()}
+      >
+        <ChevronRightIcon />
+      </Button>
+    </div>
+  );
+}
+
+/** "N of M selected", counting the rows that pass the filters. */
+export function DataTableSelectionCount<TData extends RowData>({
+  table,
+}: {
+  table: DataTableInstance<TData>;
+}) {
+  const selected = table.getFilteredSelectedRowModel().rows.length;
+  const total = table.getFilteredRowModel().rows.length;
+  return (
+    <>
+      {selected.toLocaleString("en-US")} of {total.toLocaleString("en-US")} selected
+    </>
+  );
 }
 
 /** A "Columns" menu of checkbox items that show and hide columns. */
-export function DataTableColumnsMenu<Row>({
-  columns,
-  visible,
-  onVisibleChange,
-}: DataTableColumnsMenuProps<Row>) {
-  const shown = new Set(visible);
+export function DataTableColumnsMenu<TData extends RowData>({
+  table,
+}: {
+  table: DataTableInstance<TData>;
+}) {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger render={<Button variant="outline" size="sm" />}>
@@ -265,29 +425,27 @@ export function DataTableColumnsMenu<Row>({
         <ChevronDownIcon />
       </DropdownMenu.Trigger>
       <DropdownMenu.Content align="end">
-        {columns.map((column) => (
-          <DropdownMenu.CheckboxItem
-            key={column.id}
-            checked={shown.has(column.id)}
-            onCheckedChange={(checked) =>
-              onVisibleChange(
-                checked
-                  ? columns.map((c) => c.id).filter((id) => id === column.id || shown.has(id))
-                  : visible.filter((id) => id !== column.id),
-              )
-            }
-          >
-            {column.header}
-          </DropdownMenu.CheckboxItem>
-        ))}
+        {table
+          .getAllLeafColumns()
+          .filter((column) => column.getCanHide())
+          .map((column) => (
+            <DropdownMenu.CheckboxItem
+              key={column.id}
+              checked={column.getIsVisible()}
+              onCheckedChange={(checked) => column.toggleVisibility(checked)}
+            >
+              {columnTitle(column)}
+            </DropdownMenu.CheckboxItem>
+          ))}
       </DropdownMenu.Content>
     </DropdownMenu.Root>
   );
 }
 
-function compare(a: string | number, b: string | number): number {
-  if (typeof a === "number" && typeof b === "number") return a - b;
-  return String(a).localeCompare(String(b), undefined, { numeric: true });
+/** A column's header text, or its id when the header is not plain text. */
+function columnTitle<TData extends RowData>(column: Column<DataTableFeatures, TData>): string {
+  const header = column.columnDef.header;
+  return typeof header === "string" ? header : column.id;
 }
 
 const styles = stylex.create({

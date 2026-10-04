@@ -53,13 +53,18 @@ async function moveToToday(dir: string): Promise<void> {
   await cp(REAL_REGISTRY, dir, { recursive: true });
 }
 
-/** A consumer that already lists every package the items need, so nothing is installed. */
+/**
+ * A consumer that already lists every package the items need, then and now, so nothing is
+ * installed. Today's source can need packages the first commit did not.
+ */
 async function consumer(registry: string) {
   const dependencies: Record<string, string> = {};
-  for (const file of await readdir(registry, { recursive: true })) {
-    if (!file.endsWith("registry.json")) continue;
-    const manifest = JSON.parse(await readFile(path.join(registry, file), "utf8"));
-    for (const name of Object.keys(manifest.dependencies ?? {})) dependencies[name] = "*";
+  for (const root of [registry, REAL_REGISTRY]) {
+    for (const file of await readdir(root, { recursive: true })) {
+      if (!file.endsWith("registry.json")) continue;
+      const manifest = JSON.parse(await readFile(path.join(root, file), "utf8"));
+      for (const name of Object.keys(manifest.dependencies ?? {})) dependencies[name] = "*";
+    }
   }
   return fixtureConsumer(registry, {
     "package.json": json({ name: "consumer", private: true, dependencies }),

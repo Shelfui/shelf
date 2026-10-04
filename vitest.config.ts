@@ -28,6 +28,8 @@ export default defineConfig({
         optimizeDeps: {
           include: [
             "@stylexjs/stylex/lib/stylex-inject",
+            "@tanstack/react-table",
+            "@tanstack/react-virtual",
             "embla-carousel-react",
             "react-dom/client",
           ],

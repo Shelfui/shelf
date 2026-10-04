@@ -61,6 +61,7 @@ import ComboboxDemo from "./combobox";
 import CommandDemo from "./command";
 import ContextMenuDemo from "./context-menu";
 import DataTableDemo from "./data-table";
+import DataTableVirtualDemo from "./data-table-virtual";
 import DatePickerDemo from "./date-picker";
 import DialogDemo from "./dialog";
 import DrawerDemo from "./drawer";
@@ -169,6 +170,7 @@ export const demos: Record<string, ComponentType> = {
   command: CommandDemo,
   "context-menu": ContextMenuDemo,
   "data-table": DataTableDemo,
+  "data-table-virtual": DataTableVirtualDemo,
   "date-picker": DatePickerDemo,
   dialog: DialogDemo,
   drawer: DrawerDemo,

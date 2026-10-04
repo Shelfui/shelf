@@ -1280,15 +1280,15 @@
     "data-table": {
       "size": {
         "own": {
-          "js": 2037,
+          "js": 2436,
           "css": 651
         },
         "total": {
-          "js": 52883,
+          "js": 68991,
           "css": 3460
         }
       },
-      "packages": 1,
+      "packages": 2,
       "shelfDependencies": 7,
       "stories": {
         "total": 6,
@@ -1296,14 +1296,43 @@
       },
       "storyId": "components-data-table--sorting",
       "providesContext": false,
-      "renderTested": false,
+      "renderTested": true,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 3,
+        "failed": 5
+      }
+    },
+    "data-table-virtual": {
+      "size": {
+        "own": {
+          "js": 1397,
+          "css": 565
+        },
+        "total": {
+          "js": 40875,
+          "css": 3600
+        }
+      },
+      "packages": 3,
+      "shelfDependencies": 4,
+      "stories": {
+        "total": 6,
+        "interactive": 5
+      },
+      "storyId": "components-data-table-virtual--default",
+      "providesContext": false,
+      "renderTested": true,
       "doctor": {
         "errors": 0,
         "warnings": 0
       },
       "compiler": {
         "compiled": 1,
-        "failed": 2
+        "failed": 1
       }
     },
     "date-picker": {
@@ -1915,11 +1944,11 @@
     "invoices-table": {
       "size": {
         "own": {
-          "js": 2494,
+          "js": 2502,
           "css": 720
         },
         "total": {
-          "js": 60732,
+          "js": 77353,
           "css": 4018
         }
       },

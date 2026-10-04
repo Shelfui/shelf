@@ -1,9 +1,13 @@
 import * as stylex from "@stylexjs/stylex";
-import { useState } from "react";
-import { expect, fn, screen, userEvent, waitFor, within } from "storybook/test";
+import { expect, screen, userEvent, waitFor, within } from "storybook/test";
 import preview from "@/.storybook/preview";
 import { Input } from "../input/input";
-import { DataTable, type DataTableColumn, DataTableColumnsMenu } from "./data-table";
+import {
+  DataTable,
+  type DataTableColumnDef,
+  DataTableColumnsMenu,
+  useDataTable,
+} from "./data-table";
 
 const meta = preview.meta({
   title: "Components/Data Table",
@@ -25,48 +29,44 @@ const INVOICES: Invoice[] = [
   { id: "INV-005", customer: "Hooli", amount: 640 },
 ];
 
-const COLUMNS: DataTableColumn<Invoice>[] = [
-  { id: "id", header: "Invoice", cell: (row) => row.id },
+// Defined outside the component, so TanStack Table sees the same columns on every render.
+const COLUMNS: DataTableColumnDef<Invoice>[] = [
+  { accessorKey: "id", header: "Invoice", enableSorting: false },
+  { accessorKey: "customer", header: "Customer" },
   {
-    id: "customer",
-    header: "Customer",
-    cell: (row) => row.customer,
-    sortValue: (row) => row.customer,
-  },
-  {
-    id: "amount",
+    accessorKey: "amount",
     header: "Amount",
-    cell: (row) => `$${row.amount.toFixed(2)}`,
-    sortValue: (row) => row.amount,
-    align: "end",
+    cell: ({ row }) => `$${row.original.amount.toFixed(2)}`,
+    meta: { align: "end" },
   },
 ];
 
-const selectionChanged = fn();
+const filterText = (value: unknown) => (typeof value === "string" ? value : "");
 
 function Invoices({ pageSize }: { pageSize?: number }) {
-  const [query, setQuery] = useState("");
-  const [visible, setVisible] = useState(COLUMNS.map((column) => column.id));
+  const table = useDataTable({
+    columns: COLUMNS,
+    data: INVOICES,
+    getRowId: (row) => row.id,
+    pageSize,
+  });
+  const customer = table.getColumn("customer");
 
   return (
     <DataTable
+      table={table}
       label="Invoices"
-      columns={COLUMNS.filter((column) => visible.includes(column.id))}
-      data={INVOICES.filter((row) => row.customer.toLowerCase().includes(query.toLowerCase()))}
-      getRowId={(row) => row.id}
-      pageSize={pageSize}
       selectable
-      onSelectionChange={selectionChanged}
       toolbar={
         <>
           <Input
             aria-label="Filter customers"
             placeholder="Filter customers…"
-            value={query}
-            onValueChange={setQuery}
+            value={filterText(customer?.getFilterValue())}
+            onValueChange={(value) => customer?.setFilterValue(value)}
             style={styles.filter}
           />
-          <DataTableColumnsMenu columns={COLUMNS} visible={visible} onVisibleChange={setVisible} />
+          <DataTableColumnsMenu table={table} />
         </>
       }
     />
@@ -111,7 +111,6 @@ export const Sorting = meta.story({
 export const Selection = meta.story({
   render: () => <Invoices />,
   play: async ({ canvas }) => {
-    selectionChanged.mockClear();
     const all = canvas.getByRole("checkbox", { name: "Select all rows on this page" });
 
     await userEvent.click(all);
@@ -121,7 +120,6 @@ export const Selection = meta.story({
       await expect(row).toBeChecked();
     }
     await expect(canvas.getByText("5 of 5 selected")).toBeVisible();
-    await expect(selectionChanged).toHaveBeenLastCalledWith(INVOICES.map((row) => row.id));
 
     await userEvent.click(canvas.getAllByRole("checkbox", { name: "Select row" })[0]!);
 

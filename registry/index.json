@@ -428,12 +428,22 @@
     {
       "name": "data-table",
       "type": "component",
-      "description": "A table with sortable columns, row selection, and pagination, built on Table in plain React state.",
+      "description": "A TanStack Table data table with sorting, filtering, row selection, pagination, and column visibility, built on Table.",
       "path": "components/data-table",
-      "keywords": ["grid", "sortable", "filter", "spreadsheet", "rows"],
-      "useWhen": "Rows people need to sort, select, and page through, such as invoices or users.",
-      "avoidWhen": "The data is short and read-only; use Table.",
-      "related": ["table", "invoices-table"]
+      "keywords": ["grid", "sortable", "filter", "spreadsheet", "rows", "tanstack", "react-table"],
+      "useWhen": "Rows people need to sort, filter, select, and page through, such as invoices or users.",
+      "avoidWhen": "The data is short and read-only, use Table. Thousands of rows that should scroll instead of page, use Data Table Virtual.",
+      "related": ["table", "data-table-virtual", "invoices-table"]
+    },
+    {
+      "name": "data-table-virtual",
+      "type": "component",
+      "description": "A TanStack Table data table that scrolls and renders only the rows in view, for thousands of rows.",
+      "path": "components/data-table-virtual",
+      "keywords": ["virtualized", "virtual scroll", "large", "infinite", "tanstack", "performance"],
+      "useWhen": "Thousands of rows that people sort, filter, and select in one scrolling list.",
+      "avoidWhen": "A few hundred rows or fewer, or people expect pages; use Data Table.",
+      "related": ["data-table", "table"]
     },
     {
       "name": "date-picker",

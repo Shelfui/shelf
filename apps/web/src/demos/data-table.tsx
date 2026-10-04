@@ -1,10 +1,14 @@
 "use client";
 
 import * as stylex from "@stylexjs/stylex";
-import { useState } from "react";
 import { Badge, type BadgeVariant } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { DataTable, type DataTableColumn, DataTableColumnsMenu } from "@/components/ui/data-table";
+import {
+  DataTable,
+  type DataTableColumnDef,
+  DataTableColumnsMenu,
+  useDataTable,
+} from "@/components/ui/data-table";
 import * as DropdownMenu from "@/components/ui/dropdown-menu";
 import { MoreIcon } from "@/components/ui/icons";
 import { Input } from "@/components/ui/input";
@@ -78,44 +82,49 @@ const STATUS_VARIANT: Record<Status, BadgeVariant> = {
 
 const currency = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
 
-const COLUMNS: DataTableColumn<Payment>[] = [
-  { id: "invoice", header: "Invoice", cell: (row) => row.id, sortValue: (row) => row.id },
+const COLUMNS: DataTableColumnDef<Payment>[] = [
+  { accessorKey: "id", header: "Invoice" },
   {
-    id: "status",
+    accessorKey: "status",
     header: "Status",
-    cell: (row) => <Badge variant={STATUS_VARIANT[row.status]}>{row.status}</Badge>,
-    sortValue: (row) => row.status,
+    cell: ({ row }) => (
+      <Badge variant={STATUS_VARIANT[row.original.status]}>{row.original.status}</Badge>
+    ),
   },
   {
-    id: "customer",
+    accessorKey: "customer",
     header: "Customer",
-    cell: (row) => (
+    cell: ({ row }) => (
       <div {...stylex.props(styles.customer)}>
-        <span>{row.customer}</span>
-        <span {...stylex.props(styles.email)}>{row.email}</span>
+        <span>{row.original.customer}</span>
+        <span {...stylex.props(styles.email)}>{row.original.email}</span>
       </div>
     ),
-    sortValue: (row) => row.customer,
   },
   {
-    id: "amount",
+    accessorKey: "amount",
     header: "Amount",
-    cell: (row) => <span {...stylex.props(styles.amount)}>{currency.format(row.amount)}</span>,
-    sortValue: (row) => row.amount,
-    align: "end",
+    cell: ({ row }) => (
+      <span {...stylex.props(styles.amount)}>{currency.format(row.original.amount)}</span>
+    ),
+    meta: { align: "end" },
   },
   {
     id: "actions",
-    header: <VisuallyHidden>Actions</VisuallyHidden>,
-    cell: (row) => (
+    header: () => <span {...stylex.props(styles.srOnly)}>Actions</span>,
+    enableSorting: false,
+    enableHiding: false,
+    cell: ({ row }) => (
       <DropdownMenu.Root>
         <DropdownMenu.Trigger
-          render={<Button variant="ghost" size="icon-sm" aria-label={`Actions for ${row.id}`} />}
+          render={
+            <Button variant="ghost" size="icon-sm" aria-label={`Actions for ${row.original.id}`} />
+          }
         >
           <MoreIcon />
         </DropdownMenu.Trigger>
         <DropdownMenu.Content align="end">
-          <DropdownMenu.Item onClick={() => void navigator.clipboard.writeText(row.id)}>
+          <DropdownMenu.Item onClick={() => void navigator.clipboard.writeText(row.original.id)}>
             Copy invoice ID
           </DropdownMenu.Item>
           <DropdownMenu.Item>View customer</DropdownMenu.Item>
@@ -124,30 +133,22 @@ const COLUMNS: DataTableColumn<Payment>[] = [
         </DropdownMenu.Content>
       </DropdownMenu.Root>
     ),
-    align: "end",
+    meta: { align: "end" },
   },
 ];
 
-function VisuallyHidden({ children }: { children: string }) {
-  return <span {...stylex.props(styles.srOnly)}>{children}</span>;
-}
-
-const HIDEABLE = COLUMNS.filter((column) => column.id !== "actions");
-
 export default function DataTableDemo() {
-  const [query, setQuery] = useState("");
-  const [visible, setVisible] = useState(COLUMNS.map((column) => column.id));
-  const search = query.trim().toLowerCase();
+  const table = useDataTable({
+    columns: COLUMNS,
+    data: PAYMENTS,
+    getRowId: (row) => row.id,
+    pageSize: 5,
+  });
 
   return (
     <DataTable
+      table={table}
       label="Payments"
-      columns={COLUMNS.filter((column) => column.id === "actions" || visible.includes(column.id))}
-      data={PAYMENTS.filter((row) =>
-        [row.customer, row.email, row.id].some((value) => value.toLowerCase().includes(search)),
-      )}
-      getRowId={(row) => row.id}
-      pageSize={5}
       selectable
       style={styles.table}
       toolbar={
@@ -155,12 +156,12 @@ export default function DataTableDemo() {
           <Input
             aria-label="Filter payments"
             placeholder="Filter payments…"
-            value={query}
-            onValueChange={setQuery}
+            value={table.state.globalFilter ?? ""}
+            onValueChange={table.setGlobalFilter}
             style={styles.filter}
           />
           <div {...stylex.props(styles.spacer)} />
-          <DataTableColumnsMenu columns={HIDEABLE} visible={visible} onVisibleChange={setVisible} />
+          <DataTableColumnsMenu table={table} />
         </>
       }
     />
