@@ -21,7 +21,29 @@ import AvatarDemo from "./avatar";
 import CodeBlockDemo from "./code-block";
 import ComposerDemo from "./composer";
 import DropzoneDemo from "./dropzone";
-import MarkdownDemo from "./markdown";
+import StreamDemo from "./stream";
+import NumberTickerDemo from "./number-ticker";
+import StatDemo from "./stat";
+import ColorPickerDemo from "./color-picker";
+import TimePickerDemo from "./time-picker";
+import TreeViewDemo from "./tree-view";
+import RatingDemo from "./rating";
+import TimelineDemo from "./timeline";
+import StepperDemo from "./stepper";
+import CopyButtonDemo from "./copy-button";
+import EditorSuggestionDemo from "./editor-suggestion";
+import EditorDemo from "./editor";
+import EditorSlashMenuDemo from "./editor-slash-menu";
+import EditorBubbleMenuDemo from "./editor-bubble-menu";
+import EditorBlockHandleDemo from "./editor-block-handle";
+import EditorLinkPopoverDemo from "./editor-link-popover";
+import PlanDemo from "./plan";
+import AttachmentDemo from "./attachment";
+import SourcesDemo from "./sources";
+import CitationDemo from "./citation";
+import ApprovalDemo from "./approval";
+import ToolCallDemo from "./tool-call";
+import ReasoningDemo from "./reasoning";
 import MessageDemo from "./message";
 import ShimmerDemo from "./shimmer";
 import ThreadDemo from "./thread";
@@ -107,7 +129,29 @@ export const demos: Record<string, ComponentType> = {
   "code-block": CodeBlockDemo,
   composer: ComposerDemo,
   dropzone: DropzoneDemo,
-  markdown: MarkdownDemo,
+  stream: StreamDemo,
+  "number-ticker": NumberTickerDemo,
+  stat: StatDemo,
+  "color-picker": ColorPickerDemo,
+  "time-picker": TimePickerDemo,
+  "tree-view": TreeViewDemo,
+  rating: RatingDemo,
+  timeline: TimelineDemo,
+  stepper: StepperDemo,
+  "copy-button": CopyButtonDemo,
+  "editor-suggestion": EditorSuggestionDemo,
+  editor: EditorDemo,
+  "editor-slash-menu": EditorSlashMenuDemo,
+  "editor-bubble-menu": EditorBubbleMenuDemo,
+  "editor-block-handle": EditorBlockHandleDemo,
+  "editor-link-popover": EditorLinkPopoverDemo,
+  plan: PlanDemo,
+  attachment: AttachmentDemo,
+  sources: SourcesDemo,
+  citation: CitationDemo,
+  approval: ApprovalDemo,
+  "tool-call": ToolCallDemo,
+  reasoning: ReasoningDemo,
   message: MessageDemo,
   shimmer: ShimmerDemo,
   thread: ThreadDemo,

@@ -8,6 +8,7 @@ import {
   createContext,
   useContext,
   useEffect,
+  useMemo,
   useState,
 } from "react";
 import { spacing } from "@/styles/shelf/tokens.stylex";
@@ -86,14 +87,17 @@ export function Root({
   }, [api, setApi]);
 
   useEffect(() => {
+    if (!api) return undefined;
     const update = (instance: Api) => {
       setCanScrollPrev(instance.canScrollPrev());
       setCanScrollNext(instance.canScrollNext());
     };
-    if (api) update(api);
-    api?.on("reInit", update).on("select", update);
+    update(api);
+    api.on("reInit", update);
+    api.on("select", update);
     return () => {
-      api?.off("reInit", update).off("select", update);
+      api.off("reInit", update);
+      api.off("select", update);
     };
   }, [api]);
 
@@ -111,10 +115,13 @@ export function Root({
     }
   }
 
+  const context = useMemo(
+    () => ({ viewportRef, api, orientation, canScrollPrev, canScrollNext }),
+    [viewportRef, api, orientation, canScrollPrev, canScrollNext],
+  );
+
   return (
-    <CarouselContext.Provider
-      value={{ viewportRef, api, orientation, canScrollPrev, canScrollNext }}
-    >
+    <CarouselContext.Provider value={context}>
       <div
         role="region"
         aria-roledescription="carousel"

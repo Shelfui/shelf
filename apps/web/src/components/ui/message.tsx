@@ -1,12 +1,13 @@
 "use client";
 
 import * as stylex from "@stylexjs/stylex";
-import { type ComponentProps, type ReactNode, useEffect, useRef, useState } from "react";
+import type { ComponentProps, ReactNode } from "react";
 import { media } from "@/styles/shelf/conditions.stylex";
 import { colors, radius, spacing, typography } from "@/styles/shelf/tokens.stylex";
 import type { Styled } from "@/lib/shelf/utils";
 import { Button } from "./button";
 import { CheckIcon, CopyIcon } from "./icons";
+import { useCopy } from "./copy-button";
 import * as Tooltip from "./tooltip";
 import type { ChatRole } from "./message-types";
 
@@ -95,26 +96,13 @@ export interface CopyActionProps extends Styled<Omit<ActionProps, "label" | "ico
 
 /** Copies `text` and shows a check for a moment. */
 export function CopyAction({ text, label = "Copy", ...props }: CopyActionProps) {
-  const [copied, setCopied] = useState(false);
-  const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
-  useEffect(() => () => clearTimeout(timer.current), []);
+  const { copied, copy } = useCopy(text);
 
   return (
     <Action
       label={copied ? "Copied" : label}
       icon={copied ? <CheckIcon /> : <CopyIcon />}
-      onClick={() => {
-        void navigator.clipboard?.writeText(text).then(
-          () => {
-            setCopied(true);
-            clearTimeout(timer.current);
-            timer.current = setTimeout(() => setCopied(false), 1500);
-          },
-          () => {
-            // The browser refused (no permission or no secure context); nothing to show.
-          },
-        );
-      }}
+      onClick={copy}
       {...props}
     />
   );
@@ -122,7 +110,7 @@ export function CopyAction({ text, label = "Copy", ...props }: CopyActionProps) 
 
 const styles = stylex.create({
   root: {
-    containIntrinsicSize: "auto 4rem",
+    containIntrinsicSize: "auto 3.5rem",
     gap: spacing["1"],
     color: colors.foreground,
     // Settled messages far from the viewport skip layout and paint.

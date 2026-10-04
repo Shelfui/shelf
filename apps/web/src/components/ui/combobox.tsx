@@ -34,6 +34,8 @@ import { type Placement, type Styled, isTransitioning } from "@/lib/shelf/utils"
  */
 export const Root = BaseCombobox.Root;
 export const Group = BaseCombobox.Group;
+/** Renders the current value with a function child; use it to map chosen items to `Chip`s. */
+export const Value = BaseCombobox.Value;
 
 /** The text input, with clear and open buttons. `style` applies to the surrounding group. */
 export function Input({ style, ...props }: Styled<ComponentProps<typeof BaseCombobox.Input>>) {
@@ -57,6 +59,57 @@ export function Input({ style, ...props }: Styled<ComponentProps<typeof BaseComb
         <ChevronDownIcon />
       </BaseCombobox.Trigger>
     </BaseCombobox.InputGroup>
+  );
+}
+
+/**
+ * For a multi-select, put `Chips` where `Input` goes. It holds one `Chip` per chosen item and a
+ * `ChipInput` for filtering:
+ *
+ *   <Combobox.Root multiple items={fruits}>
+ *     <Combobox.Chips>
+ *       <Combobox.Value>
+ *         {(chosen: string[]) => chosen.map((fruit) => <Combobox.Chip key={fruit}>{fruit}</Combobox.Chip>)}
+ *       </Combobox.Value>
+ *       <Combobox.ChipInput aria-label="Fruits" placeholder="Add a fruit" />
+ *     </Combobox.Chips>
+ *     <Combobox.Content>...</Combobox.Content>
+ *   </Combobox.Root>
+ */
+export function Chips({ style, ...props }: Styled<ComponentProps<typeof BaseCombobox.Chips>>) {
+  return (
+    <BaseCombobox.Chips
+      data-slot="combobox-chips"
+      {...props}
+      {...stylex.props(styles.group, styles.chips, style)}
+    />
+  );
+}
+
+/** A chosen item with a button that removes it. */
+export function Chip({
+  style,
+  children,
+  ...props
+}: Styled<ComponentProps<typeof BaseCombobox.Chip>>) {
+  return (
+    <BaseCombobox.Chip data-slot="combobox-chip" {...props} {...stylex.props(styles.chip, style)}>
+      {children}
+      <BaseCombobox.ChipRemove aria-label="Remove" {...stylex.props(styles.chipRemove)}>
+        <CloseIcon />
+      </BaseCombobox.ChipRemove>
+    </BaseCombobox.Chip>
+  );
+}
+
+/** The text input inside `Chips`. Backspace on empty text removes the last chip. */
+export function ChipInput({ style, ...props }: Styled<ComponentProps<typeof BaseCombobox.Input>>) {
+  return (
+    <BaseCombobox.Input
+      data-slot="combobox-input"
+      {...props}
+      {...stylex.props(styles.input, styles.chipInput, style)}
+    />
   );
 }
 
@@ -183,6 +236,46 @@ const styles = stylex.create({
     transitionProperty: "border-color, box-shadow",
     transitionTimingFunction: motion.easingStandard,
     height: sizes.controlDefault,
+  },
+  chips: {
+    gap: spacing["1"],
+    paddingBlock: spacing["1"],
+    paddingInline: spacing["1"],
+    flexWrap: "wrap",
+    height: "auto",
+    minHeight: sizes.controlDefault,
+  },
+  chip: {
+    borderRadius: radius.sm,
+    gap: spacing["1"],
+    alignItems: "center",
+    backgroundColor: colors.secondary,
+    color: colors.secondaryForeground,
+    display: "inline-flex",
+    fontFamily: typography.fontFamily,
+    fontSize: typography.fontSizeXs,
+    paddingInlineEnd: spacing["1"],
+    paddingInlineStart: spacing["2"],
+    height: sizes.controlXs,
+  },
+  chipRemove: {
+    margin: 0,
+    padding: 0,
+    borderRadius: radius.sm,
+    borderWidth: 0,
+    alignItems: "center",
+    backgroundColor: "transparent",
+    color: colors.mutedForeground,
+    cursor: "default",
+    display: "flex",
+    justifyContent: "center",
+    height: "1rem",
+    width: "1rem",
+  },
+  chipInput: {
+    flexBasis: "4rem",
+    paddingInlineStart: spacing["1"],
+    height: sizes.controlXs,
   },
   invalid: {
     borderColor: colors.destructive,

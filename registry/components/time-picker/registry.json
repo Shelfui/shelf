@@ -1,0 +1,8 @@
+{
+  "name": "time-picker",
+  "type": "component",
+  "description": "Hours and minutes as number fields, with an AM/PM list in 12-hour mode. Pairs with date-picker.",
+  "files": [{ "path": "time-picker.tsx" }],
+  "dependencies": { "@stylexjs/stylex": "^0.19.1" },
+  "shelfDependencies": ["foundations", "number-field", "select", "utils"]
+}

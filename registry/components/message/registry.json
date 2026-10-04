@@ -2,10 +2,17 @@
   "name": "message",
   "type": "component",
   "description": "One turn in a conversation: unboxed assistant text, a soft user bubble, hover actions, and the shared chat message types.",
-  "files": [{ "path": "message.tsx" }, { "path": "message-types.ts" }],
+  "files": [
+    {
+      "path": "message.tsx"
+    },
+    {
+      "path": "message-types.ts"
+    }
+  ],
   "dependencies": {
     "@base-ui/react": "^1.8.0",
     "@stylexjs/stylex": "^0.19.1"
   },
-  "shelfDependencies": ["button", "foundations", "icons", "tooltip", "utils"]
+  "shelfDependencies": ["button", "copy-button", "foundations", "icons", "tooltip", "utils"]
 }

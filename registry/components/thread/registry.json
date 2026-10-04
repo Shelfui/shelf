@@ -1,11 +1,10 @@
 {
   "name": "thread",
   "type": "component",
-  "description": "A conversation's scroll area: follows new messages, lets go when you scroll up, and brings you back with one button.",
-  "files": [{ "path": "thread.tsx" }],
+  "description": "A conversation's scroll area: follows new messages, lets go when you scroll up, pins a sent message near the top so the reply grows beneath it, and brings you back with one button.",
+  "files": [{ "path": "thread.tsx" }, { "path": "use-thread-scroll.ts" }],
   "dependencies": {
-    "@stylexjs/stylex": "^0.19.1",
-    "use-stick-to-bottom": "^1.1.6"
+    "@stylexjs/stylex": "^0.19.1"
   },
   "shelfDependencies": ["button", "foundations", "icons", "message", "utils"]
 }

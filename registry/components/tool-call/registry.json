@@ -1,0 +1,17 @@
+{
+  "name": "tool-call",
+  "type": "component",
+  "description": "A tool call with its name, status, input, and output, collapsed by default. Handles every AI SDK tool state.",
+  "files": [{ "path": "tool-call.tsx" }],
+  "dependencies": { "@stylexjs/stylex": "^0.19.1" },
+  "shelfDependencies": [
+    "badge",
+    "code-block",
+    "collapsible",
+    "foundations",
+    "icons",
+    "message",
+    "spinner",
+    "utils"
+  ]
+}

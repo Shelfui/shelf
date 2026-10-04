@@ -1,6 +1,6 @@
 "use client";
 
-import type { Extensions } from "@tiptap/core";
+import type { Editor, Extensions } from "@tiptap/core";
 import * as stylex from "@stylexjs/stylex";
 import {
   type ComponentProps,
@@ -16,19 +16,31 @@ import {
 } from "react";
 import { colors, elevation, radius, spacing, typography } from "../../foundations/tokens.stylex";
 import type { Styled } from "../../lib/utils";
+import { Attachment, useFileUrl } from "../attachment/attachment";
 import { Button } from "../button/button";
 import * as Dropzone from "../dropzone/dropzone";
-import { ArrowUpIcon, AttachIcon, CloseIcon, StopIcon } from "../icons/icons";
+import { ArrowUpIcon, AttachIcon, StopIcon } from "../icons/icons";
+import type { SuggestionItem } from "../editor-suggestion/editor-suggestion";
 import type { ChatStatus } from "../message/message-types";
 
 export type { Extensions };
 
 /** What the person sent. */
 export interface Submission {
-  /** The message, trimmed. */
+  /** The message, trimmed. A mention reads as `@name`. */
   text: string;
+  /** The mentions and other chips in the message, in order. */
+  chips: Chip[];
   /** Files attached since the last send. */
   files: File[];
+}
+
+/** A mention, tag, or other reference inside the text. */
+export interface Chip {
+  /** What kind it is, such as `user` or `file`. */
+  kind: string;
+  id: string;
+  label: string;
 }
 
 /** How the root reaches into whichever input is mounted. */
@@ -39,6 +51,7 @@ export interface InputHandle {
 
 interface State {
   text: string;
+  chips: readonly Chip[];
   files: readonly File[];
   status: ChatStatus;
   /** A reply is on its way: the send button becomes a stop button. */
@@ -49,7 +62,7 @@ interface State {
 }
 
 interface Actions {
-  setText: (text: string) => void;
+  setText: (text: string, chips?: Chip[]) => void;
   /** Sends the message if there is one. Returns `true` if it was sent. */
   submit: () => boolean;
   stop: () => void;
@@ -59,6 +72,9 @@ interface Actions {
   /** For inputs: tell the root how to clear and focus them. */
   registerInput: (handle: InputHandle | null) => void;
 }
+
+/** The Tiptap editor once it has loaded; `null` while the textarea is showing. */
+export const EditorContext = createContext<Editor | null>(null);
 
 const StateContext = createContext<State | null>(null);
 const ActionsContext = createContext<Actions | null>(null);
@@ -78,6 +94,8 @@ export function useComposerActions(): Actions {
 }
 
 export interface RootProps extends Styled<Omit<ComponentProps<"div">, "children" | "onSubmit">> {
+  /** Text to start with, such as a message being edited. Read once, when the composer mounts. */
+  defaultText?: string;
   /** Where the conversation is. While `submitted` or `streaming`, send becomes stop. */
   status?: ChatStatus;
   onSubmit: (submission: Submission) => void;
@@ -105,6 +123,7 @@ export interface RootProps extends Styled<Omit<ComponentProps<"div">, "children"
  *   </Composer.Root>
  */
 export function Root({
+  defaultText = "",
   status = "ready",
   onSubmit,
   onStop,
@@ -117,15 +136,16 @@ export function Root({
   onKeyDown,
   ...props
 }: RootProps) {
-  const [text, setText] = useState("");
+  const [text, setTextOnly] = useState(defaultText);
+  const [chips, setChips] = useState<readonly Chip[]>([]);
   const [files, setFiles] = useState<readonly File[]>([]);
   const input = useRef<InputHandle | null>(null);
 
   const busy = status === "submitted" || status === "streaming";
   const canSubmit = !disabled && !busy && (text.trim() !== "" || files.length > 0);
   const state = useMemo<State>(
-    () => ({ text, files, status, busy, canSubmit, disabled }),
-    [text, files, status, busy, canSubmit, disabled],
+    () => ({ text, chips, files, status, busy, canSubmit, disabled }),
+    [text, chips, files, status, busy, canSubmit, disabled],
   );
 
   // Actions stay the same object, so typing never re-renders a button that only calls them.
@@ -135,12 +155,20 @@ export function Root({
   });
   const actions = useMemo<Actions>(
     () => ({
-      setText,
+      setText: (next, nextChips = []) => {
+        setTextOnly(next);
+        setChips(nextChips);
+      },
       submit: () => {
         const { state: current, onSubmit: send } = latest.current;
         if (!current.canSubmit) return false;
-        send({ text: current.text.trim(), files: [...current.files] });
-        setText("");
+        send({
+          text: current.text.trim(),
+          chips: [...current.chips],
+          files: [...current.files],
+        });
+        setTextOnly("");
+        setChips([]);
         setFiles([]);
         input.current?.clear();
         return true;
@@ -184,7 +212,7 @@ export function Root({
 }
 
 const loadEditor = () => import("./composer-editor");
-const Editor = lazy(loadEditor);
+const LazyEditor = lazy(loadEditor);
 let editorLoad: Promise<unknown> | undefined;
 
 /** Starts loading the rich input. Called for you on idle and when the input is touched. */
@@ -206,6 +234,8 @@ export interface InputProps {
    * Enter submits unless an extension handles it first, as a suggestion menu does.
    */
   extensions?: Extensions;
+  /** Plugins that need the editor, such as `Composer.Mention`. They appear once it has loaded. */
+  children?: ReactNode;
   style?: stylex.StaticStyles;
 }
 
@@ -219,6 +249,7 @@ export function Input({
   label = "Message",
   autoFocus = false,
   extensions = NO_EXTENSIONS,
+  children,
   style,
 }: InputProps) {
   const { setText, submit, addFiles, registerInput } = useComposerActions();
@@ -299,7 +330,7 @@ export function Input({
   if (!ready || (focused && !autoFocus)) return fallback;
   return (
     <Suspense fallback={fallback}>
-      <Editor
+      <LazyEditor
         initialText={text}
         placeholder={placeholder}
         label={label}
@@ -307,16 +338,71 @@ export function Input({
         autoFocus={focused}
         extensions={extensions}
         className={stylex.props(styles.input, style).className ?? ""}
-        onTextChange={setText}
+        onChange={setText}
         onEnter={submit}
         onFiles={addFiles}
         onHandle={registerInput}
-      />
+      >
+        {children}
+      </LazyEditor>
     </Suspense>
   );
 }
 
 const NO_EXTENSIONS: Extensions = [];
+
+/** The Tiptap editor, once it has loaded. For your own plugins inside `Composer.Input`. */
+export const useComposerEditor = (): Editor | null => use(EditorContext);
+
+export interface MentionProps<T extends SuggestionItem = SuggestionItem> {
+  /** The choices for what was typed after the trigger. May be async. */
+  items(query: string, signal: AbortSignal): readonly T[] | Promise<readonly T[]>;
+  /** Trigger character. `@` by default. */
+  char?: string;
+  /** What kind of thing it mentions, kept on the chip: `Submission.chips[].kind`. */
+  kind?: string;
+  "aria-label"?: string;
+}
+
+export interface CommandProps<T extends SuggestionItem = SuggestionItem> {
+  items(query: string, signal: AbortSignal): readonly T[] | Promise<readonly T[]>;
+  /** Runs the chosen command. The typed `/query` is removed first. */
+  onCommand(item: T): void;
+  /** Trigger character. `/` by default. */
+  char?: string;
+  "aria-label"?: string;
+}
+
+const MentionMenu = lazy(() =>
+  import("./composer-suggestions").then((m) => ({ default: m.Mention })),
+);
+const CommandMenu = lazy(() =>
+  import("./composer-suggestions").then((m) => ({ default: m.Command })),
+);
+
+/**
+ * `@`-style mentions. The choice becomes a chip in the text and in `Submission.chips`.
+ *
+ *   <Composer.Input>
+ *     <Composer.Mention kind="user" items={(query) => searchPeople(query)} />
+ *   </Composer.Input>
+ */
+export function Mention<T extends SuggestionItem>(props: MentionProps<T>) {
+  return (
+    <Suspense fallback={null}>
+      <MentionMenu {...props} />
+    </Suspense>
+  );
+}
+
+/** `/`-style commands. The choice runs `onCommand` and leaves no text behind. */
+export function Command<T extends SuggestionItem>(props: CommandProps<T>) {
+  return (
+    <Suspense fallback={null}>
+      <CommandMenu {...props} />
+    </Suspense>
+  );
+}
 
 /** The row under the input, for buttons. */
 export function Footer({ style, ...props }: Styled<ComponentProps<"div">>) {
@@ -378,20 +464,16 @@ export function Files({ style, ...props }: Styled<ComponentProps<"ul">>) {
         // The same file can be attached twice, so the position is part of its identity.
         // oxlint-disable-next-line react/no-array-index-key
         // react-doctor-disable-next-line react-doctor/no-array-index-as-key
-        <li key={`${index}:${file.name}`} {...stylex.props(styles.file)}>
-          <span {...stylex.props(styles.fileName)}>{file.name}</span>
-          <Button
-            variant="ghost"
-            size="icon-xs"
-            aria-label={`Remove ${file.name}`}
-            onClick={() => removeFile(file)}
-          >
-            <CloseIcon />
-          </Button>
+        <li key={`${index}:${file.name}`}>
+          <FileChip file={file} onRemove={() => removeFile(file)} />
         </li>
       ))}
     </ul>
   );
+}
+
+function FileChip({ file, onRemove }: { file: File; onRemove: () => void }) {
+  return <Attachment name={file.name} previewUrl={useFileUrl(file)} onRemove={onRemove} />;
 }
 
 const styles = stylex.create({
@@ -446,21 +528,5 @@ const styles = stylex.create({
     listStyle: "none",
     display: "flex",
     flexWrap: "wrap",
-  },
-  file: {
-    borderRadius: radius.md,
-    gap: spacing["1"],
-    alignItems: "center",
-    backgroundColor: colors.muted,
-    display: "flex",
-    fontFamily: typography.fontFamily,
-    fontSize: typography.fontSizeSm,
-    paddingInlineStart: spacing["2"],
-  },
-  fileName: {
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-    whiteSpace: "nowrap",
-    maxWidth: "12rem",
   },
 });

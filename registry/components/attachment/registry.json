@@ -1,0 +1,8 @@
+{
+  "name": "attachment",
+  "type": "component",
+  "description": "A file chip with a thumbnail or icon and a remove button, plus a hook that manages the preview URL's lifetime.",
+  "files": [{ "path": "attachment.tsx" }],
+  "dependencies": { "@stylexjs/stylex": "^0.19.1" },
+  "shelfDependencies": ["button", "foundations", "icons", "utils"]
+}

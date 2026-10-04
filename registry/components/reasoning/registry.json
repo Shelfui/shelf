@@ -1,0 +1,8 @@
+{
+  "name": "reasoning",
+  "type": "component",
+  "description": "The model's thinking, open while it streams and folded away when done, with the time it took.",
+  "files": [{ "path": "reasoning.tsx" }],
+  "dependencies": { "@stylexjs/stylex": "^0.19.1" },
+  "shelfDependencies": ["collapsible", "foundations", "icons", "shimmer", "utils"]
+}

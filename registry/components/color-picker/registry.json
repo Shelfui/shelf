@@ -1,0 +1,11 @@
+{
+  "name": "color-picker",
+  "type": "component",
+  "description": "Swatches to choose from and a hex field for any other color. No canvas, no dependencies.",
+  "files": [{ "path": "color-picker.tsx" }],
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "icons", "input", "utils"]
+}

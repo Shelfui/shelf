@@ -1,0 +1,8 @@
+{
+  "name": "tree-view",
+  "type": "component",
+  "description": "A keyboard-navigable hierarchy such as a file list, with open and close branches and a single selection.",
+  "files": [{ "path": "tree-view.tsx" }],
+  "dependencies": { "@stylexjs/stylex": "^0.19.1" },
+  "shelfDependencies": ["foundations", "icons", "utils"]
+}

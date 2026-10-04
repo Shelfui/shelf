@@ -117,6 +117,35 @@
         "failed": 0
       }
     },
+    "approval": {
+      "size": {
+        "own": {
+          "js": 636,
+          "css": 241
+        },
+        "total": {
+          "js": 5340,
+          "css": 2622
+        }
+      },
+      "packages": 1,
+      "shelfDependencies": 3,
+      "stories": {
+        "total": 1,
+        "interactive": 1
+      },
+      "storyId": "components-approval--default",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 1,
+        "failed": 0
+      }
+    },
     "aspect-ratio": {
       "size": {
         "own": {
@@ -143,6 +172,35 @@
       },
       "compiler": {
         "compiled": 1,
+        "failed": 0
+      }
+    },
+    "attachment": {
+      "size": {
+        "own": {
+          "js": 834,
+          "css": 378
+        },
+        "total": {
+          "js": 6964,
+          "css": 2712
+        }
+      },
+      "packages": 1,
+      "shelfDependencies": 4,
+      "stories": {
+        "total": 2,
+        "interactive": 1
+      },
+      "storyId": "components-attachment--default",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 2,
         "failed": 0
       }
     },
@@ -787,19 +845,19 @@
     "chat": {
       "size": {
         "own": {
-          "js": 1100,
-          "css": 392
+          "js": 2094,
+          "css": 468
         },
         "total": {
-          "js": 460982,
-          "css": 4818
+          "js": 476187,
+          "css": 5547
         }
       },
       "packages": 1,
-      "shelfDependencies": 8,
+      "shelfDependencies": 14,
       "stories": {
-        "total": 1,
-        "interactive": 1
+        "total": 5,
+        "interactive": 5
       },
       "storyId": "blocks-chat--default",
       "providesContext": false,
@@ -809,7 +867,7 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 2,
+        "compiled": 6,
         "failed": 0
       }
     },
@@ -871,19 +929,48 @@
         "failed": 0
       }
     },
+    "citation": {
+      "size": {
+        "own": {
+          "js": 792,
+          "css": 283
+        },
+        "total": {
+          "js": 29665,
+          "css": 1923
+        }
+      },
+      "packages": 1,
+      "shelfDependencies": 3,
+      "stories": {
+        "total": 2,
+        "interactive": 2
+      },
+      "storyId": "components-citation--default",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 1,
+        "failed": 0
+      }
+    },
     "code-block": {
       "size": {
         "own": {
-          "js": 3109,
+          "js": 2942,
           "css": 810
         },
         "total": {
-          "js": 302015,
+          "js": 302093,
           "css": 3087
         }
       },
       "packages": 2,
-      "shelfDependencies": 4,
+      "shelfDependencies": 5,
       "stories": {
         "total": 3,
         "interactive": 2
@@ -896,7 +983,7 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 3,
+        "compiled": 2,
         "failed": 0
       }
     },
@@ -929,22 +1016,51 @@
         "failed": 0
       }
     },
+    "color-picker": {
+      "size": {
+        "own": {
+          "js": 1378,
+          "css": 548
+        },
+        "total": {
+          "js": 14862,
+          "css": 1966
+        }
+      },
+      "packages": 2,
+      "shelfDependencies": 4,
+      "stories": {
+        "total": 3,
+        "interactive": 3
+      },
+      "storyId": "components-color-picker--default",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 0,
+        "failed": 1
+      }
+    },
     "combobox": {
       "size": {
         "own": {
-          "js": 1604,
-          "css": 1144
+          "js": 1947,
+          "css": 1310
         },
         "total": {
-          "js": 48419,
-          "css": 2180
+          "js": 49674,
+          "css": 2346
         }
       },
       "packages": 2,
       "shelfDependencies": 3,
       "stories": {
-        "total": 3,
-        "interactive": 3
+        "total": 5,
+        "interactive": 5
       },
       "storyId": "components-combobox--default",
       "providesContext": false,
@@ -954,7 +1070,7 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 7,
+        "compiled": 10,
         "failed": 0
       }
     },
@@ -990,21 +1106,21 @@
     "composer": {
       "size": {
         "own": {
-          "js": 3823,
-          "css": 776
+          "js": 4890,
+          "css": 712
         },
         "total": {
-          "js": 113759,
-          "css": 3224
+          "js": 126422,
+          "css": 3434
         }
       },
       "packages": 9,
-      "shelfDependencies": 6,
+      "shelfDependencies": 8,
       "stories": {
-        "total": 0,
-        "interactive": 0
+        "total": 7,
+        "interactive": 7
       },
-      "storyId": null,
+      "storyId": "components-composer--default",
       "providesContext": true,
       "renderTested": true,
       "doctor": {
@@ -1012,7 +1128,7 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 7,
+        "compiled": 12,
         "failed": 0
       }
     },
@@ -1034,6 +1150,35 @@
         "interactive": 2
       },
       "storyId": "components-context-menu--default",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 2,
+        "failed": 0
+      }
+    },
+    "copy-button": {
+      "size": {
+        "own": {
+          "js": 569,
+          "css": 0
+        },
+        "total": {
+          "js": 6813,
+          "css": 2561
+        }
+      },
+      "packages": 0,
+      "shelfDependencies": 3,
+      "stories": {
+        "total": 2,
+        "interactive": 2
+      },
+      "storyId": "components-copy-button--default",
       "providesContext": false,
       "renderTested": false,
       "doctor": {
@@ -1251,11 +1396,11 @@
     "dropzone": {
       "size": {
         "own": {
-          "js": 1671,
+          "js": 1679,
           "css": 719
         },
         "total": {
-          "js": 11910,
+          "js": 11916,
           "css": 2881
         }
       },
@@ -1378,10 +1523,10 @@
       "packages": 1,
       "shelfDependencies": 8,
       "stories": {
-        "total": 0,
-        "interactive": 0
+        "total": 2,
+        "interactive": 2
       },
-      "storyId": null,
+      "storyId": "components-editor-link-popover--add-link",
       "providesContext": false,
       "renderTested": false,
       "doctor": {
@@ -1419,6 +1564,35 @@
       },
       "compiler": {
         "compiled": 2,
+        "failed": 0
+      }
+    },
+    "editor-suggestion": {
+      "size": {
+        "own": {
+          "js": 1967,
+          "css": 584
+        },
+        "total": {
+          "js": 85245,
+          "css": 1620
+        }
+      },
+      "packages": 5,
+      "shelfDependencies": 2,
+      "stories": {
+        "total": 3,
+        "interactive": 3
+      },
+      "storyId": "components-editor-suggestion--default",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 1,
         "failed": 0
       }
     },
@@ -1596,11 +1770,11 @@
     "icons": {
       "size": {
         "own": {
-          "js": 1440,
+          "js": 1473,
           "css": 0
         },
         "total": {
-          "js": 7389,
+          "js": 7696,
           "css": 0
         }
       },
@@ -1618,7 +1792,7 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 69,
+        "compiled": 71,
         "failed": 0
       }
     },
@@ -1883,35 +2057,6 @@
         "failed": 0
       }
     },
-    "markdown": {
-      "size": {
-        "own": {
-          "js": 3203,
-          "css": 1076
-        },
-        "total": {
-          "js": 323063,
-          "css": 3643
-        }
-      },
-      "packages": 3,
-      "shelfDependencies": 3,
-      "stories": {
-        "total": 3,
-        "interactive": 2
-      },
-      "storyId": "components-markdown--default",
-      "providesContext": false,
-      "renderTested": false,
-      "doctor": {
-        "errors": 0,
-        "warnings": 0
-      },
-      "compiler": {
-        "compiled": 3,
-        "failed": 0
-      }
-    },
     "menubar": {
       "size": {
         "own": {
@@ -1944,16 +2089,16 @@
     "message": {
       "size": {
         "own": {
-          "js": 1307,
-          "css": 633
+          "js": 1289,
+          "css": 635
         },
         "total": {
-          "js": 34473,
-          "css": 3004
+          "js": 34575,
+          "css": 3005
         }
       },
       "packages": 2,
-      "shelfDependencies": 5,
+      "shelfDependencies": 6,
       "stories": {
         "total": 1,
         "interactive": 1
@@ -2086,6 +2231,35 @@
         "failed": 0
       }
     },
+    "number-ticker": {
+      "size": {
+        "own": {
+          "js": 738,
+          "css": 0
+        },
+        "total": {
+          "js": 1414,
+          "css": 276
+        }
+      },
+      "packages": 1,
+      "shelfDependencies": 1,
+      "stories": {
+        "total": 1,
+        "interactive": 1
+      },
+      "storyId": "components-number-ticker--default",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 0,
+        "failed": 1
+      }
+    },
     "otp-verification": {
       "size": {
         "own": {
@@ -2141,6 +2315,35 @@
       },
       "compiler": {
         "compiled": 7,
+        "failed": 0
+      }
+    },
+    "plan": {
+      "size": {
+        "own": {
+          "js": 908,
+          "css": 615
+        },
+        "total": {
+          "js": 3133,
+          "css": 1760
+        }
+      },
+      "packages": 1,
+      "shelfDependencies": 4,
+      "stories": {
+        "total": 1,
+        "interactive": 1
+      },
+      "storyId": "components-plan--default",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 2,
         "failed": 0
       }
     },
@@ -2228,6 +2431,64 @@
       },
       "compiler": {
         "compiled": 2,
+        "failed": 0
+      }
+    },
+    "rating": {
+      "size": {
+        "own": {
+          "js": 859,
+          "css": 279
+        },
+        "total": {
+          "js": 12440,
+          "css": 1315
+        }
+      },
+      "packages": 2,
+      "shelfDependencies": 3,
+      "stories": {
+        "total": 4,
+        "interactive": 4
+      },
+      "storyId": "components-rating--default",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 1,
+        "failed": 0
+      }
+    },
+    "reasoning": {
+      "size": {
+        "own": {
+          "js": 999,
+          "css": 500
+        },
+        "total": {
+          "js": 9709,
+          "css": 1932
+        }
+      },
+      "packages": 1,
+      "shelfDependencies": 5,
+      "stories": {
+        "total": 1,
+        "interactive": 1
+      },
+      "storyId": "components-reasoning--default",
+      "providesContext": true,
+      "renderTested": true,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 3,
         "failed": 0
       }
     },
@@ -2550,6 +2811,35 @@
         "failed": 0
       }
     },
+    "sources": {
+      "size": {
+        "own": {
+          "js": 809,
+          "css": 523
+        },
+        "total": {
+          "js": 17032,
+          "css": 2246
+        }
+      },
+      "packages": 1,
+      "shelfDependencies": 6,
+      "stories": {
+        "total": 1,
+        "interactive": 1
+      },
+      "storyId": "components-sources--default",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 1,
+        "failed": 0
+      }
+    },
     "sparkline": {
       "size": {
         "own": {
@@ -2605,6 +2895,93 @@
       },
       "compiler": {
         "compiled": 1,
+        "failed": 0
+      }
+    },
+    "stat": {
+      "size": {
+        "own": {
+          "js": 799,
+          "css": 424
+        },
+        "total": {
+          "js": 2929,
+          "css": 1460
+        }
+      },
+      "packages": 1,
+      "shelfDependencies": 3,
+      "stories": {
+        "total": 2,
+        "interactive": 2
+      },
+      "storyId": "components-stat--default",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 4,
+        "failed": 0
+      }
+    },
+    "stepper": {
+      "size": {
+        "own": {
+          "js": 970,
+          "css": 601
+        },
+        "total": {
+          "js": 3031,
+          "css": 1637
+        }
+      },
+      "packages": 1,
+      "shelfDependencies": 3,
+      "stories": {
+        "total": 1,
+        "interactive": 1
+      },
+      "storyId": "components-stepper--default",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 4,
+        "failed": 0
+      }
+    },
+    "stream": {
+      "size": {
+        "own": {
+          "js": 3771,
+          "css": 1188
+        },
+        "total": {
+          "js": 323665,
+          "css": 3743
+        }
+      },
+      "packages": 3,
+      "shelfDependencies": 3,
+      "stories": {
+        "total": 8,
+        "interactive": 5
+      },
+      "storyId": "components-stream--default",
+      "providesContext": false,
+      "renderTested": true,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 4,
         "failed": 0
       }
     },
@@ -2727,21 +3104,21 @@
     "thread": {
       "size": {
         "own": {
-          "js": 1468,
-          "css": 610
+          "js": 2241,
+          "css": 657
         },
         "total": {
-          "js": 9216,
-          "css": 2926
+          "js": 8253,
+          "css": 2973
         }
       },
-      "packages": 2,
+      "packages": 1,
       "shelfDependencies": 5,
       "stories": {
-        "total": 0,
-        "interactive": 0
+        "total": 5,
+        "interactive": 5
       },
-      "storyId": null,
+      "storyId": "components-thread--follows-latest",
       "providesContext": true,
       "renderTested": true,
       "doctor": {
@@ -2749,7 +3126,65 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 6,
+        "compiled": 7,
+        "failed": 0
+      }
+    },
+    "time-picker": {
+      "size": {
+        "own": {
+          "js": 976,
+          "css": 134
+        },
+        "total": {
+          "js": 48693,
+          "css": 2347
+        }
+      },
+      "packages": 1,
+      "shelfDependencies": 4,
+      "stories": {
+        "total": 3,
+        "interactive": 3
+      },
+      "storyId": "components-time-picker--default",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 1,
+        "failed": 0
+      }
+    },
+    "timeline": {
+      "size": {
+        "own": {
+          "js": 788,
+          "css": 517
+        },
+        "total": {
+          "js": 1475,
+          "css": 1553
+        }
+      },
+      "packages": 1,
+      "shelfDependencies": 2,
+      "stories": {
+        "total": 1,
+        "interactive": 1
+      },
+      "storyId": "components-timeline--default",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 5,
         "failed": 0
       }
     },
@@ -2840,6 +3275,35 @@
         "failed": 0
       }
     },
+    "tool-call": {
+      "size": {
+        "own": {
+          "js": 1182,
+          "css": 596
+        },
+        "total": {
+          "js": 306638,
+          "css": 3390
+        }
+      },
+      "packages": 1,
+      "shelfDependencies": 8,
+      "stories": {
+        "total": 3,
+        "interactive": 3
+      },
+      "storyId": "components-toolcall--done",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 2,
+        "failed": 0
+      }
+    },
     "toolbar": {
       "size": {
         "own": {
@@ -2887,6 +3351,35 @@
         "interactive": 2
       },
       "storyId": "components-tooltip--default",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 1,
+        "failed": 0
+      }
+    },
+    "tree-view": {
+      "size": {
+        "own": {
+          "js": 1659,
+          "css": 633
+        },
+        "total": {
+          "js": 3664,
+          "css": 1669
+        }
+      },
+      "packages": 1,
+      "shelfDependencies": 3,
+      "stories": {
+        "total": 3,
+        "interactive": 3
+      },
+      "storyId": "components-tree-view--default",
       "providesContext": false,
       "renderTested": false,
       "doctor": {

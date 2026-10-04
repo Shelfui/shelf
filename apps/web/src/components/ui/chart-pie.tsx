@@ -71,8 +71,9 @@ export function Pie({
   ...props
 }: PieProps) {
   const { hiddenSeries } = useChart();
+  const hidden = new Set(hiddenSeries);
   const visible = data.map((item) =>
-    hiddenSeries.includes(String(item[nameKey])) ? { ...item, [dataKey]: 0 } : item,
+    hidden.has(String(item[nameKey])) ? { ...item, [dataKey]: 0 } : item,
   );
 
   const id = useId();

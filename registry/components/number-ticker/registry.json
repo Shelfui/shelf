@@ -1,0 +1,8 @@
+{
+  "name": "number-ticker",
+  "type": "component",
+  "description": "A number that counts to its new value when it changes, and reads out the final value for screen readers.",
+  "files": [{ "path": "number-ticker.tsx" }],
+  "dependencies": { "@stylexjs/stylex": "^0.19.1" },
+  "shelfDependencies": ["utils"]
+}

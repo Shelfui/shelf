@@ -81,14 +81,14 @@
       },
       "files": {
         "src/components/ui/icons.tsx": {
-          "baseHash": "8a96d2c47a6552d9a4e0aae952237fef79007d3d6b789b1e7d6b88c80f93a5c9",
+          "baseHash": "1a7c9e65b47b62bca848a86f46ccc22141b22d3cc1cf276289b86ccc19be5206",
           "source": "icons.tsx"
         }
       },
-      "installedAt": "2026-10-03T14:13:45.459Z",
+      "installedAt": "2026-10-03T23:16:45.387Z",
       "path": "components/icons",
       "registry": "../../registry",
-      "revision": "0b7bcd5dc49b07ddbc53f5bd2335a12d69216c7ef445890cd17671470c3cf103",
+      "revision": "a71bf7e14a8bba3f2eeea38e41b3e49ce1e0624399926e3aea58ed530e8516cb",
       "shelfDependencies": [],
       "type": "component"
     },

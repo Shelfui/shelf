@@ -1,0 +1,8 @@
+{
+  "name": "plan",
+  "type": "component",
+  "description": "An agent's plan as a list of steps that are not started, in progress, or done.",
+  "files": [{ "path": "plan.tsx" }],
+  "dependencies": { "@stylexjs/stylex": "^0.19.1" },
+  "shelfDependencies": ["foundations", "icons", "spinner", "utils"]
+}

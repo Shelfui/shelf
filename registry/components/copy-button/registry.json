@@ -1,0 +1,8 @@
+{
+  "name": "copy-button",
+  "type": "component",
+  "description": "A button that copies text to the clipboard and briefly shows a check, plus the useCopy hook behind it.",
+  "files": [{ "path": "copy-button.tsx" }],
+  "dependencies": {},
+  "shelfDependencies": ["button", "icons", "utils"]
+}

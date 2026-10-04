@@ -107,10 +107,12 @@ export interface InvoicesTableProps {
  */
 export function InvoicesTable({ invoices, onCreate, onRemind, onMarkPaid }: InvoicesTableProps) {
   const headingId = useId();
+  // The table owns a copy on purpose: Mark paid updates it in place (see `invoices`).
+  // react-doctor-disable-next-line react-doctor/no-derived-useState
   const [items, setItems] = useState(invoices);
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState<InvoiceStatus | "all">("all");
-  const [visible, setVisible] = useState(COLUMNS.map((column) => column.id));
+  const [visible, setVisible] = useState(() => COLUMNS.map((column) => column.id));
   const [selected, setSelected] = useState<string[]>([]);
   const [selection, setSelection] = useState(0);
   const [notice, setNotice] = useState("");
@@ -147,10 +149,9 @@ export function InvoicesTable({ invoices, onCreate, onRemind, onMarkPaid }: Invo
 
   function markPaid() {
     onMarkPaid?.(selected);
+    const ids = new Set(selected);
     setItems((current) =>
-      current.map((invoice) =>
-        selected.includes(invoice.id) ? { ...invoice, status: "paid" } : invoice,
-      ),
+      current.map((invoice) => (ids.has(invoice.id) ? { ...invoice, status: "paid" } : invoice)),
     );
     setNotice(`Marked ${plural(selected.length)} as paid.`);
     clearSelection();

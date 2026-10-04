@@ -33,10 +33,11 @@ export const blocks: BlockDoc[] = [
     name: "chat",
     title: "Chat",
     description:
-      "A complete chat: a conversation that follows streaming markdown, a message box with attachments, and send that becomes stop.",
+      "A complete chat: your message scrolls to the top and the reply streams in beneath it, with a message box, attachments, send that becomes stop, and regenerate and edit.",
     categories: ["chat"],
     featured: true,
     height: 640,
+    fill: true,
   },
   {
     name: "dashboard-shell",

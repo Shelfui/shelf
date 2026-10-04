@@ -25,10 +25,22 @@
       "path": "blocks/analytics-dashboard"
     },
     {
+      "name": "approval",
+      "type": "component",
+      "description": "Approve or deny a tool call before it runs.",
+      "path": "components/approval"
+    },
+    {
       "name": "aspect-ratio",
       "type": "component",
       "description": "A box that keeps a width-to-height ratio, filled by its content.",
       "path": "components/aspect-ratio"
+    },
+    {
+      "name": "attachment",
+      "type": "component",
+      "description": "A file chip with a thumbnail or icon and a remove button.",
+      "path": "components/attachment"
     },
     {
       "name": "autocomplete",
@@ -181,6 +193,12 @@
       "path": "components/checkbox-group"
     },
     {
+      "name": "citation",
+      "type": "component",
+      "description": "A numbered marker in an answer that links to its source and previews it on hover.",
+      "path": "components/citation"
+    },
+    {
       "name": "code-block",
       "type": "component",
       "description": "A code listing with a copy button; syntax highlighting loads on demand.",
@@ -191,6 +209,12 @@
       "type": "component",
       "description": "A section that shows and hides its panel.",
       "path": "components/collapsible"
+    },
+    {
+      "name": "color-picker",
+      "type": "component",
+      "description": "Swatches to choose from and a hex field for any other color. No canvas, no dependencies.",
+      "path": "components/color-picker"
     },
     {
       "name": "combobox",
@@ -215,6 +239,12 @@
       "type": "component",
       "description": "A menu opened by right-clicking or long-pressing an area.",
       "path": "components/context-menu"
+    },
+    {
+      "name": "copy-button",
+      "type": "component",
+      "description": "A button that copies text to the clipboard and briefly shows a check, plus the useCopy hook behind it.",
+      "path": "components/copy-button"
     },
     {
       "name": "dashboard-overview",
@@ -293,6 +323,12 @@
       "type": "component",
       "description": "A searchable menu opened by typing / at the start of a block, to insert headings, lists, quotes, code, and dividers.",
       "path": "components/editor-slash-menu"
+    },
+    {
+      "name": "editor-suggestion",
+      "type": "component",
+      "description": "A menu that opens on a trigger character in a Tiptap editor: @ for mentions, / for commands. Async-safe and keyboard-driven.",
+      "path": "components/editor-suggestion"
     },
     {
       "name": "empty",
@@ -391,12 +427,6 @@
       "path": "blocks/login-split"
     },
     {
-      "name": "markdown",
-      "type": "component",
-      "description": "Renders streaming model output: only the growing block re-renders, and output is safe by default.",
-      "path": "components/markdown"
-    },
-    {
       "name": "menubar",
       "type": "component",
       "description": "A row of menus, as in a desktop app, with arrow-key movement between them.",
@@ -433,6 +463,12 @@
       "path": "components/number-field"
     },
     {
+      "name": "number-ticker",
+      "type": "component",
+      "description": "A number that counts to its new value when it changes, and reads out the final value for screen readers.",
+      "path": "components/number-ticker"
+    },
+    {
       "name": "otp-verification",
       "type": "block",
       "description": "A card that asks for a six-digit code, with verify and resend actions.",
@@ -443,6 +479,12 @@
       "type": "component",
       "description": "Links between the pages of a long list.",
       "path": "components/pagination"
+    },
+    {
+      "name": "plan",
+      "type": "component",
+      "description": "An agent's plan as steps that are not started, in progress, or done.",
+      "path": "components/plan"
     },
     {
       "name": "popover",
@@ -461,6 +503,18 @@
       "type": "component",
       "description": "A set of options where exactly one can be chosen, with arrow-key navigation.",
       "path": "components/radio-group"
+    },
+    {
+      "name": "rating",
+      "type": "component",
+      "description": "A star rating built as a radio group, or a read-only display of an average.",
+      "path": "components/rating"
+    },
+    {
+      "name": "reasoning",
+      "type": "component",
+      "description": "The model's thinking, open while it streams and folded away when done.",
+      "path": "components/reasoning"
     },
     {
       "name": "resizable",
@@ -529,6 +583,12 @@
       "path": "components/slider"
     },
     {
+      "name": "sources",
+      "type": "component",
+      "description": "The pages an answer drew on, folded under Used N sources.",
+      "path": "components/sources"
+    },
+    {
       "name": "sparkline",
       "type": "component",
       "description": "A tiny line with no axes, for a table cell or a stat.",
@@ -539,6 +599,24 @@
       "type": "component",
       "description": "A spinning loading indicator.",
       "path": "components/spinner"
+    },
+    {
+      "name": "stat",
+      "type": "component",
+      "description": "A key figure with a label and its change since the last period.",
+      "path": "components/stat"
+    },
+    {
+      "name": "stepper",
+      "type": "component",
+      "description": "Progress through a multi-step flow, with the current step marked for assistive technology.",
+      "path": "components/stepper"
+    },
+    {
+      "name": "stream",
+      "type": "component",
+      "description": "Streamdown-style streaming markdown: only the growing block re-renders, and output is safe by default.",
+      "path": "components/stream"
     },
     {
       "name": "switch",
@@ -571,6 +649,18 @@
       "path": "components/thread"
     },
     {
+      "name": "time-picker",
+      "type": "component",
+      "description": "Hours and minutes as number fields, with an AM/PM list in 12-hour mode. Pairs with date-picker.",
+      "path": "components/time-picker"
+    },
+    {
+      "name": "timeline",
+      "type": "component",
+      "description": "Events in order, joined by a line, with a title, time, and description.",
+      "path": "components/timeline"
+    },
+    {
       "name": "toast",
       "type": "component",
       "description": "Brief notifications queued from anywhere in the app: stacked, swipeable, with success, error, and loading states.",
@@ -589,6 +679,12 @@
       "path": "components/toggle-group"
     },
     {
+      "name": "tool-call",
+      "type": "component",
+      "description": "A tool call with its status, input, and output, collapsed by default.",
+      "path": "components/tool-call"
+    },
+    {
       "name": "toolbar",
       "type": "component",
       "description": "A row of controls that is one Tab stop, with arrow-key movement.",
@@ -599,6 +695,12 @@
       "type": "component",
       "description": "A short label shown on hover and keyboard focus.",
       "path": "components/tooltip"
+    },
+    {
+      "name": "tree-view",
+      "type": "component",
+      "description": "A keyboard-navigable hierarchy such as a file list, with open and close branches and a single selection.",
+      "path": "components/tree-view"
     },
     {
       "name": "typography",

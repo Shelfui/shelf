@@ -175,10 +175,12 @@ export function installs(
 
 export function applyFilters(rows: Install[], filters: Filters): Install[] {
   const query = filters.query.trim().toLowerCase();
+  const namespaces = new Set(filters.namespaces);
+  const states = new Set(filters.states);
   return rows.filter(
     (row) =>
-      (filters.namespaces.length === 0 || filters.namespaces.includes(row.namespace)) &&
-      (filters.states.length === 0 || filters.states.includes(row.state)) &&
+      (namespaces.size === 0 || namespaces.has(row.namespace)) &&
+      (states.size === 0 || states.has(row.state)) &&
       (!query || row.item.includes(query) || row.project.toLowerCase().includes(query)),
   );
 }

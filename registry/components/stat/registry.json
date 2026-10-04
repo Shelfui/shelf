@@ -1,0 +1,8 @@
+{
+  "name": "stat",
+  "type": "component",
+  "description": "A key figure with a label and its change since the last period.",
+  "files": [{ "path": "stat.tsx" }],
+  "dependencies": { "@stylexjs/stylex": "^0.19.1" },
+  "shelfDependencies": ["foundations", "icons", "utils"]
+}

@@ -2,19 +2,13 @@
 
 import * as stylex from "@stylexjs/stylex";
 import { type ComponentProps, createContext, use, useEffect, useMemo, useState } from "react";
-import { useStickToBottom } from "use-stick-to-bottom";
 import { media } from "../../foundations/conditions.stylex";
 import { colors, elevation, spacing } from "../../foundations/tokens.stylex";
 import type { Styled } from "../../lib/utils";
 import { Button } from "../button/button";
 import { ArrowDownIcon } from "../icons/icons";
 import type { ChatStatus } from "../message/message-types";
-
-interface ThreadActions {
-  scrollRef: (element: HTMLElement | null) => void;
-  contentRef: (element: HTMLElement | null) => void;
-  scrollToLatest: () => void;
-}
+import { type ThreadActions, useThreadScroll } from "./use-thread-scroll";
 
 const ActionsContext = createContext<ThreadActions | null>(null);
 const StateContext = createContext<{ atLatest: boolean } | null>(null);
@@ -25,8 +19,11 @@ function useActions() {
   return actions;
 }
 
-/** Scrolls the thread to the newest message. Stable between renders. */
-export function useThreadActions(): Pick<ThreadActions, "scrollToLatest"> {
+/**
+ * Scrolls to the newest message, or pins an item marked `data-thread-item="<id>"` near the top
+ * so the reply can grow beneath it. Stable between renders.
+ */
+export function useThreadActions(): Pick<ThreadActions, "scrollToLatest" | "pinToStart"> {
   return useActions();
 }
 
@@ -57,20 +54,8 @@ export interface RootProps extends Styled<Omit<ComponentProps<"div">, "children"
  * Tokens are never announced. Only the start and end of a response are.
  */
 export function Root({ status = "ready", style, children, ...props }: RootProps) {
-  const { scrollRef, contentRef, scrollToBottom, isAtBottom } = useStickToBottom({
-    initial: "instant",
-    resize: "smooth",
-  });
-
-  const actions = useMemo<ThreadActions>(
-    () => ({
-      scrollRef,
-      contentRef,
-      scrollToLatest: () => void scrollToBottom(),
-    }),
-    [scrollRef, contentRef, scrollToBottom],
-  );
-  const state = useMemo(() => ({ atLatest: isAtBottom }), [isAtBottom]);
+  const { actions, atLatest } = useThreadScroll();
+  const state = useMemo(() => ({ atLatest }), [atLatest]);
 
   return (
     <ActionsContext value={actions}>
@@ -180,16 +165,19 @@ const styles = stylex.create({
     overscrollBehavior: "contain",
     flexGrow: 1,
     outlineOffset: -2,
+    // The thread scrolls itself; the browser's anchoring would pull against it.
+    overflowAnchor: "none",
     minHeight: 0,
     overflowY: "auto",
   },
   content: {
     gap: spacing["6"],
     marginInline: "auto",
-    paddingBlock: spacing["6"],
     paddingInline: spacing["4"],
     display: "flex",
     flexDirection: "column",
+    paddingBlockEnd: `calc(${spacing["6"]} + var(--thread-spacer, 0px))`,
+    paddingBlockStart: spacing["6"],
     maxWidth: "48rem",
   },
   scroll: {

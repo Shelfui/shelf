@@ -1,0 +1,8 @@
+{
+  "name": "approval",
+  "type": "component",
+  "description": "Approve or deny a tool call before it runs, without taking focus from the person typing.",
+  "files": [{ "path": "approval.tsx" }],
+  "dependencies": { "@stylexjs/stylex": "^0.19.1" },
+  "shelfDependencies": ["button", "foundations", "utils"]
+}

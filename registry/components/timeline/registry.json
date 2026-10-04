@@ -1,0 +1,8 @@
+{
+  "name": "timeline",
+  "type": "component",
+  "description": "Events in order, joined by a line, with a title, time, and description.",
+  "files": [{ "path": "timeline.tsx" }],
+  "dependencies": { "@stylexjs/stylex": "^0.19.1" },
+  "shelfDependencies": ["foundations", "utils"]
+}

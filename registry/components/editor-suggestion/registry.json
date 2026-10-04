@@ -1,0 +1,14 @@
+{
+  "name": "editor-suggestion",
+  "type": "component",
+  "description": "A menu that opens when you type a trigger character in a Tiptap editor: @ for mentions, / for commands, # for tags. Async-safe, keyboard-driven, accessible.",
+  "files": [{ "path": "editor-suggestion.tsx" }],
+  "dependencies": {
+    "@floating-ui/dom": "^1.8.0",
+    "@stylexjs/stylex": "^0.19.1",
+    "@tiptap/core": "^3.31.4",
+    "@tiptap/pm": "^3.31.4",
+    "@tiptap/suggestion": "^3.31.4"
+  },
+  "shelfDependencies": ["foundations", "utils"]
+}

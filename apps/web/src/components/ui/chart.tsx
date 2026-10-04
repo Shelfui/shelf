@@ -1,7 +1,7 @@
 "use client";
 
 import * as stylex from "@stylexjs/stylex";
-import { type ComponentProps, type ReactNode, createContext, use, useState } from "react";
+import { type ComponentProps, type ReactNode, createContext, use, useMemo, useState } from "react";
 import {
   CartesianGrid,
   Legend as RechartsLegend,
@@ -128,15 +128,18 @@ export function Root({
   const [uncontrolled, setUncontrolled] = useState<readonly string[]>(defaultHiddenSeries);
   const hidden = hiddenSeries ?? uncontrolled;
 
-  const state: ChartState = {
-    locale,
-    hiddenSeries: hidden,
-    toggleSeries: (key) => {
-      const next = toggleKey(hidden, key);
-      if (hiddenSeries === undefined) setUncontrolled(next);
-      onHiddenSeriesChange?.(next);
-    },
-  };
+  const state = useMemo<ChartState>(
+    () => ({
+      locale,
+      hiddenSeries: hidden,
+      toggleSeries: (key) => {
+        const next = toggleKey(hidden, key);
+        if (hiddenSeries === undefined) setUncontrolled(next);
+        onHiddenSeriesChange?.(next);
+      },
+    }),
+    [locale, hidden, hiddenSeries, onHiddenSeriesChange],
+  );
 
   return (
     <ChartContext value={state}>
@@ -390,15 +393,20 @@ function LegendContent({ payload = [] }: { payload?: readonly LegendPayload[] })
     return String(shared || item.dataKey === undefined ? item.value : item.dataKey);
   };
   // Two series on one dataKey (say an area and a line) share a toggle, so they share an entry.
-  const items = payload.filter(
-    (item, i) => payload.findIndex((o) => keyOf(o) === keyOf(item)) === i,
-  );
+  const seen = new Set<string>();
+  const items = payload.filter((item) => {
+    const key = keyOf(item);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+  const hiddenKeys = new Set(hiddenSeries);
 
   return (
     <ul data-slot="chart-legend" {...stylex.props(styles.legend)}>
       {items.map((item) => {
         const key = keyOf(item);
-        const hidden = hiddenSeries.includes(key);
+        const hidden = hiddenKeys.has(key);
         return (
           <li key={key}>
             <button

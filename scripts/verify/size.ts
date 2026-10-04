@@ -17,7 +17,11 @@ const STYLEX_MODULE = /\.stylex(?:\.[cm]?[jt]s)?$/;
  * the item's own files and the StyleX token modules are bundled; imports of other Shelf items
  * and packages stay external.
  */
-async function bundle(item: Item, ownOnly: boolean): Promise<Weight> {
+async function bundle(
+  item: Item,
+  ownOnly: boolean,
+  inspect?: (chunks: Chunk[]) => void,
+): Promise<Weight> {
   const out = path.join(workDir, `${item.name}-${ownOnly ? "own" : "total"}-${process.pid}`);
   await rm(out, { recursive: true, force: true });
   await mkdir(out, { recursive: true });
@@ -47,7 +51,7 @@ async function bundle(item: Item, ownOnly: boolean): Promise<Weight> {
   };
 
   const dist = path.join(out, "dist");
-  await build({
+  const result = await build({
     configFile: false,
     logLevel: "silent",
     root: repoRoot,
@@ -68,6 +72,23 @@ async function bundle(item: Item, ownOnly: boolean): Promise<Weight> {
     },
   });
 
+  const outputs = Array.isArray(result) ? result : [result];
+  const chunks: Chunk[] = [];
+  for (const output of outputs) {
+    if (!("output" in output)) continue;
+    for (const file of output.output) {
+      if (file.type === "chunk") {
+        chunks.push({
+          file: file.fileName,
+          isEntry: file.isEntry,
+          imports: file.imports,
+          modules: Object.keys(file.modules),
+        });
+      }
+    }
+  }
+  inspect?.(chunks);
+
   const weight: Weight = { js: 0, css: 0 };
   for (const entryName of await readdir(dist, { recursive: true })) {
     const kind = entryName.endsWith(".js") ? "js" : entryName.endsWith(".css") ? "css" : undefined;
@@ -76,6 +97,60 @@ async function bundle(item: Item, ownOnly: boolean): Promise<Weight> {
   }
   await rm(out, { recursive: true, force: true });
   return weight;
+}
+
+interface Chunk {
+  file: string;
+  isEntry: boolean;
+  /** Static imports only; `import()` is not listed. */
+  imports: string[];
+  modules: string[];
+}
+
+/** What stays out of the first load: heavy libraries that must only arrive through `import()`. */
+const LAZY_PACKAGES = [
+  "/node_modules/shiki/",
+  "/node_modules/@shikijs/",
+  "/node_modules/@tiptap/",
+  "/node_modules/prosemirror-",
+];
+
+export interface Graph {
+  /** Chunks the entry loads before anything runs. */
+  initialChunks: number;
+  lazyChunks: number;
+  /** Heavy packages found in the initial chunks. It should be empty. */
+  leaks: string[];
+}
+
+/** Bundles the item and reports whether the heavy libraries stay behind `import()`. */
+export async function measureGraph(item: Item): Promise<Graph> {
+  let graph: Graph = { initialChunks: 0, lazyChunks: 0, leaks: [] };
+  await bundle(item, false, (chunks) => {
+    const byFile = new Map(chunks.map((chunk) => [chunk.file, chunk]));
+    const initial = new Set<string>();
+    const visit = (file: string) => {
+      const chunk = byFile.get(file);
+      if (!chunk || initial.has(file)) return;
+      initial.add(file);
+      chunk.imports.forEach(visit);
+    };
+    chunks.filter((chunk) => chunk.isEntry).forEach((chunk) => visit(chunk.file));
+
+    const leaks = new Set<string>();
+    for (const file of initial) {
+      for (const id of byFile.get(file)?.modules ?? []) {
+        const hit = LAZY_PACKAGES.find((pattern) => id.includes(pattern));
+        if (hit) leaks.add(hit.replaceAll("/", "").replace("node_modules", ""));
+      }
+    }
+    graph = {
+      initialChunks: initial.size,
+      lazyChunks: chunks.length - initial.size,
+      leaks: [...leaks],
+    };
+  });
+  return graph;
 }
 
 /** The token CSS is shared by every item, so an item's own CSS leaves it out. The JS tree-shakes per item. */
@@ -113,4 +188,18 @@ async function worker(names: string[]) {
   process.stdout.write(JSON.stringify(sizes));
 }
 
-if (import.meta.main) await worker(process.argv.slice(2));
+/** Prints the import graph of the named items as JSON, for the lazy-loading check. */
+async function graphWorker(names: string[]) {
+  const all = await loadItems();
+  const graphs: Record<string, Graph> = {};
+  for (const item of all.filter((entry) => names.includes(entry.name))) {
+    graphs[item.name] = await measureGraph(item);
+  }
+  process.stdout.write(JSON.stringify(graphs));
+}
+
+if (import.meta.main) {
+  const [first, ...rest] = process.argv.slice(2);
+  if (first === "--graph") await graphWorker(rest);
+  else await worker(first === undefined ? rest : [first, ...rest]);
+}

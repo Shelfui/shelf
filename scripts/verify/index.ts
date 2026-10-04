@@ -90,12 +90,48 @@ async function staleWebCopy(measured: Record<string, Size>): Promise<string[]> {
   return problems;
 }
 
+/**
+ * Items whose first load must not contain the heavy libraries. They arrive through `import()`
+ * when needed: the rich editor behind the composer and the syntax highlighter behind code.
+ * Items that list their lazy files themselves, such as the composer, cannot be checked this way.
+ */
+const LAZY_ITEMS = ["chat", "code-block"];
+
+async function lazyBoundaryProblems(): Promise<string[]> {
+  const worker = Bun.spawn(
+    ["bun", path.join(import.meta.dirname, "size.ts"), "--graph", ...LAZY_ITEMS],
+    {
+      cwd: repoRoot,
+      env: { ...process.env, NODE_ENV: "production" },
+      stdout: "pipe",
+      stderr: "inherit",
+    },
+  );
+  const output = await new Response(worker.stdout).text();
+  if ((await worker.exited) !== 0) throw new Error("Reading the import graph failed.");
+  const parsed: unknown = JSON.parse(output);
+  if (!isRecord(parsed)) throw new Error("The graph worker printed something other than JSON.");
+
+  const problems: string[] = [];
+  for (const [name, graph] of Object.entries(parsed)) {
+    if (!isRecord(graph) || !Array.isArray(graph["leaks"])) continue;
+    const leaks = graph["leaks"].map(String);
+    if (leaks.length > 0) {
+      problems.push(
+        `${name}: loads ${leaks.join(", ")} up front. Import them with import() so they load on demand.`,
+      );
+    }
+  }
+  return problems;
+}
+
 const items = await loadItems();
 const sizes = await measureSizes(items.map((item) => item.name));
 
 if (values.check) {
   const problems = compareToBaseline(sizes, await readBaseline());
   problems.push(...(await staleWebCopy(sizes)));
+  problems.push(...(await lazyBoundaryProblems()));
   if (problems.length > 0) {
     process.stderr.write(`Size check failed:\n${problems.map((line) => `  ${line}`).join("\n")}\n`);
     process.stderr.write(
@@ -105,6 +141,14 @@ if (values.check) {
   }
   process.stdout.write(`Sizes are within budget for ${items.length} items.\n`);
   process.exit(0);
+}
+
+const boundaryProblems = await lazyBoundaryProblems();
+if (boundaryProblems.length > 0) {
+  process.stderr.write(
+    `Lazy loading check failed:\n${boundaryProblems.map((line) => `  ${line}`).join("\n")}\n`,
+  );
+  process.exit(1);
 }
 
 const doctor = await scanWithDoctor(items);

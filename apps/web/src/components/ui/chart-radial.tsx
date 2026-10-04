@@ -75,6 +75,7 @@ export function RadialBar({
     <>
       {data.map((_, index) => (
         <SeriesPattern
+          // react-doctor-disable-next-line react-doctor/no-array-index-as-key
           key={index}
           id={`${id}-${index}`}
           color={ringColor(index)}
@@ -90,6 +91,7 @@ export function RadialBar({
       >
         {data.map((_, index) => (
           <Cell
+            // react-doctor-disable-next-line react-doctor/no-array-index-as-key
             key={index}
             fill={patternFill(slicePattern(index), `${id}-${index}`, ringColor(index))}
           />

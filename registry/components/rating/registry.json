@@ -1,0 +1,11 @@
+{
+  "name": "rating",
+  "type": "component",
+  "description": "A star rating built as a radio group, or a read-only display of an average.",
+  "files": [{ "path": "rating.tsx" }],
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["foundations", "icons", "utils"]
+}

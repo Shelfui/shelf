@@ -100,15 +100,14 @@ export const Move = meta.story({
     await waitFor(() => expect(texts(editor)).toEqual(["Second paragraph.", "First paragraph."]));
     await waitFor(() => expect(screen.queryByRole("menu")).toBeNull());
 
-    // The block is now first among the paragraphs, but the heading still precedes it.
-    await openMenuFor(editor.querySelectorAll("h2")[0]!);
-    await expect(await screen.findByRole("menuitem", { name: /Move up/ })).toHaveAttribute(
-      "aria-disabled",
-      "true",
-    );
-    await userEvent.click(await screen.findByRole("menuitem", { name: /Move down/ }));
+    // The heading is first. Moving it up does nothing; moving it down swaps it with the paragraph.
+    // The keyboard shortcut is used here: it does not depend on where the pointer is.
+    const mod = /Mac|iPhone|iPad/.test(navigator.platform) ? "Meta" : "Control";
+    await userEvent.click(editor.querySelector("h2")!);
+    await userEvent.keyboard(`{${mod}>}{Shift>}{ArrowUp}{/Shift}{/${mod}}`);
+    await expect(editor.children[0]!.tagName).toBe("H2");
+    await userEvent.keyboard(`{${mod}>}{Shift>}{ArrowDown}{/Shift}{/${mod}}`);
     await waitFor(() => expect(editor.children[0]!.tagName).toBe("P"));
-    await waitFor(() => expect(screen.queryByRole("menu")).toBeNull());
   },
 });
 

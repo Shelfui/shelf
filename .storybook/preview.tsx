@@ -3,6 +3,7 @@ import addonDocs from "@storybook/addon-docs";
 import addonThemes, { DecoratorHelpers } from "@storybook/addon-themes";
 import { definePreview } from "@storybook/react-vite";
 import * as stylex from "@stylexjs/stylex";
+import { configure } from "storybook/test";
 import "../registry/foundations/fonts.css";
 import { type Theme, applyTheme } from "../registry/foundations/themes";
 import { colors, spacing, typography } from "../registry/foundations/tokens.stylex";
@@ -13,6 +14,11 @@ DecoratorHelpers.initializeThemeState(["light", "dark"], DEFAULT_THEME);
 
 export default definePreview({
   addons: [addonDocs(), addonA11y(), addonThemes()],
+
+  // Lazy chunks (the editor, the highlighter) take longer to arrive when many stories run at once.
+  beforeAll: () => {
+    configure({ asyncUtilTimeout: 5000 });
+  },
 
   decorators: [
     (Story, context) => {

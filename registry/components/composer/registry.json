@@ -2,7 +2,17 @@
   "name": "composer",
   "type": "component",
   "description": "The message box for a chat: a text field that becomes a Tiptap editor on demand, file attachments by drop, paste, or picker, and send that turns into stop.",
-  "files": [{ "path": "composer.tsx" }, { "path": "composer-editor.tsx" }],
+  "files": [
+    {
+      "path": "composer.tsx"
+    },
+    {
+      "path": "composer-editor.tsx"
+    },
+    {
+      "path": "composer-suggestions.tsx"
+    }
+  ],
   "dependencies": {
     "@stylexjs/stylex": "^0.19.1",
     "@tiptap/core": "^3.31.4",
@@ -14,5 +24,14 @@
     "@tiptap/pm": "^3.31.4",
     "@tiptap/react": "^3.31.4"
   },
-  "shelfDependencies": ["button", "dropzone", "foundations", "icons", "message", "utils"]
+  "shelfDependencies": [
+    "attachment",
+    "button",
+    "dropzone",
+    "editor-suggestion",
+    "foundations",
+    "icons",
+    "message",
+    "utils"
+  ]
 }

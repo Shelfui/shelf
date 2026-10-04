@@ -1,11 +1,10 @@
 "use client";
 
 import * as stylex from "@stylexjs/stylex";
-import { type ComponentProps, Fragment, useEffect, useRef, useState } from "react";
+import { type ComponentProps, Fragment, useEffect, useState } from "react";
 import { colors, radius, spacing, typography } from "../../foundations/tokens.stylex";
 import type { Styled } from "../../lib/utils";
-import { Button } from "../button/button";
-import { CheckIcon, CopyIcon } from "../icons/icons";
+import { CopyButton } from "../copy-button/copy-button";
 import {
   highlight,
   peekTokens,
@@ -47,7 +46,7 @@ export function CodeBlock({ code, language, streaming = false, style, ...props }
     >
       <div {...stylex.props(styles.header)}>
         <span {...stylex.props(styles.language)}>{language || "text"}</span>
-        {streaming ? null : <CopyButton code={code} />}
+        {streaming ? null : <CopyButton text={code} label="Copy code" showLabel />}
       </div>
       {/* Scrollable regions must be focusable so keyboard users can scroll them. */}
       {/* oxlint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
@@ -113,30 +112,6 @@ function tokenStyle(color: string | undefined) {
   if (!color) return undefined;
   const name = /^var\(--sx-(.+)\)$/.exec(color)?.[1];
   return name ? tokens[name] : undefined;
-}
-
-function CopyButton({ code }: { code: string }) {
-  const [copied, setCopied] = useState(false);
-  const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
-  useEffect(() => () => clearTimeout(timer.current), []);
-
-  const copy = () => {
-    navigator.clipboard.writeText(code).then(
-      () => {
-        setCopied(true);
-        clearTimeout(timer.current);
-        timer.current = setTimeout(() => setCopied(false), 1500);
-      },
-      () => {},
-    );
-  };
-
-  return (
-    <Button variant="ghost" size="xs" onClick={copy} aria-label={copied ? "Copied" : "Copy code"}>
-      {copied ? <CheckIcon /> : <CopyIcon />}
-      {copied ? "Copied" : "Copy"}
-    </Button>
-  );
 }
 
 const styles = stylex.create({

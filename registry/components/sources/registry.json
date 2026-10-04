@@ -1,0 +1,8 @@
+{
+  "name": "sources",
+  "type": "component",
+  "description": "The pages an answer drew on, folded under \"Used N sources\". Takes a message's source-url parts as they are.",
+  "files": [{ "path": "sources.tsx" }],
+  "dependencies": { "@stylexjs/stylex": "^0.19.1" },
+  "shelfDependencies": ["citation", "collapsible", "foundations", "icons", "message", "utils"]
+}

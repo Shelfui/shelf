@@ -57,11 +57,25 @@ export const components: ComponentDoc[] = [
       "A modal that asks the user to confirm or cancel; clicking outside does not dismiss it.",
   },
   {
+    name: "approval",
+    title: "Approval",
+    useWhen: "Asking the person to allow a tool or action before the agent runs it.",
+    avoidWhen: "Confirming ordinary form actions; use Alert Dialog.",
+    description: "An inline approve or deny prompt for an agent's pending action.",
+  },
+  {
     name: "aspect-ratio",
     title: "Aspect Ratio",
     useWhen: "Images, video, maps, or embeds that must keep their shape as the layout resizes.",
     avoidWhen: "The content has its own intrinsic size, such as an img with width and height set.",
     description: "A box that keeps a width-to-height ratio, filled by its content.",
+  },
+  {
+    name: "attachment",
+    title: "Attachment",
+    useWhen: "Showing a file the person is sending or has sent.",
+    avoidWhen: "A drop target; use Dropzone.",
+    description: "A file chip with a thumbnail or icon and a remove button.",
   },
   {
     name: "autocomplete",
@@ -309,6 +323,13 @@ export const components: ComponentDoc[] = [
     description: "Shares one array value between a set of Checkboxes, with optional select-all.",
   },
   {
+    name: "citation",
+    title: "Citation",
+    useWhen: "A numbered source marker inside generated text.",
+    avoidWhen: "A list of everything the answer used; use Sources.",
+    description: "A superscript marker that links to its source and previews it on hover.",
+  },
+  {
     name: "code-block",
     title: "Code Block",
     useWhen: "Showing a code listing, such as a model's answer or an example, with a copy button.",
@@ -321,6 +342,13 @@ export const components: ComponentDoc[] = [
     useWhen: "One section of secondary detail that people can reveal.",
     avoidWhen: "There are several sections that behave as a set; use Accordion.",
     description: "A section that shows and hides its panel.",
+  },
+  {
+    name: "color-picker",
+    title: "Color picker",
+    useWhen: "Choosing a color from a few swatches or by hex value.",
+    avoidWhen: "Picking from gradients or an image; this has no canvas.",
+    description: "Swatches to choose from and a hex field for any other color.",
   },
   {
     name: "combobox",
@@ -354,6 +382,14 @@ export const components: ComponentDoc[] = [
     avoidWhen:
       "It is the only way to reach an action; right-click isn't discoverable, so offer a visible menu too.",
     description: "A menu opened by right-clicking or long-pressing an area.",
+  },
+  {
+    name: "copy-button",
+    title: "Copy button",
+    useWhen: "Copying a snippet, command, or message to the clipboard.",
+    avoidWhen: "Copying rich or large data that needs a progress state.",
+    description:
+      "A ghost button that copies text and briefly shows a check, plus the useCopy hook.",
   },
   {
     name: "data-table",
@@ -417,6 +453,55 @@ export const components: ComponentDoc[] = [
       "People add files by dragging them onto the page or choosing them, with limits on type and size.",
     avoidWhen: "The file is a single form field with no drag and drop; use a plain file Input.",
     description: "A drop target for files with a picker, a drag overlay, and readable rejections.",
+  },
+  {
+    name: "editor",
+    title: "Editor",
+    useWhen: "A rich-text document: headings, lists, tasks, quotes, code, and links in one place.",
+    avoidWhen: "A single-line field or short message; use Textarea or Composer.",
+    description:
+      "A block editor on Tiptap: headings, lists, task lists, quotes, code, links, and highlights, styled for reading.",
+  },
+  {
+    name: "editor-block-handle",
+    title: "Editor block handle",
+    useWhen:
+      "Blocks need to be reordered by dragging, or turned into another kind, duplicated, or deleted.",
+    avoidWhen: "The document is a single paragraph.",
+    description:
+      "A drag handle beside each block, with a menu to turn it into another kind, duplicate, or delete it.",
+  },
+  {
+    name: "editor-bubble-menu",
+    title: "Editor bubble menu",
+    useWhen: "Formatting should appear over selected text instead of in a fixed toolbar.",
+    avoidWhen: "A fixed toolbar above the document is wanted; compose Toolbar instead.",
+    description:
+      "A floating toolbar over selected text: turn into, bold, italic, underline, strike, code, link, and highlight.",
+  },
+  {
+    name: "editor-link-popover",
+    title: "Editor link popover",
+    useWhen: "People add, change, or remove a link on selected text.",
+    avoidWhen: "Links are shown, not edited; use a plain anchor.",
+    description: "A button and form to add, change, open, and remove a link on the selected text.",
+  },
+  {
+    name: "editor-suggestion",
+    title: "Editor suggestion",
+    useWhen:
+      "A menu that opens when a trigger character is typed in a Tiptap editor, such as @ for mentions.",
+    avoidWhen: "Block commands from a slash; use Editor Slash Menu.",
+    description:
+      "The generic suggestion menu behind mentions and commands: async items, keyboard control, and focus that stays in the document.",
+  },
+  {
+    name: "editor-slash-menu",
+    title: "Editor slash menu",
+    useWhen: "People insert blocks by typing / in a line.",
+    avoidWhen: "Mentions or other trigger characters; use Editor Suggestion.",
+    description:
+      "A searchable menu opened by typing / in a block, to insert headings, lists, quotes, code, and dividers.",
   },
   {
     name: "empty",
@@ -523,15 +608,6 @@ export const components: ComponentDoc[] = [
     avoidWhen: "You are using Field, which renders its own label.",
   },
   {
-    name: "markdown",
-    title: "Markdown",
-    useWhen:
-      "Showing model output as it streams in, with safe links, images off by default, and highlighted code.",
-    avoidWhen: "Authoring rich text; use an editor.",
-    description:
-      "Renders streaming model output: only the growing block re-renders, and output is safe by default.",
-  },
-  {
     name: "menubar",
     title: "Menubar",
     useWhen: "Application-style menus across the top of a tool, such as File, Edit, and View.",
@@ -578,11 +654,26 @@ export const components: ComponentDoc[] = [
       "A number input with step buttons, keyboard stepping, and locale-aware formatting.",
   },
   {
+    name: "number-ticker",
+    title: "Number ticker",
+    useWhen: "A figure that changes while the person watches, such as a live total.",
+    avoidWhen: "Numbers that change every frame.",
+    description:
+      "A number that counts to its new value and reads out the final value for screen readers.",
+  },
+  {
     name: "pagination",
     title: "Pagination",
     useWhen: "Moving through pages of results when position matters, such as tables.",
     avoidWhen: "People scan a feed; load more as they scroll instead.",
     description: "Links between the pages of a long list.",
+  },
+  {
+    name: "plan",
+    title: "Plan",
+    useWhen: "Showing the steps an agent intends to take and how far it has got.",
+    avoidWhen: "A user's progress through a flow; use Stepper.",
+    description: "An ordered list of steps with pending, active, and done states.",
   },
   {
     name: "popover",
@@ -605,6 +696,21 @@ export const components: ComponentDoc[] = [
     useWhen: "Choosing exactly one option from a short list where all options should be visible.",
     avoidWhen: "There are many options; use Select or Combobox.",
     description: "A set of options where exactly one can be chosen, with arrow-key navigation.",
+  },
+  {
+    name: "rating",
+    title: "Rating",
+    useWhen: "Collecting or showing a star rating.",
+    avoidWhen: "A value on a wide scale; use Slider.",
+    description: "A star rating built as a radio group, or a read-only display of an average.",
+  },
+  {
+    name: "reasoning",
+    title: "Reasoning",
+    useWhen: "Showing a model's thinking while it works, then folding it away.",
+    avoidWhen: "Content the reader must see; put it in the message.",
+    description:
+      "A collapsible 'Thinking' section that opens while the model reasons and folds when it finishes.",
   },
   {
     name: "resizable",
@@ -685,6 +791,13 @@ export const components: ComponentDoc[] = [
     description: "A draggable input for a single value or a range.",
   },
   {
+    name: "sources",
+    title: "Sources",
+    useWhen: "Listing what an answer was based on.",
+    avoidWhen: "A single inline reference; use Citation.",
+    description: "A collapsible 'Used N sources' list that only links to safe addresses.",
+  },
+  {
     name: "sparkline",
     title: "Sparkline",
     group: "charts",
@@ -698,6 +811,30 @@ export const components: ComponentDoc[] = [
     description: "A spinning loading indicator.",
     useWhen: "A short wait with no known duration.",
     avoidWhen: "The wait has a known progress; use Progress. Or content has a shape; use Skeleton.",
+  },
+  {
+    name: "stat",
+    title: "Stat",
+    useWhen: "Showing one key figure with its label and change.",
+    avoidWhen: "A trend over time; use a chart or Sparkline.",
+    description: "A key figure with a label and its change since the last period.",
+  },
+  {
+    name: "stepper",
+    title: "Stepper",
+    useWhen: "Showing where someone is in a multi-step flow such as checkout.",
+    avoidWhen: "An agent's plan; use Plan. Tabbed content; use Tabs.",
+    description:
+      "Progress through a multi-step flow, with the current step marked for assistive technology.",
+  },
+  {
+    name: "stream",
+    title: "Stream",
+    useWhen:
+      "Showing model output as it streams in, with safe links, images off by default, and highlighted code.",
+    avoidWhen: "Authoring rich text; use an editor.",
+    description:
+      "Streamdown-style streaming markdown: only the growing block re-renders, and output is safe by default.",
   },
   {
     name: "switch",
@@ -742,6 +879,20 @@ export const components: ComponentDoc[] = [
     avoidWhen: "A static list that never grows; use a normal scroll area.",
     description:
       "A conversation's scroll area: follows new messages, lets go when you scroll up, and brings you back with one button.",
+  },
+  {
+    name: "time-picker",
+    title: "Time picker",
+    useWhen: "Choosing a time of day. Pair it with Date Picker for a date and time.",
+    avoidWhen: "A duration; use Number Field.",
+    description: "Hours and minutes as number fields, with an AM/PM list in 12-hour mode.",
+  },
+  {
+    name: "timeline",
+    title: "Timeline",
+    useWhen: "Events in order, such as a release history or an activity log.",
+    avoidWhen: "A flow with a current step; use Stepper.",
+    description: "Events in order, joined by a line, with a title, time, and description.",
   },
   {
     name: "toast",
@@ -791,6 +942,14 @@ export const components: ComponentDoc[] = [
     description: "A set of Toggles sharing one value, with arrow-key navigation.",
   },
   {
+    name: "tool-call",
+    title: "Tool call",
+    useWhen: "Showing an agent's tool use with its state, input, and output.",
+    avoidWhen: "A final answer; use Message.",
+    description:
+      "One tool invocation as a collapsible row with a state badge, the input, and the output or error.",
+  },
+  {
     name: "toolbar",
     title: "Toolbar",
     useWhen: "A set of controls that act on the same thing, such as an editor.",
@@ -811,6 +970,14 @@ export const components: ComponentDoc[] = [
     avoidWhen:
       "The content is essential or interactive; tooltips don't appear on touch, so use Popover or visible text.",
     description: "A short label shown on hover and keyboard focus.",
+  },
+  {
+    name: "tree-view",
+    title: "Tree view",
+    useWhen: "A hierarchy to browse and select from, such as files.",
+    avoidWhen: "Navigation between pages; use Sidebar or Navigation Menu.",
+    description:
+      "A keyboard-navigable hierarchy with open and close branches and a single selection.",
   },
   {
     name: "typography",

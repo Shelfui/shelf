@@ -114,3 +114,16 @@ export function textOf(message: ChatMessage): string {
     .join("\n\n")
     .trim();
 }
+
+/**
+ * A reply is on its way but has nothing to show yet, so a "thinking" row belongs where it will
+ * appear. True from sending until the assistant's first text, tool call, or other part.
+ */
+export function isAwaitingReply(last: ChatMessage | undefined, status: ChatStatus): boolean {
+  if (status !== "submitted" && status !== "streaming") return false;
+  if (last?.role === "user") return true;
+  return (
+    last?.role === "assistant" &&
+    !last.parts.some((part) => part.type !== "text" || part.text !== "")
+  );
+}

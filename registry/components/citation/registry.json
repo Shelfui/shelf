@@ -1,0 +1,8 @@
+{
+  "name": "citation",
+  "type": "component",
+  "description": "A numbered marker in an answer that links to its source and previews it on hover. Unsafe URLs lose their link.",
+  "files": [{ "path": "citation.tsx" }],
+  "dependencies": { "@stylexjs/stylex": "^0.19.1" },
+  "shelfDependencies": ["foundations", "hover-card", "utils"]
+}

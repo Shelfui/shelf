@@ -16,9 +16,17 @@
       "own": 2262,
       "total": 124539
     },
+    "approval": {
+      "own": 877,
+      "total": 7962
+    },
     "aspect-ratio": {
       "own": 441,
       "total": 1378
+    },
+    "attachment": {
+      "own": 1212,
+      "total": 9676
     },
     "autocomplete": {
       "own": 2647,
@@ -109,8 +117,8 @@
       "total": 79764
     },
     "chat": {
-      "own": 1492,
-      "total": 465800
+      "own": 2562,
+      "total": 481734
     },
     "checkbox": {
       "own": 1425,
@@ -120,29 +128,41 @@
       "own": 474,
       "total": 6077
     },
+    "citation": {
+      "own": 1075,
+      "total": 31588
+    },
     "code-block": {
-      "own": 3919,
-      "total": 305102
+      "own": 3752,
+      "total": 305180
     },
     "collapsible": {
       "own": 679,
       "total": 8589
     },
+    "color-picker": {
+      "own": 1926,
+      "total": 16828
+    },
     "combobox": {
-      "own": 2748,
-      "total": 50599
+      "own": 3257,
+      "total": 52020
     },
     "command": {
       "own": 2784,
       "total": 44556
     },
     "composer": {
-      "own": 4599,
-      "total": 116983
+      "own": 5602,
+      "total": 129856
     },
     "context-menu": {
       "own": 544,
       "total": 51663
+    },
+    "copy-button": {
+      "own": 569,
+      "total": 9374
     },
     "dashboard-overview": {
       "own": 2104,
@@ -173,8 +193,8 @@
       "total": 50938
     },
     "dropzone": {
-      "own": 2390,
-      "total": 14791
+      "own": 2398,
+      "total": 14797
     },
     "editor": {
       "own": 4496,
@@ -195,6 +215,10 @@
     "editor-slash-menu": {
       "own": 2917,
       "total": 136882
+    },
+    "editor-suggestion": {
+      "own": 2551,
+      "total": 86865
     },
     "empty": {
       "own": 1431,
@@ -221,8 +245,8 @@
       "total": 31518
     },
     "icons": {
-      "own": 1440,
-      "total": 7389
+      "own": 1473,
+      "total": 7696
     },
     "input": {
       "own": 1305,
@@ -260,17 +284,13 @@
       "own": 1640,
       "total": 18482
     },
-    "markdown": {
-      "own": 4279,
-      "total": 326706
-    },
     "menubar": {
       "own": 1501,
       "total": 53362
     },
     "message": {
-      "own": 1940,
-      "total": 37477
+      "own": 1924,
+      "total": 37580
     },
     "meter": {
       "own": 944,
@@ -288,6 +308,10 @@
       "own": 1716,
       "total": 14998
     },
+    "number-ticker": {
+      "own": 738,
+      "total": 1690
+    },
     "otp-verification": {
       "own": 1188,
       "total": 14466
@@ -295,6 +319,10 @@
     "pagination": {
       "own": 992,
       "total": 6554
+    },
+    "plan": {
+      "own": 1523,
+      "total": 4893
     },
     "popover": {
       "own": 1539,
@@ -307,6 +335,14 @@
     "radio-group": {
       "own": 1392,
       "total": 13713
+    },
+    "rating": {
+      "own": 1138,
+      "total": 13755
+    },
+    "reasoning": {
+      "own": 1499,
+      "total": 11641
     },
     "resizable": {
       "own": 1308,
@@ -352,6 +388,10 @@
       "own": 1195,
       "total": 14415
     },
+    "sources": {
+      "own": 1332,
+      "total": 19278
+    },
     "sparkline": {
       "own": 602,
       "total": 85111
@@ -359,6 +399,18 @@
     "spinner": {
       "own": 434,
       "total": 2785
+    },
+    "stat": {
+      "own": 1223,
+      "total": 4389
+    },
+    "stepper": {
+      "own": 1571,
+      "total": 4668
+    },
+    "stream": {
+      "own": 4959,
+      "total": 327408
     },
     "switch": {
       "own": 1350,
@@ -377,8 +429,16 @@
       "total": 6927
     },
     "thread": {
-      "own": 2078,
-      "total": 12142
+      "own": 2898,
+      "total": 11226
+    },
+    "time-picker": {
+      "own": 1110,
+      "total": 51040
+    },
+    "timeline": {
+      "own": 1305,
+      "total": 3028
     },
     "toast": {
       "own": 3088,
@@ -392,6 +452,10 @@
       "own": 508,
       "total": 7816
     },
+    "tool-call": {
+      "own": 1778,
+      "total": 310028
+    },
     "toolbar": {
       "own": 1045,
       "total": 9771
@@ -399,6 +463,10 @@
     "tooltip": {
       "own": 1100,
       "total": 31636
+    },
+    "tree-view": {
+      "own": 2292,
+      "total": 5333
     },
     "typography": {
       "own": 1681,

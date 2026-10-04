@@ -257,6 +257,7 @@ export function DataTableColumnsMenu<Row>({
   visible,
   onVisibleChange,
 }: DataTableColumnsMenuProps<Row>) {
+  const shown = new Set(visible);
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger render={<Button variant="outline" size="sm" />}>
@@ -267,13 +268,11 @@ export function DataTableColumnsMenu<Row>({
         {columns.map((column) => (
           <DropdownMenu.CheckboxItem
             key={column.id}
-            checked={visible.includes(column.id)}
+            checked={shown.has(column.id)}
             onCheckedChange={(checked) =>
               onVisibleChange(
                 checked
-                  ? columns
-                      .map((c) => c.id)
-                      .filter((id) => id === column.id || visible.includes(id))
+                  ? columns.map((c) => c.id).filter((id) => id === column.id || shown.has(id))
                   : visible.filter((id) => id !== column.id),
               )
             }

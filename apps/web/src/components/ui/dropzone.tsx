@@ -80,6 +80,7 @@ export function Root({
   disabled = false,
   style,
   children,
+  onKeyDown,
   ...props
 }: RootProps) {
   const [rejections, setRejections] = useState<readonly FileRejection[]>([]);
@@ -117,8 +118,9 @@ export function Root({
         <div
           data-slot="dropzone"
           data-dragging={isDragActive || undefined}
-          {...props}
-          {...getRootProps()}
+          {...getRootProps(props)}
+          // The zone turns its own keyboard handling off, which would also drop this handler.
+          onKeyDown={onKeyDown}
           {...stylex.props(styles.root, style)}
         >
           <input {...getInputProps()} />

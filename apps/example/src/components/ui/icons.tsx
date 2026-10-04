@@ -47,6 +47,7 @@ import {
   MoonIcon as Moon,
   PanelLeftIcon as PanelLeft,
   PaperclipIcon as Paperclip,
+  PencilIcon as Pencil,
   PlusIcon as Plus,
   QuoteIcon as Quote,
   RotateCcwIcon as RotateCcw,
@@ -56,6 +57,7 @@ import {
   SparklesIcon as Sparkles,
   SquareCodeIcon as SquareCode,
   SquareIcon as Square,
+  StarIcon as Star,
   StrikethroughIcon as Strikethrough,
   SunIcon as Sun,
   TerminalIcon as Terminal,
@@ -144,6 +146,7 @@ export const TextIcon = (props: IconProps) => <Type {...DEFAULTS} {...props} />;
 export const UnlinkIcon = (props: IconProps) => <Unlink {...DEFAULTS} {...props} />;
 export const StopIcon = (props: IconProps) => <Square {...DEFAULTS} {...props} />;
 export const AttachIcon = (props: IconProps) => <Paperclip {...DEFAULTS} {...props} />;
+export const EditIcon = (props: IconProps) => <Pencil {...DEFAULTS} {...props} />;
 export const RetryIcon = (props: IconProps) => <RotateCcw {...DEFAULTS} {...props} />;
 export const ReasoningIcon = (props: IconProps) => <Brain {...DEFAULTS} {...props} />;
 export const ToolIcon = (props: IconProps) => <Wrench {...DEFAULTS} {...props} />;
@@ -156,3 +159,4 @@ export const ThumbsDownIcon = (props: IconProps) => <ThumbsDown {...DEFAULTS} {.
 export const TerminalIcon = (props: IconProps) => <Terminal {...DEFAULTS} {...props} />;
 export const DeniedIcon = (props: IconProps) => <Ban {...DEFAULTS} {...props} />;
 export const SparklesIcon = (props: IconProps) => <Sparkles {...DEFAULTS} {...props} />;
+export const StarIcon = (props: IconProps) => <Star {...DEFAULTS} {...props} />;
