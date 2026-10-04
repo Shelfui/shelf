@@ -10,7 +10,8 @@ import { colors, spacing, typography } from "@/styles/shelf/tokens.stylex";
 import { screens } from "@/styles/site.stylex";
 
 // The results and their index load on first open; the header paints without them.
-const SearchPalette = dynamic(() => import("./search-palette").then((m) => m.SearchPalette));
+const load = () => import("./search-palette").then((m) => m.SearchPalette);
+const SearchPalette = dynamic(load);
 
 /** The header's search field, and the ⌘K / Ctrl K shortcut that opens the same palette. */
 export function SearchTrigger() {
@@ -30,6 +31,8 @@ export function SearchTrigger() {
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
+      // Holding ⌘ or Ctrl is the first half of the shortcut: load the palette now.
+      if (event.key === "Meta" || event.key === "Control") void load();
       if (event.key.toLowerCase() !== "k" || !(event.metaKey || event.ctrlKey)) return;
       event.preventDefault();
       setOpen((current) => !current);
@@ -47,6 +50,9 @@ export function SearchTrigger() {
         aria-label="Search documentation"
         aria-keyshortcuts="Meta+K Control+K"
         onClick={() => show(true)}
+        // Start loading before the click, so the palette opens without a wait.
+        onPointerEnter={() => void load()}
+        onFocus={() => void load()}
         style={styles.trigger}
       >
         <SearchIcon />
