@@ -4,7 +4,7 @@ import * as stylex from "@stylexjs/stylex";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { media } from "@/styles/shelf/conditions.stylex";
-import { colors, motion, spacing, typography } from "@/styles/shelf/tokens.stylex";
+import { colors, motion, radius, spacing, typography } from "@/styles/shelf/tokens.stylex";
 import { site } from "@/styles/site.stylex";
 
 interface Heading {
@@ -24,19 +24,26 @@ export function DocsToc() {
   useEffect(() => {
     const elements = [...document.querySelectorAll<HTMLElement>("main h2[id]")];
     setHeadings(elements.map((element) => ({ id: element.id, title: element.textContent ?? "" })));
-    setActive(elements[0]?.id);
 
-    // The active heading is the last one that has scrolled above the top quarter of the viewport.
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) setActive(entry.target.id);
-        }
-      },
-      { rootMargin: "0px 0px -75% 0px" },
-    );
-    for (const element of elements) observer.observe(element);
-    return () => observer.disconnect();
+    // The active heading is the last one that has scrolled above the top of the article.
+    let frame = 0;
+    function update() {
+      frame = 0;
+      const line = window.innerHeight * 0.3;
+      const current = elements.findLast((element) => element.getBoundingClientRect().top <= line);
+      setActive((current ?? elements[0])?.id);
+    }
+    function onScroll() {
+      if (!frame) frame = requestAnimationFrame(update);
+    }
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, [pathname]);
 
   if (headings.length < 2) return <aside aria-hidden {...stylex.props(styles.aside)} />;
@@ -73,7 +80,7 @@ const styles = stylex.create({
     width: "13rem",
   },
   nav: {
-    gap: spacing["3"],
+    gap: spacing["2"],
     display: "grid",
     paddingTop: "5rem",
   },
@@ -83,36 +90,38 @@ const styles = stylex.create({
     fontWeight: typography.fontWeightRegular,
     lineHeight: typography.lineHeightSm,
     margin: 0,
+    paddingInline: spacing["2"],
   },
   list: {
-    borderInlineStartColor: colors.border,
-    borderInlineStartStyle: "solid",
-    borderInlineStartWidth: 1,
+    gap: 2,
     display: "grid",
     listStyle: "none",
     margin: 0,
     padding: 0,
   },
   link: {
+    borderRadius: radius.md,
     color: {
       default: colors.mutedForeground,
       [media.hover]: { default: null, ":hover": colors.foreground },
     },
     display: "block",
-    fontSize: typography.fontSizeBase,
-    lineHeight: typography.lineHeightBase,
-    marginInlineStart: -1,
-    borderInlineStartColor: "transparent",
-    borderInlineStartStyle: "solid",
-    borderInlineStartWidth: 1,
-    paddingBlock: spacing["1"],
-    paddingInlineStart: spacing["3"],
+    fontSize: typography.fontSizeSm,
+    lineHeight: typography.lineHeightSm,
+    outline: {
+      default: "none",
+      ":focus-visible": `2px solid ${colors.ring}`,
+    },
+    overflow: "hidden",
+    paddingBlock: spacing["1.5"],
+    paddingInline: spacing["2"],
     textDecoration: "none",
+    textOverflow: "ellipsis",
     transitionDuration: motion.durationFast,
-    transitionProperty: "color, border-color",
+    transitionProperty: "color",
+    whiteSpace: "nowrap",
   },
   active: {
-    borderInlineStartColor: colors.foreground,
     color: colors.foreground,
   },
 });

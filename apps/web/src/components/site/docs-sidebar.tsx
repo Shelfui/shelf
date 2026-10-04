@@ -3,7 +3,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { components } from "@/docs/components";
 import { docGroups } from "@/docs/pages";
 import { media } from "@/styles/shelf/conditions.stylex";
-import { colors, motion, spacing, typography } from "@/styles/shelf/tokens.stylex";
+import { colors, motion, radius, spacing, typography } from "@/styles/shelf/tokens.stylex";
 import { site } from "@/styles/site.stylex";
 import { NavLink } from "./nav-link";
 
@@ -70,54 +70,62 @@ const styles = stylex.create({
   },
   scroll: {
     height: "100%",
+    // Content fades out at both edges instead of being cut off.
+    maskImage:
+      "linear-gradient(to bottom, transparent, #000 1.5rem, #000 calc(100% - 2.5rem), transparent)",
   },
   nav: {
-    gap: site.space10,
+    gap: site.space8,
     display: "grid",
-    paddingBottom: site.space10,
+    paddingBottom: site.space16,
     paddingTop: "5rem",
     paddingInlineEnd: spacing["4"],
   },
   group: {
-    gap: spacing["3"],
+    gap: spacing["2"],
     display: "grid",
   },
   groupTitle: {
-    color: colors.mutedForeground,
+    color: colors.foreground,
     fontSize: typography.fontSizeSm,
-    fontWeight: typography.fontWeightRegular,
+    fontWeight: typography.fontWeightMedium,
     lineHeight: typography.lineHeightSm,
     margin: 0,
+    paddingInline: spacing["2"],
   },
   list: {
-    borderInlineStartColor: colors.border,
-    borderInlineStartStyle: "solid",
-    borderInlineStartWidth: 1,
+    gap: 2,
     display: "grid",
     listStyle: "none",
     margin: 0,
     padding: 0,
   },
   link: {
-    borderInlineStartColor: "transparent",
-    borderInlineStartStyle: "solid",
-    borderInlineStartWidth: 1,
-    marginInlineStart: -1,
-    paddingInlineStart: spacing["3"],
+    backgroundColor: {
+      default: "transparent",
+      [media.hover]: { default: null, ":hover": colors.muted },
+    },
+    borderRadius: radius.md,
     color: {
       default: colors.mutedForeground,
       [media.hover]: { default: null, ":hover": colors.foreground },
     },
     display: "block",
-    fontSize: typography.fontSizeBase,
-    lineHeight: typography.lineHeightBase,
-    paddingBlock: spacing["1"],
+    fontSize: typography.fontSizeSm,
+    lineHeight: typography.lineHeightSm,
+    outline: {
+      default: "none",
+      ":focus-visible": `2px solid ${colors.ring}`,
+    },
+    paddingBlock: spacing["1.5"],
+    paddingInline: spacing["2"],
     textDecoration: "none",
     transitionDuration: motion.durationFast,
-    transitionProperty: "color, border-color",
+    transitionProperty: "background-color, color",
   },
   active: {
-    borderInlineStartColor: colors.foreground,
+    backgroundColor: colors.accent,
     color: colors.foreground,
+    fontWeight: typography.fontWeightMedium,
   },
 });
