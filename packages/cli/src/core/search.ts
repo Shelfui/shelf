@@ -89,15 +89,17 @@ export async function search({ cwd, query, registry, json, out }: SearchOptions)
   const matches = rankEntries(await loadIndex(source), query);
 
   if (json) {
-    const items = matches.map(({ name, type, description, status, useWhen, avoidWhen, related }) => ({
-      name,
-      type,
-      description,
-      ...(status && { status }),
-      ...(useWhen !== undefined && { useWhen }),
-      ...(avoidWhen !== undefined && { avoidWhen }),
-      ...(related && { related }),
-    }));
+    const items = matches.map(
+      ({ name, type, description, status, useWhen, avoidWhen, related }) => ({
+        name,
+        type,
+        description,
+        ...(status && { status }),
+        ...(useWhen !== undefined && { useWhen }),
+        ...(avoidWhen !== undefined && { avoidWhen }),
+        ...(related && { related }),
+      }),
+    );
     out.log(JSON.stringify({ query, items }, null, 2));
     return;
   }
@@ -107,6 +109,8 @@ export async function search({ cwd, query, registry, json, out }: SearchOptions)
   }
   const width = Math.max(...matches.map((entry) => entry.name.length));
   for (const entry of matches) {
-    out.log(`${entry.name.padEnd(width)}  ${entry.type.padEnd(10)}  ${entry.status ? "[experimental] " : ""}${entry.description}`);
+    out.log(
+      `${entry.name.padEnd(width)}  ${entry.type.padEnd(10)}  ${entry.status ? "[experimental] " : ""}${entry.description}`,
+    );
   }
 }

@@ -249,6 +249,36 @@ describe("apply", () => {
     ]);
   });
 
+  test("re-sync keeps a designer's instances, their overrides, and detached copies", async () => {
+    const { figma, api } = createFakeFigma();
+    await apply(api, library());
+    const variant = componentSet(figma.root).children[0]!;
+
+    // A designer's own page: an instance with a changed label, and a frame they detached.
+    const mine = figma.createPage();
+    mine.name = "Checkout flow";
+    const instance = variant.createInstance();
+    instance.setProperties({ "Label#1:1": "Pay now" });
+    mine.appendChild(instance);
+    const detached = figma.createFrame();
+    detached.name = "Button (detached)";
+    mine.appendChild(detached);
+    const before = {
+      instance: instance.id,
+      detached: detached.id,
+      overrides: { ...instance.overrides },
+    };
+
+    // Code changes: a new variant and a new fill. Neither may touch the designer's work.
+    await apply(api, library(["Default", "Hover", "Disabled"], "colors.secondary"));
+
+    expect(mine.children.map((node) => node.id)).toEqual([before.instance, before.detached]);
+    expect(instance.mainComponent).toBe(variant);
+    expect(instance.overrides).toEqual(before.overrides);
+    expect(detached.removed).toBeUndefined();
+    expect(detached.getSharedPluginData("shelf", "id")).toBe("");
+  });
+
   test("adding a variant keeps the existing ones", async () => {
     const { figma, api } = createFakeFigma();
     await apply(api, library());

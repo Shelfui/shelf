@@ -61,6 +61,10 @@ A **pattern** is an interaction built from components, in `registry/patterns/<na
 
 Nothing else needs wiring. Every script below finds the new item through `registry/index.json`.
 
+## Component audit
+
+`bun run audit` decides which components we stand behind. A component is stable when it has stories with play functions, keyboard and focus tests if it opens a layer or moves focus, no hand-rolled behavior that Base UI provides, discovery metadata (`keywords`, `useWhen`) in `registry/index.json`, and a Figma decision (in the library, or a reason in `FIGMA_EXEMPT` in `scripts/verify/audit.ts`). While one of these is not true, set `"status": "experimental"` on its `registry/index.json` entry; search, docs, and `llms.txt` then say so, and the audit stops failing on it. `bun run audit --write` refreshes `apps/web/src/docs/audit.json`.
+
 ## Performance and verification
 
 Every item is measured, and the site shows only what was measured. `bun run check` enforces three things:
@@ -108,6 +112,14 @@ On `main`, `.github/workflows/release.yml` then does the rest:
 1. It keeps a **Version Packages** PR open. The PR bumps `packages/cli/package.json`, writes `CHANGELOG.md`, and refreshes `bun.lock`. Read the changelog in it, since that's what users see. GitHub doesn't run `Check` on PRs that a workflow opens; `main` was already checked when the changesets landed.
 2. **Merging that PR is the release decision.** The workflow tests the package, runs `npm stage publish` with a short-lived OIDC credential (no npm token exists), pushes the `vX.Y.Z` tag, and creates the GitHub release from the changelog.
 3. A maintainer **approves the staged version** with 2FA, either on the package's Staged Packages tab at npmjs.com or with `npm stage approve @shelfui/cli@X.Y.Z`. Until then it isn't installable. The workflow run's summary has the exact command. Published versions carry provenance.
+
+After approving, prove the published package works from nothing:
+
+```bash
+bun run smoke --registry https://<your-registry>/ --cli @shelfui/cli@X.Y.Z
+```
+
+It installs the CLI in an empty directory outside the repo, then runs `init`, `add`, `status`, `diff --local`, and `check` against the hosted registry. Run it before telling anyone about the release.
 
 To stop a release, reject the staged version (`npm stage reject`) and fix forward with a new changeset.
 

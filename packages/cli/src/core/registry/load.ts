@@ -31,8 +31,8 @@ export async function loadIndex(registry: Registry): Promise<IndexEntry[]> {
     const useWhen = optionalString(entry, "useWhen", where);
     const avoidWhen = optionalString(entry, "avoidWhen", where);
     const related = optionalStrings(entry, "related", where);
-    const status = entry["status"];
-    if (status !== undefined && status !== "experimental") {
+    const status = entry["status"] === "experimental" ? ("experimental" as const) : undefined;
+    if (entry["status"] !== undefined && !status) {
       throw new ShelfError(`${where}.status must be "experimental" when present.`);
     }
     return {

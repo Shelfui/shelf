@@ -270,7 +270,9 @@ function llmsTxt(index: IndexEntry[], topics: DocsTopic[]): string {
     for (const entry of index.filter((item) => item.type === type)) {
       const use = entry.useWhen === undefined ? "" : ` Use when: ${entry.useWhen}`;
       const tag = entry.status ? " (experimental)" : "";
-      lines.push(`- [${entry.name}](${entry.path}/registry.json)${tag}: ${entry.description}${use}`);
+      lines.push(
+        `- [${entry.name}](${entry.path}/registry.json)${tag}: ${entry.description}${use}`,
+      );
     }
   }
   return `${lines.join("\n")}\n`;

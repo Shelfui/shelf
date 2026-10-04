@@ -28,6 +28,7 @@
     "doctor": "react-doctor registry --no-telemetry --no-supply-chain --blocking warning",
     "test:perf": "vitest run --project perf",
     "verify": "bun scripts/verify/index.ts",
+    "smoke": "bun scripts/smoke.ts",
     "audit": "bun scripts/verify/audit.ts",
     "deps": "bun scripts/deps.ts"
   },
