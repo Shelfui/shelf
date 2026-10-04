@@ -23,6 +23,7 @@ The package is `@shelfui/cli` and its command is `shelf`. Run it through your pa
 | --- | --- |
 | `shelf init --registry <location>` | Create `shelf.config.json` and `.shelf/` |
 | `shelf search [query...]` | List registry items matching every term, best match first |
+| `shelf docs [topic]` | Print a docs topic, or an item's description, dependencies, and source, as Markdown |
 | `shelf add <items...>` | Copy items and their Shelf dependencies, install packages, record provenance |
 | `shelf status [items...]` | Which installed items you changed and which have a newer version |
 | `shelf diff <item> [--local]` | Shelf's changes since you installed an item, or yours with `--local` |

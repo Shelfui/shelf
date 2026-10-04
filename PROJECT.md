@@ -41,6 +41,32 @@ The goal is to build a modern interface system where:
 
 ---
 
+# Current state
+
+This document describes the architecture and the direction. Where a section below says "should" or "eventually", check this list first: much of it now exists.
+
+**Shipped**
+
+- CLI (`packages/cli`): `init`, `search`, `add`, `docs`, `status`, `diff`, `update`, `check`, `usage`, `build`, `serve`. `--json` on `search`, `status`, `check`, and `diff`. Private registries with header auth.
+- Provenance: lock with `revision` and `baseHash`, BASE recovery from git or published `revisions/`, three-way merge through `git merge-file`.
+- Registry: 105 components, 1 pattern, 13 blocks, 2 templates, foundations (tokens, themes, fonts) and a `lib` item. Component families: controls and forms, overlays and navigation, data display, 11 chart types, an AI chat kit (message, thread, composer, stream, reasoning, tool call, sources, approval, and more), and a Tiptap-based editor split into bubble menu, slash menu, block handle, link popover, and suggestions.
+- Discovery metadata in `registry/index.json` (`keywords`, `useWhen`, `avoidWhen`, `related`). Item `dependencies` and `shelfDependencies` are derived from imports by `bun run deps --fix`.
+- Verification (`scripts/verify`, `scripts/deps.ts`): React Doctor, React Compiler results, render-count tests for object contexts, per-item gzipped size budgets against `scripts/verify/baseline.json`, and story and interaction-test counts. Published as `verify.json` and shown as "Verified" on the registry site.
+- Registry site (`apps/registry`): catalog with source, revisions, previews, usage, and verification, prebuilt into the CLI.
+- Website (`apps/web`): a Next app built from Shelf components installed with `shelf add`. Docs, component and block pages, Cmd+K search, a theme customizer, and SEO metadata.
+- Agent surfaces: the Shelf skill (`skills/shelf/SKILL.md`, installed by `shelf init` together with an `AGENTS.md` block), `llms.txt` and `llms-full.txt`, Markdown for every docs page, an ARD manifest at `/.well-known/ard.json`, and a read-only `search_shelf` WebMCP tool.
+- Figma (`packages/figma`): capture of rendered Storybook output, a Design IR, and a plugin that builds variables, styles, and components with variants. Figma links live in `index.json`.
+- Release: Changesets with npm trusted publishing for the CLI, and a registry deploy on every push to `main`.
+
+**Not built**
+
+- `shelf contribute`, visual regression, visual validation in `shelf check`, Code Connect generation, and the Figma update-review UI.
+- Framework guides beyond Vite and Next.js: TanStack Start is documented but not tested end to end.
+
+The V0 non-goals in section 47 still apply. The catalog grew because real use asked for it (charts, chat, editor, dashboards), not to look complete.
+
+---
+
 # 1. Core thesis
 
 Traditional design systems commonly distribute implementation through a centralized dependency:
@@ -502,32 +528,37 @@ Agents should prefer the highest-level appropriate abstraction already available
 
 # 11. Repository
 
-Start with:
+The repository today:
 
 ```text
-shelf-ui/
+shelf/
 ├── apps/
-│   ├── web/
-│   └── storybook/
-│
+│   ├── web/          website and docs (Next, a Shelf consumer)
+│   ├── registry/     the registry site that `shelf build` publishes
+│   └── example/      minimal Vite consumer used by the e2e tests
+├── examples/acme/    multi-project example for `shelf usage`
 ├── packages/
-│   ├── cli/
-│   ├── core/
-│   ├── foundations/
-│   └── test-utils/
-│
+│   ├── cli/          @shelfui/cli
+│   └── figma/        Figma plugin, capture, Design IR
 ├── registry/
 │   ├── components/
 │   ├── patterns/
 │   ├── blocks/
-│   └── templates/
-│
+│   ├── templates/
+│   ├── foundations/
+│   ├── lib/
+│   ├── docs/         Markdown served by `shelf docs` and the website
+│   ├── test/         shared test helpers (render-count)
+│   └── index.json
+├── scripts/          verify and deps
+├── skills/shelf/     agent skill
+├── .storybook/
 ├── AGENTS.md
+├── CONTRIBUTING.md
 ├── PROJECT.md
 ├── README.md
 ├── bunfig.toml
 ├── package.json
-├── shelf.config.json
 └── tsconfig.json
 ```
 
@@ -860,20 +891,27 @@ Initial commands:
 shelf init
 shelf search
 shelf add
+shelf docs
 shelf status
 shelf diff
 shelf update
 shelf check
+shelf usage
+shelf build
+shelf serve
 ```
+
+`usage`, `build`, and `serve` are for system teams who publish a registry. Everything else is for projects that consume one.
 
 Future:
 
 ```bash
 shelf contribute
-shelf figma
 shelf visual
 shelf eval
 ```
+
+The Figma plugin ships as files in the CLI package and is installed by hand in Figma. It has no `shelf figma` command.
 
 The CLI should be:
 
@@ -1528,6 +1566,8 @@ This should eventually make visual validation part of the agent feedback loop.
 
 # 41. Initial components
 
+Status: these were built first and the catalog has grown since (see Current state). The rule for adding more is unchanged: a real use case, no existing item that covers it, and Base UI checked first.
+
 Start with:
 
 ```text
@@ -1556,6 +1596,8 @@ Do not build a full catalog first.
 
 # 42. Initial patterns
 
+Status: Confirm Dialog is the only pattern so far. Command Palette exists as the Command component.
+
 After the initial component workflow is solid:
 
 ```text
@@ -1578,6 +1620,8 @@ CommandPalette is a particularly useful showcase because it exercises:
 ---
 
 # 43. First vertical slice
+
+Status: done. `apps/example` receives Button and Dialog through `shelf add`, and e2e tests cover modify, check, and update.
 
 The first milestone is:
 
@@ -1611,6 +1655,8 @@ Do not expand Shelf before this works.
 
 # 44. First Figma slice
 
+Status: built (capture, Design IR, plugin). The designer evaluation against the quality bar in section 30 is not recorded here.
+
 After Button distribution is working:
 
 ```text
@@ -1636,6 +1682,8 @@ Do not expand the compiler until the designer experience passes the quality bar.
 ---
 
 # 45. First agent slice
+
+Status: the skill, `shelf docs`, `--json` output, and discovery metadata exist to support it. Run it again whenever those change.
 
 Give a coding agent a clean consumer project and ask:
 

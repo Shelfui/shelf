@@ -51,6 +51,7 @@
       "type": "component",
       "description": "Approve or deny a tool call before it runs.",
       "path": "components/approval",
+      "keywords": ["confirm tool", "human in the loop", "allow deny"],
       "useWhen": "Asking the person to allow a tool or action before the agent runs it.",
       "avoidWhen": "Confirming ordinary form actions; use Alert Dialog."
     },
@@ -59,6 +60,7 @@
       "type": "component",
       "description": "A box that keeps a width-to-height ratio, filled by its content.",
       "path": "components/aspect-ratio",
+      "keywords": ["ratio", "16:9", "image frame"],
       "useWhen": "Images, video, maps, or embeds that must keep their shape as the layout resizes.",
       "avoidWhen": "The content has its own intrinsic size, such as an img with width and height set."
     },
@@ -67,6 +69,7 @@
       "type": "component",
       "description": "A file chip with a thumbnail or icon and a remove button.",
       "path": "components/attachment",
+      "keywords": ["file chip", "upload preview", "remove file"],
       "useWhen": "Showing a file the person is sending or has sent.",
       "avoidWhen": "A drop target; use Dropzone.",
       "related": ["dropzone"]
@@ -122,6 +125,7 @@
       "type": "component",
       "description": "Joins related Buttons into one row that shares borders.",
       "path": "components/button-group",
+      "keywords": ["segmented", "joined buttons", "toolbar"],
       "useWhen": "A few related actions that belong together, such as a split button or segmented actions.",
       "avoidWhen": "The buttons select a value; use Toggle Group."
     },
@@ -166,6 +170,7 @@
       "type": "component",
       "description": "An area chart for trends over a range, with a soft fill under each line.",
       "path": "components/chart-area",
+      "keywords": ["trend", "time series", "filled line"],
       "useWhen": "Trends over a continuous range, such as revenue by month, where volume matters.",
       "avoidWhen": "Exact values matter more than shape; use a table, or a Line Chart for several close series."
     },
@@ -174,6 +179,7 @@
       "type": "component",
       "description": "A bar chart for comparing values across categories, grouped, stacked, or horizontal.",
       "path": "components/chart-bar",
+      "keywords": ["columns", "compare categories", "stacked"],
       "useWhen": "Comparing values across categories, grouped, stacked, or horizontal.",
       "avoidWhen": "There are many categories with long names on a narrow screen, or parts of a whole; use a horizontal bar or Pie Chart."
     },
@@ -192,6 +198,7 @@
       "type": "component",
       "description": "A funnel chart for drop-off through ordered steps.",
       "path": "components/chart-funnel",
+      "keywords": ["conversion", "drop-off", "steps"],
       "useWhen": "Drop-off through ordered steps, such as visit, signup, purchase.",
       "avoidWhen": "The steps are not ordered or do not narrow; use a Bar Chart."
     },
@@ -200,6 +207,7 @@
       "type": "component",
       "description": "A heatmap for intensity across two categories, as an accessible table of tinted cells.",
       "path": "components/chart-heatmap",
+      "keywords": ["intensity", "matrix", "calendar activity"],
       "useWhen": "Intensity across two categories, such as orders by weekday and hour.",
       "avoidWhen": "There are only a few values; use a table or Bar Chart."
     },
@@ -208,6 +216,7 @@
       "type": "component",
       "description": "A line chart for change over a range, with one or more series.",
       "path": "components/chart-line",
+      "keywords": ["time series", "trend", "series"],
       "useWhen": "Change over a range where the line matters more than the area, or several series that overlap.",
       "avoidWhen": "Parts of a whole over time; use stacked Area Chart."
     },
@@ -216,6 +225,7 @@
       "type": "component",
       "description": "A pie or donut chart for the parts of a whole, with an optional total in the middle.",
       "path": "components/chart-pie",
+      "keywords": ["donut", "share", "proportion"],
       "useWhen": "The parts of a whole, for up to six slices, with a total in the middle of a donut.",
       "avoidWhen": "More than six slices, or slices that are close in size; use a Bar Chart."
     },
@@ -224,6 +234,7 @@
       "type": "component",
       "description": "A radar chart for comparing a few series across the same axes.",
       "path": "components/chart-radar",
+      "keywords": ["spider", "multi-axis", "compare series"],
       "useWhen": "Comparing a few series across five to eight shared axes.",
       "avoidWhen": "Fewer than five axes, or axes that are not comparable; use a Bar Chart."
     },
@@ -232,6 +243,7 @@
       "type": "component",
       "description": "A radial chart for progress toward a goal, or a few values on concentric rings.",
       "path": "components/chart-radial",
+      "keywords": ["gauge", "ring", "goal progress"],
       "useWhen": "Progress toward a goal, or a few values on concentric rings.",
       "avoidWhen": "A single value in a range; Meter or Progress is simpler."
     },
@@ -240,6 +252,7 @@
       "type": "component",
       "description": "A sankey chart for flow between stages.",
       "path": "components/chart-sankey",
+      "keywords": ["flow", "funnel stages", "transfer"],
       "useWhen": "Flow between stages, such as visitors to signups to paid.",
       "avoidWhen": "There is no flow between stages; use a Bar Chart or Funnel Chart."
     },
@@ -248,6 +261,7 @@
       "type": "component",
       "description": "A scatter chart for how two measures relate, with optional dot size for a third.",
       "path": "components/chart-scatter",
+      "keywords": ["correlation", "bubble", "xy"],
       "useWhen": "How two measures relate, one dot per item, with dot size for a third.",
       "avoidWhen": "Categories on one axis; use a Bar Chart."
     },
@@ -256,6 +270,7 @@
       "type": "component",
       "description": "A treemap for sizes within a whole, as nested rectangles.",
       "path": "components/chart-treemap",
+      "keywords": ["hierarchy", "proportion", "nested rectangles"],
       "useWhen": "Sizes within a whole, as nested rectangles, such as storage by folder.",
       "avoidWhen": "Precise comparison; areas are harder to compare than bars."
     },
@@ -283,6 +298,7 @@
       "type": "component",
       "description": "Shares one array value between a set of Checkboxes, with optional select-all.",
       "path": "components/checkbox-group",
+      "keywords": ["multi select", "select all", "checklist"],
       "useWhen": "Choosing any number of options from a short list.",
       "avoidWhen": "Only one option may be chosen; use Radio Group."
     },
@@ -291,6 +307,7 @@
       "type": "component",
       "description": "A numbered marker in an answer that links to its source and previews it on hover.",
       "path": "components/citation",
+      "keywords": ["footnote", "reference", "source marker"],
       "useWhen": "A numbered source marker inside generated text.",
       "avoidWhen": "A list of everything the answer used; use Sources."
     },
@@ -481,6 +498,7 @@
       "type": "component",
       "description": "A drag handle beside each block, with a menu to turn it into another block, duplicate, or delete it.",
       "path": "components/editor-block-handle",
+      "keywords": ["drag handle", "reorder blocks", "block menu"],
       "useWhen": "Blocks need to be reordered by dragging, or turned into another kind, duplicated, or deleted.",
       "avoidWhen": "The document is a single paragraph."
     },
@@ -489,6 +507,7 @@
       "type": "component",
       "description": "A floating toolbar over selected text for bold, italic, link, highlight, and turning a block into another type.",
       "path": "components/editor-bubble-menu",
+      "keywords": ["floating toolbar", "formatting", "selection menu"],
       "useWhen": "Formatting should appear over selected text instead of in a fixed toolbar.",
       "avoidWhen": "A fixed toolbar above the document is wanted; compose Toolbar instead."
     },
@@ -497,6 +516,7 @@
       "type": "component",
       "description": "A popover to add, edit, open, and remove a link on the selected text.",
       "path": "components/editor-link-popover",
+      "keywords": ["hyperlink", "edit link", "url"],
       "useWhen": "People add, change, or remove a link on selected text.",
       "avoidWhen": "Links are shown, not edited; use a plain anchor."
     },
@@ -505,6 +525,7 @@
       "type": "component",
       "description": "A searchable menu opened by typing / at the start of a block, to insert headings, lists, quotes, code, and dividers.",
       "path": "components/editor-slash-menu",
+      "keywords": ["slash command", "insert block", "command menu"],
       "useWhen": "People insert blocks by typing / in a line.",
       "avoidWhen": "Mentions or other trigger characters; use Editor Suggestion."
     },
@@ -513,6 +534,7 @@
       "type": "component",
       "description": "A menu that opens on a trigger character in a Tiptap editor: @ for mentions, / for commands. Async-safe and keyboard-driven.",
       "path": "components/editor-suggestion",
+      "keywords": ["mention", "autocomplete trigger", "tiptap"],
       "useWhen": "A menu that opens when a trigger character is typed in a Tiptap editor, such as @ for mentions.",
       "avoidWhen": "Block commands from a slash; use Editor Slash Menu."
     },
@@ -541,6 +563,7 @@
       "type": "component",
       "description": "Groups related fields under a legend; disabling it disables every field inside.",
       "path": "components/fieldset",
+      "keywords": ["legend", "group fields", "form section"],
       "useWhen": "Grouping related fields under one legend, such as an address.",
       "avoidWhen": "There is only one field; use Field."
     },
@@ -576,6 +599,7 @@
       "type": "component",
       "description": "The icons Shelf components use, in one file you own. lucide-react by default; swap the imports to change libraries.",
       "path": "components/icons",
+      "keywords": ["lucide", "icon library", "svg"],
       "useWhen": "Supporting a label with a familiar symbol, or marking state.",
       "avoidWhen": "The icon would be the only label for an unfamiliar action; add text or a Tooltip."
     },
@@ -593,6 +617,7 @@
       "type": "component",
       "description": "An input with text, icons, or buttons attached inside its border.",
       "path": "components/input-group",
+      "keywords": ["input addon", "prefix", "suffix"],
       "useWhen": "An input with attached content, such as a prefix, an icon, or an inline button.",
       "avoidWhen": "The attached content is a separate action; place a Button next to the input."
     },
@@ -733,6 +758,7 @@
       "type": "component",
       "description": "A number that counts to its new value when it changes, and reads out the final value for screen readers.",
       "path": "components/number-ticker",
+      "keywords": ["counter", "animated number", "count up"],
       "useWhen": "A figure that changes while the person watches, such as a live total.",
       "avoidWhen": "Numbers that change every frame."
     },
@@ -760,6 +786,7 @@
       "type": "component",
       "description": "An agent's plan as steps that are not started, in progress, or done.",
       "path": "components/plan",
+      "keywords": ["steps", "todo list", "agent progress"],
       "useWhen": "Showing the steps an agent intends to take and how far it has got.",
       "avoidWhen": "A user's progress through a flow; use Stepper."
     },
@@ -806,6 +833,7 @@
       "type": "component",
       "description": "The model's thinking, open while it streams and folded away when done.",
       "path": "components/reasoning",
+      "keywords": ["thinking", "chain of thought", "collapsible"],
       "useWhen": "Showing a model's thinking while it works, then folding it away.",
       "avoidWhen": "Content the reader must see; put it in the message."
     },
@@ -877,6 +905,7 @@
       "type": "component",
       "description": "Text with a soft highlight sweeping across it, for work in progress.",
       "path": "components/shimmer",
+      "keywords": ["loading text", "thinking", "skeleton text"],
       "useWhen": "A short label for work in progress, such as Thinking, where a spinner would be too loud.",
       "avoidWhen": "Progress that has a known amount; use Progress."
     },
@@ -934,6 +963,7 @@
       "type": "component",
       "description": "The pages an answer drew on, folded under Used N sources.",
       "path": "components/sources",
+      "keywords": ["references", "links used", "citations list"],
       "useWhen": "Listing what an answer was based on.",
       "avoidWhen": "A single inline reference; use Citation."
     },
@@ -942,6 +972,7 @@
       "type": "component",
       "description": "A tiny line with no axes, for a table cell or a stat.",
       "path": "components/sparkline",
+      "keywords": ["mini chart", "inline chart", "trend"],
       "useWhen": "A tiny trend beside a number, in a stat or a table row.",
       "avoidWhen": "The values themselves matter; use an Area Chart or Line Chart with axes."
     },
@@ -978,6 +1009,7 @@
       "type": "component",
       "description": "Streamdown-style streaming markdown: only the growing block re-renders, and output is safe by default.",
       "path": "components/stream",
+      "keywords": ["markdown", "streaming", "llm output"],
       "useWhen": "Showing model output as it streams in, with safe links, images off by default, and highlighted code.",
       "avoidWhen": "Authoring rich text; use an editor."
     },
@@ -1062,6 +1094,7 @@
       "type": "component",
       "description": "A two-state button with default and outline variants.",
       "path": "components/toggle",
+      "keywords": ["pressed", "on off button", "bold button"],
       "useWhen": "A single on/off button in a toolbar, such as bold.",
       "avoidWhen": "The setting is part of a form; use Switch or Checkbox."
     },
@@ -1080,6 +1113,7 @@
       "type": "component",
       "description": "A tool call with its status, input, and output, collapsed by default.",
       "path": "components/tool-call",
+      "keywords": ["function call", "agent tool", "status"],
       "useWhen": "Showing an agent's tool use with its state, input, and output.",
       "avoidWhen": "A final answer; use Message."
     },
@@ -1116,6 +1150,7 @@
       "type": "component",
       "description": "Prose styles for headings, paragraphs, lead text, quotes, lists, and inline code.",
       "path": "components/typography",
+      "keywords": ["prose", "headings", "text styles"],
       "useWhen": "Long-form text such as docs, articles, or changelogs that needs consistent prose styles.",
       "avoidWhen": "Interface labels and short text; use the components' own text styles."
     },

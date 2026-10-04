@@ -77,6 +77,29 @@ export const RequiresAChoice = meta.story({
   },
 });
 
+/** Opens from the keyboard, moves focus inside, and Escape cancels and returns focus. */
+export const Keyboard = meta.story({
+  render: () => <DeleteInvoice />,
+  play: async ({ canvas }) => {
+    deleted.mockClear();
+    const trigger = canvas.getByRole("button", { name: "Delete invoice" });
+
+    await userEvent.tab();
+    await expect(trigger).toHaveFocus();
+
+    await userEvent.keyboard("{Enter}");
+    const dialog = await screen.findByRole("alertdialog");
+
+    await waitFor(() => expect(dialog.contains(document.activeElement)).toBe(true));
+
+    await userEvent.keyboard("{Escape}");
+    await closed();
+
+    await expect(deleted).not.toHaveBeenCalled();
+    await waitFor(() => expect(trigger).toHaveFocus());
+  },
+});
+
 /** Open, showing its content. */
 export const Open = meta.story({
   render: () => <DeleteInvoice defaultOpen />,

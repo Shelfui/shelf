@@ -73,8 +73,8 @@
       "packages": 2,
       "shelfDependencies": 2,
       "stories": {
-        "total": 4,
-        "interactive": 3
+        "total": 5,
+        "interactive": 4
       },
       "storyId": "components-alert-dialog--default",
       "providesContext": false,
@@ -218,8 +218,8 @@
       "packages": 2,
       "shelfDependencies": 3,
       "stories": {
-        "total": 3,
-        "interactive": 3
+        "total": 4,
+        "interactive": 4
       },
       "storyId": "components-autocomplete--default",
       "providesContext": false,
@@ -1175,8 +1175,8 @@
       "packages": 2,
       "shelfDependencies": 2,
       "stories": {
-        "total": 3,
-        "interactive": 2
+        "total": 5,
+        "interactive": 4
       },
       "storyId": "components-context-menu--default",
       "providesContext": false,
@@ -1781,8 +1781,8 @@
       "packages": 2,
       "shelfDependencies": 2,
       "stories": {
-        "total": 3,
-        "interactive": 2
+        "total": 4,
+        "interactive": 3
       },
       "storyId": "components-hover-card--default",
       "providesContext": false,
@@ -2129,8 +2129,8 @@
       "packages": 2,
       "shelfDependencies": 3,
       "stories": {
-        "total": 2,
-        "interactive": 2
+        "total": 3,
+        "interactive": 3
       },
       "storyId": "components-menubar--default",
       "providesContext": false,
@@ -3289,8 +3289,8 @@
       "packages": 2,
       "shelfDependencies": 4,
       "stories": {
-        "total": 8,
-        "interactive": 8
+        "total": 9,
+        "interactive": 9
       },
       "storyId": "components-toast--default",
       "providesContext": false,

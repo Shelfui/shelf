@@ -33,6 +33,12 @@ without explicit instruction.
 
 ---
 
+# Current state
+
+The Button and Dialog vertical slices are done, and the registry has grown well beyond them (components, patterns, blocks, templates, charts, an AI chat kit, an editor). `PROJECT.md` has a "Current state" section listing what ships and what does not. Everything in this file still applies. In particular, scope is still earned by real use: do not add items to make the catalog look complete.
+
+---
+
 # Primary goal
 
 The first required vertical slice is:
@@ -256,6 +262,8 @@ shelf update
 shelf check
 shelf docs
 ```
+
+`shelf usage`, `shelf build`, and `shelf serve` also exist, for teams that publish a registry.
 
 Do not implement roadmap commands unless explicitly requested.
 

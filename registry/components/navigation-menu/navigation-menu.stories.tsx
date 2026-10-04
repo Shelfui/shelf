@@ -44,6 +44,7 @@ export const Default = meta.story({
 
     await waitFor(() => expect(screen.queryByRole("link", { name: "Invoicing" })).toBeNull());
     await expect(trigger).toHaveAttribute("aria-expanded", "false");
+    await expect(trigger).toHaveFocus();
   },
 });
 

@@ -8,7 +8,7 @@
   "type": "module",
   "scripts": {
     "postinstall": "bun run --cwd packages/cli build",
-    "check": "bun run typecheck && bun run lint && bun run format:check && bun run deps && bun run doctor && bun run verify --check && bun run test && bun run test:perf && bun run test:storybook",
+    "check": "bun run typecheck && bun run lint && bun run format:check && bun run deps && bun run doctor && bun run verify --check && bun run audit && bun run test && bun run test:perf && bun run test:storybook",
     "typecheck": "tsc --noEmit",
     "lint": "oxlint --type-aware --deny-warnings --disable-nested-config",
     "lint:fix": "oxlint --type-aware --disable-nested-config --fix",
@@ -28,6 +28,7 @@
     "doctor": "react-doctor registry --no-telemetry --no-supply-chain --blocking warning",
     "test:perf": "vitest run --project perf",
     "verify": "bun scripts/verify/index.ts",
+    "audit": "bun scripts/verify/audit.ts",
     "deps": "bun scripts/deps.ts"
   },
   "dependencies": {

@@ -78,6 +78,14 @@ describe("index metadata", () => {
     expect(first).toMatchObject({ keywords: ["a"], useWhen: "u", avoidWhen: "v", related: ["y"] });
   });
 
+  test("reads an experimental status and rejects any other", async () => {
+    const registry = await registryWith([{ ...base, name: "x", status: "experimental" }]);
+    expect((await loadIndex(registry))[0]).toMatchObject({ status: "experimental" });
+
+    const bad = await registryWith([{ ...base, name: "x", status: "beta" }]);
+    expect(await rejection(loadIndex(bad))).toContain("status must be");
+  });
+
   test("rejects a related item that does not exist", async () => {
     const registry = await registryWith([{ ...base, name: "x", related: ["nope"] }]);
     expect(await rejection(loadIndex(registry))).toContain('"nope"');

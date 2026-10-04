@@ -31,6 +31,10 @@ export async function loadIndex(registry: Registry): Promise<IndexEntry[]> {
     const useWhen = optionalString(entry, "useWhen", where);
     const avoidWhen = optionalString(entry, "avoidWhen", where);
     const related = optionalStrings(entry, "related", where);
+    const status = entry["status"];
+    if (status !== undefined && status !== "experimental") {
+      throw new ShelfError(`${where}.status must be "experimental" when present.`);
+    }
     return {
       name,
       type: requireType(entry["type"], `${where}.type`),
@@ -41,6 +45,7 @@ export async function loadIndex(registry: Registry): Promise<IndexEntry[]> {
       ...(keywords && { keywords }),
       ...(useWhen !== undefined && { useWhen }),
       ...(avoidWhen !== undefined && { avoidWhen }),
+      ...(status && { status }),
       ...(related && { related }),
     };
   });

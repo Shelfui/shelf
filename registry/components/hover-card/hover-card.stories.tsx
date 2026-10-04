@@ -43,6 +43,25 @@ export const Default = meta.story({
   },
 });
 
+/** Keyboard focus previews it too, and Escape closes the preview. */
+export const Keyboard = meta.story({
+  render: () => <Customer />,
+  play: async ({ canvas }) => {
+    const link = canvas.getByRole("link", { name: "Acme Inc." });
+
+    await userEvent.tab();
+    await expect(link).toHaveFocus();
+
+    const card = await screen.findByText(/12 open invoices/);
+    await waitFor(() => expect(card).toBeVisible());
+
+    await userEvent.keyboard("{Escape}");
+
+    await waitFor(() => expect(screen.queryByText(/12 open invoices/)).toBeNull());
+    await expect(link).toHaveFocus();
+  },
+});
+
 /** Open, showing its content. */
 export const Open = meta.story({
   render: () => <Customer defaultOpen />,

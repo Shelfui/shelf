@@ -53,6 +53,27 @@ export const Default = meta.story({
   },
 });
 
+/** Enter opens a menu with focus inside it; Escape closes it and returns focus to the bar. */
+export const Keyboard = meta.story({
+  render: () => <AppMenus />,
+  play: async ({ canvas }) => {
+    const file = canvas.getByRole("menuitem", { name: "File" });
+
+    await userEvent.tab();
+    await expect(file).toHaveFocus();
+
+    await userEvent.keyboard("{ArrowDown}");
+    const menu = await screen.findByRole("menu");
+
+    await waitFor(() => expect(menu.contains(document.activeElement)).toBe(true));
+
+    await userEvent.keyboard("{Escape}");
+
+    await waitFor(() => expect(screen.queryByRole("menu")).toBeNull());
+    await waitFor(() => expect(file).toHaveFocus());
+  },
+});
+
 export const Dark = meta.story({
   parameters: { themes: { themeOverride: "dark" } },
   render: () => <AppMenus />,

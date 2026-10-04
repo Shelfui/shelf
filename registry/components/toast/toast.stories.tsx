@@ -153,6 +153,36 @@ export const WithAction = meta.story({
   },
 });
 
+/** An action is reachable and runnable from the keyboard. */
+export const Keyboard = meta.story({
+  render: () => (
+    <Button
+      variant="outline"
+      onClick={() =>
+        toastManager.add({
+          title: "Invoice archived",
+          actionProps: { children: "Undo", onClick: undone },
+        })
+      }
+    >
+      Archive
+    </Button>
+  ),
+  play: async ({ canvas }) => {
+    undone.mockClear();
+
+    await userEvent.click(canvas.getByRole("button", { name: "Archive" }));
+    const undo = await screen.findByRole("button", { name: "Undo" });
+
+    undo.focus();
+    await expect(undo).toHaveFocus();
+
+    await userEvent.keyboard("{Enter}");
+
+    await expect(undone).toHaveBeenCalledTimes(1);
+  },
+});
+
 export const Error = meta.story({
   render: () => (
     <Button

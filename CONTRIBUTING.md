@@ -18,7 +18,10 @@ bun run check
 
 ```text
 registry/            Shelf items (source of truth for what `shelf add` installs): components, patterns, blocks, templates, foundations, lib
-packages/cli/        the `@shelfui/cli` CLI (init, search, add, status, diff, update, check, usage, build, serve)
+packages/cli/        the `@shelfui/cli` CLI (init, search, add, docs, status, diff, update, check, usage, build, serve)
+packages/figma/      the Figma plugin, capture, and Design IR
+skills/shelf/        the agent skill that `shelf init` installs
+scripts/             `verify` (size, stories, compiler, doctor) and `deps` (dependencies from imports)
 apps/example/        a minimal Vite app that receives Button and Dialog via `shelf add`; the e2e tests drive it
 apps/web/            the website, a Next.js app that receives every component via `shelf add`
 apps/registry/       the registry site that `shelf build` publishes

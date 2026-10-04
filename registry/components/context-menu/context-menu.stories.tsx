@@ -45,6 +45,40 @@ export const Default = meta.story({
   },
 });
 
+/** Focus moves into the menu, arrows and Enter choose an item, and the menu closes. */
+export const Keyboard = meta.story({
+  render: () => <Area />,
+  play: async ({ canvas }) => {
+    copied.mockClear();
+
+    await userEvent.pointer({ keys: "[MouseRight]", target: canvas.getByText("Right-click here") });
+    const menu = await screen.findByRole("menu");
+
+    await waitFor(() => expect(menu.contains(document.activeElement)).toBe(true));
+
+    await userEvent.keyboard("{ArrowDown}{Enter}");
+
+    await waitFor(() => expect(screen.queryByRole("menu")).toBeNull());
+    await expect(copied).toHaveBeenCalledTimes(1);
+  },
+});
+
+/** Escape closes the menu without running anything. */
+export const EscapeCloses = meta.story({
+  render: () => <Area />,
+  play: async ({ canvas }) => {
+    copied.mockClear();
+
+    await userEvent.pointer({ keys: "[MouseRight]", target: canvas.getByText("Right-click here") });
+    await screen.findByRole("menu");
+
+    await userEvent.keyboard("{Escape}");
+
+    await waitFor(() => expect(screen.queryByRole("menu")).toBeNull());
+    await expect(copied).not.toHaveBeenCalled();
+  },
+});
+
 /** Open, showing its content. */
 export const Open = meta.story({
   render: () => <Area defaultOpen />,

@@ -22,6 +22,8 @@ export interface IndexEntry {
   useWhen?: string;
   /** When another item fits better, and which. */
   avoidWhen?: string;
+  /** `experimental` means the API or behavior may still change; absent means stable. */
+  status?: "experimental";
   /** Items that are used with it or instead of it. */
   related?: string[];
 }

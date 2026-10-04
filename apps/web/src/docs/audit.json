@@ -1,0 +1,425 @@
+{
+  "version": 1,
+  "items": {
+    "accordion": {
+      "status": "stable",
+      "problems": []
+    },
+    "alert": {
+      "status": "stable",
+      "problems": []
+    },
+    "alert-dialog": {
+      "status": "stable",
+      "problems": []
+    },
+    "approval": {
+      "status": "stable",
+      "problems": []
+    },
+    "aspect-ratio": {
+      "status": "stable",
+      "problems": []
+    },
+    "attachment": {
+      "status": "stable",
+      "problems": []
+    },
+    "autocomplete": {
+      "status": "stable",
+      "problems": []
+    },
+    "avatar": {
+      "status": "stable",
+      "problems": []
+    },
+    "badge": {
+      "status": "stable",
+      "problems": []
+    },
+    "breadcrumb": {
+      "status": "stable",
+      "problems": []
+    },
+    "button": {
+      "status": "stable",
+      "problems": []
+    },
+    "button-group": {
+      "status": "stable",
+      "problems": []
+    },
+    "calendar": {
+      "status": "stable",
+      "problems": []
+    },
+    "card": {
+      "status": "stable",
+      "problems": []
+    },
+    "carousel": {
+      "status": "stable",
+      "problems": []
+    },
+    "chart": {
+      "status": "stable",
+      "problems": []
+    },
+    "chart-area": {
+      "status": "stable",
+      "problems": []
+    },
+    "chart-bar": {
+      "status": "stable",
+      "problems": []
+    },
+    "chart-funnel": {
+      "status": "stable",
+      "problems": []
+    },
+    "chart-heatmap": {
+      "status": "stable",
+      "problems": []
+    },
+    "chart-line": {
+      "status": "stable",
+      "problems": []
+    },
+    "chart-pie": {
+      "status": "stable",
+      "problems": []
+    },
+    "chart-radar": {
+      "status": "stable",
+      "problems": []
+    },
+    "chart-radial": {
+      "status": "stable",
+      "problems": []
+    },
+    "chart-sankey": {
+      "status": "stable",
+      "problems": []
+    },
+    "chart-scatter": {
+      "status": "stable",
+      "problems": []
+    },
+    "chart-treemap": {
+      "status": "stable",
+      "problems": []
+    },
+    "checkbox": {
+      "status": "stable",
+      "problems": []
+    },
+    "checkbox-group": {
+      "status": "stable",
+      "problems": []
+    },
+    "citation": {
+      "status": "stable",
+      "problems": []
+    },
+    "code-block": {
+      "status": "stable",
+      "problems": []
+    },
+    "collapsible": {
+      "status": "stable",
+      "problems": []
+    },
+    "color-picker": {
+      "status": "stable",
+      "problems": []
+    },
+    "combobox": {
+      "status": "stable",
+      "problems": []
+    },
+    "command": {
+      "status": "stable",
+      "problems": []
+    },
+    "composer": {
+      "status": "stable",
+      "problems": []
+    },
+    "context-menu": {
+      "status": "stable",
+      "problems": []
+    },
+    "copy-button": {
+      "status": "stable",
+      "problems": []
+    },
+    "data-table": {
+      "status": "stable",
+      "problems": []
+    },
+    "date-picker": {
+      "status": "stable",
+      "problems": []
+    },
+    "dialog": {
+      "status": "stable",
+      "problems": []
+    },
+    "drawer": {
+      "status": "stable",
+      "problems": []
+    },
+    "dropdown-menu": {
+      "status": "stable",
+      "problems": []
+    },
+    "dropzone": {
+      "status": "stable",
+      "problems": []
+    },
+    "editor": {
+      "status": "stable",
+      "problems": []
+    },
+    "editor-block-handle": {
+      "status": "stable",
+      "problems": []
+    },
+    "editor-bubble-menu": {
+      "status": "stable",
+      "problems": []
+    },
+    "editor-link-popover": {
+      "status": "stable",
+      "problems": []
+    },
+    "editor-slash-menu": {
+      "status": "stable",
+      "problems": []
+    },
+    "editor-suggestion": {
+      "status": "stable",
+      "problems": []
+    },
+    "empty": {
+      "status": "stable",
+      "problems": []
+    },
+    "field": {
+      "status": "stable",
+      "problems": []
+    },
+    "fieldset": {
+      "status": "stable",
+      "problems": []
+    },
+    "form": {
+      "status": "stable",
+      "problems": []
+    },
+    "hover-card": {
+      "status": "stable",
+      "problems": []
+    },
+    "icons": {
+      "status": "stable",
+      "problems": []
+    },
+    "input": {
+      "status": "stable",
+      "problems": []
+    },
+    "input-group": {
+      "status": "stable",
+      "problems": []
+    },
+    "input-otp": {
+      "status": "stable",
+      "problems": []
+    },
+    "item": {
+      "status": "stable",
+      "problems": []
+    },
+    "kbd": {
+      "status": "stable",
+      "problems": []
+    },
+    "label": {
+      "status": "stable",
+      "problems": []
+    },
+    "menubar": {
+      "status": "stable",
+      "problems": []
+    },
+    "message": {
+      "status": "stable",
+      "problems": []
+    },
+    "meter": {
+      "status": "stable",
+      "problems": []
+    },
+    "native-select": {
+      "status": "stable",
+      "problems": []
+    },
+    "navigation-menu": {
+      "status": "stable",
+      "problems": []
+    },
+    "number-field": {
+      "status": "stable",
+      "problems": []
+    },
+    "number-ticker": {
+      "status": "stable",
+      "problems": []
+    },
+    "pagination": {
+      "status": "stable",
+      "problems": []
+    },
+    "plan": {
+      "status": "stable",
+      "problems": []
+    },
+    "popover": {
+      "status": "stable",
+      "problems": []
+    },
+    "progress": {
+      "status": "stable",
+      "problems": []
+    },
+    "radio-group": {
+      "status": "stable",
+      "problems": []
+    },
+    "rating": {
+      "status": "stable",
+      "problems": []
+    },
+    "reasoning": {
+      "status": "stable",
+      "problems": []
+    },
+    "resizable": {
+      "status": "stable",
+      "problems": []
+    },
+    "scroll-area": {
+      "status": "stable",
+      "problems": []
+    },
+    "select": {
+      "status": "stable",
+      "problems": []
+    },
+    "separator": {
+      "status": "stable",
+      "problems": []
+    },
+    "shimmer": {
+      "status": "stable",
+      "problems": []
+    },
+    "sidebar": {
+      "status": "stable",
+      "problems": []
+    },
+    "skeleton": {
+      "status": "stable",
+      "problems": []
+    },
+    "slider": {
+      "status": "stable",
+      "problems": []
+    },
+    "sources": {
+      "status": "stable",
+      "problems": []
+    },
+    "sparkline": {
+      "status": "stable",
+      "problems": []
+    },
+    "spinner": {
+      "status": "stable",
+      "problems": []
+    },
+    "stat": {
+      "status": "stable",
+      "problems": []
+    },
+    "stepper": {
+      "status": "stable",
+      "problems": []
+    },
+    "stream": {
+      "status": "stable",
+      "problems": []
+    },
+    "switch": {
+      "status": "stable",
+      "problems": []
+    },
+    "table": {
+      "status": "stable",
+      "problems": []
+    },
+    "tabs": {
+      "status": "stable",
+      "problems": []
+    },
+    "textarea": {
+      "status": "stable",
+      "problems": []
+    },
+    "thread": {
+      "status": "stable",
+      "problems": []
+    },
+    "time-picker": {
+      "status": "stable",
+      "problems": []
+    },
+    "timeline": {
+      "status": "stable",
+      "problems": []
+    },
+    "toast": {
+      "status": "stable",
+      "problems": []
+    },
+    "toggle": {
+      "status": "stable",
+      "problems": []
+    },
+    "toggle-group": {
+      "status": "stable",
+      "problems": []
+    },
+    "tool-call": {
+      "status": "stable",
+      "problems": []
+    },
+    "toolbar": {
+      "status": "stable",
+      "problems": []
+    },
+    "tooltip": {
+      "status": "stable",
+      "problems": []
+    },
+    "tree-view": {
+      "status": "stable",
+      "problems": []
+    },
+    "typography": {
+      "status": "stable",
+      "problems": []
+    }
+  }
+}

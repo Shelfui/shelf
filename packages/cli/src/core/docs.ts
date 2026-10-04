@@ -108,6 +108,7 @@ export async function docs({ cwd, topic, registry: location, out }: DocsOptions)
   }
   const item = await loadItem(registry, entry);
   const lines = [`# ${item.name}`, "", item.description, "", `Type: ${item.type}`];
+  if (entry.status) lines.push(`Status: ${entry.status}. The API may change.`);
   if (entry.useWhen !== undefined) lines.push(`Use when: ${entry.useWhen}`);
   if (entry.avoidWhen !== undefined) lines.push(`Avoid when: ${entry.avoidWhen}`);
   if (entry.related) lines.push(`Related: ${entry.related.join(", ")}`);

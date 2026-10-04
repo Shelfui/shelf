@@ -44,6 +44,7 @@ export const Default = meta.story({
     await userEvent.keyboard("{ArrowDown}{Enter}");
 
     await expect(input).toHaveValue("Finland");
+    await expect(input).toHaveFocus();
     await expect(changed).toHaveBeenLastCalledWith("Finland", expect.anything());
   },
 });

@@ -43,6 +43,31 @@ export const Default = meta.story({
   },
 });
 
+/** Arrow keys move through the suggestions, Enter picks one, and Escape closes the list. */
+export const Keyboard = meta.story({
+  render: () => <Tag />,
+  play: async ({ canvas }) => {
+    const input = canvas.getByRole("combobox", { name: "Tag" });
+
+    await userEvent.type(input, "d");
+    await waitFor(() => expect(screen.getAllByRole("option")).toHaveLength(3));
+
+    await userEvent.keyboard("{ArrowDown}{ArrowDown}{Enter}");
+
+    await expect(input).toHaveValue("development");
+    await expect(input).toHaveFocus();
+
+    await userEvent.clear(input);
+    await userEvent.type(input, "d");
+    await screen.findByRole("listbox");
+
+    await userEvent.keyboard("{Escape}");
+
+    await waitFor(() => expect(screen.queryByRole("listbox")).toBeNull());
+    await expect(input).toHaveFocus();
+  },
+});
+
 /** Any text is a valid value, even with no suggestion for it, and it stays after leaving the field. */
 export const FreeText = meta.story({
   render: () => <Tag />,
