@@ -16,7 +16,7 @@ export async function loadIndex(registry: Registry): Promise<IndexEntry[]> {
     throw new ShelfError(`Registry index.json must be an object with an "items" array.`);
   }
   const seen = new Set<string>();
-  return raw["items"].map((entry: unknown, i: number) => {
+  const entries = raw["items"].map((entry: unknown, i: number) => {
     const where = `Registry index.json items[${i}]`;
     if (!isObject(entry)) throw new ShelfError(`${where} must be an object.`);
     const name = requireString(entry["name"], `${where}.name`);
@@ -27,6 +27,10 @@ export async function loadIndex(registry: Registry): Promise<IndexEntry[]> {
     }
     if (seen.has(name)) throw new ShelfError(`Duplicate item "${name}" in registry index.json.`);
     seen.add(name);
+    const keywords = optionalStrings(entry, "keywords", where);
+    const useWhen = optionalString(entry, "useWhen", where);
+    const avoidWhen = optionalString(entry, "avoidWhen", where);
+    const related = optionalStrings(entry, "related", where);
     return {
       name,
       type: requireType(entry["type"], `${where}.type`),
@@ -34,8 +38,41 @@ export async function loadIndex(registry: Registry): Promise<IndexEntry[]> {
       path: assertSafeRelativePath(entry["path"], `${where}.path`),
       ...(typeof entry["revision"] === "string" &&
         REVISION.test(entry["revision"]) && { revision: entry["revision"] }),
+      ...(keywords && { keywords }),
+      ...(useWhen !== undefined && { useWhen }),
+      ...(avoidWhen !== undefined && { avoidWhen }),
+      ...(related && { related }),
     };
   });
+  for (const [i, entry] of entries.entries()) {
+    const unknown = entry.related?.find((name) => !seen.has(name));
+    if (unknown !== undefined) {
+      throw new ShelfError(
+        `Registry index.json items[${i}].related names "${unknown}", which is not an item in this registry.`,
+      );
+    }
+  }
+  return entries;
+}
+
+function optionalString(
+  entry: Record<string, unknown>,
+  key: string,
+  where: string,
+): string | undefined {
+  const value = entry[key];
+  return value === undefined ? undefined : requireString(value, `${where}.${key}`);
+}
+
+function optionalStrings(
+  entry: Record<string, unknown>,
+  key: string,
+  where: string,
+): string[] | undefined {
+  const value = entry[key];
+  if (value === undefined) return undefined;
+  if (!Array.isArray(value)) throw new ShelfError(`${where}.${key} must be an array of strings.`);
+  return value.map((word: unknown, i: number) => requireString(word, `${where}.${key}[${i}]`));
 }
 
 export async function loadItem(registry: Registry, entry: IndexEntry): Promise<RegistryItem> {

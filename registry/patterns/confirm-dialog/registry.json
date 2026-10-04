@@ -1,0 +1,12 @@
+{
+  "name": "confirm-dialog",
+  "type": "pattern",
+  "description": "Asks before an action that is hard to undo, then runs it. Shows a pending state while it runs, and keeps the dialog open with the error if it fails.",
+  "files": [
+    {
+      "path": "confirm-dialog.tsx"
+    }
+  ],
+  "dependencies": {},
+  "shelfDependencies": ["alert", "alert-dialog", "button", "spinner"]
+}

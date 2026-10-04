@@ -107,7 +107,11 @@ export async function docs({ cwd, topic, registry: location, out }: DocsOptions)
     throw new ShelfError(`No docs for "${topic}". Run: shelf docs (lists topics and items)`);
   }
   const item = await loadItem(registry, entry);
-  const lines = [`# ${item.name}`, "", item.description, "", `Type: ${item.type}`, ""];
+  const lines = [`# ${item.name}`, "", item.description, "", `Type: ${item.type}`];
+  if (entry.useWhen !== undefined) lines.push(`Use when: ${entry.useWhen}`);
+  if (entry.avoidWhen !== undefined) lines.push(`Avoid when: ${entry.avoidWhen}`);
+  if (entry.related) lines.push(`Related: ${entry.related.join(", ")}`);
+  lines.push("");
   lines.push("Install:", "", "```bash", `shelf add ${item.name}`, "```", "");
   const packages = Object.entries(item.dependencies).map(([pkg, range]) => `${pkg}@${range}`);
   lines.push(`Packages: ${packages.length > 0 ? packages.join(", ") : "none"}`);

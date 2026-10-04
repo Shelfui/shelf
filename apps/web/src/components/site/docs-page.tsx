@@ -1,6 +1,7 @@
 import * as stylex from "@stylexjs/stylex";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { DocsBreadcrumb } from "./docs-breadcrumb";
 import { PageActions } from "./page-actions";
 import { colors, spacing, typography } from "@/styles/shelf/tokens.stylex";
 import { screens, site } from "@/styles/site.stylex";
@@ -13,19 +14,20 @@ export function PageHeader({
 }: {
   title: string;
   description: string;
-  /** Sits at the right of the title, such as a status badge. */
+  /** Sits under the lead, such as a status badge. */
   aside?: ReactNode;
   /** The page's route. Pages with a generated Markdown version pass it, to show the copy actions. */
   path?: string;
 }) {
   return (
     <header {...stylex.props(styles.header)}>
+      <DocsBreadcrumb title={title} />
       <div {...stylex.props(styles.titleRow)}>
         <h1 {...stylex.props(styles.title)}>{title}</h1>
         {path && <PageActions path={path} />}
-        {aside}
       </div>
       <p {...stylex.props(styles.lead)}>{description}</p>
+      {aside && <div {...stylex.props(styles.aside)}>{aside}</div>}
     </header>
   );
 }
@@ -97,6 +99,9 @@ const styles = stylex.create({
     display: "grid",
     marginBottom: { default: site.space10, [screens.md]: site.space16 },
   },
+  aside: {
+    display: "flex",
+  },
   titleRow: {
     gap: spacing["4"],
     alignItems: "center",
@@ -130,6 +135,7 @@ const styles = stylex.create({
     letterSpacing: "-0.01em",
     lineHeight: 1.375,
     margin: 0,
+    scrollMarginTop: `calc(${site.headerHeight} + 1.5rem)`,
   },
   article: {
     gap: spacing["6"],

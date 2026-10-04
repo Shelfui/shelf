@@ -39,10 +39,12 @@ Add `--json` to read output without scraping text.
 
 <Command args="search card --json" />
 
-- `search`: `{ query, items: [{ name, type, description }] }`.
+- `search`: `{ query, items: [{ name, type, description, useWhen?, avoidWhen?, related? }] }`. Best match first. Every word must match somewhere in the name, keywords, description, or use notes, and "confirm" matches "confirmation".
 - `status`: `{ project, items: [{ name, revision, modified, modifiedFiles, updateAvailable }], notInstalled, summary }`.
 - `check`: `{ ok, steps: [{ name, status, summary, issues }] }`. Each issue has `file`, `line`, `problem`, and `fix` when there is one.
 - `diff`: `{ item, mode, changed, diff }`.
+
+Results are ordered so the first one is usually the right one: a name match beats a keyword, a keyword beats the description, and on a tie a template comes before a block, a block before a pattern, and a pattern before a component. Read `avoidWhen` before choosing: it names the item that fits better.
 
 To read how a component works, run `shelf docs button`. It prints the description, dependencies, and source. `shelf docs` lists the topics, which are these pages as Markdown.
 

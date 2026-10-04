@@ -94,7 +94,7 @@
     },
     "icons": {
       "dependencies": {
-        "lucide-react": "^1.47.0"
+        "lucide-react": "^1.52.0"
       },
       "files": {
         "src/components/ui/icons.tsx": {
@@ -102,10 +102,10 @@
           "source": "icons.tsx"
         }
       },
-      "installedAt": "2026-10-03T23:16:45.417Z",
+      "installedAt": "2026-10-04T14:14:16.334Z",
       "path": "components/icons",
       "registry": "../../registry",
-      "revision": "a71bf7e14a8bba3f2eeea38e41b3e49ce1e0624399926e3aea58ed530e8516cb",
+      "revision": "d21157f8ec040f685290917af411043236e07bbc19bc0cc24ea2d595c95ef3e0",
       "shelfDependencies": [],
       "type": "component"
     },

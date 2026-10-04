@@ -55,8 +55,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 3,
-        "failed": 0
+        "compiled": 2,
+        "failed": 1
       }
     },
     "alert-dialog": {
@@ -142,8 +142,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 1,
-        "failed": 0
+        "compiled": 0,
+        "failed": 3
       }
     },
     "aspect-ratio": {
@@ -171,8 +171,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 1,
-        "failed": 0
+        "compiled": 0,
+        "failed": 1
       }
     },
     "attachment": {
@@ -229,8 +229,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 7,
-        "failed": 0
+        "compiled": 6,
+        "failed": 1
       }
     },
     "avatar": {
@@ -258,8 +258,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 6,
-        "failed": 0
+        "compiled": 4,
+        "failed": 2
       }
     },
     "badge": {
@@ -287,8 +287,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 1,
-        "failed": 0
+        "compiled": 0,
+        "failed": 1
       }
     },
     "breadcrumb": {
@@ -316,8 +316,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 7,
-        "failed": 0
+        "compiled": 6,
+        "failed": 1
       }
     },
     "button": {
@@ -345,8 +345,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 1,
-        "failed": 0
+        "compiled": 0,
+        "failed": 3
       }
     },
     "button-group": {
@@ -385,7 +385,7 @@
           "css": 996
         },
         "total": {
-          "js": 26756,
+          "js": 26758,
           "css": 2969
         }
       },
@@ -403,8 +403,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 6,
-        "failed": 0
+        "compiled": 5,
+        "failed": 2
       }
     },
     "card": {
@@ -443,7 +443,7 @@
           "css": 382
         },
         "total": {
-          "js": 15058,
+          "js": 15059,
           "css": 2837
         }
       },
@@ -461,8 +461,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 6,
-        "failed": 0
+        "compiled": 3,
+        "failed": 5
       }
     },
     "chart": {
@@ -490,8 +490,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 11,
-        "failed": 0
+        "compiled": 9,
+        "failed": 5
       }
     },
     "chart-area": {
@@ -505,8 +505,8 @@
           "css": 1977
         }
       },
-      "packages": 2,
-      "shelfDependencies": 2,
+      "packages": 1,
+      "shelfDependencies": 1,
       "stories": {
         "total": 5,
         "interactive": 4
@@ -519,8 +519,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 2,
-        "failed": 0
+        "compiled": 1,
+        "failed": 3
       }
     },
     "chart-bar": {
@@ -534,8 +534,8 @@
           "css": 1977
         }
       },
-      "packages": 2,
-      "shelfDependencies": 2,
+      "packages": 1,
+      "shelfDependencies": 1,
       "stories": {
         "total": 5,
         "interactive": 3
@@ -548,8 +548,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 2,
-        "failed": 0
+        "compiled": 1,
+        "failed": 2
       }
     },
     "chart-card": {
@@ -606,8 +606,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 2,
-        "failed": 0
+        "compiled": 0,
+        "failed": 2
       }
     },
     "chart-heatmap": {
@@ -635,8 +635,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 1,
-        "failed": 0
+        "compiled": 0,
+        "failed": 2
       }
     },
     "chart-line": {
@@ -650,8 +650,8 @@
           "css": 1977
         }
       },
-      "packages": 2,
-      "shelfDependencies": 2,
+      "packages": 1,
+      "shelfDependencies": 1,
       "stories": {
         "total": 2,
         "interactive": 2
@@ -664,8 +664,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 2,
-        "failed": 0
+        "compiled": 1,
+        "failed": 3
       }
     },
     "chart-pie": {
@@ -693,8 +693,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 3,
-        "failed": 0
+        "compiled": 1,
+        "failed": 3
       }
     },
     "chart-radar": {
@@ -708,7 +708,7 @@
           "css": 1977
         }
       },
-      "packages": 2,
+      "packages": 1,
       "shelfDependencies": 2,
       "stories": {
         "total": 1,
@@ -722,8 +722,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 4,
-        "failed": 0
+        "compiled": 2,
+        "failed": 3
       }
     },
     "chart-radial": {
@@ -737,7 +737,7 @@
           "css": 1977
         }
       },
-      "packages": 2,
+      "packages": 1,
       "shelfDependencies": 2,
       "stories": {
         "total": 2,
@@ -751,8 +751,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 2,
-        "failed": 0
+        "compiled": 0,
+        "failed": 3
       }
     },
     "chart-sankey": {
@@ -766,7 +766,7 @@
           "css": 1977
         }
       },
-      "packages": 2,
+      "packages": 1,
       "shelfDependencies": 2,
       "stories": {
         "total": 1,
@@ -780,8 +780,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 3,
-        "failed": 0
+        "compiled": 0,
+        "failed": 14
       }
     },
     "chart-scatter": {
@@ -795,8 +795,8 @@
           "css": 1977
         }
       },
-      "packages": 2,
-      "shelfDependencies": 2,
+      "packages": 1,
+      "shelfDependencies": 1,
       "stories": {
         "total": 2,
         "interactive": 1
@@ -809,8 +809,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 2,
-        "failed": 0
+        "compiled": 1,
+        "failed": 1
       }
     },
     "chart-treemap": {
@@ -838,8 +838,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 2,
-        "failed": 0
+        "compiled": 0,
+        "failed": 8
       }
     },
     "chat": {
@@ -867,8 +867,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 6,
-        "failed": 0
+        "compiled": 4,
+        "failed": 2
       }
     },
     "checkbox": {
@@ -970,7 +970,7 @@
         }
       },
       "packages": 2,
-      "shelfDependencies": 5,
+      "shelfDependencies": 3,
       "stories": {
         "total": 3,
         "interactive": 2
@@ -983,8 +983,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 2,
-        "failed": 0
+        "compiled": 1,
+        "failed": 1
       }
     },
     "collapsible": {
@@ -1042,7 +1042,7 @@
       },
       "compiler": {
         "compiled": 0,
-        "failed": 1
+        "failed": 2
       }
     },
     "combobox": {
@@ -1070,8 +1070,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 10,
-        "failed": 0
+        "compiled": 9,
+        "failed": 1
       }
     },
     "command": {
@@ -1099,8 +1099,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 10,
-        "failed": 0
+        "compiled": 8,
+        "failed": 3
       }
     },
     "composer": {
@@ -1128,8 +1128,37 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 12,
-        "failed": 0
+        "compiled": 8,
+        "failed": 12
+      }
+    },
+    "confirm-dialog": {
+      "size": {
+        "own": {
+          "js": 723,
+          "css": 0
+        },
+        "total": {
+          "js": 25264,
+          "css": 3174
+        }
+      },
+      "packages": 0,
+      "shelfDependencies": 4,
+      "stories": {
+        "total": 4,
+        "interactive": 4
+      },
+      "storyId": "patterns-confirm-dialog--default",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 0,
+        "failed": 4
       }
     },
     "context-menu": {
@@ -1157,8 +1186,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 2,
-        "failed": 0
+        "compiled": 1,
+        "failed": 1
       }
     },
     "copy-button": {
@@ -1186,8 +1215,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 2,
-        "failed": 0
+        "compiled": 1,
+        "failed": 3
       }
     },
     "dashboard-overview": {
@@ -1255,7 +1284,7 @@
           "css": 651
         },
         "total": {
-          "js": 52882,
+          "js": 52883,
           "css": 3460
         }
       },
@@ -1273,8 +1302,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 2,
-        "failed": 0
+        "compiled": 1,
+        "failed": 2
       }
     },
     "date-picker": {
@@ -1284,7 +1313,7 @@
           "css": 180
         },
         "total": {
-          "js": 60454,
+          "js": 60455,
           "css": 3183
         }
       },
@@ -1302,8 +1331,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 4,
-        "failed": 0
+        "compiled": 2,
+        "failed": 6
       }
     },
     "dialog": {
@@ -1331,8 +1360,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 5,
-        "failed": 0
+        "compiled": 4,
+        "failed": 1
       }
     },
     "drawer": {
@@ -1389,8 +1418,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 10,
-        "failed": 0
+        "compiled": 8,
+        "failed": 2
       }
     },
     "dropzone": {
@@ -1418,8 +1447,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 5,
-        "failed": 0
+        "compiled": 4,
+        "failed": 2
       }
     },
     "editor": {
@@ -1447,8 +1476,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 4,
-        "failed": 0
+        "compiled": 3,
+        "failed": 5
       }
     },
     "editor-block-handle": {
@@ -1462,7 +1491,7 @@
           "css": 3708
         }
       },
-      "packages": 4,
+      "packages": 6,
       "shelfDependencies": 5,
       "stories": {
         "total": 7,
@@ -1491,7 +1520,7 @@
           "css": 3884
         }
       },
-      "packages": 6,
+      "packages": 7,
       "shelfDependencies": 9,
       "stories": {
         "total": 3,
@@ -1505,8 +1534,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 4,
-        "failed": 0
+        "compiled": 3,
+        "failed": 1
       }
     },
     "editor-link-popover": {
@@ -1534,8 +1563,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 1,
-        "failed": 0
+        "compiled": 0,
+        "failed": 2
       }
     },
     "editor-slash-menu": {
@@ -1549,7 +1578,7 @@
           "css": 2772
         }
       },
-      "packages": 4,
+      "packages": 5,
       "shelfDependencies": 3,
       "stories": {
         "total": 3,
@@ -1563,8 +1592,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 2,
-        "failed": 0
+        "compiled": 1,
+        "failed": 2
       }
     },
     "editor-suggestion": {
@@ -1592,8 +1621,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 1,
-        "failed": 0
+        "compiled": 0,
+        "failed": 2
       }
     },
     "empty": {
@@ -1621,8 +1650,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 6,
-        "failed": 0
+        "compiled": 5,
+        "failed": 1
       }
     },
     "field": {
@@ -1763,8 +1792,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 2,
-        "failed": 0
+        "compiled": 1,
+        "failed": 1
       }
     },
     "icons": {
@@ -1774,7 +1803,7 @@
           "css": 0
         },
         "total": {
-          "js": 7696,
+          "js": 7698,
           "css": 0
         }
       },
@@ -1890,7 +1919,7 @@
           "css": 720
         },
         "total": {
-          "js": 60731,
+          "js": 60732,
           "css": 4018
         }
       },
@@ -1937,8 +1966,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 8,
-        "failed": 0
+        "compiled": 6,
+        "failed": 3
       }
     },
     "kbd": {
@@ -1988,6 +2017,35 @@
         "interactive": 2
       },
       "storyId": "components-label--default",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 1,
+        "failed": 0
+      }
+    },
+    "list-detail-page": {
+      "size": {
+        "own": {
+          "js": 1266,
+          "css": 499
+        },
+        "total": {
+          "js": 27211,
+          "css": 3738
+        }
+      },
+      "packages": 1,
+      "shelfDependencies": 7,
+      "stories": {
+        "total": 3,
+        "interactive": 3
+      },
+      "storyId": "templates-list-detail-page--default",
       "providesContext": false,
       "renderTested": false,
       "doctor": {
@@ -2082,8 +2140,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 3,
-        "failed": 0
+        "compiled": 2,
+        "failed": 3
       }
     },
     "message": {
@@ -2097,7 +2155,7 @@
           "css": 3005
         }
       },
-      "packages": 2,
+      "packages": 1,
       "shelfDependencies": 6,
       "stories": {
         "total": 1,
@@ -2111,8 +2169,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 5,
-        "failed": 0
+        "compiled": 4,
+        "failed": 1
       }
     },
     "meter": {
@@ -2140,8 +2198,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 1,
-        "failed": 0
+        "compiled": 0,
+        "failed": 1
       }
     },
     "native-select": {
@@ -2169,8 +2227,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 3,
-        "failed": 0
+        "compiled": 2,
+        "failed": 1
       }
     },
     "navigation-menu": {
@@ -2296,7 +2354,7 @@
           "css": 183
         },
         "total": {
-          "js": 3963,
+          "js": 3966,
           "css": 2591
         }
       },
@@ -2314,8 +2372,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 7,
-        "failed": 0
+        "compiled": 6,
+        "failed": 1
       }
     },
     "plan": {
@@ -2343,8 +2401,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 2,
-        "failed": 0
+        "compiled": 1,
+        "failed": 1
       }
     },
     "popover": {
@@ -2372,8 +2430,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 4,
-        "failed": 0
+        "compiled": 3,
+        "failed": 1
       }
     },
     "progress": {
@@ -2401,8 +2459,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 1,
-        "failed": 0
+        "compiled": 0,
+        "failed": 1
       }
     },
     "radio-group": {
@@ -2459,8 +2517,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 1,
-        "failed": 0
+        "compiled": 0,
+        "failed": 4
       }
     },
     "reasoning": {
@@ -2488,8 +2546,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 3,
-        "failed": 0
+        "compiled": 2,
+        "failed": 1
       }
     },
     "resizable": {
@@ -2517,8 +2575,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 3,
-        "failed": 0
+        "compiled": 1,
+        "failed": 2
       }
     },
     "scroll-area": {
@@ -2575,8 +2633,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 6,
-        "failed": 0
+        "compiled": 5,
+        "failed": 1
       }
     },
     "separator": {
@@ -2597,6 +2655,35 @@
         "interactive": 2
       },
       "storyId": "components-separator--horizontal",
+      "providesContext": false,
+      "renderTested": false,
+      "doctor": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "compiler": {
+        "compiled": 1,
+        "failed": 0
+      }
+    },
+    "settings-page": {
+      "size": {
+        "own": {
+          "js": 1007,
+          "css": 471
+        },
+        "total": {
+          "js": 33786,
+          "css": 3657
+        }
+      },
+      "packages": 1,
+      "shelfDependencies": 6,
+      "stories": {
+        "total": 2,
+        "interactive": 2
+      },
+      "storyId": "templates-settings-page--default",
       "providesContext": false,
       "renderTested": false,
       "doctor": {
@@ -2691,8 +2778,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 14,
-        "failed": 0
+        "compiled": 11,
+        "failed": 4
       }
     },
     "sidebar-nested": {
@@ -2836,8 +2923,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 1,
-        "failed": 0
+        "compiled": 0,
+        "failed": 1
       }
     },
     "sparkline": {
@@ -2865,8 +2952,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 1,
-        "failed": 0
+        "compiled": 0,
+        "failed": 2
       }
     },
     "spinner": {
@@ -2923,8 +3010,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 4,
-        "failed": 0
+        "compiled": 3,
+        "failed": 1
       }
     },
     "stepper": {
@@ -2952,8 +3039,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 4,
-        "failed": 0
+        "compiled": 3,
+        "failed": 1
       }
     },
     "stream": {
@@ -2981,8 +3068,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 4,
-        "failed": 0
+        "compiled": 3,
+        "failed": 4
       }
     },
     "switch": {
@@ -3126,8 +3213,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 7,
-        "failed": 0
+        "compiled": 6,
+        "failed": 1
       }
     },
     "time-picker": {
@@ -3155,8 +3242,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 1,
-        "failed": 0
+        "compiled": 0,
+        "failed": 3
       }
     },
     "timeline": {
@@ -3242,8 +3329,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 1,
-        "failed": 0
+        "compiled": 0,
+        "failed": 2
       }
     },
     "toggle-group": {
@@ -3358,8 +3445,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 1,
-        "failed": 0
+        "compiled": 0,
+        "failed": 2
       }
     },
     "tree-view": {
@@ -3387,8 +3474,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 1,
-        "failed": 0
+        "compiled": 0,
+        "failed": 1
       }
     },
     "typography": {
@@ -3445,8 +3532,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 12,
-        "failed": 0
+        "compiled": 11,
+        "failed": 2
       }
     },
     "utils": {

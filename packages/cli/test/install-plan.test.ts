@@ -4,7 +4,9 @@ import type { RegistryItem } from "../src/core/registry";
 
 const paths = {
   components: "src/components/ui",
+  patterns: "src/components/patterns",
   blocks: "src/components/blocks",
+  templates: "src/components/templates",
   foundations: "src/styles/shelf",
   lib: "src/lib",
 };
@@ -66,7 +68,9 @@ describe("planFiles", () => {
     const planned = planFiles([tokens, button], {
       paths: {
         components: "app/ui/shelf/components",
+        patterns: "app/ui/shelf/patterns",
         blocks: "app/ui/shelf/blocks",
+        templates: "app/ui/shelf/templates",
         foundations: "app/theme",
         lib: "app/lib",
       },

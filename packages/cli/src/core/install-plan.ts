@@ -15,7 +15,9 @@ export interface PlannedFile {
 
 const TARGET_PATH: Record<ItemType, keyof ShelfConfig["paths"]> = {
   component: "components",
+  pattern: "patterns",
   block: "blocks",
+  template: "templates",
   foundation: "foundations",
   lib: "lib",
 };

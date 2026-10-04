@@ -2,10 +2,13 @@
   "name": "chart-scatter",
   "type": "component",
   "description": "A scatter chart for how two measures relate, with optional dot size for a third.",
-  "files": [{ "path": "chart-scatter.tsx" }],
+  "files": [
+    {
+      "path": "chart-scatter.tsx"
+    }
+  ],
   "dependencies": {
-    "@stylexjs/stylex": "^0.19.1",
-    "recharts": "3.10.1"
+    "recharts": "^3.10.1"
   },
-  "shelfDependencies": ["chart", "foundations"]
+  "shelfDependencies": ["chart"]
 }

@@ -1,6 +1,8 @@
 export interface BlockCategory {
   slug: string;
   title: string;
+  /** The page title, when "<title> blocks" doesn't fit. */
+  pageTitle?: string;
 }
 
 export const blockCategories: BlockCategory[] = [
@@ -11,6 +13,8 @@ export const blockCategories: BlockCategory[] = [
   { slug: "settings", title: "Settings" },
   { slug: "tables", title: "Tables" },
   { slug: "chat", title: "Chat" },
+  { slug: "patterns", title: "Patterns", pageTitle: "Patterns" },
+  { slug: "templates", title: "Templates", pageTitle: "Templates" },
 ];
 
 export interface BlockDoc {
@@ -135,4 +139,38 @@ export const blocks: BlockDoc[] = [
     featured: true,
     height: 720,
   },
+  {
+    name: "confirm-dialog",
+    title: "Confirm Dialog",
+    description:
+      "Asks before an action that is hard to undo, shows a pending state while it runs, and keeps the dialog open with the error if it fails.",
+    categories: ["patterns"],
+    height: 320,
+    centered: true,
+  },
+  {
+    name: "settings-page",
+    title: "Settings Page",
+    description:
+      "A settings page with a profile section and a danger zone that confirms before deleting the account.",
+    categories: ["templates", "settings"],
+    height: 900,
+    fill: true,
+  },
+  {
+    name: "list-detail-page",
+    title: "List Detail Page",
+    description:
+      "A list beside the selected record's details, with a confirmed delete and an empty state.",
+    categories: ["templates"],
+    height: 640,
+    fill: true,
+  },
 ];
+
+const levels = ["patterns", "templates"];
+
+/** The entries that are blocks proper, not patterns or templates. */
+export const pageBlocks = blocks.filter(
+  (block) => !block.categories.some((c) => levels.includes(c)),
+);

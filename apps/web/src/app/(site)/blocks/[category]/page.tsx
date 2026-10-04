@@ -20,10 +20,10 @@ export async function generateMetadata({
     .filter((block) => block.categories.includes(category))
     .map((block) => block.title);
   return {
-    title: match ? `${match.title} blocks` : "Blocks",
+    title: match ? (match.pageTitle ?? `${match.title} blocks`) : "Blocks",
     description:
       match && names.length > 0
-        ? `${match.title} blocks for React, installed as source with one command: ${names.join(", ")}.`
+        ? `${match.pageTitle ?? `${match.title} blocks`} for React, installed as source with one command: ${names.join(", ")}.`
         : undefined,
     alternates: { canonical: `/blocks/${category}` },
   };

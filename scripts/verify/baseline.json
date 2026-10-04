@@ -54,7 +54,7 @@
     },
     "calendar": {
       "own": 2607,
-      "total": 29725
+      "total": 29727
     },
     "card": {
       "own": 1119,
@@ -62,7 +62,7 @@
     },
     "carousel": {
       "own": 1948,
-      "total": 17895
+      "total": 17896
     },
     "chart": {
       "own": 4024,
@@ -156,6 +156,10 @@
       "own": 5602,
       "total": 129856
     },
+    "confirm-dialog": {
+      "own": 723,
+      "total": 28438
+    },
     "context-menu": {
       "own": 544,
       "total": 51663
@@ -174,11 +178,11 @@
     },
     "data-table": {
       "own": 2688,
-      "total": 56342
+      "total": 56343
     },
     "date-picker": {
       "own": 1299,
-      "total": 63637
+      "total": 63638
     },
     "dialog": {
       "own": 2092,
@@ -246,7 +250,7 @@
     },
     "icons": {
       "own": 1473,
-      "total": 7696
+      "total": 7698
     },
     "input": {
       "own": 1305,
@@ -262,7 +266,7 @@
     },
     "invoices-table": {
       "own": 3214,
-      "total": 64749
+      "total": 64750
     },
     "item": {
       "own": 2376,
@@ -275,6 +279,10 @@
     "label": {
       "own": 617,
       "total": 2342
+    },
+    "list-detail-page": {
+      "own": 1765,
+      "total": 30949
     },
     "login-form": {
       "own": 1608,
@@ -318,7 +326,7 @@
     },
     "pagination": {
       "own": 992,
-      "total": 6554
+      "total": 6557
     },
     "plan": {
       "own": 1523,
@@ -359,6 +367,10 @@
     "separator": {
       "own": 557,
       "total": 4023
+    },
+    "settings-page": {
+      "own": 1478,
+      "total": 37443
     },
     "settings-section": {
       "own": 1773,

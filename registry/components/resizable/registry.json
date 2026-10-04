@@ -9,7 +9,7 @@
   ],
   "dependencies": {
     "@stylexjs/stylex": "^0.19.1",
-    "react-resizable-panels": "^4.14.1"
+    "react-resizable-panels": "^4.14.2"
   },
   "shelfDependencies": ["foundations", "icons", "utils"]
 }

@@ -41,9 +41,17 @@
           "type": "string",
           "default": "src/components/ui"
         },
+        "patterns": {
+          "type": "string",
+          "default": "src/components/patterns"
+        },
         "blocks": {
           "type": "string",
           "default": "src/components/blocks"
+        },
+        "templates": {
+          "type": "string",
+          "default": "src/components/templates"
         },
         "foundations": {
           "type": "string",

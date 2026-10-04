@@ -15,7 +15,9 @@ describe("readConfig", () => {
     const config = await configFrom({ registry: "../registry" });
     expect(config.paths).toEqual({
       components: "src/components/ui",
+      patterns: "src/components/patterns",
       blocks: "src/components/blocks",
+      templates: "src/components/templates",
       foundations: "src/styles/shelf",
       lib: "src/lib/shelf",
     });
@@ -28,6 +30,8 @@ describe("readConfig", () => {
       paths: { components: "app/ui", foundations: "app/theme", lib: "app/lib" },
     });
     expect(config.paths.blocks).toBe("src/components/blocks");
+    expect(config.paths.patterns).toBe("src/components/patterns");
+    expect(config.paths.templates).toBe("src/components/templates");
   });
 
   test("normalizes alias directories", async () => {

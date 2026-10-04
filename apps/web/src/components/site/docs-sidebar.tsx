@@ -90,13 +90,20 @@ const styles = stylex.create({
     margin: 0,
   },
   list: {
-    gap: 1,
+    borderInlineStartColor: colors.border,
+    borderInlineStartStyle: "solid",
+    borderInlineStartWidth: 1,
     display: "grid",
     listStyle: "none",
     margin: 0,
     padding: 0,
   },
   link: {
+    borderInlineStartColor: "transparent",
+    borderInlineStartStyle: "solid",
+    borderInlineStartWidth: 1,
+    marginInlineStart: -1,
+    paddingInlineStart: spacing["3"],
     color: {
       default: colors.mutedForeground,
       [media.hover]: { default: null, ":hover": colors.foreground },
@@ -107,9 +114,10 @@ const styles = stylex.create({
     paddingBlock: spacing["1"],
     textDecoration: "none",
     transitionDuration: motion.durationFast,
-    transitionProperty: "color",
+    transitionProperty: "color, border-color",
   },
   active: {
+    borderInlineStartColor: colors.foreground,
     color: colors.foreground,
   },
 });

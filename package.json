@@ -8,7 +8,7 @@
   "type": "module",
   "scripts": {
     "postinstall": "bun run --cwd packages/cli build",
-    "check": "bun run typecheck && bun run lint && bun run format:check && bun run doctor && bun run verify --check && bun run test && bun run test:perf && bun run test:storybook",
+    "check": "bun run typecheck && bun run lint && bun run format:check && bun run deps && bun run doctor && bun run verify --check && bun run test && bun run test:perf && bun run test:storybook",
     "typecheck": "tsc --noEmit",
     "lint": "oxlint --type-aware --deny-warnings --disable-nested-config",
     "lint:fix": "oxlint --type-aware --disable-nested-config --fix",
@@ -27,7 +27,8 @@
     "release:version": "changeset version && bun install",
     "doctor": "react-doctor registry --no-telemetry --no-supply-chain --blocking warning",
     "test:perf": "vitest run --project perf",
-    "verify": "bun scripts/verify/index.ts"
+    "verify": "bun scripts/verify/index.ts",
+    "deps": "bun scripts/deps.ts"
   },
   "dependencies": {
     "@base-ui/react": "1.8.0",
@@ -62,7 +63,7 @@
     "d3-scale": "^4.0.2",
     "d3-shape": "^3.2.0",
     "embla-carousel-react": "^8.6.0",
-    "lucide-react": "1.51.0",
+    "lucide-react": "1.52.0",
     "marked": "^18.0.14",
     "react": "19.3.0",
     "react-day-picker": "^10.0.2",
@@ -74,9 +75,9 @@
     "shiki": "^4.5.0"
   },
   "devDependencies": {
-    "@babel/core": "7.29.7",
-    "@babel/plugin-syntax-jsx": "7.29.7",
-    "@babel/preset-typescript": "7.29.7",
+    "@babel/core": "8.0.6",
+    "@babel/plugin-syntax-jsx": "8.0.1",
+    "@babel/preset-typescript": "8.0.1",
     "@changesets/cli": "3.0.3",
     "@figma/plugin-typings": "1.140.0",
     "@storybook/addon-a11y": "10.6.1",

@@ -1,0 +1,21 @@
+{
+  "name": "settings-page",
+  "type": "template",
+  "description": "A settings page: a profile section and a danger zone that confirms before deleting the account. Start from it and add the sections your product has.",
+  "files": [
+    {
+      "path": "settings-page.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": [
+    "button",
+    "card",
+    "confirm-dialog",
+    "foundations",
+    "separator",
+    "settings-section"
+  ]
+}

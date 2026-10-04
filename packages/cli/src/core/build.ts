@@ -250,7 +250,7 @@ function llmsTxt(index: IndexEntry[], topics: DocsTopic[]): string {
   const lines = [
     "# Shelf Registry",
     "",
-    "> React components and blocks built on Base UI and StyleX. Installing an item copies normal source into your project, which then owns it.",
+    "> React components, patterns, blocks, and templates built on Base UI and StyleX. Installing an item copies normal source into your project, which then owns it.",
     "",
     "Install the CLI once per project (`bun add -d @shelfui/cli`); its command is `shelf`. Then install from this registry with the URL of this directory:",
     "",
@@ -268,7 +268,8 @@ function llmsTxt(index: IndexEntry[], topics: DocsTopic[]): string {
   for (const type of types) {
     lines.push("", `## ${type}`, "");
     for (const entry of index.filter((item) => item.type === type)) {
-      lines.push(`- [${entry.name}](${entry.path}/registry.json): ${entry.description}`);
+      const use = entry.useWhen === undefined ? "" : ` Use when: ${entry.useWhen}`;
+      lines.push(`- [${entry.name}](${entry.path}/registry.json): ${entry.description}${use}`);
     }
   }
   return `${lines.join("\n")}\n`;

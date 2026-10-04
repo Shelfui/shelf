@@ -279,7 +279,7 @@
     "calendar": {
       "dependencies": {
         "@stylexjs/stylex": "^0.19.1",
-        "react-day-picker": "^10.0.1"
+        "react-day-picker": "^10.0.2"
       },
       "files": {
         "src/components/ui/calendar.tsx": {
@@ -287,10 +287,10 @@
           "source": "calendar.tsx"
         }
       },
-      "installedAt": "2026-09-28T00:24:30.642Z",
+      "installedAt": "2026-10-04T14:06:57.869Z",
       "path": "components/calendar",
       "registry": "../../registry",
-      "revision": "770e0e50fb8aade70eabdfd42caa0fa0f4a3325a5e4bb5048a21fa391bd24db4",
+      "revision": "224d7ca25931c670a04d8ba00e4881c34b4b6ef878b89af082711ff13431dd87",
       "shelfDependencies": [
         "button",
         "foundations",
@@ -345,7 +345,7 @@
     "chart": {
       "dependencies": {
         "@stylexjs/stylex": "^0.19.1",
-        "recharts": "3.10.1"
+        "recharts": "^3.10.1"
       },
       "files": {
         "src/components/ui/chart-format.ts": {
@@ -357,10 +357,10 @@
           "source": "chart.tsx"
         }
       },
-      "installedAt": "2026-10-03T22:34:20.866Z",
+      "installedAt": "2026-10-04T14:06:57.869Z",
       "path": "components/chart",
       "registry": "../../registry",
-      "revision": "c092674b8c0aa250ba93861dc667d35fcf0c1a2074ef9293bf6267a3ec0c51fc",
+      "revision": "41a55502d6de9ef4d098d13b4122a2171319287fea8184940a82194360b45d34",
       "shelfDependencies": [
         "foundations",
         "utils"
@@ -369,8 +369,7 @@
     },
     "chart-area": {
       "dependencies": {
-        "@stylexjs/stylex": "^0.19.1",
-        "recharts": "3.10.1"
+        "recharts": "^3.10.1"
       },
       "files": {
         "src/components/ui/chart-area.tsx": {
@@ -378,20 +377,18 @@
           "source": "chart-area.tsx"
         }
       },
-      "installedAt": "2026-10-03T10:46:15.262Z",
+      "installedAt": "2026-10-04T14:06:57.869Z",
       "path": "components/chart-area",
       "registry": "../../registry",
-      "revision": "a3cb8cf9a724ce1c3433c91c36a7f393b07f0ffbb89595ebbd45eb21b66b5bef",
+      "revision": "03bcce4a0d52f75215c29227961f0e3d1d6e8d27b7588f052fcc172b892fca8c",
       "shelfDependencies": [
-        "chart",
-        "foundations"
+        "chart"
       ],
       "type": "component"
     },
     "chart-bar": {
       "dependencies": {
-        "@stylexjs/stylex": "^0.19.1",
-        "recharts": "3.10.1"
+        "recharts": "^3.10.1"
       },
       "files": {
         "src/components/ui/chart-bar.tsx": {
@@ -399,13 +396,12 @@
           "source": "chart-bar.tsx"
         }
       },
-      "installedAt": "2026-10-03T10:46:15.262Z",
+      "installedAt": "2026-10-04T14:06:57.869Z",
       "path": "components/chart-bar",
       "registry": "../../registry",
-      "revision": "f75814420488feb70dd4c9435870f01930562b21b426fe7b234f2165e89f70d8",
+      "revision": "391907e4c2e71e38ddccffb31d07075fc018dc1fc0bc8932bf2ef81d4112bd72",
       "shelfDependencies": [
-        "chart",
-        "foundations"
+        "chart"
       ],
       "type": "component"
     },
@@ -437,7 +433,7 @@
     "chart-funnel": {
       "dependencies": {
         "@stylexjs/stylex": "^0.19.1",
-        "recharts": "3.10.1"
+        "recharts": "^3.10.1"
       },
       "files": {
         "src/components/ui/chart-funnel.tsx": {
@@ -445,10 +441,10 @@
           "source": "chart-funnel.tsx"
         }
       },
-      "installedAt": "2026-10-03T22:34:20.866Z",
+      "installedAt": "2026-10-04T14:06:57.869Z",
       "path": "components/chart-funnel",
       "registry": "../../registry",
-      "revision": "47f1eb352ee373ab1c9976ed4359ebcf0cc37163617c9a9948c1804bb5afbad2",
+      "revision": "61d9fc68345b86fa4f8a6bd5448bd2a4611d36e50f9a29a5cae09b4c745a7b46",
       "shelfDependencies": [
         "chart",
         "foundations"
@@ -482,8 +478,7 @@
     },
     "chart-line": {
       "dependencies": {
-        "@stylexjs/stylex": "^0.19.1",
-        "recharts": "3.10.1"
+        "recharts": "^3.10.1"
       },
       "files": {
         "src/components/ui/chart-line.tsx": {
@@ -491,20 +486,19 @@
           "source": "chart-line.tsx"
         }
       },
-      "installedAt": "2026-10-03T10:53:59.618Z",
+      "installedAt": "2026-10-04T14:06:57.869Z",
       "path": "components/chart-line",
       "registry": "../../registry",
-      "revision": "5607ae08e745cc6722c6aeefdaade4c42c3ef17604aced74f479146c075668f3",
+      "revision": "fcec78a15b4b64446d4673c73ed723e718ba5f53a1feb960f996b4d73a9aa6ad",
       "shelfDependencies": [
-        "chart",
-        "foundations"
+        "chart"
       ],
       "type": "component"
     },
     "chart-pie": {
       "dependencies": {
         "@stylexjs/stylex": "^0.19.1",
-        "recharts": "3.10.1"
+        "recharts": "^3.10.1"
       },
       "files": {
         "src/components/ui/chart-pie.tsx": {
@@ -512,10 +506,10 @@
           "source": "chart-pie.tsx"
         }
       },
-      "installedAt": "2026-10-03T22:34:20.866Z",
+      "installedAt": "2026-10-04T14:06:57.869Z",
       "path": "components/chart-pie",
       "registry": "../../registry",
-      "revision": "2d7719acd26e6c207d10a12ad61459174f438bcded333f57aa465fb0552456dd",
+      "revision": "a77f3e6bbb258bfba767adab6d64dbb6208f657683f21bcedf33de512b9651f7",
       "shelfDependencies": [
         "chart",
         "foundations"
@@ -524,8 +518,7 @@
     },
     "chart-radar": {
       "dependencies": {
-        "@stylexjs/stylex": "^0.19.1",
-        "recharts": "3.10.1"
+        "recharts": "^3.10.1"
       },
       "files": {
         "src/components/ui/chart-radar.tsx": {
@@ -533,10 +526,10 @@
           "source": "chart-radar.tsx"
         }
       },
-      "installedAt": "2026-10-03T10:53:59.618Z",
+      "installedAt": "2026-10-04T14:06:57.869Z",
       "path": "components/chart-radar",
       "registry": "../../registry",
-      "revision": "31bcc4e4685fed1fee1b0bae5d536b3a29c01ca8d76dbbce6dfe5bff0c1638e8",
+      "revision": "0b4afd8453aaa70e41eb062ffd1644f4976aa2198ded17b53726a1507bc4acec",
       "shelfDependencies": [
         "chart",
         "foundations"
@@ -545,8 +538,7 @@
     },
     "chart-radial": {
       "dependencies": {
-        "@stylexjs/stylex": "^0.19.1",
-        "recharts": "3.10.1"
+        "recharts": "^3.10.1"
       },
       "files": {
         "src/components/ui/chart-radial.tsx": {
@@ -554,10 +546,10 @@
           "source": "chart-radial.tsx"
         }
       },
-      "installedAt": "2026-10-03T22:34:20.866Z",
+      "installedAt": "2026-10-04T14:06:57.869Z",
       "path": "components/chart-radial",
       "registry": "../../registry",
-      "revision": "60408e42bb53414072666209de901a17f915649d223c7d5665013c9bee1217b5",
+      "revision": "fcffad79cfdce933cd5b960135667754924bfdd9f07550f8601f616af4911f28",
       "shelfDependencies": [
         "chart",
         "foundations"
@@ -566,8 +558,7 @@
     },
     "chart-sankey": {
       "dependencies": {
-        "@stylexjs/stylex": "^0.19.1",
-        "recharts": "3.10.1"
+        "recharts": "^3.10.1"
       },
       "files": {
         "src/components/ui/chart-sankey.tsx": {
@@ -575,10 +566,10 @@
           "source": "chart-sankey.tsx"
         }
       },
-      "installedAt": "2026-10-03T10:27:52.292Z",
+      "installedAt": "2026-10-04T14:06:57.869Z",
       "path": "components/chart-sankey",
       "registry": "../../registry",
-      "revision": "4d65113f47eae1460ecd00e8fc7fbcbfce9f7d58e2420c601191612b079bc5fd",
+      "revision": "89bdf75b356399a6bdb8c8e1d270e3fc7d04899973eee0856dfdcaa43336e921",
       "shelfDependencies": [
         "chart",
         "foundations"
@@ -587,8 +578,7 @@
     },
     "chart-scatter": {
       "dependencies": {
-        "@stylexjs/stylex": "^0.19.1",
-        "recharts": "3.10.1"
+        "recharts": "^3.10.1"
       },
       "files": {
         "src/components/ui/chart-scatter.tsx": {
@@ -596,20 +586,19 @@
           "source": "chart-scatter.tsx"
         }
       },
-      "installedAt": "2026-10-03T10:27:52.292Z",
+      "installedAt": "2026-10-04T14:06:57.869Z",
       "path": "components/chart-scatter",
       "registry": "../../registry",
-      "revision": "36610ac4a322620b537b55cffdbf2e402d3bff010af46720660bb14724f4afad",
+      "revision": "a43b0599477639554a61f41f6208f56660aeb7efeec36ce3f413b30c5f773624",
       "shelfDependencies": [
-        "chart",
-        "foundations"
+        "chart"
       ],
       "type": "component"
     },
     "chart-treemap": {
       "dependencies": {
         "@stylexjs/stylex": "^0.19.1",
-        "recharts": "3.10.1"
+        "recharts": "^3.10.1"
       },
       "files": {
         "src/components/ui/chart-treemap.tsx": {
@@ -617,10 +606,10 @@
           "source": "chart-treemap.tsx"
         }
       },
-      "installedAt": "2026-10-03T10:27:52.292Z",
+      "installedAt": "2026-10-04T14:06:57.869Z",
       "path": "components/chart-treemap",
       "registry": "../../registry",
-      "revision": "eca5f6abcd73d2eab2bcbf15659320e4a127ffa2c367ce313e4c8461ca2a1bc9",
+      "revision": "dc2c650400b11e4138ff517267d1bf810814a145166afaa4b6e5f99fdf533ce7",
       "shelfDependencies": [
         "chart",
         "foundations"
@@ -738,15 +727,13 @@
           "source": "code-block.tsx"
         }
       },
-      "installedAt": "2026-10-03T22:34:20.866Z",
+      "installedAt": "2026-10-04T14:06:57.869Z",
       "path": "components/code-block",
       "registry": "../../registry",
-      "revision": "c4c498c9df7710c8d321b1e0972e1c54a808c884d081f5fc978aa0fbc621171c",
+      "revision": "8b81df3d599bcf298329e6cc678c77bd2c11620ccf71e9c3de989fa768007b16",
       "shelfDependencies": [
-        "button",
         "copy-button",
         "foundations",
-        "icons",
         "utils"
       ],
       "type": "component"
@@ -883,6 +870,26 @@
       ],
       "type": "component"
     },
+    "confirm-dialog": {
+      "dependencies": {},
+      "files": {
+        "src/components/patterns/confirm-dialog.tsx": {
+          "baseHash": "46a7da83b4bdbeb9035d4d1897428a8c70255d3f84c479afb03a3e7cee155db7",
+          "source": "confirm-dialog.tsx"
+        }
+      },
+      "installedAt": "2026-10-04T14:10:37.279Z",
+      "path": "patterns/confirm-dialog",
+      "registry": "../../registry",
+      "revision": "93c21daf7db27be924a4b77ea42554a81e1c288c47cef5eca29c1eb5ac7c96d7",
+      "shelfDependencies": [
+        "alert",
+        "alert-dialog",
+        "button",
+        "spinner"
+      ],
+      "type": "pattern"
+    },
     "context-menu": {
       "dependencies": {
         "@base-ui/react": "^1.8.0",
@@ -1004,7 +1011,7 @@
     "date-picker": {
       "dependencies": {
         "@stylexjs/stylex": "^0.19.1",
-        "react-day-picker": "^10.0.1"
+        "react-day-picker": "^10.0.2"
       },
       "files": {
         "src/components/ui/date-picker.tsx": {
@@ -1012,10 +1019,10 @@
           "source": "date-picker.tsx"
         }
       },
-      "installedAt": "2026-09-28T00:20:35.771Z",
+      "installedAt": "2026-10-04T14:06:57.869Z",
       "path": "components/date-picker",
       "registry": "../../registry",
-      "revision": "2c526380f45bfa8c6961e2f9d4d3c3de1420af1bc7dab3fe226854c203445e7e",
+      "revision": "312a52662562a7e3cb3b2b825214c1f137e077318fba93942ccac1cd5d1be692",
       "shelfDependencies": [
         "button",
         "calendar",
@@ -1155,9 +1162,11 @@
     "editor-block-handle": {
       "dependencies": {
         "@stylexjs/stylex": "^0.19.1",
+        "@tiptap/core": "^3.31.4",
         "@tiptap/extension-drag-handle": "^3.31.4",
         "@tiptap/extension-drag-handle-react": "^3.31.4",
-        "@tiptap/pm": "^3.31.4"
+        "@tiptap/pm": "^3.31.4",
+        "@tiptap/react": "^3.31.4"
       },
       "files": {
         "src/components/ui/editor-block-handle.tsx": {
@@ -1165,10 +1174,10 @@
           "source": "editor-block-handle.tsx"
         }
       },
-      "installedAt": "2026-10-04T09:40:15.712Z",
+      "installedAt": "2026-10-04T14:06:57.869Z",
       "path": "components/editor-block-handle",
       "registry": "../../registry",
-      "revision": "41efb0a849043918a021024f71767636c4ec9568dbf6da08080fefe985218153",
+      "revision": "80def93d9f97c3412f4ef217ce30d7dabdc20edc5a75a9d9c38b927d71bf0fb9",
       "shelfDependencies": [
         "button",
         "dropdown-menu",
@@ -1185,6 +1194,7 @@
         "@tiptap/core": "^3.31.4",
         "@tiptap/extension-bubble-menu": "^3.31.4",
         "@tiptap/extension-floating-menu": "^3.31.4",
+        "@tiptap/pm": "^3.31.4",
         "@tiptap/react": "^3.31.4"
       },
       "files": {
@@ -1193,10 +1203,10 @@
           "source": "editor-bubble-menu.tsx"
         }
       },
-      "installedAt": "2026-10-04T09:31:51.408Z",
+      "installedAt": "2026-10-04T14:06:57.869Z",
       "path": "components/editor-bubble-menu",
       "registry": "../../registry",
-      "revision": "6d9d74ef1bcef42f4a2e6def761c9a8b739c72431583e7be805ad679feb3a265",
+      "revision": "6fc3a83929896c22306bfb8447dfa367a1e9e6c75891c5c15e52c334dd5d679b",
       "shelfDependencies": [
         "button",
         "dropdown-menu",
@@ -1240,6 +1250,7 @@
       "dependencies": {
         "@floating-ui/dom": "^1.8.0",
         "@stylexjs/stylex": "^0.19.1",
+        "@tiptap/core": "^3.31.4",
         "@tiptap/pm": "^3.31.4",
         "@tiptap/suggestion": "^3.31.4"
       },
@@ -1249,10 +1260,10 @@
           "source": "editor-slash-menu.tsx"
         }
       },
-      "installedAt": "2026-10-04T09:31:51.408Z",
+      "installedAt": "2026-10-04T14:06:57.869Z",
       "path": "components/editor-slash-menu",
       "registry": "../../registry",
-      "revision": "a70c148518561c7f286c6393b30e1c1a1882dc047485f77b6f8c125867a6a57e",
+      "revision": "343e16f2cbf86447bcd5eaef86446f96c9c085f17cc3a1364b2056f1a20d2ad3",
       "shelfDependencies": [
         "editor",
         "foundations",
@@ -1421,7 +1432,7 @@
     },
     "icons": {
       "dependencies": {
-        "lucide-react": "^1.47.0"
+        "lucide-react": "^1.52.0"
       },
       "files": {
         "src/components/ui/icons.tsx": {
@@ -1429,10 +1440,10 @@
           "source": "icons.tsx"
         }
       },
-      "installedAt": "2026-10-03T23:15:41.722Z",
+      "installedAt": "2026-10-04T14:10:40.991Z",
       "path": "components/icons",
       "registry": "../../registry",
-      "revision": "a71bf7e14a8bba3f2eeea38e41b3e49ce1e0624399926e3aea58ed530e8516cb",
+      "revision": "d21157f8ec040f685290917af411043236e07bbc19bc0cc24ea2d595c95ef3e0",
       "shelfDependencies": [],
       "type": "component"
     },
@@ -1588,6 +1599,31 @@
       ],
       "type": "component"
     },
+    "list-detail-page": {
+      "dependencies": {
+        "@stylexjs/stylex": "^0.19.1"
+      },
+      "files": {
+        "src/components/templates/list-detail-page.tsx": {
+          "baseHash": "6c0127d422485030c2622be1be9cbf7ab026edbbd80a517b88ea81aba3ecbcff",
+          "source": "list-detail-page.tsx"
+        }
+      },
+      "installedAt": "2026-10-04T14:10:37.279Z",
+      "path": "templates/list-detail-page",
+      "registry": "../../registry",
+      "revision": "3754ec09728514df8d9fe14382f511c631fdf63b7c196dbd35c4fa848f0b26a0",
+      "shelfDependencies": [
+        "badge",
+        "button",
+        "card",
+        "confirm-dialog",
+        "empty",
+        "foundations",
+        "item"
+      ],
+      "type": "template"
+    },
     "login-form": {
       "dependencies": {
         "@stylexjs/stylex": "^0.19.1"
@@ -1658,7 +1694,6 @@
     },
     "message": {
       "dependencies": {
-        "@base-ui/react": "^1.8.0",
         "@stylexjs/stylex": "^0.19.1"
       },
       "files": {
@@ -1671,10 +1706,10 @@
           "source": "message.tsx"
         }
       },
-      "installedAt": "2026-10-03T23:15:41.722Z",
+      "installedAt": "2026-10-04T14:06:57.869Z",
       "path": "components/message",
       "registry": "../../registry",
-      "revision": "189bfa76db8f816bbf6c2d1f062505ccea585c5f303816ae072d4962f9afd872",
+      "revision": "36781ee7415403f2da3801eefeae567a1e36d21bf4ab61f5c5cd709420ce9067",
       "shelfDependencies": [
         "button",
         "copy-button",
@@ -1968,7 +2003,7 @@
     "resizable": {
       "dependencies": {
         "@stylexjs/stylex": "^0.19.1",
-        "react-resizable-panels": "^4.14.1"
+        "react-resizable-panels": "^4.14.2"
       },
       "files": {
         "src/components/ui/resizable.tsx": {
@@ -1976,10 +2011,10 @@
           "source": "resizable.tsx"
         }
       },
-      "installedAt": "2026-09-28T00:20:35.771Z",
+      "installedAt": "2026-10-04T14:06:57.869Z",
       "path": "components/resizable",
       "registry": "../../registry",
-      "revision": "d99b8061e1193ad11e0dd9ed4ee028193db576bde4ac07d5a68b619381bbc6a5",
+      "revision": "51afb5fdb0434c14d8a86faeff431b113356ddf1e08c52fb415a3f1504d294fd",
       "shelfDependencies": [
         "foundations",
         "icons",
@@ -2050,6 +2085,30 @@
         "utils"
       ],
       "type": "component"
+    },
+    "settings-page": {
+      "dependencies": {
+        "@stylexjs/stylex": "^0.19.1"
+      },
+      "files": {
+        "src/components/templates/settings-page.tsx": {
+          "baseHash": "9cbd168c2c3ca9b11e50eceed4727e3de9573f239f3f99ca0c7a934865b441f2",
+          "source": "settings-page.tsx"
+        }
+      },
+      "installedAt": "2026-10-04T14:11:19.669Z",
+      "path": "templates/settings-page",
+      "registry": "../../registry",
+      "revision": "755329a56942d104390fcaa1c71efce26f7c4d6d1f746eba0f966257fca1f79a",
+      "shelfDependencies": [
+        "button",
+        "card",
+        "confirm-dialog",
+        "foundations",
+        "separator",
+        "settings-section"
+      ],
+      "type": "template"
     },
     "settings-section": {
       "dependencies": {
@@ -2243,7 +2302,7 @@
     "sparkline": {
       "dependencies": {
         "@stylexjs/stylex": "^0.19.1",
-        "recharts": "3.10.1"
+        "recharts": "^3.10.1"
       },
       "files": {
         "src/components/ui/sparkline.tsx": {
@@ -2251,10 +2310,10 @@
           "source": "sparkline.tsx"
         }
       },
-      "installedAt": "2026-10-03T10:27:52.292Z",
+      "installedAt": "2026-10-04T14:06:57.869Z",
       "path": "components/sparkline",
       "registry": "../../registry",
-      "revision": "98b7b5ab1600fa2a4026f89412f3e5cab4537a3c73726585f9c7dfca1012a976",
+      "revision": "74c18e0122a993ed350b9bbe32554b06d3f20ef385e8180eb392e345bd1573c7",
       "shelfDependencies": [
         "chart",
         "utils"

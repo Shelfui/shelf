@@ -4,721 +4,1135 @@
       "name": "accordion",
       "type": "component",
       "description": "Stacked sections that expand one at a time, or several at once.",
-      "path": "components/accordion"
+      "path": "components/accordion",
+      "keywords": ["collapsible", "faq", "expand"],
+      "useWhen": "Several related sections where people usually need one or two at a time, such as FAQs or settings groups.",
+      "avoidWhen": "The content is short enough to show at once, or people need to compare sections side by side."
     },
     {
       "name": "alert",
       "type": "component",
       "description": "A message that stays on the page, with an optional icon.",
-      "path": "components/alert"
+      "path": "components/alert",
+      "keywords": ["banner", "callout", "warning", "notice"],
+      "useWhen": "A message about the page or task that should stay visible, such as a warning or a status.",
+      "avoidWhen": "The message is a response to an action and can go away on its own; use Toast.",
+      "related": ["toast"]
     },
     {
       "name": "alert-dialog",
       "type": "component",
       "description": "A modal that asks the user to confirm or cancel; clicking outside does not dismiss it.",
-      "path": "components/alert-dialog"
+      "path": "components/alert-dialog",
+      "keywords": [
+        "confirm",
+        "confirmation",
+        "delete",
+        "destructive",
+        "modal",
+        "prompt",
+        "are you sure"
+      ],
+      "useWhen": "An action needs an explicit confirm or cancel, such as deleting something.",
+      "avoidWhen": "The action is easy to undo; do it, and offer undo instead of asking.",
+      "related": ["confirm-dialog", "dialog"]
     },
     {
       "name": "analytics-dashboard",
       "type": "block",
       "description": "An analytics page with headline figures and sparklines, revenue over time, orders by channel, and a heatmap of when customers buy.",
-      "path": "blocks/analytics-dashboard"
+      "path": "blocks/analytics-dashboard",
+      "keywords": ["reports", "metrics", "charts", "heatmap"],
+      "useWhen": "A page of headline figures and charts that people scan for trends.",
+      "avoidWhen": "The page is one chart or one figure; use Chart Card."
     },
     {
       "name": "approval",
       "type": "component",
       "description": "Approve or deny a tool call before it runs.",
-      "path": "components/approval"
+      "path": "components/approval",
+      "useWhen": "Asking the person to allow a tool or action before the agent runs it.",
+      "avoidWhen": "Confirming ordinary form actions; use Alert Dialog."
     },
     {
       "name": "aspect-ratio",
       "type": "component",
       "description": "A box that keeps a width-to-height ratio, filled by its content.",
-      "path": "components/aspect-ratio"
+      "path": "components/aspect-ratio",
+      "useWhen": "Images, video, maps, or embeds that must keep their shape as the layout resizes.",
+      "avoidWhen": "The content has its own intrinsic size, such as an img with width and height set."
     },
     {
       "name": "attachment",
       "type": "component",
       "description": "A file chip with a thumbnail or icon and a remove button.",
-      "path": "components/attachment"
+      "path": "components/attachment",
+      "useWhen": "Showing a file the person is sending or has sent.",
+      "avoidWhen": "A drop target; use Dropzone.",
+      "related": ["dropzone"]
     },
     {
       "name": "autocomplete",
       "type": "component",
       "description": "A text input with suggestions; the value is whatever the user types.",
-      "path": "components/autocomplete"
+      "path": "components/autocomplete",
+      "keywords": ["typeahead", "suggestions", "search as you type"],
+      "useWhen": "People type free text and suggestions help, such as a search box or a tag input.",
+      "avoidWhen": "The value must be one of a fixed list; use Combobox or Select.",
+      "related": ["combobox", "command"]
     },
     {
       "name": "avatar",
       "type": "component",
       "description": "A person's picture, with initials while it loads or if it fails. Includes a status badge and overlapping groups.",
-      "path": "components/avatar"
+      "path": "components/avatar",
+      "keywords": ["profile picture", "user image", "initials"],
+      "useWhen": "Showing who a person or account is, in lists, comments, or headers.",
+      "avoidWhen": "Representing things that aren't people or accounts; use an icon."
     },
     {
       "name": "badge",
       "type": "component",
       "description": "A short status or count label.",
-      "path": "components/badge"
+      "path": "components/badge",
+      "keywords": ["tag", "chip", "status", "pill", "label"],
+      "useWhen": "A short status, count, or category next to other content.",
+      "avoidWhen": "The text is an action; use Button. Or it needs a sentence; use Alert."
     },
     {
       "name": "breadcrumb",
       "type": "component",
       "description": "Where the current page sits in the site's hierarchy.",
-      "path": "components/breadcrumb"
+      "path": "components/breadcrumb",
+      "keywords": ["trail", "path", "hierarchy"],
+      "useWhen": "Pages sit in a hierarchy more than two levels deep and people move up it.",
+      "avoidWhen": "The site is flat, or the trail would only repeat the page title."
     },
     {
       "name": "button",
       "type": "component",
       "description": "An action trigger with default, outline, secondary, ghost, destructive, and link variants.",
-      "path": "components/button"
+      "path": "components/button",
+      "keywords": ["cta", "action", "submit"],
+      "useWhen": "Triggering an action: submitting, saving, opening, or confirming.",
+      "avoidWhen": "Navigating to another page; use a link, which can look like a Button."
     },
     {
       "name": "button-group",
       "type": "component",
       "description": "Joins related Buttons into one row that shares borders.",
-      "path": "components/button-group"
+      "path": "components/button-group",
+      "useWhen": "A few related actions that belong together, such as a split button or segmented actions.",
+      "avoidWhen": "The buttons select a value; use Toggle Group."
     },
     {
       "name": "calendar",
       "type": "component",
       "description": "A month grid for picking a single date, a range, or several dates, built on react-day-picker.",
-      "path": "components/calendar"
+      "path": "components/calendar",
+      "keywords": ["month view", "date grid"],
+      "useWhen": "A date needs to be picked from a visible month, such as a booking page or a range filter.",
+      "avoidWhen": "People know the exact date and would rather type it; use Input with a date type."
     },
     {
       "name": "card",
       "type": "component",
       "description": "A surface that groups related content.",
-      "path": "components/card"
+      "path": "components/card",
+      "keywords": ["panel", "tile", "container", "surface"],
+      "useWhen": "Grouping content about one thing, such as a summary, a setting, or an item in a grid.",
+      "avoidWhen": "Every section of a page would be a card; use spacing and headings instead."
     },
     {
       "name": "carousel",
       "type": "component",
       "description": "A slideshow built on Embla, composed from Root, Content, Item, Previous, and Next.",
-      "path": "components/carousel"
+      "path": "components/carousel",
+      "keywords": ["slideshow", "slider", "gallery"],
+      "useWhen": "A small set of related slides that people browse one at a time, such as product images.",
+      "avoidWhen": "The content matters to everyone; put it on the page instead of behind a swipe."
     },
     {
       "name": "chart",
       "type": "component",
       "description": "The shared parts of every chart: frame, grid, axes, tooltip, and a legend that hides series.",
-      "path": "components/chart"
+      "path": "components/chart",
+      "keywords": ["graph", "plot", "visualization", "analytics"],
+      "useWhen": "Building any chart, or changing how every chart looks and reads.",
+      "avoidWhen": "You only need one chart type; start from that chart's page."
     },
     {
       "name": "chart-area",
       "type": "component",
       "description": "An area chart for trends over a range, with a soft fill under each line.",
-      "path": "components/chart-area"
+      "path": "components/chart-area",
+      "useWhen": "Trends over a continuous range, such as revenue by month, where volume matters.",
+      "avoidWhen": "Exact values matter more than shape; use a table, or a Line Chart for several close series."
     },
     {
       "name": "chart-bar",
       "type": "component",
       "description": "A bar chart for comparing values across categories, grouped, stacked, or horizontal.",
-      "path": "components/chart-bar"
+      "path": "components/chart-bar",
+      "useWhen": "Comparing values across categories, grouped, stacked, or horizontal.",
+      "avoidWhen": "There are many categories with long names on a narrow screen, or parts of a whole; use a horizontal bar or Pie Chart."
     },
     {
       "name": "chart-card",
       "type": "block",
       "description": "A card with a headline figure, its change, a date range switch, and an area chart.",
-      "path": "blocks/chart-card"
+      "path": "blocks/chart-card",
+      "keywords": ["kpi", "metric card", "trend"],
+      "useWhen": "One headline figure with its trend and a chart, as a tile on a dashboard.",
+      "avoidWhen": "You need a full page of reporting; use Analytics Dashboard.",
+      "related": ["chart", "stat"]
     },
     {
       "name": "chart-funnel",
       "type": "component",
       "description": "A funnel chart for drop-off through ordered steps.",
-      "path": "components/chart-funnel"
+      "path": "components/chart-funnel",
+      "useWhen": "Drop-off through ordered steps, such as visit, signup, purchase.",
+      "avoidWhen": "The steps are not ordered or do not narrow; use a Bar Chart."
     },
     {
       "name": "chart-heatmap",
       "type": "component",
       "description": "A heatmap for intensity across two categories, as an accessible table of tinted cells.",
-      "path": "components/chart-heatmap"
+      "path": "components/chart-heatmap",
+      "useWhen": "Intensity across two categories, such as orders by weekday and hour.",
+      "avoidWhen": "There are only a few values; use a table or Bar Chart."
     },
     {
       "name": "chart-line",
       "type": "component",
       "description": "A line chart for change over a range, with one or more series.",
-      "path": "components/chart-line"
+      "path": "components/chart-line",
+      "useWhen": "Change over a range where the line matters more than the area, or several series that overlap.",
+      "avoidWhen": "Parts of a whole over time; use stacked Area Chart."
     },
     {
       "name": "chart-pie",
       "type": "component",
       "description": "A pie or donut chart for the parts of a whole, with an optional total in the middle.",
-      "path": "components/chart-pie"
+      "path": "components/chart-pie",
+      "useWhen": "The parts of a whole, for up to six slices, with a total in the middle of a donut.",
+      "avoidWhen": "More than six slices, or slices that are close in size; use a Bar Chart."
     },
     {
       "name": "chart-radar",
       "type": "component",
       "description": "A radar chart for comparing a few series across the same axes.",
-      "path": "components/chart-radar"
+      "path": "components/chart-radar",
+      "useWhen": "Comparing a few series across five to eight shared axes.",
+      "avoidWhen": "Fewer than five axes, or axes that are not comparable; use a Bar Chart."
     },
     {
       "name": "chart-radial",
       "type": "component",
       "description": "A radial chart for progress toward a goal, or a few values on concentric rings.",
-      "path": "components/chart-radial"
+      "path": "components/chart-radial",
+      "useWhen": "Progress toward a goal, or a few values on concentric rings.",
+      "avoidWhen": "A single value in a range; Meter or Progress is simpler."
     },
     {
       "name": "chart-sankey",
       "type": "component",
       "description": "A sankey chart for flow between stages.",
-      "path": "components/chart-sankey"
+      "path": "components/chart-sankey",
+      "useWhen": "Flow between stages, such as visitors to signups to paid.",
+      "avoidWhen": "There is no flow between stages; use a Bar Chart or Funnel Chart."
     },
     {
       "name": "chart-scatter",
       "type": "component",
       "description": "A scatter chart for how two measures relate, with optional dot size for a third.",
-      "path": "components/chart-scatter"
+      "path": "components/chart-scatter",
+      "useWhen": "How two measures relate, one dot per item, with dot size for a third.",
+      "avoidWhen": "Categories on one axis; use a Bar Chart."
     },
     {
       "name": "chart-treemap",
       "type": "component",
       "description": "A treemap for sizes within a whole, as nested rectangles.",
-      "path": "components/chart-treemap"
+      "path": "components/chart-treemap",
+      "useWhen": "Sizes within a whole, as nested rectangles, such as storage by folder.",
+      "avoidWhen": "Precise comparison; areas are harder to compare than bars."
     },
     {
       "name": "chat",
       "type": "block",
       "description": "A complete chat: scrolling conversation with streaming markdown, a message box with attachments, and send that becomes stop.",
-      "path": "blocks/chat"
+      "path": "blocks/chat",
+      "keywords": ["ai assistant", "llm", "conversation", "streaming"],
+      "useWhen": "A conversation with an assistant that streams its replies.",
+      "avoidWhen": "The conversation is not with an agent, or is a single prompt box; use Composer.",
+      "related": ["message", "thread", "composer"]
     },
     {
       "name": "checkbox",
       "type": "component",
       "description": "A checkbox with checked, unchecked, and indeterminate states.",
-      "path": "components/checkbox"
+      "path": "components/checkbox",
+      "keywords": ["tick", "check"],
+      "useWhen": "A single on/off choice in a form that takes effect on submit.",
+      "avoidWhen": "The setting takes effect immediately; use Switch."
     },
     {
       "name": "checkbox-group",
       "type": "component",
       "description": "Shares one array value between a set of Checkboxes, with optional select-all.",
-      "path": "components/checkbox-group"
+      "path": "components/checkbox-group",
+      "useWhen": "Choosing any number of options from a short list.",
+      "avoidWhen": "Only one option may be chosen; use Radio Group."
     },
     {
       "name": "citation",
       "type": "component",
       "description": "A numbered marker in an answer that links to its source and previews it on hover.",
-      "path": "components/citation"
+      "path": "components/citation",
+      "useWhen": "A numbered source marker inside generated text.",
+      "avoidWhen": "A list of everything the answer used; use Sources."
     },
     {
       "name": "code-block",
       "type": "component",
       "description": "A code listing with a copy button; syntax highlighting loads on demand.",
-      "path": "components/code-block"
+      "path": "components/code-block",
+      "keywords": ["syntax highlighting", "snippet", "source code"],
+      "useWhen": "Showing a code listing, such as a model's answer or an example, with a copy button.",
+      "avoidWhen": "The code is editable; use an editor. Inline code belongs in running text."
     },
     {
       "name": "collapsible",
       "type": "component",
       "description": "A section that shows and hides its panel.",
-      "path": "components/collapsible"
+      "path": "components/collapsible",
+      "keywords": ["expand", "show more", "disclosure"],
+      "useWhen": "One section of secondary detail that people can reveal.",
+      "avoidWhen": "There are several sections that behave as a set; use Accordion."
     },
     {
       "name": "color-picker",
       "type": "component",
       "description": "Swatches to choose from and a hex field for any other color. No canvas, no dependencies.",
-      "path": "components/color-picker"
+      "path": "components/color-picker",
+      "keywords": ["colour", "swatch", "palette"],
+      "useWhen": "Choosing a color from a few swatches or by hex value.",
+      "avoidWhen": "Picking from gradients or an image; this has no canvas."
     },
     {
       "name": "combobox",
       "type": "component",
       "description": "Picks a value from a list you can filter by typing.",
-      "path": "components/combobox"
+      "path": "components/combobox",
+      "keywords": ["searchable select", "typeahead", "filterable select"],
+      "useWhen": "Choosing from a long list where typing to filter is faster than scrolling.",
+      "avoidWhen": "The list has only a few options; use Select or Radio Group.",
+      "related": ["select", "autocomplete"]
     },
     {
       "name": "command",
       "type": "component",
       "description": "A searchable command list with groups, shortcuts, and an empty state, inline or in a dialog.",
-      "path": "components/command"
+      "path": "components/command",
+      "keywords": ["command palette", "spotlight", "quick actions", "search", "cmdk"],
+      "useWhen": "A searchable list of actions or destinations, such as a command palette on \u2318K.",
+      "avoidWhen": "There are only a few options; use Dropdown Menu or Select.",
+      "related": ["dashboard-shell", "combobox"]
     },
     {
       "name": "composer",
       "type": "component",
       "description": "The message box for a chat: a text field that becomes a Tiptap editor on demand, file attachments, and send that turns into stop.",
-      "path": "components/composer"
+      "path": "components/composer",
+      "keywords": ["chat input", "prompt box", "message box"],
+      "useWhen": "The message box of a chat: send on Enter, attach files by drop, paste, or picker, and stop a reply in progress.",
+      "avoidWhen": "A single-line field for short answers; use Input.",
+      "related": ["message", "thread", "chat"]
+    },
+    {
+      "name": "confirm-dialog",
+      "type": "pattern",
+      "description": "Asks before an action that is hard to undo, then runs it. Shows a pending state while it runs, and keeps the dialog open with the error if it fails.",
+      "path": "patterns/confirm-dialog",
+      "keywords": [
+        "modal",
+        "confirm",
+        "confirmation",
+        "delete",
+        "destructive",
+        "are you sure",
+        "async action",
+        "pending"
+      ],
+      "useWhen": "An action is hard to undo and runs asynchronously, such as deleting a project. It disables the buttons while it runs and shows the failure.",
+      "avoidWhen": "The action is easy to undo; do it and offer undo. The dialog holds other content such as a form; compose Dialog.",
+      "related": ["alert-dialog", "button"]
     },
     {
       "name": "context-menu",
       "type": "component",
       "description": "A menu opened by right-clicking or long-pressing an area.",
-      "path": "components/context-menu"
+      "path": "components/context-menu",
+      "keywords": ["right click", "menu"],
+      "useWhen": "Offering shortcuts for an item on right-click or long-press, such as rows or canvas objects.",
+      "avoidWhen": "It is the only way to reach an action; right-click isn't discoverable, so offer a visible menu too.",
+      "related": ["dropdown-menu"]
     },
     {
       "name": "copy-button",
       "type": "component",
       "description": "A button that copies text to the clipboard and briefly shows a check, plus the useCopy hook behind it.",
-      "path": "components/copy-button"
+      "path": "components/copy-button",
+      "keywords": ["clipboard", "copy to clipboard"],
+      "useWhen": "Copying a snippet, command, or message to the clipboard.",
+      "avoidWhen": "Copying rich or large data that needs a progress state."
     },
     {
       "name": "dashboard-overview",
       "type": "block",
       "description": "A dashboard home with headline stats, a revenue chart, progress toward goals, and recent invoices.",
-      "path": "blocks/dashboard-overview"
+      "path": "blocks/dashboard-overview",
+      "keywords": ["home", "kpis", "metrics", "summary"],
+      "useWhen": "The home page of an app, with key figures and recent activity.",
+      "avoidWhen": "The page is about one subject in depth; use Analytics Dashboard."
     },
     {
       "name": "dashboard-shell",
       "type": "block",
       "description": "An app shell with pinned and recent items in the sidebar, a \u2318K command palette, and an account menu.",
-      "path": "blocks/dashboard-shell"
+      "path": "blocks/dashboard-shell",
+      "keywords": ["app layout", "app shell", "command palette", "navigation"],
+      "useWhen": "The frame of a product with sidebar navigation, search, and an account menu.",
+      "avoidWhen": "The navigation has sub-pages; use Sidebar Nested.",
+      "related": ["sidebar-nested", "sidebar", "command"]
     },
     {
       "name": "data-table",
       "type": "component",
       "description": "A table with sortable columns, row selection, and pagination, built on Table in plain React state.",
-      "path": "components/data-table"
+      "path": "components/data-table",
+      "keywords": ["grid", "sortable", "filter", "spreadsheet", "rows"],
+      "useWhen": "Rows people need to sort, select, and page through, such as invoices or users.",
+      "avoidWhen": "The data is short and read-only; use Table.",
+      "related": ["table", "invoices-table"]
     },
     {
       "name": "date-picker",
       "type": "component",
       "description": "A button that opens a Calendar in a Popover to pick a date or a date range.",
-      "path": "components/date-picker"
+      "path": "components/date-picker",
+      "keywords": ["calendar", "date input", "choose a date"],
+      "useWhen": "A form field for a date or a date range that should stay compact until opened.",
+      "avoidWhen": "The calendar should always be visible; use Calendar."
     },
     {
       "name": "dialog",
       "type": "component",
       "description": "A modal window composed from Root, Trigger, Content, Header, Footer, Title, Description, and Close.",
-      "path": "components/dialog"
+      "path": "components/dialog",
+      "keywords": ["modal", "popup", "overlay", "lightbox"],
+      "useWhen": "A focused task that needs the rest of the page out of the way, such as a form or a detail view.",
+      "avoidWhen": "The content could live on the page, or the dialog would open another dialog.",
+      "related": ["alert-dialog", "drawer", "popover"]
     },
     {
       "name": "drawer",
       "type": "component",
       "description": "A modal panel that slides in from any edge of the screen and can be swiped away.",
-      "path": "components/drawer"
+      "path": "components/drawer",
+      "keywords": ["sheet", "slide-over", "side panel", "bottom sheet"],
+      "useWhen": "A bottom sheet on mobile, or a side panel for filters, details, or an edit form next to the page.",
+      "avoidWhen": "The task needs full attention and a clear decision; use Dialog or Alert Dialog.",
+      "related": ["dialog"]
     },
     {
       "name": "dropdown-menu",
       "type": "component",
       "description": "A menu of actions opened from a button, with checkbox, radio, and submenu items.",
-      "path": "components/dropdown-menu"
+      "path": "components/dropdown-menu",
+      "keywords": ["menu", "actions", "kebab", "overflow menu"],
+      "useWhen": "A list of actions behind one trigger, such as an overflow menu.",
+      "avoidWhen": "People pick a value from options; use Select.",
+      "related": ["context-menu", "menubar", "select"]
     },
     {
       "name": "dropzone",
       "type": "component",
       "description": "A drop target for files with a picker, a drag overlay, and readable rejections.",
-      "path": "components/dropzone"
+      "path": "components/dropzone",
+      "keywords": ["upload", "drag and drop", "file input"],
+      "useWhen": "People add files by dragging them onto the page or choosing them, with limits on type and size.",
+      "avoidWhen": "The file is a single form field with no drag and drop; use a plain file Input.",
+      "related": ["attachment"]
     },
     {
       "name": "editor",
       "type": "component",
       "description": "A block editor on Tiptap: headings, lists, task lists, quotes, code, links, and highlights.",
-      "path": "components/editor"
+      "path": "components/editor",
+      "keywords": ["rich text", "wysiwyg", "tiptap", "notion"],
+      "useWhen": "A rich-text document: headings, lists, tasks, quotes, code, and links in one place.",
+      "avoidWhen": "A single-line field or short message; use Textarea or Composer."
     },
     {
       "name": "editor-block-handle",
       "type": "component",
       "description": "A drag handle beside each block, with a menu to turn it into another block, duplicate, or delete it.",
-      "path": "components/editor-block-handle"
+      "path": "components/editor-block-handle",
+      "useWhen": "Blocks need to be reordered by dragging, or turned into another kind, duplicated, or deleted.",
+      "avoidWhen": "The document is a single paragraph."
     },
     {
       "name": "editor-bubble-menu",
       "type": "component",
       "description": "A floating toolbar over selected text for bold, italic, link, highlight, and turning a block into another type.",
-      "path": "components/editor-bubble-menu"
+      "path": "components/editor-bubble-menu",
+      "useWhen": "Formatting should appear over selected text instead of in a fixed toolbar.",
+      "avoidWhen": "A fixed toolbar above the document is wanted; compose Toolbar instead."
     },
     {
       "name": "editor-link-popover",
       "type": "component",
       "description": "A popover to add, edit, open, and remove a link on the selected text.",
-      "path": "components/editor-link-popover"
+      "path": "components/editor-link-popover",
+      "useWhen": "People add, change, or remove a link on selected text.",
+      "avoidWhen": "Links are shown, not edited; use a plain anchor."
     },
     {
       "name": "editor-slash-menu",
       "type": "component",
       "description": "A searchable menu opened by typing / at the start of a block, to insert headings, lists, quotes, code, and dividers.",
-      "path": "components/editor-slash-menu"
+      "path": "components/editor-slash-menu",
+      "useWhen": "People insert blocks by typing / in a line.",
+      "avoidWhen": "Mentions or other trigger characters; use Editor Suggestion."
     },
     {
       "name": "editor-suggestion",
       "type": "component",
       "description": "A menu that opens on a trigger character in a Tiptap editor: @ for mentions, / for commands. Async-safe and keyboard-driven.",
-      "path": "components/editor-suggestion"
+      "path": "components/editor-suggestion",
+      "useWhen": "A menu that opens when a trigger character is typed in a Tiptap editor, such as @ for mentions.",
+      "avoidWhen": "Block commands from a slash; use Editor Slash Menu."
     },
     {
       "name": "empty",
       "type": "component",
       "description": "An empty state with media, a title, a description, and actions.",
-      "path": "components/empty"
+      "path": "components/empty",
+      "keywords": ["empty state", "no results", "zero state", "blank slate"],
+      "useWhen": "A list, table, or page has nothing to show yet, and people need to know what to do next.",
+      "avoidWhen": "The content is still loading; use Skeleton or Spinner.",
+      "related": ["skeleton"]
     },
     {
       "name": "field",
       "type": "component",
       "description": "Groups a control with its label, description, and error, and wires up accessibility and validation.",
-      "path": "components/field"
+      "path": "components/field",
+      "keywords": ["label", "form field", "error message"],
+      "useWhen": "Any form control that needs a label, a description, and an error message.",
+      "avoidWhen": "The control has no label or validation, such as a search input in a toolbar.",
+      "related": ["form", "input"]
     },
     {
       "name": "fieldset",
       "type": "component",
       "description": "Groups related fields under a legend; disabling it disables every field inside.",
-      "path": "components/fieldset"
+      "path": "components/fieldset",
+      "useWhen": "Grouping related fields under one legend, such as an address.",
+      "avoidWhen": "There is only one field; use Field."
     },
     {
       "name": "form",
       "type": "component",
       "description": "A form that validates its Fields together and focuses the first invalid one on submit.",
-      "path": "components/form"
+      "path": "components/form",
+      "keywords": ["validation", "submit"],
+      "useWhen": "Collecting input with validation and one submit action.",
+      "avoidWhen": "Each control saves on its own; use the controls directly.",
+      "related": ["field", "input"]
     },
     {
       "name": "foundations",
       "type": "foundation",
       "description": "Semantic StyleX variables for color, typography, spacing, radius, elevation, and motion, named media queries and layers, plus a dark theme and the typefaces.",
-      "path": "foundations"
+      "path": "foundations",
+      "useWhen": "Always. Every other item depends on it."
     },
     {
       "name": "hover-card",
       "type": "component",
       "description": "A preview of a link's destination, shown while a pointer rests on the link.",
-      "path": "components/hover-card"
+      "path": "components/hover-card",
+      "keywords": ["preview card", "hover preview"],
+      "useWhen": "A preview of a linked thing on hover, such as a profile behind a name.",
+      "avoidWhen": "The content is needed to complete a task; hover isn't available on touch, so use Popover.",
+      "related": ["popover", "tooltip"]
     },
     {
       "name": "icons",
       "type": "component",
       "description": "The icons Shelf components use, in one file you own. lucide-react by default; swap the imports to change libraries.",
-      "path": "components/icons"
+      "path": "components/icons",
+      "useWhen": "Supporting a label with a familiar symbol, or marking state.",
+      "avoidWhen": "The icon would be the only label for an unfamiliar action; add text or a Tooltip."
     },
     {
       "name": "input",
       "type": "component",
       "description": "A text input that takes part in a Field's label, description, and validation.",
-      "path": "components/input"
+      "path": "components/input",
+      "keywords": ["text field", "textbox", "text input"],
+      "useWhen": "Short single-line text such as a name, an email, or a search.",
+      "avoidWhen": "The text can span lines; use Textarea. Or it is a number with steps; use Number Field."
     },
     {
       "name": "input-group",
       "type": "component",
       "description": "An input with text, icons, or buttons attached inside its border.",
-      "path": "components/input-group"
+      "path": "components/input-group",
+      "useWhen": "An input with attached content, such as a prefix, an icon, or an inline button.",
+      "avoidWhen": "The attached content is a separate action; place a Button next to the input."
     },
     {
       "name": "input-otp",
       "type": "component",
       "description": "A one-time code input with one slot per character and paste support.",
-      "path": "components/input-otp"
+      "path": "components/input-otp",
+      "keywords": ["verification code", "pin", "one-time code"],
+      "useWhen": "Entering a one-time code of fixed length.",
+      "avoidWhen": "The code length varies, or people will paste long tokens; use Input."
     },
     {
       "name": "invoices-table",
       "type": "block",
       "description": "An invoices list with status tabs and counts, search, bulk actions on selected rows, and a running total.",
-      "path": "blocks/invoices-table"
+      "path": "blocks/invoices-table",
+      "keywords": ["list with filters", "bulk actions", "billing", "table"],
+      "useWhen": "A list people filter, search, and act on in bulk.",
+      "avoidWhen": "The rows are not records that need status, search, and bulk actions; use Data Table.",
+      "related": ["data-table"]
     },
     {
       "name": "item",
       "type": "component",
       "description": "A list row of media, a title, a description, and actions, that can render as a link.",
-      "path": "components/item"
+      "path": "components/item",
+      "keywords": ["list row", "list item", "row"],
+      "useWhen": "Rows of media, text, and actions in a list, such as members, files, or settings.",
+      "avoidWhen": "The rows need columns people compare across; use Table."
     },
     {
       "name": "kbd",
       "type": "component",
       "description": "A keyboard key.",
-      "path": "components/kbd"
+      "path": "components/kbd",
+      "keywords": ["keyboard shortcut", "key"],
+      "useWhen": "Showing a keyboard shortcut or key in text or menus.",
+      "avoidWhen": "The text is code; use a code element."
     },
     {
       "name": "label",
       "type": "component",
       "description": "A text label for a form control.",
-      "path": "components/label"
+      "path": "components/label",
+      "keywords": ["form label"],
+      "useWhen": "Naming a form control, when you aren't using Field.",
+      "avoidWhen": "You are using Field, which renders its own label."
+    },
+    {
+      "name": "list-detail-page",
+      "type": "template",
+      "description": "A list beside the selected record's details, with a confirmed delete and an empty state. Start from it for projects, customers, or any collection.",
+      "path": "templates/list-detail-page",
+      "keywords": ["master detail", "collection", "records", "projects", "customers", "inbox"],
+      "useWhen": "People pick a record from a collection and work on it beside the list, such as projects or customers.",
+      "avoidWhen": "The list is large or needs sorting and columns; use Data Table.",
+      "related": ["confirm-dialog", "item", "data-table"]
     },
     {
       "name": "login-form",
       "type": "block",
       "description": "A sign-in card with email and password fields, validation, a pending state, and SSO.",
-      "path": "blocks/login-form"
+      "path": "blocks/login-form",
+      "keywords": ["sign in", "authentication", "auth", "password", "sso"],
+      "useWhen": "A sign-in card that sits inside a page you lay out.",
+      "avoidWhen": "The sign-in is the whole page; use Login Split.",
+      "related": ["login-split", "signup-form", "otp-verification"]
     },
     {
       "name": "login-split",
       "type": "block",
       "description": "A full-page sign-in with a brand panel and quote beside the login form.",
-      "path": "blocks/login-split"
+      "path": "blocks/login-split",
+      "keywords": ["sign in", "authentication", "auth", "landing", "brand panel"],
+      "useWhen": "A whole sign-in page with room for brand.",
+      "avoidWhen": "The sign-in sits in an existing page; use Login Form.",
+      "related": ["login-form"]
     },
     {
       "name": "menubar",
       "type": "component",
       "description": "A row of menus, as in a desktop app, with arrow-key movement between them.",
-      "path": "components/menubar"
+      "path": "components/menubar",
+      "keywords": ["application menu", "file menu"],
+      "useWhen": "Application-style menus across the top of a tool, such as File, Edit, and View.",
+      "avoidWhen": "A website's main navigation; use Navigation Menu."
     },
     {
       "name": "message",
       "type": "component",
       "description": "One turn in a conversation: unboxed assistant text, a user bubble, and hover actions.",
-      "path": "components/message"
+      "path": "components/message",
+      "keywords": ["chat", "assistant", "llm", "conversation"],
+      "useWhen": "One turn in a conversation, from the person or the assistant, with actions on hover.",
+      "avoidWhen": "A notification or status; use Alert or Toast.",
+      "related": ["thread", "composer", "chat"]
     },
     {
       "name": "meter",
       "type": "component",
       "description": "A measurement within a known range, such as storage used.",
-      "path": "components/meter"
+      "path": "components/meter",
+      "keywords": ["gauge", "level"],
+      "useWhen": "A value within a known range, such as storage used or a score.",
+      "avoidWhen": "Progress toward finishing a task; use Progress."
     },
     {
       "name": "native-select",
       "type": "component",
       "description": "The browser's own select, styled to match Input and Select, with option groups.",
-      "path": "components/native-select"
+      "path": "components/native-select",
+      "keywords": ["dropdown", "picker", "mobile select"],
+      "useWhen": "A simple choice on mobile, or where the browser's own picker is the better experience.",
+      "avoidWhen": "Options need icons, descriptions, or search; use Select or Combobox.",
+      "related": ["select"]
     },
     {
       "name": "navigation-menu",
       "type": "component",
       "description": "Site navigation where items open panels of links in one shared surface.",
-      "path": "components/navigation-menu"
+      "path": "components/navigation-menu",
+      "keywords": ["navbar", "header navigation", "nav"],
+      "useWhen": "Top-level site navigation, with optional panels of links.",
+      "avoidWhen": "Menus of actions inside an app; use Dropdown Menu or Menubar."
     },
     {
       "name": "number-field",
       "type": "component",
       "description": "A number input with step buttons, keyboard stepping, and locale-aware formatting.",
-      "path": "components/number-field"
+      "path": "components/number-field",
+      "keywords": ["numeric", "quantity", "stepper input"],
+      "useWhen": "A number people adjust in steps, such as a quantity.",
+      "avoidWhen": "The value is an identifier that happens to be digits, such as a phone number; use Input."
     },
     {
       "name": "number-ticker",
       "type": "component",
       "description": "A number that counts to its new value when it changes, and reads out the final value for screen readers.",
-      "path": "components/number-ticker"
+      "path": "components/number-ticker",
+      "useWhen": "A figure that changes while the person watches, such as a live total.",
+      "avoidWhen": "Numbers that change every frame."
     },
     {
       "name": "otp-verification",
       "type": "block",
       "description": "A card that asks for a six-digit code, with verify and resend actions.",
-      "path": "blocks/otp-verification"
+      "path": "blocks/otp-verification",
+      "keywords": ["two-factor", "2fa", "verification code", "mfa"],
+      "useWhen": "Asking for a six-digit code after sign-in or before a sensitive action.",
+      "avoidWhen": "The code is one field inside a longer form; use Input OTP.",
+      "related": ["login-form", "input-otp"]
     },
     {
       "name": "pagination",
       "type": "component",
       "description": "Links between the pages of a long list.",
-      "path": "components/pagination"
+      "path": "components/pagination",
+      "keywords": ["pages", "paging"],
+      "useWhen": "Moving through pages of results when position matters, such as tables.",
+      "avoidWhen": "People scan a feed; load more as they scroll instead."
     },
     {
       "name": "plan",
       "type": "component",
       "description": "An agent's plan as steps that are not started, in progress, or done.",
-      "path": "components/plan"
+      "path": "components/plan",
+      "useWhen": "Showing the steps an agent intends to take and how far it has got.",
+      "avoidWhen": "A user's progress through a flow; use Stepper."
     },
     {
       "name": "popover",
       "type": "component",
       "description": "Rich, interactive content in a floating panel opened from a button.",
-      "path": "components/popover"
+      "path": "components/popover",
+      "keywords": ["floating panel", "overlay"],
+      "useWhen": "Interactive content anchored to a trigger, such as a small form or filters.",
+      "avoidWhen": "The content is a short label; use Tooltip. Or a list of actions; use Dropdown Menu.",
+      "related": ["dropdown-menu", "hover-card", "tooltip"]
     },
     {
       "name": "progress",
       "type": "component",
       "description": "How far along a task is, or that it is in progress.",
-      "path": "components/progress"
+      "path": "components/progress",
+      "keywords": ["loading bar", "upload progress"],
+      "useWhen": "Showing how far a task has gone, such as an upload.",
+      "avoidWhen": "The duration is unknown and short; use Spinner.",
+      "related": ["spinner"]
     },
     {
       "name": "radio-group",
       "type": "component",
       "description": "A set of options where exactly one can be chosen, with arrow-key navigation.",
-      "path": "components/radio-group"
+      "path": "components/radio-group",
+      "keywords": ["choose one", "options"],
+      "useWhen": "Choosing exactly one option from a short list where all options should be visible.",
+      "avoidWhen": "There are many options; use Select or Combobox."
     },
     {
       "name": "rating",
       "type": "component",
       "description": "A star rating built as a radio group, or a read-only display of an average.",
-      "path": "components/rating"
+      "path": "components/rating",
+      "keywords": ["stars", "review score"],
+      "useWhen": "Collecting or showing a star rating.",
+      "avoidWhen": "A value on a wide scale; use Slider."
     },
     {
       "name": "reasoning",
       "type": "component",
       "description": "The model's thinking, open while it streams and folded away when done.",
-      "path": "components/reasoning"
+      "path": "components/reasoning",
+      "useWhen": "Showing a model's thinking while it works, then folding it away.",
+      "avoidWhen": "Content the reader must see; put it in the message."
     },
     {
       "name": "resizable",
       "type": "component",
       "description": "Panels resized by dragging or the keyboard, composed from Group, Panel, and Handle.",
-      "path": "components/resizable"
+      "path": "components/resizable",
+      "keywords": ["split pane", "splitter", "panels"],
+      "useWhen": "Side-by-side panes whose size people adjust, such as an editor and a preview.",
+      "avoidWhen": "The layout works at fixed sizes; resizing adds a control nobody asked for."
     },
     {
       "name": "scroll-area",
       "type": "component",
       "description": "A native scrolling region with thin, themed scrollbars.",
-      "path": "components/scroll-area"
+      "path": "components/scroll-area",
+      "keywords": ["scrollbar", "overflow"],
+      "useWhen": "A region with its own scroll that should look consistent across platforms.",
+      "avoidWhen": "The whole page scrolls; let the browser handle it."
     },
     {
       "name": "select",
       "type": "component",
       "description": "Picks one value from a list of options.",
-      "path": "components/select"
+      "path": "components/select",
+      "keywords": ["dropdown", "picker", "choose", "option list"],
+      "useWhen": "Choosing one value from a list of about five to fifteen options.",
+      "avoidWhen": "There are only two or three options; use Radio Group. Or many; use Combobox.",
+      "related": ["combobox", "native-select", "autocomplete"]
     },
     {
       "name": "separator",
       "type": "component",
       "description": "A horizontal or vertical dividing line.",
-      "path": "components/separator"
+      "path": "components/separator",
+      "keywords": ["divider", "rule", "line"],
+      "useWhen": "Dividing groups of content or menu items.",
+      "avoidWhen": "Spacing alone would separate the groups."
+    },
+    {
+      "name": "settings-page",
+      "type": "template",
+      "description": "A settings page: a profile section and a danger zone that confirms before deleting the account. Start from it and add the sections your product has.",
+      "path": "templates/settings-page",
+      "keywords": [
+        "account settings",
+        "preferences",
+        "profile page",
+        "danger zone",
+        "delete account"
+      ],
+      "useWhen": "A whole account or workspace settings screen with a danger zone.",
+      "avoidWhen": "The page is one section inside an existing screen; use Settings Section.",
+      "related": ["settings-section", "confirm-dialog"]
     },
     {
       "name": "settings-section",
       "type": "block",
       "description": "A profile settings section with text fields, a notification switch, and Save and Cancel.",
-      "path": "blocks/settings-section"
+      "path": "blocks/settings-section",
+      "keywords": ["profile", "account", "preferences", "save changes"],
+      "useWhen": "One group of account or profile settings with Save and Cancel.",
+      "avoidWhen": "The page holds several sections; start from Settings Page.",
+      "related": ["settings-page", "form", "field"]
     },
     {
       "name": "shimmer",
       "type": "component",
       "description": "Text with a soft highlight sweeping across it, for work in progress.",
-      "path": "components/shimmer"
+      "path": "components/shimmer",
+      "useWhen": "A short label for work in progress, such as Thinking, where a spinner would be too loud.",
+      "avoidWhen": "Progress that has a known amount; use Progress."
     },
     {
       "name": "sidebar",
       "type": "component",
       "description": "An app-shell sidebar that collapses offcanvas or to icons and becomes a sheet on small screens.",
-      "path": "components/sidebar"
+      "path": "components/sidebar",
+      "keywords": ["navigation", "nav", "app shell", "side menu"],
+      "useWhen": "The main navigation of an app, collapsible on desktop and a sheet on mobile.",
+      "avoidWhen": "A site with a few top-level pages; use Navigation Menu.",
+      "related": ["dashboard-shell", "sidebar-nested"]
     },
     {
       "name": "sidebar-nested",
       "type": "block",
       "description": "An app shell whose sidebar sections expand into sub-pages, and open as menus when collapsed to icons.",
-      "path": "blocks/sidebar-nested"
+      "path": "blocks/sidebar-nested",
+      "keywords": ["app layout", "app shell", "navigation", "sub-pages"],
+      "useWhen": "An app whose navigation has sections that open into sub-pages.",
+      "avoidWhen": "The navigation is flat; use Dashboard Shell.",
+      "related": ["dashboard-shell", "sidebar"]
     },
     {
       "name": "signup-form",
       "type": "block",
       "description": "A sign-up card with name, email, and password fields, a terms checkbox, and a pending state.",
-      "path": "blocks/signup-form"
+      "path": "blocks/signup-form",
+      "keywords": ["register", "sign up", "create account", "authentication"],
+      "useWhen": "A registration card that sits inside a page you lay out.",
+      "avoidWhen": "People already have an account; use Login Form.",
+      "related": ["login-form"]
     },
     {
       "name": "skeleton",
       "type": "component",
       "description": "A placeholder shape while content loads.",
-      "path": "components/skeleton"
+      "path": "components/skeleton",
+      "keywords": ["loading", "placeholder"],
+      "useWhen": "Holding the shape of content while it loads, so the layout doesn't jump.",
+      "avoidWhen": "Loading takes a moment and has no layout to hold; use Spinner.",
+      "related": ["spinner", "empty"]
     },
     {
       "name": "slider",
       "type": "component",
       "description": "A draggable input for a single value or a range.",
-      "path": "components/slider"
+      "path": "components/slider",
+      "keywords": ["range", "scrub"],
+      "useWhen": "Choosing an approximate value in a range, such as volume.",
+      "avoidWhen": "The exact value matters; use Number Field."
     },
     {
       "name": "sources",
       "type": "component",
       "description": "The pages an answer drew on, folded under Used N sources.",
-      "path": "components/sources"
+      "path": "components/sources",
+      "useWhen": "Listing what an answer was based on.",
+      "avoidWhen": "A single inline reference; use Citation."
     },
     {
       "name": "sparkline",
       "type": "component",
       "description": "A tiny line with no axes, for a table cell or a stat.",
-      "path": "components/sparkline"
+      "path": "components/sparkline",
+      "useWhen": "A tiny trend beside a number, in a stat or a table row.",
+      "avoidWhen": "The values themselves matter; use an Area Chart or Line Chart with axes."
     },
     {
       "name": "spinner",
       "type": "component",
       "description": "A spinning loading indicator.",
-      "path": "components/spinner"
+      "path": "components/spinner",
+      "keywords": ["loading", "busy", "activity"],
+      "useWhen": "A short wait with no known duration.",
+      "avoidWhen": "The wait has a known progress; use Progress. Or content has a shape; use Skeleton.",
+      "related": ["skeleton", "progress"]
     },
     {
       "name": "stat",
       "type": "component",
       "description": "A key figure with a label and its change since the last period.",
-      "path": "components/stat"
+      "path": "components/stat",
+      "keywords": ["metric", "kpi", "figure"],
+      "useWhen": "Showing one key figure with its label and change.",
+      "avoidWhen": "A trend over time; use a chart or Sparkline."
     },
     {
       "name": "stepper",
       "type": "component",
       "description": "Progress through a multi-step flow, with the current step marked for assistive technology.",
-      "path": "components/stepper"
+      "path": "components/stepper",
+      "keywords": ["wizard", "steps", "progress steps"],
+      "useWhen": "Showing where someone is in a multi-step flow such as checkout.",
+      "avoidWhen": "An agent's plan; use Plan. Tabbed content; use Tabs."
     },
     {
       "name": "stream",
       "type": "component",
       "description": "Streamdown-style streaming markdown: only the growing block re-renders, and output is safe by default.",
-      "path": "components/stream"
+      "path": "components/stream",
+      "useWhen": "Showing model output as it streams in, with safe links, images off by default, and highlighted code.",
+      "avoidWhen": "Authoring rich text; use an editor."
     },
     {
       "name": "switch",
       "type": "component",
       "description": "An on/off control that takes effect immediately.",
-      "path": "components/switch"
+      "path": "components/switch",
+      "keywords": ["toggle", "on off"],
+      "useWhen": "A setting that takes effect immediately.",
+      "avoidWhen": "The choice is saved on submit; use Checkbox."
     },
     {
       "name": "table",
       "type": "component",
       "description": "A semantic HTML table with Shelf styles.",
-      "path": "components/table"
+      "path": "components/table",
+      "keywords": ["grid", "rows", "columns"],
+      "useWhen": "Data people compare across rows and columns.",
+      "avoidWhen": "Content is a list of items with one or two attributes; use a list.",
+      "related": ["data-table"]
     },
     {
       "name": "tabs",
       "type": "component",
       "description": "Switches between panels of related content.",
-      "path": "components/tabs"
+      "path": "components/tabs",
+      "keywords": ["tabbed", "sections", "segmented"],
+      "useWhen": "Switching between views of the same context, one at a time.",
+      "avoidWhen": "People need to compare views, or the tabs navigate between pages.",
+      "related": ["toggle-group"]
     },
     {
       "name": "textarea",
       "type": "component",
       "description": "A multi-line text input that grows with its content and takes part in a Field.",
-      "path": "components/textarea"
+      "path": "components/textarea",
+      "keywords": ["multiline", "text area", "long text"],
+      "useWhen": "Multi-line text such as comments or descriptions.",
+      "avoidWhen": "The text is a single line; use Input."
     },
     {
       "name": "thread",
       "type": "component",
       "description": "A conversation's scroll area: follows new messages, lets go when you scroll up, and brings you back with one button.",
-      "path": "components/thread"
+      "path": "components/thread",
+      "keywords": ["chat", "conversation", "messages", "scroll"],
+      "useWhen": "The scroll area of a conversation that grows over time, following new messages until the reader scrolls up.",
+      "avoidWhen": "A static list that never grows; use a normal scroll area.",
+      "related": ["message", "composer", "chat"]
     },
     {
       "name": "time-picker",
       "type": "component",
       "description": "Hours and minutes as number fields, with an AM/PM list in 12-hour mode. Pairs with date-picker.",
-      "path": "components/time-picker"
+      "path": "components/time-picker",
+      "keywords": ["time input", "clock"],
+      "useWhen": "Choosing a time of day. Pair it with Date Picker for a date and time.",
+      "avoidWhen": "A duration; use Number Field."
     },
     {
       "name": "timeline",
       "type": "component",
       "description": "Events in order, joined by a line, with a title, time, and description.",
-      "path": "components/timeline"
+      "path": "components/timeline",
+      "keywords": ["activity", "history", "events"],
+      "useWhen": "Events in order, such as a release history or an activity log.",
+      "avoidWhen": "A flow with a current step; use Stepper."
     },
     {
       "name": "toast",
       "type": "component",
       "description": "Brief notifications queued from anywhere in the app: stacked, swipeable, with success, error, and loading states.",
-      "path": "components/toast"
+      "path": "components/toast",
+      "keywords": ["notification", "snackbar", "flash message"],
+      "useWhen": "Brief feedback after an action, such as saved or copied.",
+      "avoidWhen": "The message needs action or must stay; use Alert or Dialog.",
+      "related": ["alert"]
     },
     {
       "name": "toggle",
       "type": "component",
       "description": "A two-state button with default and outline variants.",
-      "path": "components/toggle"
+      "path": "components/toggle",
+      "useWhen": "A single on/off button in a toolbar, such as bold.",
+      "avoidWhen": "The setting is part of a form; use Switch or Checkbox."
     },
     {
       "name": "toggle-group",
       "type": "component",
       "description": "A set of Toggles sharing one value, with arrow-key navigation.",
-      "path": "components/toggle-group"
+      "path": "components/toggle-group",
+      "keywords": ["segmented control", "button group"],
+      "useWhen": "Choosing one or several options shown as buttons, such as text alignment.",
+      "avoidWhen": "The options need labels longer than a word; use Radio Group.",
+      "related": ["tabs"]
     },
     {
       "name": "tool-call",
       "type": "component",
       "description": "A tool call with its status, input, and output, collapsed by default.",
-      "path": "components/tool-call"
+      "path": "components/tool-call",
+      "useWhen": "Showing an agent's tool use with its state, input, and output.",
+      "avoidWhen": "A final answer; use Message."
     },
     {
       "name": "toolbar",
       "type": "component",
       "description": "A row of controls that is one Tab stop, with arrow-key movement.",
-      "path": "components/toolbar"
+      "path": "components/toolbar",
+      "keywords": ["button bar", "actions bar"],
+      "useWhen": "A set of controls that act on the same thing, such as an editor.",
+      "avoidWhen": "The controls are unrelated; keep them separate."
     },
     {
       "name": "tooltip",
       "type": "component",
       "description": "A short label shown on hover and keyboard focus.",
-      "path": "components/tooltip"
+      "path": "components/tooltip",
+      "keywords": ["hint", "hover label"],
+      "useWhen": "A short label for an icon-only control or a truncated value.",
+      "avoidWhen": "The content is essential or interactive; tooltips don't appear on touch, so use Popover or visible text.",
+      "related": ["popover", "hover-card"]
     },
     {
       "name": "tree-view",
       "type": "component",
       "description": "A keyboard-navigable hierarchy such as a file list, with open and close branches and a single selection.",
-      "path": "components/tree-view"
+      "path": "components/tree-view",
+      "keywords": ["file tree", "hierarchy", "nested list"],
+      "useWhen": "A hierarchy to browse and select from, such as files.",
+      "avoidWhen": "Navigation between pages; use Sidebar or Navigation Menu."
     },
     {
       "name": "typography",
       "type": "component",
       "description": "Prose styles for headings, paragraphs, lead text, quotes, lists, and inline code.",
-      "path": "components/typography"
+      "path": "components/typography",
+      "useWhen": "Long-form text such as docs, articles, or changelogs that needs consistent prose styles.",
+      "avoidWhen": "Interface labels and short text; use the components' own text styles."
     },
     {
       "name": "usage-explorer",
       "type": "block",
       "description": "Charts of where registry items are installed, what state each copy is in, and how far behind it has drifted, from shelf usage output.",
-      "path": "blocks/usage-explorer"
+      "path": "blocks/usage-explorer",
+      "useWhen": "Showing how far the products have drifted from the registry, from `shelf usage` output.",
+      "avoidWhen": "Anywhere that isn't reporting on Shelf itself."
     },
     {
       "name": "utils",
       "type": "lib",
       "description": "Shared types and helpers used by Shelf components.",
-      "path": "lib"
+      "path": "lib",
+      "useWhen": "Always. Components import its helpers."
     }
   ]
 }

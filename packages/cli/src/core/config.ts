@@ -17,7 +17,9 @@ export interface ShelfConfig {
   headers: Record<string, string>;
   paths: {
     components: string;
+    patterns: string;
     blocks: string;
+    templates: string;
     foundations: string;
     lib: string;
   };
@@ -36,7 +38,9 @@ export interface ShelfConfig {
 
 export const DEFAULT_PATHS: ShelfConfig["paths"] = {
   components: "src/components/ui",
+  patterns: "src/components/patterns",
   blocks: "src/components/blocks",
+  templates: "src/components/templates",
   foundations: "src/styles/shelf",
   lib: "src/lib/shelf",
 };
@@ -77,9 +81,17 @@ export async function readConfig(cwd: string): Promise<ShelfConfig> {
         paths["components"] ?? DEFAULT_PATHS.components,
         `${CONFIG_FILE} paths.components`,
       ),
+      patterns: assertSafeRelativePath(
+        paths["patterns"] ?? DEFAULT_PATHS.patterns,
+        `${CONFIG_FILE} paths.patterns`,
+      ),
       blocks: assertSafeRelativePath(
         paths["blocks"] ?? DEFAULT_PATHS.blocks,
         `${CONFIG_FILE} paths.blocks`,
+      ),
+      templates: assertSafeRelativePath(
+        paths["templates"] ?? DEFAULT_PATHS.templates,
+        `${CONFIG_FILE} paths.templates`,
       ),
       foundations: assertSafeRelativePath(
         paths["foundations"] ?? DEFAULT_PATHS.foundations,

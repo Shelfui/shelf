@@ -14,5 +14,5 @@
     "@stylexjs/stylex": "^0.19.1",
     "shiki": "^4.5.0"
   },
-  "shelfDependencies": ["button", "copy-button", "foundations", "icons", "utils"]
+  "shelfDependencies": ["copy-button", "foundations", "utils"]
 }

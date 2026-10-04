@@ -1,0 +1,14 @@
+{
+  "name": "list-detail-page",
+  "type": "template",
+  "description": "A list beside the selected record's details, with a confirmed delete and an empty state. Start from it for projects, customers, or any collection.",
+  "files": [
+    {
+      "path": "list-detail-page.tsx"
+    }
+  ],
+  "dependencies": {
+    "@stylexjs/stylex": "^0.19.1"
+  },
+  "shelfDependencies": ["badge", "button", "card", "confirm-dialog", "empty", "foundations", "item"]
+}

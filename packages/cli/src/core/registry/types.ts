@@ -1,4 +1,11 @@
-export const ITEM_TYPES = ["component", "block", "foundation", "lib"] as const;
+export const ITEM_TYPES = [
+  "component",
+  "pattern",
+  "block",
+  "template",
+  "foundation",
+  "lib",
+] as const;
 export type ItemType = (typeof ITEM_TYPES)[number];
 
 export interface IndexEntry {
@@ -9,6 +16,14 @@ export interface IndexEntry {
   path: string;
   /** The item's current revision, written by `shelf build`; absent in a source registry. */
   revision?: string;
+  /** Words people and agents use for it that the name and description don't. */
+  keywords?: string[];
+  /** When to reach for it. */
+  useWhen?: string;
+  /** When another item fits better, and which. */
+  avoidWhen?: string;
+  /** Items that are used with it or instead of it. */
+  related?: string[];
 }
 
 export interface RegistryFile {

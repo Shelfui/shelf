@@ -2,10 +2,13 @@
   "name": "chart-radar",
   "type": "component",
   "description": "A radar chart for comparing a few series across the same axes.",
-  "files": [{ "path": "chart-radar.tsx" }],
+  "files": [
+    {
+      "path": "chart-radar.tsx"
+    }
+  ],
   "dependencies": {
-    "@stylexjs/stylex": "^0.19.1",
-    "recharts": "3.10.1"
+    "recharts": "^3.10.1"
   },
   "shelfDependencies": ["chart", "foundations"]
 }

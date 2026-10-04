@@ -17,7 +17,7 @@ bun run check
 ## Repository layout
 
 ```text
-registry/            Shelf items (source of truth for what `shelf add` installs)
+registry/            Shelf items (source of truth for what `shelf add` installs): components, patterns, blocks, templates, foundations, lib
 packages/cli/        the `@shelfui/cli` CLI (init, search, add, status, diff, update, check, usage, build, serve)
 apps/example/        a minimal Vite app that receives Button and Dialog via `shelf add`; the e2e tests drive it
 apps/web/            the website, a Next.js app that receives every component via `shelf add`
@@ -47,11 +47,14 @@ Commander appears only in `cli/`. A command module parses input and calls one `c
 2. Check whether Base UI already provides the behavior.
 3. Check whether Shelf already provides the concept (`shelf search`).
 4. Add `registry/components/<name>/` with the source, `registry.json`, and `<name>.stories.tsx`.
-5. Add the item to `registry/index.json`.
+5. Add the item to `registry/index.json` with `name`, `type`, `description`, and `path`. Add `keywords` (words people use that the name and description don't), `useWhen`, `avoidWhen` (name the item that fits better), and `related`. `shelf search` and `llms.txt` read them, and they don't change the item's revision.
 6. Add stories for the meaningful states, with play functions for behavior. Accessibility checks run on every story.
 7. If it creates a React context whose value is an object, add `<name>.perf.tsx` (see below).
-8. Run `bun run verify --update` to record its size, and commit `scripts/verify/baseline.json`.
-9. Run `bun run check`.
+8. Don't hand-write `dependencies` or `shelfDependencies`. Run `bun run deps --fix`: it reads the imports in the item's `files` and fills both lists. Package versions come from the root `package.json` (`bun add` a new package there first). `bun run check` fails when they drift.
+9. Run `bun run verify --update` to record its size, and commit `scripts/verify/baseline.json`.
+10. Run `bun run check`.
+
+A **pattern** is an interaction built from components, in `registry/patterns/<name>/`. A **block** is a finished piece of a page, in `registry/blocks/<name>/`. A **template** is a whole page, in `registry/templates/<name>/`. They are items like any other, and import the items they build on with `../../components/...`. Name the story title `Patterns/…`, `Blocks/…`, or `Templates/…`. A higher-level item must not repeat what a lower one already does: compose it, and list it in `shelfDependencies`.
 
 Nothing else needs wiring. Every script below finds the new item through `registry/index.json`.
 
@@ -84,7 +87,7 @@ Shelf components use StyleX the way it is designed to be used: every style is st
 
 Two things ship, separately:
 
-- **The registry** (components, blocks, foundations) deploys to `registry.shelfui.dev` on every push to `main`, through `.github/workflows/registry.yml`. Users get it with `shelf update`. Nothing to do.
+- **The registry** (components, patterns, blocks, templates, foundations) deploys to `registry.shelfui.dev` on every push to `main`, through `.github/workflows/registry.yml`. Users get it with `shelf update`. Nothing to do.
 - **The CLI**, `@shelfui/cli` on npm, is released with [Changesets](https://github.com/changesets/changesets) and npm trusted publishing.
 
 ### Day to day

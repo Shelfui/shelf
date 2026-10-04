@@ -602,6 +602,8 @@ Figma links live once in the registry's `index.json`, as the Shelf Figma plugin 
 
 `shelf build` publishes each item's link, shown on the registry site. Links are not installed and do not change revisions.
 
+`index.json` entries may also carry `keywords`, `useWhen`, `avoidWhen`, and `related`. They help people and agents choose between items, are read by `shelf search`, `shelf docs`, and `llms.txt`, and are not part of an item's revision.
+
 This is illustrative.
 
 Do not freeze the entire future schema now.

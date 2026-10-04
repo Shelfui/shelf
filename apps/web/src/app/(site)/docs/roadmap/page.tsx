@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Code, Definitions, PageHeader, Prose, Section } from "@/components/site/docs-page";
-import { blocks } from "@/docs/blocks";
+import { pageBlocks } from "@/docs/blocks";
 import { components } from "@/docs/components";
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export default function Roadmap() {
               text: "React, Base UI, and StyleX, each with a live demo in these docs.",
             },
             {
-              term: `${blocks.length} blocks`,
+              term: `${pageBlocks.length} blocks`,
               text: "Finished pieces of a page, such as a login form, that install the components they use.",
             },
             {
@@ -36,7 +36,10 @@ export default function Roadmap() {
               term: <Code>shelf init</Code>,
               text: "Configuration, path aliases, and the provenance record.",
             },
-            { term: <Code>shelf search</Code>, text: "Find items in a registry." },
+            {
+              term: <Code>shelf search</Code>,
+              text: "Find items in a registry, best match first, with when to use each and what to use instead.",
+            },
             {
               term: <Code>shelf add</Code>,
               text: "Copy source, resolve Shelf dependencies, install packages, and record provenance. Never overwrites your changes.",
@@ -86,8 +89,8 @@ export default function Roadmap() {
           items={[
             { term: "contribute", text: "Send a local improvement back to the registry." },
             {
-              term: "Patterns and templates",
-              text: "Reusable interactions and page-level starting points that install the same way as components.",
+              term: "More patterns and templates",
+              text: "Only the interactions and pages that products turn out to need. There is one pattern and two templates so far.",
             },
             {
               term: "Decisions that propagate",

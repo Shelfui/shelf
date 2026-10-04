@@ -1,6 +1,7 @@
 import * as stylex from "@stylexjs/stylex";
 import type { ReactNode } from "react";
 import { DocsSidebar } from "@/components/site/docs-sidebar";
+import { DocsToc } from "@/components/site/docs-toc";
 import { site } from "@/styles/site.stylex";
 
 export default function DocsLayout({ children }: { children: ReactNode }) {
@@ -14,6 +15,7 @@ export default function DocsLayout({ children }: { children: ReactNode }) {
         </p>
         {children}
       </main>
+      <DocsToc />
     </div>
   );
 }
@@ -29,7 +31,7 @@ const styles = stylex.create({
     width: 1,
   },
   root: {
-    gap: { default: site.space10, "@media (min-width: 1024px)": "5rem" },
+    gap: { default: site.space10, "@media (min-width: 1024px)": "3rem" },
     display: "flex",
     marginInline: "auto",
     maxWidth: site.pageWidth,

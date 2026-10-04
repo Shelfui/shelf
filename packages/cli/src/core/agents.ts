@@ -46,11 +46,11 @@ Shelf installs components as normal source files in this project and records wha
 ## Before building UI
 
 1. See what is installed and how the project is set up: \`${shelf} status --json\`. It reports the package manager, registry, paths, import aliases, and each item's revision, local changes, and available updates.
-2. Look for an existing component: \`${shelf} search <terms> --json\`.
+2. Look for something that already exists: \`${shelf} search <terms> --json\`. Results are ranked, and each has a \`type\`, \`useWhen\`, \`avoidWhen\`, and \`related\` items. Prefer a template, then a block, then a pattern, then a component, and read \`avoidWhen\` before choosing.
 3. Read its documentation and examples: \`${shelf} docs <item>\`. Run \`${shelf} docs\` to list topics.
 4. Add it: \`${shelf} add <item>\`. This copies the source, installs its packages, and records provenance.
 
-Use the installed component and adapt it. Do not build a new one when a Shelf item covers the need.
+Use the installed item and adapt it. Do not build a new one when a Shelf item covers the need. Several words narrow the search, so try the user's own words ("confirm delete") before a component name.
 
 ## Changing components
 

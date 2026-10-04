@@ -9,7 +9,7 @@
   ],
   "dependencies": {
     "@stylexjs/stylex": "^0.19.1",
-    "react-day-picker": "^10.0.1"
+    "react-day-picker": "^10.0.2"
   },
   "shelfDependencies": ["button", "foundations", "icons", "utils"]
 }

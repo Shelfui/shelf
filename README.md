@@ -82,6 +82,8 @@ shelf serve dist/registry                  # or upload to any static host
 
 Agents read and change the actual component file instead of wrapping a package. Every command has short, stable output and no prompts, and a failing `shelf check` names the file and what to run.
 
+`shelf search` ranks by name, then keywords, then description and "use when" notes, and each result carries `useWhen`, `avoidWhen`, and `related` items, so an agent can choose between a Dialog and a Confirm Dialog without opening either. Higher-level items (templates, blocks, patterns) come first on a tie.
+
 Add this to your `AGENTS.md` or rules file:
 
 > Search Shelf with `shelf search` before creating UI, add what exists with `shelf add`, and run `shelf check` before finishing.
@@ -92,8 +94,10 @@ The registry site also serves `llms.txt`, which lists every item and links its `
 
 ## What's in the registry
 
-- **63 components**: Button, Dialog, Select, Combobox, Data Table, Sidebar, Toast, and more.
-- **10 blocks**: finished pieces of a page, such as a login form, a settings section, or a dashboard shell. A block installs the components it uses.
+- **105 components**: Button, Dialog, Select, Combobox, Data Table, Sidebar, Toast, and more.
+- **1 pattern**: an interaction built from components. Confirm Dialog asks before a hard-to-undo action, shows a pending state, and keeps the error in the dialog.
+- **13 blocks**: finished pieces of a page, such as a login form, a settings section, or a dashboard shell. A block installs the components it uses.
+- **2 templates**: page-level starting points, a settings page and a list and detail page. A template installs the blocks, patterns, and components it uses.
 - **Foundations**: semantic StyleX tokens for color, typography, spacing, radius, elevation, and motion, with light and dark themes and presets.
 - **Icons**: one `icons.tsx` file of named wrappers. Swap the icon library by editing that file.
 
@@ -117,7 +121,7 @@ A project needs React with StyleX in its build. The example app uses Vite with `
 
 **Also available:** an optional Figma plugin that builds a native library (variables, styles, components with variants) from the registry and syncs changes. Designers can also work in the real components without Figma.
 
-**Planned:** `shelf contribute` to send a local improvement back to the registry, patterns and templates, and visual validation in `shelf check`.
+**Planned:** `shelf contribute` to send a local improvement back to the registry, more patterns and templates, and visual validation in `shelf check`.
 
 Shelf grows through real product use, so this list moves when something proves itself.
 
@@ -126,7 +130,7 @@ Shelf grows through real product use, so this list moves when something proves i
 ## Repository
 
 ```text
-registry/        Shelf items: components, blocks, foundations, lib. What shelf add installs.
+registry/        Shelf items: components, patterns, blocks, templates, foundations, lib. What shelf add installs.
 packages/cli/    the @shelfui/cli CLI (see its README for every command and option)
 apps/example/    a minimal Vite app that receives Button and Dialog through shelf add
 apps/web/        the website and docs, a Next app that receives every component through shelf add

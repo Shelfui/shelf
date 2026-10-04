@@ -2,10 +2,13 @@
   "name": "chart-sankey",
   "type": "component",
   "description": "A sankey chart for flow between stages.",
-  "files": [{ "path": "chart-sankey.tsx" }],
+  "files": [
+    {
+      "path": "chart-sankey.tsx"
+    }
+  ],
   "dependencies": {
-    "@stylexjs/stylex": "^0.19.1",
-    "recharts": "3.10.1"
+    "recharts": "^3.10.1"
   },
   "shelfDependencies": ["chart", "foundations"]
 }

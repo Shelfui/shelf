@@ -2,10 +2,14 @@
   "name": "chart-treemap",
   "type": "component",
   "description": "A treemap for sizes within a whole, as nested rectangles.",
-  "files": [{ "path": "chart-treemap.tsx" }],
+  "files": [
+    {
+      "path": "chart-treemap.tsx"
+    }
+  ],
   "dependencies": {
     "@stylexjs/stylex": "^0.19.1",
-    "recharts": "3.10.1"
+    "recharts": "^3.10.1"
   },
   "shelfDependencies": ["chart", "foundations"]
 }

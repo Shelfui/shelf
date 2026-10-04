@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Diagram } from "@/components/site/diagram";
 import { Code, PageHeader, Prose, Section, TextLink } from "@/components/site/docs-page";
-import { blocks } from "@/docs/blocks";
+import { blocks, pageBlocks } from "@/docs/blocks";
 import { components } from "@/docs/components";
 import { models } from "@/docs/diagrams";
 import { siteConfig } from "@/site";
@@ -62,7 +62,8 @@ export default function DocsIntroduction() {
 
       <Section title="What you get today">
         <Prose>
-          {components.length} components, {blocks.length} blocks, and semantic foundations with
+          {components.length} components, {pageBlocks.length} blocks,{" "}
+          {blocks.length - pageBlocks.length} patterns and templates, and semantic foundations with
           light and dark themes. A CLI with <Code>init</Code>, <Code>search</Code>, <Code>add</Code>
           , <Code>status</Code>, <Code>diff</Code>, <Code>update</Code>, and <Code>check</Code> for
           each product, and <Code>build</Code> and <Code>usage</Code> for the team that runs the{" "}

@@ -22,6 +22,10 @@ const LAYOUT = `registry/
 ├── index.json
 ├── blocks/
 │   └── login-form/
+├── patterns/
+│   └── confirm-dialog/
+├── templates/
+│   └── settings-page/
 ├── components/
 │   ├── button/
 │   │   ├── registry.json
@@ -144,7 +148,7 @@ export default function Registry() {
           items={[
             {
               term: <Code>type</Code>,
-              text: "component, block, foundation, or lib. It decides where the files go.",
+              text: "component, pattern, block, template, foundation, or lib. It decides where the files go.",
             },
             {
               term: <Code>files</Code>,
@@ -170,6 +174,28 @@ export default function Registry() {
           components it uses, then writes the block to <Code>paths.blocks</Code>, which defaults to{" "}
           <Code>src/components/blocks</Code>. Its imports point at your copies of those components.
           See <TextLink href="/blocks">Blocks</TextLink>.
+        </Prose>
+      </Section>
+
+      <Section title="Patterns and templates">
+        <Prose>
+          A pattern is an interaction built from components, such as a confirmation that shows a
+          pending state. A template is a whole page, such as a settings page. They are items like
+          blocks: <Code>shelf add settings-page</Code> adds the blocks, patterns, and components it
+          uses, then writes the template to <Code>paths.templates</Code>, which defaults to{" "}
+          <Code>src/components/templates</Code>. Patterns go to <Code>paths.patterns</Code>,{" "}
+          <Code>src/components/patterns</Code> by default. See{" "}
+          <TextLink href="/blocks/patterns">Patterns</TextLink> and{" "}
+          <TextLink href="/blocks/templates">Templates</TextLink>.
+        </Prose>
+      </Section>
+
+      <Section title="Helping people and agents choose">
+        <Prose>
+          Each entry in <Code>index.json</Code> can add <Code>keywords</Code>, <Code>useWhen</Code>,{" "}
+          <Code>avoidWhen</Code>, and <Code>related</Code>. <Code>shelf search</Code> ranks with
+          them, <Code>shelf docs</Code> prints them, and <Code>llms.txt</Code> lists them. They
+          never change an item&apos;s revision.
         </Prose>
       </Section>
 

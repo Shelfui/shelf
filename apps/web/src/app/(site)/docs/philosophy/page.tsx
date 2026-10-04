@@ -83,8 +83,10 @@ export default function Philosophy() {
           ]}
         />
         <Prose>
-          Components and <TextLink href="/blocks">blocks</TextLink> ship today. Patterns and
-          templates will install the same way.
+          Components, <TextLink href="/blocks/patterns">patterns</TextLink>,{" "}
+          <TextLink href="/blocks">blocks</TextLink>, and{" "}
+          <TextLink href="/blocks/templates">templates</TextLink> all ship, and install the same
+          way. There are few patterns and templates so far: each exists because a product needed it.
         </Prose>
       </Section>
 
