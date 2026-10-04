@@ -5,6 +5,8 @@ const config: NextConfig = {
   pageExtensions: ["ts", "tsx", "mdx"],
   poweredByHeader: false,
   reactStrictMode: true,
+  // Puts the page's CSS in the HTML, so the first paint no longer waits for a stylesheet request.
+  experimental: { inlineCss: true },
   // Next's bundled polyfills (Array.prototype.at, Object.fromEntries, ...) are native in the browserslist targets.
   turbopack: {
     resolveAlias: {
