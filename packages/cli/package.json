@@ -1,6 +1,6 @@
 {
   "name": "@shelfui/cli",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Shelf CLI: add source-owned React components to your app.",
   "keywords": [
     "base-ui",
