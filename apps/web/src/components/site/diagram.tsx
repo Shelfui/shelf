@@ -66,7 +66,9 @@ const styles = stylex.create({
   },
   pre: {
     color: colors.mutedForeground,
-    fontFamily: typography.fontFamilyMono,
+    // A system monospace: the box-drawing characters would otherwise make the browser fetch
+    // an extra Geist Mono file after the stylesheet, just for these diagrams.
+    fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace',
     fontSize: { default: "0.6875rem", [screens.md]: "0.8125rem" },
     lineHeight: 1.45,
     margin: 0,
