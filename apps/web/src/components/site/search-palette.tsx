@@ -44,10 +44,14 @@ export function SearchPalette({
       description="Search the documentation, components, and blocks."
       style={styles.dialog}
     >
-      <Command.Root
+      <Command.Root<SearchItem | SearchGroup>
         items={groups}
         filteredItems={groups}
         onValueChange={setQuery}
+        // Fetch the page behind the highlighted result, so Enter opens it at once.
+        onItemHighlighted={(item) => {
+          if (item && "href" in item) router.prefetch(item.href);
+        }}
         style={styles.root}
       >
         <Command.Input
