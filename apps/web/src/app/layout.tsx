@@ -39,6 +39,9 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={fontVariables} suppressHydrationWarning>
+      <head>
+        <link rel="ard" href="/.well-known/ard.json" />
+      </head>
       <body suppressHydrationWarning {...stylex.props(styles.body)}>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <ThemeProvider
