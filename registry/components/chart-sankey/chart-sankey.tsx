@@ -45,6 +45,7 @@ export function SankeyChart({
             nodes: data.nodes.map((n) => ({ ...n })),
             links: data.links.map((l) => ({ ...l })),
           }}
+          align="left"
           nodePadding={24}
           nodeWidth={10}
           margin={{ top: 4, right: 96, bottom: 4, left: 4 }}

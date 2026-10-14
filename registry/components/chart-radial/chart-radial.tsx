@@ -3,6 +3,7 @@
 import { type ComponentProps, useId } from "react";
 import {
   Cell,
+  PolarAngleAxis,
   RadialBar as RechartsRadialBar,
   RadialBarChart as RechartsRadialBarChart,
 } from "recharts";
@@ -73,6 +74,9 @@ export function RadialBar({
 
   return (
     <>
+      {max !== undefined && (
+        <PolarAngleAxis type="number" domain={[0, max]} tick={false} axisLine={false} />
+      )}
       {data.map((_, index) => (
         <SeriesPattern
           // react-doctor-disable-next-line react-doctor/no-array-index-as-key
@@ -86,7 +90,6 @@ export function RadialBar({
         dataKey={dataKey}
         cornerRadius={8}
         background={{ fill: colors.muted }}
-        {...(max === undefined ? {} : { max })}
         {...props}
       >
         {data.map((_, index) => (

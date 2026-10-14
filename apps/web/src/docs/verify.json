@@ -95,8 +95,8 @@
           "css": 496
         },
         "total": {
-          "js": 121876,
-          "css": 2663
+          "js": 122123,
+          "css": 2687
         }
       },
       "packages": 1,
@@ -468,12 +468,12 @@
     "chart": {
       "size": {
         "own": {
-          "js": 3083,
-          "css": 941
+          "js": 3375,
+          "css": 967
         },
         "total": {
-          "js": 86328,
-          "css": 1977
+          "js": 86667,
+          "css": 2003
         }
       },
       "packages": 2,
@@ -490,8 +490,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 9,
-        "failed": 5
+        "compiled": 8,
+        "failed": 9
       }
     },
     "chart-area": {
@@ -502,7 +502,7 @@
         },
         "total": {
           "js": 84631,
-          "css": 1977
+          "css": 2003
         }
       },
       "packages": 1,
@@ -531,7 +531,7 @@
         },
         "total": {
           "js": 83123,
-          "css": 1977
+          "css": 2003
         }
       },
       "packages": 1,
@@ -559,8 +559,8 @@
           "css": 193
         },
         "total": {
-          "js": 112635,
-          "css": 2583
+          "js": 112836,
+          "css": 2609
         }
       },
       "packages": 1,
@@ -584,12 +584,12 @@
     "chart-funnel": {
       "size": {
         "own": {
-          "js": 1025,
-          "css": 91
+          "js": 1251,
+          "css": 102
         },
         "total": {
-          "js": 81451,
-          "css": 1998
+          "js": 81643,
+          "css": 2035
         }
       },
       "packages": 2,
@@ -606,7 +606,7 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 0,
+        "compiled": 1,
         "failed": 2
       }
     },
@@ -618,7 +618,7 @@
         },
         "total": {
           "js": 2472,
-          "css": 2249
+          "css": 2270
         }
       },
       "packages": 1,
@@ -647,7 +647,7 @@
         },
         "total": {
           "js": 83750,
-          "css": 1977
+          "css": 2003
         }
       },
       "packages": 1,
@@ -676,7 +676,7 @@
         },
         "total": {
           "js": 84868,
-          "css": 2007
+          "css": 2033
         }
       },
       "packages": 2,
@@ -705,7 +705,7 @@
         },
         "total": {
           "js": 81426,
-          "css": 1977
+          "css": 2003
         }
       },
       "packages": 1,
@@ -729,12 +729,12 @@
     "chart-radial": {
       "size": {
         "own": {
-          "js": 1011,
+          "js": 1058,
           "css": 0
         },
         "total": {
-          "js": 82081,
-          "css": 1977
+          "js": 83859,
+          "css": 2003
         }
       },
       "packages": 1,
@@ -758,12 +758,12 @@
     "chart-sankey": {
       "size": {
         "own": {
-          "js": 1210,
+          "js": 1219,
           "css": 0
         },
         "total": {
-          "js": 76549,
-          "css": 1977
+          "js": 76555,
+          "css": 2003
         }
       },
       "packages": 1,
@@ -792,7 +792,7 @@
         },
         "total": {
           "js": 84314,
-          "css": 1977
+          "css": 2003
         }
       },
       "packages": 1,
@@ -821,7 +821,7 @@
         },
         "total": {
           "js": 77768,
-          "css": 1996
+          "css": 2023
         }
       },
       "packages": 2,
@@ -1226,8 +1226,8 @@
           "css": 493
         },
         "total": {
-          "js": 108513,
-          "css": 2875
+          "js": 108733,
+          "css": 2899
         }
       },
       "packages": 1,
@@ -2964,7 +2964,7 @@
         },
         "total": {
           "js": 83110,
-          "css": 2001
+          "css": 2030
         }
       },
       "packages": 2,
