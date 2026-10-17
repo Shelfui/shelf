@@ -31,3 +31,21 @@ export const Default = meta.story({
     );
   },
 });
+
+/** Every step's name beside its step. */
+export const SideLabels = meta.story({
+  render: () => (
+    <FunnelChart aria-label="Signup funnel, labels beside">
+      <Chart.Tooltip />
+      <Funnel data={steps} dataKey="count" nameKey="step" labels="side" />
+    </FunnelChart>
+  ),
+  play: async ({ canvasElement }) => {
+    // Labels appear once the funnel has finished animating in.
+    await waitFor(() =>
+      expect(canvasElement.querySelectorAll("[data-slot=chart-funnel-label]")).toHaveLength(4),
+    );
+    const labels = [...canvasElement.querySelectorAll("[data-slot=chart-funnel-label]")];
+    for (const label of labels) await expect(label).toHaveAttribute("text-anchor", "start");
+  },
+});

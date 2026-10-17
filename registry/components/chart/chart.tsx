@@ -5,11 +5,14 @@ import { type ComponentProps, type ReactNode, createContext, use, useMemo, useSt
 import {
   CartesianGrid,
   Legend as RechartsLegend,
+  Text,
   Tooltip as RechartsTooltip,
   XAxis as RechartsXAxis,
   YAxis as RechartsYAxis,
   type LegendPayload,
   type TooltipContentProps,
+  type XAxisTickContentProps,
+  usePlotArea,
 } from "recharts";
 import { colors, elevation, radius, spacing, typography } from "../../foundations/tokens.stylex";
 import type { Styled } from "../../lib/utils";
@@ -193,10 +196,49 @@ export function XAxis({ format, ...props }: XAxisProps) {
       axisLine={false}
       tickLine={false}
       tickMargin={8}
-      tick={tick}
+      tick={<XAxisTick />}
       tickFormatter={(value: unknown) => formatValue(value, format, locale)}
       {...props}
     />
+  );
+}
+
+/**
+ * An x-axis label. A label on the plot's left or right edge is aligned to that edge instead of
+ * centred on it, so it stays inside the chart instead of being cut off.
+ */
+function XAxisTick({
+  payload,
+  index = 0,
+  tickFormatter,
+  textAnchor = "middle",
+  x = 0,
+  className,
+  orientation: _orientation,
+  padding: _padding,
+  visibleTicksCount: _visibleTicksCount,
+  ...props
+}: Partial<XAxisTickContentProps>) {
+  const plot = usePlotArea();
+  // Recharts nudges an edge label inward by its own estimate of the label's width, which misses
+  // the axis font. Use the tick's real position to tell whether it sits on an edge.
+  const position = payload?.coordinate ?? Number(x);
+  let anchor = textAnchor;
+  if (plot && textAnchor === "middle") {
+    if (Math.abs(position - (plot.x + plot.width)) < 1) anchor = "end";
+    else if (Math.abs(position - plot.x) < 1) anchor = "start";
+  }
+  const value = tickFormatter ? tickFormatter(payload?.value, index) : payload?.value;
+  return (
+    <Text
+      {...props}
+      x={anchor === textAnchor ? x : position}
+      textAnchor={anchor}
+      className={[className, tick.className].filter(Boolean).join(" ")}
+      style={tick.style}
+    >
+      {String(value ?? "")}
+    </Text>
   );
 }
 
@@ -373,19 +415,27 @@ function TooltipContent({
 }
 
 /** One toggle per series. Pressing it hides or shows the series, and the axes rescale to what is shown. */
-export function Legend(props: Pick<ComponentProps<typeof RechartsLegend>, "verticalAlign">) {
+export function Legend({
+  verticalAlign = "top",
+}: Pick<ComponentProps<typeof RechartsLegend>, "verticalAlign">) {
   return (
     <RechartsLegend
-      verticalAlign="top"
+      verticalAlign={verticalAlign}
       itemSorter={null}
       align="left"
-      {...props}
-      content={<LegendContent />}
+      content={<LegendContent below={verticalAlign === "bottom"} />}
     />
   );
 }
 
-function LegendContent({ payload = [] }: { payload?: readonly LegendPayload[] }) {
+function LegendContent({
+  payload = [],
+  below,
+}: {
+  payload?: readonly LegendPayload[];
+  /** The legend sits under the chart, so its gap goes above it. */
+  below: boolean;
+}) {
   const { hiddenSeries, toggleSeries } = useChart();
   // A series is toggled by its dataKey. Pie slices all share one dataKey, so they are toggled by name.
   const keyOf = (item: LegendPayload) => {
@@ -403,7 +453,10 @@ function LegendContent({ payload = [] }: { payload?: readonly LegendPayload[] })
   const hiddenKeys = new Set(hiddenSeries);
 
   return (
-    <ul data-slot="chart-legend" {...stylex.props(styles.legend)}>
+    <ul
+      data-slot="chart-legend"
+      {...stylex.props(styles.legend, below ? styles.legendBelow : styles.legendAbove)}
+    >
       {items.map((item) => {
         const key = keyOf(item);
         const hidden = hiddenKeys.has(key);
@@ -530,6 +583,13 @@ const styles = stylex.create({
     listStyle: "none",
     display: "flex",
     flexWrap: "wrap",
+  },
+  // Clears the half of the outermost tick label that sits outside the plot.
+  legendAbove: {
+    paddingBlockEnd: spacing["3"],
+  },
+  legendBelow: {
+    paddingBlockStart: spacing["3"],
   },
   legendItem: {
     borderColor: "transparent",

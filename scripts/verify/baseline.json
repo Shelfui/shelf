@@ -14,7 +14,7 @@
     },
     "analytics-dashboard": {
       "own": 2262,
-      "total": 124539
+      "total": 124810
     },
     "approval": {
       "own": 877,
@@ -65,56 +65,56 @@
       "total": 17896
     },
     "chart": {
-      "own": 4024,
-      "total": 88305
+      "own": 4342,
+      "total": 88670
     },
     "chart-area": {
       "own": 762,
-      "total": 86608
+      "total": 86634
     },
     "chart-bar": {
       "own": 625,
-      "total": 85100
+      "total": 85126
     },
     "chart-card": {
       "own": 1450,
-      "total": 115218
+      "total": 115445
     },
     "chart-funnel": {
-      "own": 1116,
-      "total": 83449
+      "own": 1428,
+      "total": 83742
     },
     "chart-heatmap": {
       "own": 2380,
-      "total": 4721
+      "total": 4742
     },
     "chart-line": {
       "own": 606,
-      "total": 85727
+      "total": 85753
     },
     "chart-pie": {
       "own": 1444,
-      "total": 86875
+      "total": 86901
     },
     "chart-radar": {
       "own": 1059,
-      "total": 83403
+      "total": 83429
     },
     "chart-radial": {
-      "own": 1011,
-      "total": 84058
+      "own": 1058,
+      "total": 85862
     },
     "chart-sankey": {
-      "own": 1210,
-      "total": 78526
+      "own": 1219,
+      "total": 78558
     },
     "chart-scatter": {
       "own": 445,
-      "total": 86291
+      "total": 86317
     },
     "chart-treemap": {
       "own": 1173,
-      "total": 79764
+      "total": 79791
     },
     "chat": {
       "own": 2562,
@@ -170,7 +170,7 @@
     },
     "dashboard-overview": {
       "own": 2104,
-      "total": 111388
+      "total": 111632
     },
     "dashboard-shell": {
       "own": 3186,
@@ -410,7 +410,7 @@
     },
     "sparkline": {
       "own": 602,
-      "total": 85111
+      "total": 85140
     },
     "spinner": {
       "own": 434,

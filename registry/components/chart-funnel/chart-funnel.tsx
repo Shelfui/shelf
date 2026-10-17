@@ -52,10 +52,25 @@ export interface FunnelProps extends Omit<
   nameKey: string;
   /** Defaults to the first series color, fading toward the narrow end. */
   color?: string;
+  /**
+   * Where the step names go. `auto` puts each inside its step, or beside it when the step is too
+   * narrow. `inside` always centres them in the steps. `side` puts every name beside its step,
+   * next to the step's right edge, and narrows the funnel to make room.
+   */
+  labels?: FunnelLabels;
 }
 
+export type FunnelLabels = "auto" | "inside" | "side";
+
 /** The steps, each labelled with its name. */
-export function Funnel({ data, dataKey, nameKey, color = seriesColors[0], ...props }: FunnelProps) {
+export function Funnel({
+  data,
+  dataKey,
+  nameKey,
+  color = seriesColors[0],
+  labels = "auto",
+  ...props
+}: FunnelProps) {
   const { hiddenSeries } = useChart();
   const hidden = new Set(hiddenSeries);
   const visible = data.map((item) =>
@@ -70,6 +85,7 @@ export function Funnel({ data, dataKey, nameKey, color = seriesColors[0], ...pro
       isAnimationActive
       stroke={colors.background}
       strokeWidth={2}
+      {...(labels === "side" ? { width: "60%" } : {})}
       {...props}
     >
       {data.map((item, index) => (
@@ -79,8 +95,56 @@ export function Funnel({ data, dataKey, nameKey, color = seriesColors[0], ...pro
           fillOpacity={Math.max(1 - index * (0.6 / Math.max(data.length, 1)), 0.4)}
         />
       ))}
-      <LabelList dataKey={nameKey} position="center" {...stylex.props(styles.label)} />
+      <LabelList dataKey={nameKey} content={<FunnelLabel placement={labels} />} />
     </RechartsFunnel>
+  );
+}
+
+interface Trapezoid {
+  x: number;
+  y: number;
+  upperWidth: number;
+  lowerWidth: number;
+  height: number;
+}
+
+function isTrapezoid(viewBox: unknown): viewBox is Trapezoid {
+  return typeof viewBox === "object" && viewBox !== null && "upperWidth" in viewBox;
+}
+
+/** Roughly how wide a label is at the extra-small size, to tell whether it fits in its step. */
+const labelCharWidth = 7;
+
+/** A step's name, placed as `placement` says. See `FunnelProps.labels`. */
+function FunnelLabel({
+  viewBox,
+  value,
+  placement,
+}: {
+  viewBox?: unknown;
+  value?: string | number;
+  placement: FunnelLabels;
+}) {
+  if (!isTrapezoid(viewBox)) return null;
+  const { x, y, upperWidth, lowerWidth, height } = viewBox;
+  const text = String(value ?? "");
+  const centre = x + upperWidth / 2;
+  const middle = y + height / 2;
+  const widthAtMiddle = (upperWidth + lowerWidth) / 2;
+  const inside =
+    placement === "inside" ||
+    (placement === "auto" && text.length * labelCharWidth + 16 <= widthAtMiddle);
+  return (
+    <text
+      data-slot="chart-funnel-label"
+      x={inside ? centre : centre + widthAtMiddle / 2 + 8}
+      y={middle}
+      textAnchor={inside ? "middle" : "start"}
+      dominantBaseline="middle"
+      {...stylex.props(styles.label, !inside && styles.labelOutside)}
+    >
+      {text}
+    </text>
   );
 }
 
@@ -91,5 +155,8 @@ const styles = stylex.create({
     fontFamily: typography.fontFamily,
     fontSize: typography.fontSizeXs,
     fontWeight: typography.fontWeightMedium,
+  },
+  labelOutside: {
+    fill: colors.foreground,
   },
 });
