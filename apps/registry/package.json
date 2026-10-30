@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "check": "shelf check && tsc --noEmit && oxlint --type-aware --deny-warnings --disable-nested-config && oxfmt --check && vite build --outDir .tmp/check-build --emptyOutDir"
+    "check": "shelf check && bun check --no-script && oxlint --type-aware --deny-warnings --disable-nested-config && bun fmt --check && vite build --outDir .tmp/check-build --emptyOutDir"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
@@ -36,7 +36,6 @@
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@vitejs/plugin-react": "6.1.2",
-    "oxfmt": "0.75.0",
     "oxlint": "1.90.0",
     "oxlint-tsgolint": "7.0.2005",
     "typescript": "7.0.2",

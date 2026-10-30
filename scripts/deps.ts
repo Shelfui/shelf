@@ -166,7 +166,7 @@ for (const item of items) {
 }
 
 if (flags.fix && drifted > 0) {
-  Bun.spawnSync(["bunx", "oxfmt"], { cwd: repoRoot, stdout: "ignore", stderr: "inherit" });
+  Bun.spawnSync(["bun", "fmt"], { cwd: repoRoot, stdout: "ignore", stderr: "inherit" });
 }
 if (problems.length > 0) {
   console.error(problems.join("\n"));

@@ -159,7 +159,7 @@ describe("external consumer", () => {
 
   test("starts without any Shelf source", async () => {
     for (const file of INSTALLED) expect(await Bun.file(path.join(dir, file)).exists()).toBe(false);
-    const { exitCode, output } = await bun("x", "tsc", "--noEmit");
+    const { exitCode, output } = await bun("check", "--no-script");
     expect(exitCode).not.toBe(0);
     expect(output).toContain("Cannot find module './components/ui/button'");
   });
@@ -294,7 +294,7 @@ describe("external consumer", () => {
         const { exitCode, stdout } = await shelf("check");
         expect(stdout).toContain("~ src/components/ui/button.tsx (button, modified locally)");
         expect(exitCode).toBe(0);
-        await succeed(bun("x", "tsc", "--noEmit"));
+        await succeed(bun("check", "--no-script"));
       } finally {
         await writeFile(path.join(dir, "shelf.config.json"), config);
         await writeFile(path.join(dir, ".shelf/lock.json"), lock);
@@ -445,12 +445,12 @@ describe("external consumer", () => {
         path.join(dir, "src/App.tsx"),
         `${imports.join("\n")}\n\nconst all = [${components.map((_, i) => `C${i}`).join(", ")}];\n\nexport function App() {\n  return <pre>{all.length}</pre>;\n}\n`,
       );
-      await succeed(bun("x", "oxfmt", "src/App.tsx"));
+      await succeed(bun("fmt", "src/App.tsx"));
       try {
         const { exitCode, stdout } = await shelf("check");
         if (exitCode !== 0) throw new Error(stdout);
         expect(stdout).toContain(`✓ provenance   ${names.length} items`);
-        await succeed(bun("x", "tsc", "--noEmit"));
+        await succeed(bun("check", "--no-script"));
         const { js } = await bundle();
         expect(js).toContain("navigation-menu-popup");
         expect(js).toContain("toast");
@@ -501,7 +501,7 @@ describe("external consumer", () => {
       await rm(path.join(dir, "shelf.config.json"));
       await succeed(bun("remove", "@shelfui/cli"));
       expect(await Bun.file(path.join(dir, "node_modules/.bin/shelf")).exists()).toBe(false);
-      await succeed(bun("x", "tsc", "--noEmit"));
+      await succeed(bun("check", "--no-script"));
       await succeed(bun("x", "vite", "build"));
     },
     TIMEOUT,

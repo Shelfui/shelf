@@ -8,7 +8,7 @@
     "prebuild": "bun run agent-docs",
     "build": "next build",
     "start": "next start",
-    "check": "shelf check && tsc --noEmit && oxlint --type-aware --deny-warnings --disable-nested-config && oxfmt --check && bun run agent-docs && next build"
+    "check": "shelf check && bun check --no-script && oxlint --type-aware --deny-warnings --disable-nested-config && bun fmt --check && bun run agent-docs && next build"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
@@ -72,7 +72,6 @@
     "@types/node": "26.6.6",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
-    "oxfmt": "0.75.0",
     "oxlint": "1.90.0",
     "oxlint-tsgolint": "7.0.2005",
     "typescript": "7.0.2"
