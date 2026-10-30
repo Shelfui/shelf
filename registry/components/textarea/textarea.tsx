@@ -56,7 +56,10 @@ const styles = stylex.create({
     color: colors.foreground,
     display: "block",
     fontFamily: typography.fontFamily,
-    fontSize: typography.fontSizeSm,
+    fontSize: {
+      default: typography.fontSizeSm,
+      [media.touch]: typography.fontSizeBase,
+    },
     lineHeight: typography.lineHeightSm,
     resize: "vertical",
     transitionDuration: {

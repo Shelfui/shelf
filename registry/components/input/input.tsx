@@ -60,7 +60,10 @@ const styles = stylex.create({
     boxSizing: "border-box",
     color: colors.foreground,
     fontFamily: typography.fontFamily,
-    fontSize: typography.fontSizeSm,
+    fontSize: {
+      default: typography.fontSizeSm,
+      [media.touch]: typography.fontSizeBase,
+    },
     lineHeight: typography.lineHeightSm,
     transitionDuration: {
       default: motion.durationFast,

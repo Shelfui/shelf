@@ -3,6 +3,7 @@
 import { Autocomplete as BaseAutocomplete } from "@base-ui/react/autocomplete";
 import * as stylex from "@stylexjs/stylex";
 import type { ComponentProps, ReactNode } from "react";
+import { media } from "../../foundations/conditions.stylex";
 import { colors, radius, sizes, spacing, typography } from "../../foundations/tokens.stylex";
 import * as ShelfDialog from "../dialog/dialog";
 import { SearchIcon } from "../icons/icons";
@@ -250,7 +251,10 @@ const styles = stylex.create({
     },
     flexGrow: 1,
     fontFamily: typography.fontFamily,
-    fontSize: typography.fontSizeSm,
+    fontSize: {
+      default: typography.fontSizeSm,
+      [media.touch]: typography.fontSizeBase,
+    },
     height: "100%",
     minWidth: 0,
   },

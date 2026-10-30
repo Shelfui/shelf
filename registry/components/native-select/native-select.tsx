@@ -102,7 +102,10 @@ const styles = stylex.create({
       ":disabled": "not-allowed",
     },
     fontFamily: typography.fontFamily,
-    fontSize: typography.fontSizeSm,
+    fontSize: {
+      default: typography.fontSizeSm,
+      [media.touch]: typography.fontSizeBase,
+    },
     lineHeight: typography.lineHeightSm,
     // Leaves room for the chevron.
     paddingInlineEnd: `calc(${spacing["6"]} + ${spacing["2"]})`,

@@ -296,7 +296,10 @@ const styles = stylex.create({
     },
     flexGrow: 1,
     fontFamily: typography.fontFamily,
-    fontSize: typography.fontSizeSm,
+    fontSize: {
+      default: typography.fontSizeSm,
+      [media.touch]: typography.fontSizeBase,
+    },
     paddingInlineStart: spacing["3"],
     height: "100%",
     minWidth: 0,
