@@ -16,9 +16,21 @@ import type { Styled } from "../../lib/utils";
  *     </Table.Body>
  *   </Table.Root>
  */
-export function Root({ style, ...props }: Styled<ComponentProps<"table">>) {
+export function Root({
+  style,
+  containerStyle,
+  ...props
+}: Styled<ComponentProps<"table">> & {
+  /** Styles for the scroll container, such as a max height or a border. */
+  containerStyle?: stylex.StaticStyles;
+}) {
   return (
-    <div data-slot="table-container" {...stylex.props(styles.container)}>
+    // Focusable so keyboard users can scroll a wide table.
+    <div
+      data-slot="table-container"
+      tabIndex={0}
+      {...stylex.props(styles.container, containerStyle)}
+    >
       <table data-slot="table" {...props} {...stylex.props(styles.table, style)} />
     </div>
   );
@@ -54,6 +66,11 @@ export function Caption({ style, ...props }: Styled<ComponentProps<"caption">>) 
 
 const styles = stylex.create({
   container: {
+    outline: {
+      default: "none",
+      ":focus-visible": `2px solid ${colors.ring}`,
+    },
+    outlineOffset: "-2px",
     position: "relative",
     overflowX: "auto",
     width: "100%",
@@ -92,6 +109,8 @@ const styles = stylex.create({
   },
   caption: {
     color: colors.mutedForeground,
+    // Start-aligned, so a caption under a wide, scrolling table stays in view.
+    textAlign: "start",
     marginTop: spacing["4"],
   },
 });
