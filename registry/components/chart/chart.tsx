@@ -16,7 +16,13 @@ import {
 } from "recharts";
 import { colors, elevation, radius, spacing, typography } from "../../foundations/tokens.stylex";
 import type { Styled } from "../../lib/utils";
-import { type ChartFormat, formatValue, toggleKey } from "./chart-format";
+import {
+  type ChartFormat,
+  type ChartLabelFormat,
+  formatLabel,
+  formatValue,
+  toggleKey,
+} from "./chart-format";
 
 /**
  * Series colors in order. A series defaults to the first; give each further series the next:
@@ -55,8 +61,10 @@ export function useChart(): ChartState {
 export interface RootProps extends Styled<Omit<ComponentProps<"div">, "aria-label">> {
   /** Names the chart for screen readers, such as "Revenue by month". */
   "aria-label": string;
-  /** Width over height. */
+  /** Width over height. Ignored when `height` is set. */
   aspect?: number;
+  /** A fixed height in pixels, including the axis labels. */
+  height?: number;
   /** Shows `emptyMessage` instead of the chart. */
   empty?: boolean;
   emptyMessage?: ReactNode;
@@ -90,6 +98,7 @@ export function splitFrameProps<P extends ChartFrameProps>(props: P) {
   const {
     "aria-label": label,
     aspect,
+    height,
     emptyMessage,
     locale,
     hiddenSeries,
@@ -101,6 +110,7 @@ export function splitFrameProps<P extends ChartFrameProps>(props: P) {
   const frame: ChartFrameProps = {
     "aria-label": label,
     aspect,
+    height,
     emptyMessage,
     locale,
     hiddenSeries,
@@ -118,6 +128,7 @@ export function splitFrameProps<P extends ChartFrameProps>(props: P) {
 export function Root({
   "aria-label": label,
   aspect = 2,
+  height,
   empty = false,
   emptyMessage = "No data to show.",
   locale,
@@ -151,7 +162,11 @@ export function Root({
         role="group"
         aria-label={label}
         {...props}
-        {...stylex.props(styles.root, aspectStyles.ratio(aspect), style)}
+        {...stylex.props(
+          styles.root,
+          height === undefined ? aspectStyles.ratio(aspect) : aspectStyles.height(height),
+          style,
+        )}
       >
         {empty ? (
           <div data-slot="chart-empty" role="status" {...stylex.props(styles.empty)}>
@@ -180,8 +195,8 @@ export function Grid(props: ComponentProps<typeof CartesianGrid>) {
 }
 
 interface FormatProps {
-  /** `Intl.NumberFormat` options, or a function, for tick labels. */
-  format?: ChartFormat;
+  /** `Intl.NumberFormat` options, or a function, for tick labels. A function also gets text labels. */
+  format?: ChartLabelFormat;
 }
 
 type XAxisProps = Omit<ComponentProps<typeof RechartsXAxis>, "tickFormatter" | "format"> &
@@ -197,7 +212,7 @@ export function XAxis({ format, ...props }: XAxisProps) {
       tickLine={false}
       tickMargin={8}
       tick={<XAxisTick />}
-      tickFormatter={(value: unknown) => formatValue(value, format, locale)}
+      tickFormatter={(value: unknown) => formatLabel(value, format, locale)}
       {...props}
     />
   );
@@ -251,7 +266,7 @@ export function YAxis({ format, ...props }: YAxisProps) {
       tickMargin={8}
       width="auto"
       tick={tick}
-      tickFormatter={(value: unknown) => formatValue(value, format, locale)}
+      tickFormatter={(value: unknown) => formatLabel(value, format, locale)}
       {...props}
     />
   );
@@ -310,17 +325,19 @@ export function ActiveDot({ cx, cy, color }: { cx?: number; cy?: number; color: 
 export interface TooltipProps {
   /** Formats each value in the tooltip. */
   format?: ChartFormat;
-  /** Formats the heading, which is the hovered x value. */
-  labelFormat?: ChartFormat;
+  /** Formats the heading, which is the hovered x value. A function also gets text labels. */
+  labelFormat?: ChartLabelFormat;
+  /** A line under the heading about the hovered data item, such as "Partial data". */
+  note?: (datum: Record<string, unknown>) => ReactNode;
 }
 
 /** The tooltip that follows the pointer or the arrow keys. */
-export function Tooltip({ format, labelFormat }: TooltipProps) {
+export function Tooltip({ format, labelFormat, note }: TooltipProps) {
   return (
     <RechartsTooltip
       cursor={{ fill: colors.chartCursor, stroke: colors.chartGrid }}
       isAnimationActive={false}
-      content={<TooltipContent format={format} labelFormat={labelFormat} />}
+      content={<TooltipContent format={format} labelFormat={labelFormat} note={note} />}
     />
   );
 }
@@ -384,21 +401,29 @@ export function slicePattern(index: number): ChartPattern {
   return slicePatterns[index % slicePatterns.length] ?? "solid";
 }
 
+function isDatum(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null;
+}
+
 function TooltipContent({
   active,
   payload,
   label,
   format,
   labelFormat,
+  note,
 }: Partial<TooltipContentProps> & TooltipProps) {
   const { locale } = useChart();
   if (!active || !payload || payload.length === 0) return null;
+  const datum: unknown = payload[0]?.payload;
+  const noted = note && isDatum(datum) ? note(datum) : null;
 
   return (
     <div data-slot="chart-tooltip" {...stylex.props(styles.tooltip)}>
       {label !== undefined && (
-        <div {...stylex.props(styles.tooltipLabel)}>{formatValue(label, labelFormat, locale)}</div>
+        <div {...stylex.props(styles.tooltipLabel)}>{formatLabel(label, labelFormat, locale)}</div>
       )}
+      {noted && <div {...stylex.props(styles.tooltipNote)}>{noted}</div>}
       <ul {...stylex.props(styles.tooltipList)}>
         {payload.map((item) => (
           <li key={String(item.dataKey ?? item.name)} {...stylex.props(styles.tooltipRow)}>
@@ -480,6 +505,7 @@ function LegendContent({
 
 const aspectStyles = stylex.create({
   ratio: (ratio: number) => ({ aspectRatio: ratio }),
+  height: (height: number) => ({ height }),
 });
 
 const swatchStyles = stylex.create({
@@ -543,6 +569,10 @@ const styles = stylex.create({
   tooltipLabel: {
     color: colors.mutedForeground,
     fontWeight: typography.fontWeightMedium,
+  },
+  tooltipNote: {
+    color: colors.foreground,
+    maxWidth: "16rem",
   },
   tooltipList: {
     margin: 0,

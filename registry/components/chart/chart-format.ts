@@ -1,6 +1,9 @@
 /** How a chart prints a number: `Intl.NumberFormat` options, or your own function. */
 export type ChartFormat = Intl.NumberFormatOptions | ((value: number) => string);
 
+/** How a chart prints an axis tick or a tooltip heading: a `ChartFormat`, or a function for text labels. */
+export type ChartLabelFormat = ChartFormat | ((value: string) => string);
+
 /** The line shapes charts draw between points. */
 export type ChartCurve = "smooth" | "linear" | "step";
 
@@ -19,6 +22,14 @@ export function formatValue(value: unknown, format?: ChartFormat, locale?: strin
   if (typeof value !== "number") return typeof value === "boolean" ? String(value) : "";
   if (typeof format === "function") return format(value);
   return new Intl.NumberFormat(locale, format).format(value);
+}
+
+/** Prints an axis tick or a tooltip heading. Like `formatValue`, but a function also gets text, such as an ISO date. */
+export function formatLabel(value: unknown, format?: ChartLabelFormat, locale?: string): string {
+  if (typeof format !== "function") return formatValue(value, format, locale);
+  if (typeof value !== "string" && typeof value !== "number") return formatValue(value);
+  // oxlint-disable-next-line typescript/no-unsafe-type-assertion -- the caller wrote the function for the labels its data holds.
+  return (format as (value: string | number) => string)(value);
 }
 
 /** The keys in `current` after toggling `key`, in a stable order. */
