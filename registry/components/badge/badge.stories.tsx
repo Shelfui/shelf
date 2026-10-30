@@ -22,6 +22,18 @@ export const Default = meta.story({
   },
 });
 
+/** In a column it stays as wide as its text instead of stretching. */
+export const InColumn = meta.story({
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", width: 200 }}>
+      <Badge>Paid</Badge>
+    </div>
+  ),
+  play: async ({ canvas }) => {
+    await expect(canvas.getByText("Paid").getBoundingClientRect().width).toBeLessThan(200);
+  },
+});
+
 export const Variants = meta.story({
   render: () => (
     <div style={{ display: "flex", gap: 8 }}>

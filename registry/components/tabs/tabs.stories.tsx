@@ -55,6 +55,28 @@ export const Default = meta.story({
   },
 });
 
+/** `variant="line"` underlines the active tab instead of raising it. */
+export const Line = meta.story({
+  render: () => (
+    <Tabs.Root defaultValue="overview">
+      <Tabs.List variant="line">
+        <Tabs.Tab value="overview">Overview</Tabs.Tab>
+        <Tabs.Tab value="activity">Activity</Tabs.Tab>
+      </Tabs.List>
+      <Tabs.Panel value="overview">Amount due: $1,200.00</Tabs.Panel>
+      <Tabs.Panel value="activity">Sent to Acme Inc. on March 3.</Tabs.Panel>
+    </Tabs.Root>
+  ),
+  play: async ({ canvas }) => {
+    const active = canvas.getByRole("tab", { name: "Overview" });
+    const inactive = canvas.getByRole("tab", { name: "Activity" });
+
+    await expect(getComputedStyle(active).backgroundColor).toBe("rgba(0, 0, 0, 0)");
+    await expect(getComputedStyle(active).boxShadow).toContain("inset");
+    await expect(getComputedStyle(inactive).boxShadow).toBe("none");
+  },
+});
+
 export const Vertical = meta.story({
   render: () => <Invoice orientation="vertical" />,
   play: async ({ canvas }) => {
