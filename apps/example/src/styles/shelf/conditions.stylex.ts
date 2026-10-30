@@ -8,6 +8,8 @@ export const media = stylex.defineConsts({
   /** Devices with a real hover, so touch screens don't keep a stuck hover state. */
   hover: "@media (hover: hover)",
   reducedMotion: "@media (prefers-reduced-motion: reduce)",
+  /** Touch screens. iOS zooms into a focused field whose text is under 16px. */
+  touch: "@media (pointer: coarse)",
 });
 
 /** Stacking order for layers that render in a portal. */

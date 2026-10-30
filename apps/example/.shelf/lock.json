@@ -28,14 +28,14 @@
       },
       "files": {
         "src/components/ui/dialog.tsx": {
-          "baseHash": "429b2d6a79eb27d6f2766b9b02fe5bf008a4f892e553a544b8ca95a36915d8ca",
+          "baseHash": "b06f25da01bf03dab7d63a2862b2ee3c938591137b9bc697df087bdb2f6cb640",
           "source": "dialog.tsx"
         }
       },
-      "installedAt": "2026-10-30T08:23:22.016Z",
+      "installedAt": "2026-10-30T17:51:32.761Z",
       "path": "components/dialog",
       "registry": "../../registry",
-      "revision": "50067e481908d78c560eacc59a279351eed93a26816855b625d1d3c9c9322e28",
+      "revision": "14169c2e09bc15602b647493952e6269236664e5b8f2289d2ac9c5d2ed2caed5",
       "shelfDependencies": [
         "button",
         "foundations",
@@ -52,7 +52,7 @@
       },
       "files": {
         "src/styles/shelf/conditions.stylex.ts": {
-          "baseHash": "9652f85bc72e72565a38883f67155e88fd141600edf4b984572018b0bd7bb03b",
+          "baseHash": "13517a3c34876d4917dd910308c13187eb3e35d66fec36d231b91fc0a68de5dd",
           "source": "conditions.stylex.ts"
         },
         "src/styles/shelf/fonts.css": {
@@ -68,10 +68,10 @@
           "source": "tokens.stylex.ts"
         }
       },
-      "installedAt": "2026-10-03T10:46:15.686Z",
+      "installedAt": "2026-10-30T17:51:32.761Z",
       "path": "foundations",
       "registry": "../../registry",
-      "revision": "403f780ae7d4b968fcab1a19dada3e01a88ef47934fa759de38494d7e31a0f1e",
+      "revision": "6c57d06c8709c35a412f145239daa04dcb8019a2052653e00cb5ce949a0bdad2",
       "shelfDependencies": [],
       "type": "foundation"
     },

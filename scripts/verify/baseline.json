@@ -9,12 +9,12 @@
       "total": 2799
     },
     "alert-dialog": {
-      "own": 1882,
-      "total": 24087
+      "own": 1922,
+      "total": 24131
     },
     "analytics-dashboard": {
       "own": 2262,
-      "total": 124675
+      "total": 124891
     },
     "approval": {
       "own": 877,
@@ -29,16 +29,16 @@
       "total": 9637
     },
     "autocomplete": {
-      "own": 2647,
-      "total": 49648
+      "own": 2679,
+      "total": 49682
     },
     "avatar": {
       "own": 1586,
       "total": 7182
     },
     "badge": {
-      "own": 1041,
-      "total": 2767
+      "own": 1098,
+      "total": 2827
     },
     "breadcrumb": {
       "own": 1458,
@@ -65,60 +65,60 @@
       "total": 17840
     },
     "chart": {
-      "own": 4337,
-      "total": 88500
+      "own": 4521,
+      "total": 88682
     },
     "chart-area": {
       "own": 762,
-      "total": 86631
+      "total": 86712
     },
     "chart-bar": {
       "own": 625,
-      "total": 85138
+      "total": 85221
     },
     "chart-card": {
       "own": 1450,
-      "total": 115395
+      "total": 115604
     },
     "chart-funnel": {
       "own": 1426,
-      "total": 83653
+      "total": 83737
     },
     "chart-heatmap": {
       "own": 2378,
-      "total": 4734
+      "total": 4764
     },
     "chart-line": {
       "own": 606,
-      "total": 85781
+      "total": 85869
     },
     "chart-pie": {
       "own": 1444,
-      "total": 86931
+      "total": 87014
     },
     "chart-radar": {
       "own": 1059,
-      "total": 83472
+      "total": 83549
     },
     "chart-radial": {
       "own": 1058,
-      "total": 85849
+      "total": 85930
     },
     "chart-sankey": {
       "own": 1219,
-      "total": 78474
+      "total": 78552
     },
     "chart-scatter": {
       "own": 445,
-      "total": 86309
+      "total": 86388
     },
     "chart-treemap": {
       "own": 1173,
-      "total": 79649
+      "total": 79734
     },
     "chat": {
       "own": 2562,
-      "total": 484465
+      "total": 484500
     },
     "checkbox": {
       "own": 1425,
@@ -142,15 +142,15 @@
     },
     "color-picker": {
       "own": 1926,
-      "total": 16956
+      "total": 16991
     },
     "combobox": {
-      "own": 3257,
-      "total": 52622
+      "own": 3294,
+      "total": 52659
     },
     "command": {
-      "own": 2784,
-      "total": 45156
+      "own": 2829,
+      "total": 45191
     },
     "composer": {
       "own": 5632,
@@ -158,7 +158,7 @@
     },
     "confirm-dialog": {
       "own": 723,
-      "total": 28767
+      "total": 28834
     },
     "context-menu": {
       "own": 544,
@@ -170,31 +170,31 @@
     },
     "dashboard-overview": {
       "own": 2104,
-      "total": 111561
+      "total": 111880
     },
     "dashboard-shell": {
       "own": 3186,
-      "total": 90509
+      "total": 90630
     },
     "data-table": {
       "own": 3086,
-      "total": 73296
+      "total": 73368
     },
     "data-table-virtual": {
       "own": 1962,
-      "total": 47115
+      "total": 47204
     },
     "date-picker": {
       "own": 1298,
       "total": 63489
     },
     "dialog": {
-      "own": 2090,
-      "total": 27983
+      "own": 2131,
+      "total": 28034
     },
     "drawer": {
-      "own": 2794,
-      "total": 34619
+      "own": 3000,
+      "total": 38383
     },
     "dropdown-menu": {
       "own": 2655,
@@ -214,11 +214,11 @@
     },
     "editor-bubble-menu": {
       "own": 1543,
-      "total": 193126
+      "total": 193160
     },
     "editor-link-popover": {
       "own": 1259,
-      "total": 166023
+      "total": 166057
     },
     "editor-slash-menu": {
       "own": 2915,
@@ -245,8 +245,8 @@
       "total": 4552
     },
     "foundations": {
-      "own": 3353,
-      "total": 3338
+      "own": 3368,
+      "total": 3354
     },
     "hover-card": {
       "own": 1701,
@@ -257,12 +257,12 @@
       "total": 7711
     },
     "input": {
-      "own": 1305,
-      "total": 6729
+      "own": 1339,
+      "total": 6764
     },
     "input-group": {
-      "own": 1534,
-      "total": 6988
+      "own": 1568,
+      "total": 7023
     },
     "input-otp": {
       "own": 1328,
@@ -270,7 +270,7 @@
     },
     "invoices-table": {
       "own": 3222,
-      "total": 82156
+      "total": 82388
     },
     "item": {
       "own": 2376,
@@ -286,15 +286,15 @@
     },
     "list-detail-page": {
       "own": 1765,
-      "total": 31317
+      "total": 31391
     },
     "login-form": {
       "own": 1608,
-      "total": 17741
+      "total": 17778
     },
     "login-split": {
       "own": 1638,
-      "total": 18617
+      "total": 18651
     },
     "menubar": {
       "own": 1501,
@@ -309,16 +309,16 @@
       "total": 5354
     },
     "native-select": {
-      "own": 1862,
-      "total": 4957
+      "own": 1891,
+      "total": 4986
     },
     "navigation-menu": {
       "own": 2384,
       "total": 40463
     },
     "number-field": {
-      "own": 1716,
-      "total": 15052
+      "own": 1743,
+      "total": 15080
     },
     "number-ticker": {
       "own": 738,
@@ -374,11 +374,11 @@
     },
     "settings-page": {
       "own": 1478,
-      "total": 37948
+      "total": 38053
     },
     "settings-section": {
       "own": 1773,
-      "total": 17790
+      "total": 17825
     },
     "shimmer": {
       "own": 744,
@@ -386,15 +386,15 @@
     },
     "sidebar": {
       "own": 4135,
-      "total": 58763
+      "total": 59114
     },
     "sidebar-nested": {
       "own": 2859,
-      "total": 78735
+      "total": 79020
     },
     "signup-form": {
       "own": 1673,
-      "total": 19896
+      "total": 19929
     },
     "skeleton": {
       "own": 599,
@@ -410,7 +410,7 @@
     },
     "sparkline": {
       "own": 602,
-      "total": 85154
+      "total": 85183
     },
     "spinner": {
       "own": 434,
@@ -433,16 +433,16 @@
       "total": 8248
     },
     "table": {
-      "own": 1168,
-      "total": 2884
+      "own": 1296,
+      "total": 3011
     },
     "tabs": {
-      "own": 1834,
-      "total": 13456
+      "own": 2025,
+      "total": 13654
     },
     "textarea": {
-      "own": 1432,
-      "total": 6840
+      "own": 1471,
+      "total": 6878
     },
     "thread": {
       "own": 2898,
@@ -450,7 +450,7 @@
     },
     "time-picker": {
       "own": 1110,
-      "total": 51389
+      "total": 51421
     },
     "timeline": {
       "own": 1305,
@@ -470,7 +470,7 @@
     },
     "tool-call": {
       "own": 1778,
-      "total": 310354
+      "total": 310374
     },
     "toolbar": {
       "own": 1045,
@@ -490,7 +490,7 @@
     },
     "usage-explorer": {
       "own": 11600,
-      "total": 67340
+      "total": 67544
     },
     "utils": {
       "own": 240,

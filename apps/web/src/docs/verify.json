@@ -62,12 +62,12 @@
     "alert-dialog": {
       "size": {
         "own": {
-          "js": 1135,
-          "css": 747
+          "js": 1151,
+          "css": 771
         },
         "total": {
-          "js": 22304,
-          "css": 1783
+          "js": 22324,
+          "css": 1807
         }
       },
       "packages": 2,
@@ -95,8 +95,8 @@
           "css": 496
         },
         "total": {
-          "js": 121988,
-          "css": 2687
+          "js": 122164,
+          "css": 2727
         }
       },
       "packages": 1,
@@ -207,12 +207,12 @@
     "autocomplete": {
       "size": {
         "own": {
-          "js": 1515,
-          "css": 1132
+          "js": 1521,
+          "css": 1158
         },
         "total": {
-          "js": 47480,
-          "css": 2168
+          "js": 47488,
+          "css": 2194
         }
       },
       "packages": 2,
@@ -265,19 +265,19 @@
     "badge": {
       "size": {
         "own": {
-          "js": 623,
-          "css": 418
+          "js": 645,
+          "css": 453
         },
         "total": {
-          "js": 1313,
-          "css": 1454
+          "js": 1338,
+          "css": 1489
         }
       },
       "packages": 1,
       "shelfDependencies": 2,
       "stories": {
-        "total": 2,
-        "interactive": 2
+        "total": 3,
+        "interactive": 3
       },
       "storyId": "components-badge--default",
       "providesContext": false,
@@ -468,12 +468,12 @@
     "chart": {
       "size": {
         "own": {
-          "js": 3370,
-          "css": 967
+          "js": 3524,
+          "css": 997
         },
         "total": {
-          "js": 86497,
-          "css": 2003
+          "js": 86649,
+          "css": 2033
         }
       },
       "packages": 2,
@@ -501,8 +501,8 @@
           "css": 0
         },
         "total": {
-          "js": 84628,
-          "css": 2003
+          "js": 84679,
+          "css": 2033
         }
       },
       "packages": 1,
@@ -530,8 +530,8 @@
           "css": 0
         },
         "total": {
-          "js": 83135,
-          "css": 2003
+          "js": 83188,
+          "css": 2033
         }
       },
       "packages": 1,
@@ -559,8 +559,8 @@
           "css": 193
         },
         "total": {
-          "js": 112786,
-          "css": 2609
+          "js": 112956,
+          "css": 2648
         }
       },
       "packages": 1,
@@ -588,8 +588,8 @@
           "css": 102
         },
         "total": {
-          "js": 81618,
-          "css": 2035
+          "js": 81673,
+          "css": 2064
         }
       },
       "packages": 2,
@@ -618,7 +618,7 @@
         },
         "total": {
           "js": 2464,
-          "css": 2270
+          "css": 2300
         }
       },
       "packages": 1,
@@ -646,15 +646,15 @@
           "css": 0
         },
         "total": {
-          "js": 83778,
-          "css": 2003
+          "js": 83836,
+          "css": 2033
         }
       },
       "packages": 1,
       "shelfDependencies": 1,
       "stories": {
-        "total": 2,
-        "interactive": 2
+        "total": 3,
+        "interactive": 3
       },
       "storyId": "charts-line-chart--default",
       "providesContext": false,
@@ -675,8 +675,8 @@
           "css": 126
         },
         "total": {
-          "js": 84898,
-          "css": 2033
+          "js": 84950,
+          "css": 2064
         }
       },
       "packages": 2,
@@ -704,8 +704,8 @@
           "css": 0
         },
         "total": {
-          "js": 81469,
-          "css": 2003
+          "js": 81516,
+          "css": 2033
         }
       },
       "packages": 1,
@@ -733,8 +733,8 @@
           "css": 0
         },
         "total": {
-          "js": 83846,
-          "css": 2003
+          "js": 83897,
+          "css": 2033
         }
       },
       "packages": 1,
@@ -762,8 +762,8 @@
           "css": 0
         },
         "total": {
-          "js": 76471,
-          "css": 2003
+          "js": 76519,
+          "css": 2033
         }
       },
       "packages": 1,
@@ -791,8 +791,8 @@
           "css": 0
         },
         "total": {
-          "js": 84306,
-          "css": 2003
+          "js": 84355,
+          "css": 2033
         }
       },
       "packages": 1,
@@ -820,8 +820,8 @@
           "css": 105
         },
         "total": {
-          "js": 77626,
-          "css": 2023
+          "js": 77680,
+          "css": 2054
         }
       },
       "packages": 2,
@@ -849,8 +849,8 @@
           "css": 468
         },
         "total": {
-          "js": 478918,
-          "css": 5547
+          "js": 478940,
+          "css": 5560
         }
       },
       "packages": 1,
@@ -1023,8 +1023,8 @@
           "css": 548
         },
         "total": {
-          "js": 14990,
-          "css": 1966
+          "js": 14997,
+          "css": 1994
         }
       },
       "packages": 2,
@@ -1048,12 +1048,12 @@
     "combobox": {
       "size": {
         "own": {
-          "js": 1947,
-          "css": 1310
+          "js": 1956,
+          "css": 1338
         },
         "total": {
-          "js": 50276,
-          "css": 2346
+          "js": 50285,
+          "css": 2374
         }
       },
       "packages": 2,
@@ -1077,12 +1077,12 @@
     "command": {
       "size": {
         "own": {
-          "js": 1723,
-          "css": 1061
+          "js": 1730,
+          "css": 1099
         },
         "total": {
-          "js": 41658,
-          "css": 3498
+          "js": 41664,
+          "css": 3527
         }
       },
       "packages": 2,
@@ -1139,8 +1139,8 @@
           "css": 0
         },
         "total": {
-          "js": 25593,
-          "css": 3174
+          "js": 25613,
+          "css": 3221
         }
       },
       "packages": 0,
@@ -1226,8 +1226,8 @@
           "css": 493
         },
         "total": {
-          "js": 108662,
-          "css": 2899
+          "js": 108908,
+          "css": 2972
         }
       },
       "packages": 1,
@@ -1255,8 +1255,8 @@
           "css": 842
         },
         "total": {
-          "js": 85435,
-          "css": 5074
+          "js": 85530,
+          "css": 5100
         }
       },
       "packages": 1,
@@ -1284,8 +1284,8 @@
           "css": 651
         },
         "total": {
-          "js": 69836,
-          "css": 3460
+          "js": 69883,
+          "css": 3485
         }
       },
       "packages": 2,
@@ -1313,8 +1313,8 @@
           "css": 565
         },
         "total": {
-          "js": 43515,
-          "css": 3600
+          "js": 43577,
+          "css": 3627
         }
       },
       "packages": 3,
@@ -1367,12 +1367,12 @@
     "dialog": {
       "size": {
         "own": {
-          "js": 1293,
-          "css": 797
+          "js": 1309,
+          "css": 822
         },
         "total": {
-          "js": 25009,
-          "css": 2974
+          "js": 25026,
+          "css": 3008
         }
       },
       "packages": 2,
@@ -1396,19 +1396,19 @@
     "drawer": {
       "size": {
         "own": {
-          "js": 1559,
-          "css": 1235
+          "js": 1716,
+          "css": 1284
         },
         "total": {
-          "js": 32348,
-          "css": 2271
+          "js": 34949,
+          "css": 3434
         }
       },
       "packages": 2,
-      "shelfDependencies": 2,
+      "shelfDependencies": 4,
       "stories": {
-        "total": 5,
-        "interactive": 4
+        "total": 6,
+        "interactive": 5
       },
       "storyId": "components-drawer--default",
       "providesContext": false,
@@ -1418,8 +1418,8 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 5,
-        "failed": 0
+        "compiled": 4,
+        "failed": 1
       }
     },
     "dropdown-menu": {
@@ -1545,8 +1545,8 @@
           "css": 114
         },
         "total": {
-          "js": 189242,
-          "css": 3884
+          "js": 189251,
+          "css": 3909
         }
       },
       "packages": 7,
@@ -1574,8 +1574,8 @@
           "css": 134
         },
         "total": {
-          "js": 162318,
-          "css": 3705
+          "js": 162328,
+          "css": 3729
         }
       },
       "packages": 1,
@@ -1773,11 +1773,11 @@
     "foundations": {
       "size": {
         "own": {
-          "js": 1432,
+          "js": 1447,
           "css": 1921
         },
         "total": {
-          "js": 1417,
+          "js": 1433,
           "css": 1921
         }
       },
@@ -1857,12 +1857,12 @@
     "input": {
       "size": {
         "own": {
-          "js": 734,
-          "css": 571
+          "js": 741,
+          "css": 598
         },
         "total": {
-          "js": 5122,
-          "css": 1607
+          "js": 5130,
+          "css": 1634
         }
       },
       "packages": 2,
@@ -1886,12 +1886,12 @@
     "input-group": {
       "size": {
         "own": {
-          "js": 811,
-          "css": 723
+          "js": 817,
+          "css": 751
         },
         "total": {
-          "js": 5229,
-          "css": 1759
+          "js": 5236,
+          "css": 1787
         }
       },
       "packages": 2,
@@ -1948,8 +1948,8 @@
           "css": 720
         },
         "total": {
-          "js": 78138,
-          "css": 4018
+          "js": 78267,
+          "css": 4121
         }
       },
       "packages": 1,
@@ -2064,8 +2064,8 @@
           "css": 499
         },
         "total": {
-          "js": 27579,
-          "css": 3738
+          "js": 27605,
+          "css": 3786
         }
       },
       "packages": 1,
@@ -2093,8 +2093,8 @@
           "css": 450
         },
         "total": {
-          "js": 14649,
-          "css": 3092
+          "js": 14659,
+          "css": 3119
         }
       },
       "packages": 1,
@@ -2122,8 +2122,8 @@
           "css": 776
         },
         "total": {
-          "js": 15140,
-          "css": 3477
+          "js": 15150,
+          "css": 3501
         }
       },
       "packages": 1,
@@ -2234,12 +2234,12 @@
     "native-select": {
       "size": {
         "own": {
-          "js": 1028,
-          "css": 834
+          "js": 1033,
+          "css": 858
         },
         "total": {
-          "js": 3087,
-          "css": 1870
+          "js": 3092,
+          "css": 1894
         }
       },
       "packages": 1,
@@ -2292,12 +2292,12 @@
     "number-field": {
       "size": {
         "own": {
-          "js": 1009,
-          "css": 707
+          "js": 1017,
+          "css": 726
         },
         "total": {
-          "js": 13309,
-          "css": 1743
+          "js": 13318,
+          "css": 1762
         }
       },
       "packages": 2,
@@ -2702,8 +2702,8 @@
           "css": 471
         },
         "total": {
-          "js": 34291,
-          "css": 3657
+          "js": 34324,
+          "css": 3729
         }
       },
       "packages": 1,
@@ -2731,8 +2731,8 @@
           "css": 451
         },
         "total": {
-          "js": 14656,
-          "css": 3134
+          "js": 14666,
+          "css": 3159
         }
       },
       "packages": 1,
@@ -2789,8 +2789,8 @@
           "css": 1225
         },
         "total": {
-          "js": 54842,
-          "css": 3921
+          "js": 55124,
+          "css": 3990
         }
       },
       "packages": 2,
@@ -2818,8 +2818,8 @@
           "css": 923
         },
         "total": {
-          "js": 74085,
-          "css": 4650
+          "js": 74316,
+          "css": 4704
         }
       },
       "packages": 1,
@@ -2847,8 +2847,8 @@
           "css": 406
         },
         "total": {
-          "js": 16825,
-          "css": 3071
+          "js": 16832,
+          "css": 3097
         }
       },
       "packages": 1,
@@ -2964,7 +2964,7 @@
         },
         "total": {
           "js": 83124,
-          "css": 2030
+          "css": 2059
         }
       },
       "packages": 2,
@@ -3133,21 +3133,21 @@
     "table": {
       "size": {
         "own": {
-          "js": 770,
-          "css": 398
+          "js": 841,
+          "css": 455
         },
         "total": {
-          "js": 1450,
-          "css": 1434
+          "js": 1520,
+          "css": 1491
         }
       },
       "packages": 1,
       "shelfDependencies": 2,
       "stories": {
-        "total": 1,
-        "interactive": 1
+        "total": 2,
+        "interactive": 2
       },
-      "storyId": "components-table--default",
+      "storyId": "components-table--scrolling",
       "providesContext": false,
       "renderTested": false,
       "doctor": {
@@ -3162,19 +3162,19 @@
     "tabs": {
       "size": {
         "own": {
-          "js": 1007,
-          "css": 827
+          "js": 1105,
+          "css": 920
         },
         "total": {
-          "js": 11593,
-          "css": 1863
+          "js": 11698,
+          "css": 1956
         }
       },
       "packages": 2,
       "shelfDependencies": 2,
       "stories": {
-        "total": 2,
-        "interactive": 2
+        "total": 3,
+        "interactive": 3
       },
       "storyId": "components-tabs--default",
       "providesContext": false,
@@ -3184,19 +3184,19 @@
         "warnings": 0
       },
       "compiler": {
-        "compiled": 4,
-        "failed": 0
+        "compiled": 3,
+        "failed": 1
       }
     },
     "textarea": {
       "size": {
         "own": {
-          "js": 797,
-          "css": 635
+          "js": 804,
+          "css": 667
         },
         "total": {
-          "js": 5169,
-          "css": 1671
+          "js": 5175,
+          "css": 1703
         }
       },
       "packages": 2,
@@ -3253,8 +3253,8 @@
           "css": 134
         },
         "total": {
-          "js": 49042,
-          "css": 2347
+          "js": 49052,
+          "css": 2369
         }
       },
       "packages": 1,
@@ -3398,8 +3398,8 @@
           "css": 596
         },
         "total": {
-          "js": 306964,
-          "css": 3390
+          "js": 306972,
+          "css": 3402
         }
       },
       "packages": 1,
@@ -3543,8 +3543,8 @@
           "css": 2428
         },
         "total": {
-          "js": 62661,
-          "css": 4679
+          "js": 62776,
+          "css": 4768
         }
       },
       "packages": 12,
