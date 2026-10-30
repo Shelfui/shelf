@@ -6,7 +6,7 @@ import { ShelfError, errorMessage } from "./errors";
 import { compareText, plural } from "./format";
 import { CONFLICT_START } from "./git";
 import { SOURCE, resolveSpecifier, resolvesToFile, specifiers } from "./imports";
-import { LOCK_FILE, type Lock, hashContent, readLock } from "./lock";
+import { LOCK_FILE, type Lock, type LockedItem, hashContent, readLock } from "./lock";
 import type { Output } from "./output";
 import {
   type PackageManager,
@@ -236,7 +236,9 @@ async function checkDependencies({ cwd, pm, lock }: Project): Promise<StepResult
         fix: `shelf add ${dependency}`,
       });
     }
+    const dropped = await droppedPackages(cwd, item);
     for (const [pkg, range] of sorted(item.dependencies)) {
+      if (dropped.has(pkg)) continue;
       packages.add(pkg);
       if (declared.has(pkg)) continue;
       missingPackages.set(pkg, range);
@@ -277,6 +279,29 @@ async function checkDependencies({ cwd, pm, lock }: Project): Promise<StepResult
     summary: `${plural(packages.size, "package")} declared, Shelf dependencies installed`,
     details: [],
   };
+}
+
+/**
+ * The packages an item came with that a local edit stopped importing, such as an icon library
+ * swapped for another in `icons.tsx`. An unedited item, or one with a file missing, drops none.
+ */
+async function droppedPackages(cwd: string, item: LockedItem): Promise<Set<string>> {
+  const sources: string[] = [];
+  let edited = false;
+  try {
+    for (const [target, { baseHash }] of Object.entries(item.files)) {
+      const content = await readFile(resolveInside(cwd, target), "utf8");
+      edited ||= hashContent(content) !== baseHash;
+      sources.push(content);
+    }
+  } catch {
+    return new Set(); // The provenance step reports a missing or unsafe file.
+  }
+  if (!edited) return new Set();
+  const imported = sources.flatMap(specifiers);
+  const uses = (pkg: string) =>
+    imported.some((specifier) => specifier === pkg || specifier.startsWith(`${pkg}/`));
+  return new Set(Object.keys(item.dependencies).filter((pkg) => !uses(pkg)));
 }
 
 async function checkImports({ cwd, config, lock }: Project): Promise<StepResult> {
