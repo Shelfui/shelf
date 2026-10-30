@@ -1,4 +1,4 @@
-import { expect, screen, userEvent, waitFor } from "storybook/test";
+import { expect, screen, userEvent, waitFor, within } from "storybook/test";
 import preview from "@/.storybook/preview";
 import { Button } from "../button/button";
 import * as Field from "../field/field";
@@ -15,14 +15,16 @@ type Direction = "down" | "up" | "left" | "right";
 function EditProfile({
   swipeDirection,
   defaultOpen = false,
+  showCloseButton,
 }: {
   swipeDirection?: Direction;
   defaultOpen?: boolean;
+  showCloseButton?: boolean;
 }) {
   return (
     <Drawer.Root swipeDirection={swipeDirection} defaultOpen={defaultOpen}>
       <Drawer.Trigger render={<Button variant="outline" />}>Edit profile</Drawer.Trigger>
-      <Drawer.Content>
+      <Drawer.Content showCloseButton={showCloseButton}>
         <Drawer.Header>
           <Drawer.Title>Edit profile</Drawer.Title>
           <Drawer.Description>Changes show on your invoices.</Drawer.Description>
@@ -80,6 +82,17 @@ export const Right = meta.story({
   },
 });
 
+/** `showCloseButton` adds a close button in the corner, and it closes the drawer. */
+export const WithCloseButton = meta.story({
+  render: () => <EditProfile swipeDirection="right" showCloseButton defaultOpen />,
+  play: async () => {
+    const drawer = await screen.findByRole("dialog", { name: "Edit profile" });
+
+    await userEvent.click(within(drawer).getByRole("button", { name: "Close" }));
+    await closed();
+  },
+});
+
 export const Left = meta.story({
   render: () => <EditProfile swipeDirection="left" defaultOpen />,
   play: async () => {
@@ -100,6 +113,6 @@ export const Dark = meta.story({
   play: async () => {
     const drawer = await screen.findByRole("dialog");
 
-    await expect(getComputedStyle(drawer).backgroundColor).toBe("rgb(10, 10, 10)");
+    await expect(getComputedStyle(drawer).backgroundColor).toBe("rgb(23, 23, 23)");
   },
 });

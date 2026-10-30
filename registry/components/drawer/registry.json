@@ -11,5 +11,5 @@
     "@base-ui/react": "^1.9.0",
     "@stylexjs/stylex": "^0.19.1"
   },
-  "shelfDependencies": ["foundations", "utils"]
+  "shelfDependencies": ["button", "foundations", "icons", "utils"]
 }

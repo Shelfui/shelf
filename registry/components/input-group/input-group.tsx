@@ -82,7 +82,10 @@ const styles = stylex.create({
     },
     flexGrow: 1,
     fontFamily: "inherit",
-    fontSize: "inherit",
+    fontSize: {
+      default: "inherit",
+      [media.touch]: typography.fontSizeBase,
+    },
     paddingInlineEnd: {
       default: spacing["3"],
       ":not(:last-child)": spacing["2"],

@@ -164,6 +164,28 @@ describe("shelf check", () => {
     );
   });
 
+  test("a package a local edit stopped importing is no longer required", async () => {
+    const dir = await project();
+    await writeTree(dir, {
+      "package.json": json({ name: "fixture", dependencies: { "@stylexjs/stylex": "^0.19.1" } }),
+      "src/components/ui/icons.tsx": `export { XIcon as CloseIcon } from "@phosphor-icons/react";\n`,
+    });
+    const { ok, text } = await run(dir, ["dependencies"]);
+    expect(text).toContain("✓ dependencies 1 package declared, Shelf dependencies installed");
+    expect(ok).toBe(true);
+  });
+
+  test("a local edit that keeps the import still requires the package", async () => {
+    const dir = await project();
+    await writeTree(dir, {
+      "package.json": json({ name: "fixture", dependencies: { "@stylexjs/stylex": "^0.19.1" } }),
+      "src/components/ui/icons.tsx": `${ICONS}// mine\n`,
+    });
+    const { ok, text } = await run(dir, ["dependencies"]);
+    expect(text).toContain("icons needs lucide-react@^1.0.0, which is not in package.json.");
+    expect(ok).toBe(false);
+  });
+
   test("a broken relative import in an installed file is reported", async () => {
     const dir = await project();
     await writeFile(

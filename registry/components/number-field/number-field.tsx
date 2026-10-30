@@ -139,7 +139,10 @@ const styles = stylex.create({
     color: colors.foreground,
     flexGrow: 1,
     fontFamily: typography.fontFamily,
-    fontSize: typography.fontSizeSm,
+    fontSize: {
+      default: typography.fontSizeSm,
+      [media.touch]: typography.fontSizeBase,
+    },
     fontVariantNumeric: "tabular-nums",
     textAlign: "center",
     minWidth: 0,

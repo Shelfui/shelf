@@ -37,8 +37,10 @@ const styles = stylex.create({
     fontFamily: typography.fontFamily,
     fontSize: typography.fontSizeXs,
     fontWeight: typography.fontWeightMedium,
+    justifyContent: "center",
     lineHeight: typography.lineHeightXs,
     whiteSpace: "nowrap",
+    width: "fit-content",
   },
 });
 

@@ -6,6 +6,8 @@ import type { ComponentProps } from "react";
 import { layers, media } from "../../foundations/conditions.stylex";
 import { colors, motion, radius, spacing, typography } from "../../foundations/tokens.stylex";
 import { type Styled, isTransitioning } from "../../lib/utils";
+import { Button } from "../button/button";
+import { CloseIcon } from "../icons/icons";
 
 /**
  * A modal panel that slides in from an edge of the screen and can be swiped away.
@@ -29,11 +31,12 @@ export const Root = BaseDrawer.Root;
 export const Trigger = BaseDrawer.Trigger;
 export const Close = BaseDrawer.Close;
 
-export function Content({
-  style,
-  children,
-  ...props
-}: Styled<ComponentProps<typeof BaseDrawer.Popup>>) {
+export type ContentProps = Styled<ComponentProps<typeof BaseDrawer.Popup>> & {
+  /** Renders a close button in the corner, for side drawers, which have no handle to swipe. */
+  showCloseButton?: boolean;
+};
+
+export function Content({ showCloseButton = false, style, children, ...props }: ContentProps) {
   return (
     <BaseDrawer.Portal>
       <BaseDrawer.Backdrop
@@ -59,6 +62,15 @@ export function Content({
         >
           <div aria-hidden data-slot="drawer-handle" {...stylex.props(styles.handle)} />
           <BaseDrawer.Content {...stylex.props(styles.content)}>{children}</BaseDrawer.Content>
+          {showCloseButton && (
+            <BaseDrawer.Close
+              render={
+                <Button variant="ghost" size="icon-sm" aria-label="Close" style={styles.close} />
+              }
+            >
+              <CloseIcon />
+            </BaseDrawer.Close>
+          )}
         </BaseDrawer.Popup>
       </BaseDrawer.Viewport>
     </BaseDrawer.Portal>
@@ -124,12 +136,14 @@ const styles = stylex.create({
     borderWidth: 0,
     outline: "none",
     overscrollBehavior: "contain",
-    backgroundColor: colors.background,
+    backgroundColor: colors.popover,
     boxSizing: "border-box",
-    color: colors.foreground,
+    color: colors.popoverForeground,
     display: "flex",
     flexDirection: "column",
     fontFamily: typography.fontFamily,
+    fontSize: typography.fontSizeSm,
+    lineHeight: typography.lineHeightSm,
     position: "fixed",
     transitionDuration: {
       default: motion.durationSlow,
@@ -184,10 +198,17 @@ const styles = stylex.create({
     },
     width: "100%",
   },
+  close: {
+    position: "absolute",
+    right: spacing["4"],
+    top: spacing["4"],
+  },
   header: {
     gap: spacing["1.5"],
     display: "flex",
     flexDirection: "column",
+    // Leaves room for the corner close button.
+    paddingInlineEnd: spacing["6"],
   },
   footer: {
     gap: spacing["2"],

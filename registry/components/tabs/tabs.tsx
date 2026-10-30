@@ -26,6 +26,8 @@ import type { Styled } from "../../lib/utils";
  *     <Tabs.Panel value="overview">…</Tabs.Panel>
  *     <Tabs.Panel value="activity">…</Tabs.Panel>
  *   </Tabs.Root>
+ *
+ * `variant="line"` on `List` underlines the active tab, for tabs that divide a whole page.
  */
 export function Root({ style, ...props }: Styled<ComponentProps<typeof BaseTabs.Root>>) {
   return (
@@ -40,14 +42,26 @@ export function Root({ style, ...props }: Styled<ComponentProps<typeof BaseTabs.
   );
 }
 
-export function List({ style, ...props }: Styled<ComponentProps<typeof BaseTabs.List>>) {
+export type ListVariant = "default" | "line";
+
+export function List({
+  variant = "default",
+  style,
+  ...props
+}: Styled<ComponentProps<typeof BaseTabs.List>> & { variant?: ListVariant }) {
   return (
     <BaseTabs.List
       data-slot="tabs-list"
+      data-variant={variant}
       {...props}
       className={(state) =>
-        stylex.props(styles.list, state.orientation === "vertical" && styles.listVertical, style)
-          .className
+        stylex.props(
+          stylex.defaultMarker(),
+          styles.list,
+          variant === "line" && styles.listLine,
+          state.orientation === "vertical" && styles.listVertical,
+          style,
+        ).className
       }
     />
   );
@@ -77,6 +91,8 @@ export function Panel({ style, ...props }: Styled<ComponentProps<typeof BaseTabs
   );
 }
 
+const LINE_LIST = "[data-variant=line]";
+
 const styles = stylex.create({
   root: {
     fontSynthesis: "none",
@@ -99,6 +115,9 @@ const styles = stylex.create({
     color: colors.mutedForeground,
     display: "inline-flex",
     height: sizes.controlDefault,
+  },
+  listLine: {
+    backgroundColor: "transparent",
   },
   listVertical: {
     alignItems: "stretch",
@@ -147,8 +166,18 @@ const styles = stylex.create({
     height: `calc(${sizes.controlDefault} - 6px)`,
   },
   active: {
-    backgroundColor: colors.background,
-    boxShadow: elevation.xs,
+    borderRadius: {
+      default: radius.md,
+      [stylex.when.ancestor(LINE_LIST)]: 0,
+    },
+    backgroundColor: {
+      default: colors.background,
+      [stylex.when.ancestor(LINE_LIST)]: "transparent",
+    },
+    boxShadow: {
+      default: elevation.xs,
+      [stylex.when.ancestor(LINE_LIST)]: `inset 0 -2px 0 ${colors.foreground}`,
+    },
     color: colors.foreground,
   },
   disabled: {

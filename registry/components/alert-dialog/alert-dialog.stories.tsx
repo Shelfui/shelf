@@ -111,6 +111,6 @@ export const Dark = meta.story({
   play: async () => {
     const dialog = await screen.findByRole("alertdialog");
 
-    await expect(getComputedStyle(dialog).backgroundColor).toBe("rgb(10, 10, 10)");
+    await expect(getComputedStyle(dialog).backgroundColor).toBe("rgb(23, 23, 23)");
   },
 });

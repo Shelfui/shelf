@@ -160,7 +160,7 @@ export const Dark = meta.story({
     const dialog = await screen.findByRole("dialog");
     const description = screen.getByText(/removes the project/);
 
-    await expect(getComputedStyle(dialog).backgroundColor).toBe("rgb(10, 10, 10)");
+    await expect(getComputedStyle(dialog).backgroundColor).toBe("rgb(23, 23, 23)");
     await expect(getComputedStyle(dialog).borderTopColor).toBe("rgb(38, 38, 38)");
     await expect(getComputedStyle(description).color).toBe("rgb(161, 161, 161)");
     await expect(getComputedStyle(backdrop()!).backgroundColor).toBe("rgba(0, 0, 0, 0.6)");

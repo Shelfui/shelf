@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { curveType, formatValue, toggleKey } from "./chart-format";
+import { curveType, formatLabel, formatValue, toggleKey } from "./chart-format";
 
 describe("chart format", () => {
   test("numbers print with Intl options in the given locale", () => {
@@ -17,6 +17,17 @@ describe("chart format", () => {
     expect(formatValue("Jan", { notation: "compact" })).toBe("Jan");
     expect(formatValue(undefined)).toBe("");
     expect(formatValue({})).toBe("");
+  });
+
+  test("a label function gets text as well as numbers", () => {
+    expect(formatLabel("2026-03-01", (date: string) => date.slice(5))).toBe("03-01");
+    expect(formatLabel(2026, (year: number) => `FY${year}`)).toBe("FY2026");
+  });
+
+  test("labels fall back to value formatting", () => {
+    expect(formatLabel("Jan", { notation: "compact" })).toBe("Jan");
+    expect(formatLabel(1800, { notation: "compact" }, "en-US")).toBe("1.8K");
+    expect(formatLabel(undefined, (date: string) => date)).toBe("");
   });
 
   test("toggling a key adds it, then removes it, leaving the rest in order", () => {

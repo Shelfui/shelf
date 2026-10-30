@@ -37,6 +37,52 @@ export const Default = meta.story({
   },
 });
 
+const daily = [
+  { date: "2026-03-01", visitors: 820 },
+  { date: "2026-03-02", visitors: 932, partial: true },
+  { date: "2026-03-03", visitors: 901 },
+];
+
+const monthDay = (date: string) => date.slice(5).replace("-", "/");
+
+/** `height` sets a fixed height, a label function also formats text such as ISO dates, and `note` adds a line to the tooltip. */
+export const FixedHeight = meta.story({
+  render: () => (
+    <LineChart aria-label="Visitors by date" data={daily} height={200}>
+      <Chart.Grid />
+      <Chart.XAxis dataKey="date" format={monthDay} />
+      <Chart.YAxis />
+      <Chart.Tooltip
+        labelFormat={monthDay}
+        note={(datum) => (datum["partial"] ? "Partial data" : null)}
+      />
+      <Line dataKey="visitors" name="Visitors" />
+    </LineChart>
+  ),
+  play: async ({ canvas, canvasElement }) => {
+    const chart = canvas.getByRole("group", { name: "Visitors by date" });
+
+    await expect(chart.getBoundingClientRect().height).toBe(200);
+    await waitFor(() => expect(canvas.getByText("03/02")).toBeVisible());
+
+    const surface = canvasElement.querySelector(".recharts-surface");
+    if (!surface) throw new Error("the chart did not render");
+    const box = surface.getBoundingClientRect();
+    await userEvent.pointer({
+      target: surface,
+      coords: { clientX: box.left + box.width / 2, clientY: box.top + box.height / 2 },
+    });
+
+    const tooltip = await waitFor(() => {
+      const found = canvasElement.querySelector<HTMLElement>("[data-slot=chart-tooltip]");
+      if (!found) throw new Error("the tooltip did not open");
+      return found;
+    });
+    await expect(tooltip).toHaveTextContent("03/02");
+    await expect(tooltip).toHaveTextContent("Partial data");
+  },
+});
+
 /** Several series, with a legend that hides and shows them. */
 export const WithLegend = meta.story({
   render: () => (
