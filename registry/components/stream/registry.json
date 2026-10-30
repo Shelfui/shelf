@@ -21,7 +21,7 @@
   ],
   "dependencies": {
     "@stylexjs/stylex": "^0.19.1",
-    "marked": "^18.0.14",
+    "marked": "^18.1.2",
     "remend": "^1.4.0"
   },
   "shelfDependencies": ["code-block", "foundations", "utils"]

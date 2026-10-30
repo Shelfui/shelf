@@ -170,13 +170,13 @@ describe("external consumer", () => {
       await succeed(shelf("init", "--registry", REAL_REGISTRY));
       const output = await succeed(shelf("add", "button"));
       expect(output).toContain(
-        "✓ installed @base-ui/react@^1.8.0, @fontsource-variable/geist-mono@^5.3.0, @fontsource-variable/geist@^5.3.0, @stylexjs/stylex@^0.19.1",
+        "✓ installed @base-ui/react@^1.9.0, @fontsource-variable/geist-mono@^5.3.0, @fontsource-variable/geist@^5.3.0, @stylexjs/stylex@^0.19.1",
       );
       expect(output).toContain("✓ recorded provenance in .shelf/lock.json");
 
       const pkg = await readJson("package.json");
       expect(pkg["dependencies"]).toMatchObject({
-        "@base-ui/react": "^1.8.0",
+        "@base-ui/react": "^1.9.0",
         "@stylexjs/stylex": "^0.19.1",
       });
 

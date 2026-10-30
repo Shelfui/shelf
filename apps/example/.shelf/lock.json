@@ -2,7 +2,7 @@
   "items": {
     "button": {
       "dependencies": {
-        "@base-ui/react": "^1.8.0",
+        "@base-ui/react": "^1.9.0",
         "@stylexjs/stylex": "^0.19.1"
       },
       "files": {
@@ -11,10 +11,10 @@
           "source": "button.tsx"
         }
       },
-      "installedAt": "2026-09-28T08:32:15.287Z",
+      "installedAt": "2026-10-30T08:23:22.016Z",
       "path": "components/button",
       "registry": "../../registry",
-      "revision": "d71e652bd163a39ce2ebce57bd0c1d5ccb49f9532e82f5ba05cfeab4dd681caf",
+      "revision": "e5149872c2daf3316d765d299d5631d3ccc8fa68171b57bf88ec7d707c2f9ff0",
       "shelfDependencies": [
         "foundations",
         "utils"
@@ -23,7 +23,7 @@
     },
     "dialog": {
       "dependencies": {
-        "@base-ui/react": "^1.8.0",
+        "@base-ui/react": "^1.9.0",
         "@stylexjs/stylex": "^0.19.1"
       },
       "files": {
@@ -32,10 +32,10 @@
           "source": "dialog.tsx"
         }
       },
-      "installedAt": "2026-09-27T21:46:22.143Z",
+      "installedAt": "2026-10-30T08:23:22.016Z",
       "path": "components/dialog",
       "registry": "../../registry",
-      "revision": "df3f508da33912daed521965c147c37dde8f8c7e90a7c1eab4036f57de7b3d2a",
+      "revision": "50067e481908d78c560eacc59a279351eed93a26816855b625d1d3c9c9322e28",
       "shelfDependencies": [
         "button",
         "foundations",
@@ -77,7 +77,7 @@
     },
     "icons": {
       "dependencies": {
-        "lucide-react": "^1.52.0"
+        "lucide-react": "^1.65.0"
       },
       "files": {
         "src/components/ui/icons.tsx": {
@@ -85,10 +85,10 @@
           "source": "icons.tsx"
         }
       },
-      "installedAt": "2026-10-04T14:14:16.299Z",
+      "installedAt": "2026-10-30T08:23:22.016Z",
       "path": "components/icons",
       "registry": "../../registry",
-      "revision": "d21157f8ec040f685290917af411043236e07bbc19bc0cc24ea2d595c95ef3e0",
+      "revision": "6b9507e71a7a63290f95b2982a768342fc6440802475d3b5d78a8e51a91b7200",
       "shelfDependencies": [],
       "type": "component"
     },

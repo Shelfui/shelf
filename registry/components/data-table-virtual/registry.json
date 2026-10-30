@@ -9,8 +9,8 @@
   ],
   "dependencies": {
     "@stylexjs/stylex": "^0.19.1",
-    "@tanstack/react-table": "^9.2.5",
-    "@tanstack/react-virtual": "^3.14.13"
+    "@tanstack/react-table": "^9.3.1",
+    "@tanstack/react-virtual": "^3.14.24"
   },
   "shelfDependencies": ["data-table", "foundations", "table", "utils"]
 }

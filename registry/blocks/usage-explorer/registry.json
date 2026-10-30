@@ -3,17 +3,33 @@
   "type": "block",
   "description": "Charts of where registry items are installed, what state each copy is in, and how far behind it has drifted, from shelf usage output.",
   "files": [
-    { "path": "usage-explorer.tsx" },
-    { "path": "usage-model.ts" },
-    { "path": "usage-drift.tsx" },
-    { "path": "usage-radial.tsx" },
-    { "path": "usage-flow.tsx" },
-    { "path": "usage-tooltip.tsx" },
-    { "path": "usage-size.ts" },
-    { "path": "usage-palette.ts" }
+    {
+      "path": "usage-explorer.tsx"
+    },
+    {
+      "path": "usage-model.ts"
+    },
+    {
+      "path": "usage-drift.tsx"
+    },
+    {
+      "path": "usage-radial.tsx"
+    },
+    {
+      "path": "usage-flow.tsx"
+    },
+    {
+      "path": "usage-tooltip.tsx"
+    },
+    {
+      "path": "usage-size.ts"
+    },
+    {
+      "path": "usage-palette.ts"
+    }
   ],
   "dependencies": {
-    "@base-ui/react": "^1.8.0",
+    "@base-ui/react": "^1.9.0",
     "@stylexjs/stylex": "^0.19.1",
     "@types/d3-force": "^3.0.10",
     "@types/d3-hierarchy": "^3.1.7",

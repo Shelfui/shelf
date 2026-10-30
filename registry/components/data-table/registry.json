@@ -9,7 +9,7 @@
   ],
   "dependencies": {
     "@stylexjs/stylex": "^0.19.1",
-    "@tanstack/react-table": "^9.2.5"
+    "@tanstack/react-table": "^9.3.1"
   },
   "shelfDependencies": [
     "button",

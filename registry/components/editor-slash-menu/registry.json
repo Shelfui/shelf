@@ -10,9 +10,9 @@
   "dependencies": {
     "@floating-ui/dom": "^1.8.0",
     "@stylexjs/stylex": "^0.19.1",
-    "@tiptap/core": "^3.31.4",
-    "@tiptap/pm": "^3.31.4",
-    "@tiptap/suggestion": "^3.31.4"
+    "@tiptap/core": "^3.32.1",
+    "@tiptap/pm": "^3.32.1",
+    "@tiptap/suggestion": "^3.32.1"
   },
   "shelfDependencies": ["editor", "foundations", "utils"]
 }

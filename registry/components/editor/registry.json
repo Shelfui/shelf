@@ -15,15 +15,15 @@
   ],
   "dependencies": {
     "@stylexjs/stylex": "^0.19.1",
-    "@tiptap/core": "^3.31.4",
-    "@tiptap/extension-heading": "^3.31.4",
-    "@tiptap/extension-highlight": "^3.31.4",
-    "@tiptap/extension-task-item": "^3.31.4",
-    "@tiptap/extension-task-list": "^3.31.4",
-    "@tiptap/extensions": "^3.31.4",
-    "@tiptap/pm": "^3.31.4",
-    "@tiptap/react": "^3.31.4",
-    "@tiptap/starter-kit": "^3.31.4"
+    "@tiptap/core": "^3.32.1",
+    "@tiptap/extension-heading": "^3.32.1",
+    "@tiptap/extension-highlight": "^3.32.1",
+    "@tiptap/extension-task-item": "^3.32.1",
+    "@tiptap/extension-task-list": "^3.32.1",
+    "@tiptap/extensions": "^3.32.1",
+    "@tiptap/pm": "^3.32.1",
+    "@tiptap/react": "^3.32.1",
+    "@tiptap/starter-kit": "^3.32.1"
   },
   "shelfDependencies": ["checkbox", "foundations", "icons", "utils"]
 }

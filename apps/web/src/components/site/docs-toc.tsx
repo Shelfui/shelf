@@ -17,13 +17,16 @@ interface Heading {
  * are read from the rendered page, so TSX and Markdown pages work the same.
  */
 export function DocsToc() {
-  const pathname = usePathname();
+  // A new page has new headings, so remount instead of re-running the effect.
+  return <PageToc key={usePathname()} />;
+}
+
+function PageToc() {
   const [headings, setHeadings] = useState<Heading[]>([]);
   const [active, setActive] = useState<string>();
 
   useEffect(() => {
     const elements = [...document.querySelectorAll<HTMLElement>("main h2[id]")];
-    setHeadings(elements.map((element) => ({ id: element.id, title: element.textContent ?? "" })));
 
     // The active heading is the last one that has scrolled above the top of the article.
     let frame = 0;
@@ -36,7 +39,12 @@ export function DocsToc() {
     function onScroll() {
       if (!frame) frame = requestAnimationFrame(update);
     }
-    update();
+    frame = requestAnimationFrame(() => {
+      setHeadings(
+        elements.map((element) => ({ id: element.id, title: element.textContent ?? "" })),
+      );
+      update();
+    });
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
     return () => {
@@ -44,7 +52,7 @@ export function DocsToc() {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
-  }, [pathname]);
+  }, []);
 
   if (headings.length < 2) return <aside aria-hidden {...stylex.props(styles.aside)} />;
 
